@@ -11,29 +11,47 @@ func first(_ N: Int) -> [Int] {
 //2.2 Repeat Print
 //Implement a function named repeatPrint that takes a string message and a integer count as parameters. The function should print the message count times and then print a newline. Add a 1 asdefault value for the count, then call it without this parameter.
 func repeatPrint(message msg: String, count number: Int = 1) {
-    for _ in 0..<number {
+    //    for _ in 0..<number {
+    //        print(msg)
+    //    }
+    //    print("\n")
+    (0..<number).forEach({_ in
         print(msg)
-    }
+    })
+    print("\n")
 }
 
 //2.3 Parse number
 //Write a function named parse(digit:) that takes a string with one character as parameter. The function should return -1 if the input is not a digit character and the digit otherwise.
+// na to kanw me nil-coalescing
 func parse(digit char: Character) -> Int {
-    if let num = char.isNumber {
-        return Int(String(num))
-    }
-    return -1
+    Int(String(char)) ?? -1
 }
-let x = parse(digit: "1")
-let y = parse(digit: "2")
-
 
 //2.3 Split the name
 //Write a function split(name: String) that takes a name (e.g. "Jon Snow) as input and returns the first and the last name separated into a tuple with two elements. To split a string into an array with " " as separator.
+func split(_ name: String) -> (Substring, Substring) {
+    let arrayName = name.split(separator: " ")
+    return (arrayName[0], arrayName[1])
+}
 
 //2.4 Correct Pairs
 //Write a function named verify that takes a string expression of open and closed parentheses ((, )) and returns true if they are correctly paired and false otherwise. They should be equal ( and ) and there should not be more ) than ( at any given time
-
+func verify(_ expr: String) -> Bool {
+    var (countStart, countEnd) = (0,0)
+    for index in expr.indices {
+        if expr[index] == "(" {
+            countStart += 1
+        }
+        if expr[index] == ")" {
+            countEnd += 1
+        }
+    }
+    if countStart == countEnd {
+        return true
+    }
+    return false
+}
 //2.5 Queue
 //A queue is a data structure that can perform two operations:
 // push which takes a value and adds it at the end of the queue
@@ -42,15 +60,47 @@ let y = parse(digit: "2")
 //The push function should take two parameters, the number and the queue as an inout parameter.
 //The pop function should take queue as an inout parameter and return the first number from the queue after removing it. If the queue is empty it should return nil – the result type should be an optional integer(Int?).
 //Use an array for storing the Ints
+var queue: [Int] = []
+
+func push(number num: Int, _ queue: inout [Int]) {
+    queue.insert(num, at: 0)
+}
+
+func pop(_ queue: inout [Int]) -> Int? {
+    if !queue.isEmpty {
+        return queue.removeLast()
+    }
+    return nil
+}
 
 //2.6 K Times
 //Write a function named applyKTimes that takes an integer K and a closure and calls the closure K times. The closure will not take any parameters and will not have a return value, but it print a string.
 //Call that method
 
+func applyKTimes(_ K: Int, _ closure: () -> Void) {
+    for _ in 0..<K {
+        closure()
+    }
+}
+// Trailing Closure
+applyKTimes(7) {
+    print("Hello, I am a trailing closure.")
+}
+
 //2.7 Custom map
 //Write an intMap function that receives [Int] and a closure, it calls this closure for all items in the array and stores
 //each result in an result array that return after it completes. Call it with a closure that converts the array to
 //Doubles from Ints, Call it with a closure that doubles(x2) each Int value. When calling use the traling expression syntax
+
+func intMap(_ array: [Int], _ closure: ([Int]) -> [Int]) {
+    closure(array)
+}
+
+intMap([1, 2, 3], {_ in
+    return [1,2]
+}
+
+
 
 //2.8 Custom Iterator
 //Create a function with name makeCustomInterator that takes an array of Any an returns a function with no arguments that each time you call it will return the next element in the array, pass an array of 4 integers and call it 4 times to verify it works.
