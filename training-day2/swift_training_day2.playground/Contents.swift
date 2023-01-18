@@ -92,15 +92,27 @@ applyKTimes(7) {
 //each result in an result array that return after it completes. Call it with a closure that converts the array to
 //Doubles from Ints, Call it with a closure that doubles(x2) each Int value. When calling use the traling expression syntax
 
-func intMap(_ array: [Int], _ closure: ([Int]) -> [Int]) {
+func intMap(_ array: [Int], _ closure: ([Int]) -> [Any]) {
     closure(array)
 }
 
-intMap([1, 2, 3], {_ in
-    return [1,2]
-}
+// Trailing closure for doubling each element
+intMap([1, 2, 3], { array in
+    var result: [Int] = []
+    for i in 0..<array.count {
+        result.append(array[i]*2)
+    }
+    return result
+})
 
-
+// Trailing closure for converting to Double
+intMap([1, 2, 3], { array in
+    var result: [Double] = []
+    for i in 0..<array.count {
+        result.append(Double(array[i]))
+    }
+    return result
+})
 
 //2.8 Custom Iterator
 //Create a function with name makeCustomInterator that takes an array of Any an returns a function with no arguments that each time you call it will return the next element in the array, pass an array of 4 integers and call it 4 times to verify it works.
