@@ -304,13 +304,17 @@ for suite in Suite.allCases {
     cards.append(Card(suite, .faceCards("Ace")))
 }
 
-for card in cards {
-    var temp: Any = 0
-    if case let .faceCards(str) = card.rank {
-        temp = str
+func printDeck(_ cards: [Card]) {
+    for card in cards {
+        var temp: Any = 0
+        if case let .faceCards(str) = card.rank {
+            temp = str
+        }
+        if case let .number(num) = card.rank {
+            temp = num
+        }
+        print("\(temp) of \(card.suite)")
     }
-    if case let .number(num) = card.rank {
-        temp = num
-    }
-    print("\(temp) of \(card.suite)")
 }
+
+//printDeck(cards)
