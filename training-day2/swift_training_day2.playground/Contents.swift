@@ -4,12 +4,14 @@ import Foundation
 
 //2.1 First Numbers
 //Write a function named first that takes an Int named N and returns an array with the first N numbers starting from 1. Use _ to ignore the argument label name.
+
 func first(_ N: Int) -> [Int] {
     [Int](1...N)
 }
 
 //2.2 Repeat Print
 //Implement a function named repeatPrint that takes a string message and a integer count as parameters. The function should print the message count times and then print a newline. Add a 1 asdefault value for the count, then call it without this parameter.
+
 func repeatPrint(message msg: String, count number: Int = 1) {
     //    for _ in 0..<number {
     //        print(msg)
@@ -24,12 +26,14 @@ func repeatPrint(message msg: String, count number: Int = 1) {
 //2.3 Parse number
 //Write a function named parse(digit:) that takes a string with one character as parameter. The function should return -1 if the input is not a digit character and the digit otherwise.
 // na to kanw me nil-coalescing
+
 func parse(digit char: Character) -> Int {
     Int(String(char)) ?? -1
 }
 
 //2.3 Split the name
 //Write a function split(name: String) that takes a name (e.g. "Jon Snow) as input and returns the first and the last name separated into a tuple with two elements. To split a string into an array with " " as separator.
+
 func split(_ name: String) -> (Substring, Substring) {
     let arrayName = name.split(separator: " ")
     return (arrayName[0], arrayName[1])
@@ -37,6 +41,7 @@ func split(_ name: String) -> (Substring, Substring) {
 
 //2.4 Correct Pairs
 //Write a function named verify that takes a string expression of open and closed parentheses ((, )) and returns true if they are correctly paired and false otherwise. They should be equal ( and ) and there should not be more ) than ( at any given time
+
 func verify(_ expr: String) -> Bool {
     var (countStart, countEnd) = (0,0)
     for index in expr.indices {
@@ -52,6 +57,7 @@ func verify(_ expr: String) -> Bool {
     }
     return false
 }
+
 //2.5 Queue
 //A queue is a data structure that can perform two operations:
 // push which takes a value and adds it at the end of the queue
@@ -60,6 +66,7 @@ func verify(_ expr: String) -> Bool {
 //The push function should take two parameters, the number and the queue as an inout parameter.
 //The pop function should take queue as an inout parameter and return the first number from the queue after removing it. If the queue is empty it should return nil – the result type should be an optional integer(Int?).
 //Use an array for storing the Ints
+
 var queue: [Int] = []
 
 func push(number num: Int, _ queue: inout [Int]) {
@@ -67,10 +74,7 @@ func push(number num: Int, _ queue: inout [Int]) {
 }
 
 func pop(_ queue: inout [Int]) -> Int? {
-    if !queue.isEmpty {
-        return queue.removeLast()
-    }
-    return nil
+    queue.isEmpty ? nil : queue.removeLast()
 }
 
 //2.6 K Times
@@ -82,6 +86,7 @@ func applyKTimes(_ K: Int, _ closure: () -> Void) {
         closure()
     }
 }
+
 // Trailing Closure
 applyKTimes(7) {
     print("Hello, I am a trailing closure.")
@@ -119,6 +124,37 @@ intMap([1, 2, 3], { array in
 //Modify the above function to optionaly take a bool parameter named reversed, if true it will return a function that each time you call it will return the previous value starting from the last. The reversed should have default value false.
 //Call the new method and use it to interate the array 4 times.
 //Modify the above function to return optional Any?, if the next or previous element does not exist (out of bounds of the array) it should return nil
+
+func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> Any? {
+    var lastIndex = array.endIndex
+    var startingIndex = array.startIndex - 1 // Can I do it with one counter ?
+    let arrayInt = array // How to avoid this assignment ??
+    
+    func getElement() -> Any? {
+        // From last
+        if reversed! {
+            lastIndex -= 1
+            return arrayInt.indices.contains(lastIndex) ? arrayInt[lastIndex] : nil
+        }
+        // From start
+        startingIndex += 1
+        return arrayInt.indices.contains(startingIndex) ? arrayInt[startingIndex] : nil
+    }
+    return getElement // How to return Any ??
+}
+
+let fromLastElement = makeCustomInterator([1, 2, 3, 4], true)
+let nextElement = makeCustomInterator([1, 2, 3, 4])
+//fromLastElement()
+//fromLastElement()
+//fromLastElement()
+//fromLastElement()
+//fromLastElement()
+//nextElement()
+//nextElement()
+//nextElement()
+//nextElement()
+//nextElement()
 
 //2.9 Day of the week
 //Create an enum of the days of the week, with appropriate raw values
