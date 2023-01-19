@@ -233,6 +233,84 @@ enum TimeUnit {
 //2) Define an enumeration named MatchResult with three members: .win, .draw, .lose.
 //3) write a function called match that takes two hand shapes and returns a match result. It should return the outcome for the first player (the one with the first hand shape).
 
+enum HandShape {
+    case rock, paper, scissors
+}
+
+enum MatchResult {
+    case win, draw, lose
+}
+
+func match(firstPlayer handShape1: HandShape, secondPlayer handShape2: HandShape) -> MatchResult {
+    switch handShape1{
+    case .paper:
+        if handShape2 == .paper {
+            return .draw
+        } else if handShape2 == .rock {
+            return .win
+        } else {
+            return .lose
+        }
+    case .rock:
+        if handShape2 == .paper {
+            return .lose
+        } else if handShape2 == .rock {
+            return .draw
+        } else {
+            return .win
+        }
+    case .scissors:
+        if handShape2 == .paper {
+            return .win
+        } else if handShape2 == .rock {
+            return .lose
+        } else {
+            return .draw
+        }
+    }
+}
+
+let firstGame = match(firstPlayer: .rock, secondPlayer: .rock)
+let secondGame = match(firstPlayer: .rock, secondPlayer: .paper)
+let thirdGame = match(firstPlayer: .scissors, secondPlayer: .paper)
+
 //2.12 Deck of cards
 //A card in a deck has a suite(diamonds,clubs,hearts,spades) and a rank which is a Number(from 2 to 10) or one of the following values Jack,Queen,King,Ace.
 //Create a enum type of the suite and the rank. Create a tuple typealias for a Card. Create an array with all the cards of a deck and print their values(e.g. 4 of diamonds, Queen of hearts).
+
+enum Suite: CaseIterable {
+    case diamonds, clubs, hearts, spades
+}
+
+enum Rank {
+    case number(Int)
+    case faceCards(String)
+}
+
+typealias Card = (suite: Suite, rank: Rank)
+var cards: [Card] = []
+
+for num in 2..<11 {
+    cards.append(Card(.diamonds, .number(num)))
+    cards.append(Card(.clubs, .number(num)))
+    cards.append(Card(.hearts, .number(num)))
+    cards.append(Card(.spades, .number(num)))
+}
+
+for suite in Suite.allCases {
+    cards.append(Card(suite, .faceCards("Jack")))
+    cards.append(Card(suite, .faceCards("Queen")))
+    cards.append(Card(suite, .faceCards("King")))
+    cards.append(Card(suite, .faceCards("Ace")))
+}
+
+for card in cards {
+    var temp: Any = 0
+    if case let .faceCards(str) = card.rank {
+        temp = str
+    }
+    if case let .number(num) = card.rank {
+        temp = num
+    }
+    print("\(temp) of \(card.suite)")
+}
