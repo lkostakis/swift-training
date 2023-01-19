@@ -1,10 +1,56 @@
 //3.0
 //You have array of items and you what to print ony the strings that contain the string swift. Use the String contains method (it available from iOS 8.0+)
-let swifts : Any = ["Suzuki Swift", 42, "Taylor Swift", "Maruti Swift", "someValue"]
+
+let swifts : [Any] = ["Suzuki Swift", 42, "Taylor Swift", "Maruti Swift", "someValue"]
+
+for element in swifts {
+    if let substring = element as? String {
+        if substring.contains("Swift") {
+            print(substring)
+        }
+//        substring.contains("Swift") ? print(substring) : continue (Can't do this, but why ?)
+    }
+}
 
 //3.1 grading
 //You need to write a function that takes an array of exams grades scores with value from 0 to 100 return the grade character for it (A - F). less or equal to 60 is F and then it uses the next character for each 10 points. Use pattern matching with ranges, the array will contain the grades as Ints or Strings and will contain nil values(you should count them as zero)
 let grades : [Any?] = [10, 55, 80, nil, "90", 100, 66, "42", 78, 89]
+
+// 0-60: F
+// 60-70: D
+// 70-80: C
+// 80-90: B
+// 90-100: A
+
+func evaluate(_ grades: [Any?]) -> [Character] {
+    var gradesEvaluated: [Character] = []
+    for element in grades {
+        if let num = element as? Int {
+            gradesEvaluated.append(mapToChar(num))
+        } else if let num = element as? String {
+            gradesEvaluated.append(mapToChar(Int(num)!))
+        } else {
+            gradesEvaluated.append("F")
+        }
+    }
+    
+    func mapToChar(_ num: Int) -> Character {
+        if num <= 60 {
+            return "F"
+        } else if num <= 70 {
+            return "D"
+        } else if num <= 80 {
+            return "C"
+        } else if num <= 90 {
+            return "B"
+        } else {
+            return "A"
+        }
+    }
+    return gradesEvaluated
+}
+
+evaluate(grades)
 
 //3.1 Legacy API
 //Create a legacyLoginAPI function that takes a username/password and returns one of the following
