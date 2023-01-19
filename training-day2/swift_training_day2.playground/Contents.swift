@@ -128,17 +128,17 @@ intMap([1, 2, 3], { array in
 func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> Any? {
     var lastIndex = array.endIndex
     var startingIndex = array.startIndex - 1 // Can I do it with one counter ?
-    let arrayInt = array // How to avoid this assignment ??
+    //    let arrayInt = array // How to avoid this assignment ??
     
     func getElement() -> Any? {
         // From last
         if reversed! {
             lastIndex -= 1
-            return arrayInt.indices.contains(lastIndex) ? arrayInt[lastIndex] : nil
+            return array.indices.contains(lastIndex) ? array[lastIndex] : nil
         }
         // From start
-        startingIndex += 1
-        return arrayInt.indices.contains(startingIndex) ? arrayInt[startingIndex] : nil
+        startingIndex += 1 // Can we do it like array[indice++] ??
+        return array.indices.contains(startingIndex) ? array[startingIndex] : nil
     }
     return getElement // How to return Any ??
 }
@@ -159,9 +159,74 @@ let nextElement = makeCustomInterator([1, 2, 3, 4])
 //2.9 Day of the week
 //Create an enum of the days of the week, with appropriate raw values
 
+enum Days: Int {
+    case monday = 1, tuesday, wednesday, thursday, friday, saturday, sunday
+}
+
 //2.10 TimeUnit
 // 10. Create enum of TimeUnit with values Second, Minute, Hour, Day and Week.
 // Add a method for converting between them. e.g. TimeUnit.Day.convertTo(TimeUnit.Hour) == 24.0
+
+enum TimeUnit {
+    case Second, Minute, Hour, Day, Week
+    
+    func convertTo(_ to: TimeUnit) -> Int? {
+        switch self {
+        case .Minute:
+            if to == .Second {
+                return 3600
+            } else if to == .Minute {
+                return 1
+            } else {
+                return nil
+            }
+        case .Second:
+            if to == .Second {
+                return 1
+            }
+            return nil
+        case .Hour:
+            if to == .Second {
+                return 86400
+            } else if to == .Minute {
+                return 60
+            } else if to == .Hour {
+                return 1
+            } else {
+                return nil
+            }
+        case .Day:
+            if to == .Second {
+                return 86400
+            } else if to == .Minute {
+                return 1440
+            } else if to == .Hour {
+                return 24
+            } else if to == .Day {
+                return 1
+            } else {
+                return nil
+            }
+        case .Week:
+            if to == .Second {
+                return 86400*7
+            } else if to == .Minute {
+                return 1440*7
+            } else if to == .Hour {
+                return 24*7
+            } else if to == .Day {
+                return 1*7
+            }else {
+                return 1
+            }
+        }
+    }
+}
+
+//var fromDayToSecond = TimeUnit.Day.convertTo(.Second)
+//var fromWeekToDay = TimeUnit.Week.convertTo(.Day)
+//var fromWeekToSeconds = TimeUnit.Week.convertTo(.Second)
+//var fromDayToMinutes = TimeUnit.Day.convertTo(.Minute)
 
 //2.11 Rock, Paper, Scissors
 //1) Define an enumeration named HandShape with three members: .rock, .paper, .scissors.
