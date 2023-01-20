@@ -8,7 +8,6 @@ for element in swifts {
         if substring.contains("Swift") {
             print(substring)
         }
-//        substring.contains("Swift") ? print(substring) : continue (Can't do this, but why ?)
     }
 }
 
@@ -27,21 +26,25 @@ func evaluate(_ grades: [Any?]) -> [Character] {
     for element in grades {
         if let num = element as? Int {
             gradesEvaluated.append(mapToChar(num))
-        } else if let num = element as? String {
-            gradesEvaluated.append(mapToChar(Int(num)!))
+        } else if let string = element as? String, let num = Int(string) {
+            // Could skip 'let num Int(String)' and force unwrap Int(string)! here
+            // but it's a bad pracice, as it's runtime error when grade is a
+            // String? non-convertible to Int, e.g: "ACX" and so on...
+            // (Assume non-convertible String? returns "F" grade)
+            gradesEvaluated.append(mapToChar(num))
         } else {
             gradesEvaluated.append("F")
         }
     }
     
     func mapToChar(_ num: Int) -> Character {
-        if num <= 60 {
+        if (0...60).contains(num) {
             return "F"
-        } else if num <= 70 {
+        } else if (61...70).contains(num) {
             return "D"
-        } else if num <= 80 {
+        } else if (71...80).contains(num) {
             return "C"
-        } else if num <= 90 {
+        } else if (81...90).contains(num) {
             return "B"
         } else {
             return "A"
@@ -60,6 +63,8 @@ evaluate(grades)
 //a UserLegacy object with 2 variables first and last name,last password change date
 //For any other username
 //a Error object with a string error description
+
+func legacyLoginAPI() {}
 
 //3.2 Legacy API Cont.
 //Write code that handles the legacyLoginAPI reponse with the following logic:
