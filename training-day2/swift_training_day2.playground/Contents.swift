@@ -125,11 +125,16 @@ intMap([1, 2, 3], { array in
 //Call the new method and use it to interate the array 4 times.
 //Modify the above function to return optional Any?, if the next or previous element does not exist (out of bounds of the array) it should return nil
 
+postfix operator ++
+postfix func ++(x: inout Int) -> Int {
+    x+=1
+    return x
+}
+
 func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> Any? {
     var lastIndex = array.endIndex
-    var startingIndex = array.startIndex - 1 // Can I do it with one counter ?
-    //    let arrayInt = array // How to avoid this assignment ??
-    
+    var startingIndex = array.startIndex - 1
+
     func getElement() -> Any? {
         // From last
         if reversed! {
@@ -137,24 +142,24 @@ func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> A
             return array.indices.contains(lastIndex) ? array[lastIndex] : nil
         }
         // From start
-        startingIndex += 1 // Can we do it like array[indice++] ??
+        startingIndex += 1
         return array.indices.contains(startingIndex) ? array[startingIndex] : nil
     }
-    return getElement // How to return Any ??
+    return getElement
 }
 
 let fromLastElement = makeCustomInterator([1, 2, 3, 4], true)
 let nextElement = makeCustomInterator([1, 2, 3, 4])
-//fromLastElement()
-//fromLastElement()
-//fromLastElement()
-//fromLastElement()
-//fromLastElement()
-//nextElement()
-//nextElement()
-//nextElement()
-//nextElement()
-//nextElement()
+fromLastElement()
+fromLastElement()
+fromLastElement()
+fromLastElement()
+fromLastElement()
+nextElement()
+nextElement()
+nextElement()
+nextElement()
+nextElement()
 
 //2.9 Day of the week
 //Create an enum of the days of the week, with appropriate raw values
@@ -223,10 +228,10 @@ enum TimeUnit {
     }
 }
 
-//var fromDayToSecond = TimeUnit.Day.convertTo(.Second)
-//var fromWeekToDay = TimeUnit.Week.convertTo(.Day)
-//var fromWeekToSeconds = TimeUnit.Week.convertTo(.Second)
-//var fromDayToMinutes = TimeUnit.Day.convertTo(.Minute)
+var fromDayToSecond = TimeUnit.Day.convertTo(.Second)
+var fromWeekToDay = TimeUnit.Week.convertTo(.Day)
+var fromWeekToSeconds = TimeUnit.Week.convertTo(.Second)
+var fromDayToMinutes = TimeUnit.Day.convertTo(.Minute)
 
 //2.11 Rock, Paper, Scissors
 //1) Define an enumeration named HandShape with three members: .rock, .paper, .scissors.
