@@ -1,6 +1,8 @@
 //3.0
 //You have array of items and you what to print ony the strings that contain the string swift. Use the String contains method (it available from iOS 8.0+)
 
+import Foundation
+
 let swifts : [Any] = ["Suzuki Swift", 42, "Taylor Swift", "Maruti Swift", "someValue"]
 
 for element in swifts {
@@ -64,7 +66,64 @@ evaluate(grades)
 //For any other username
 //a Error object with a string error description
 
-func legacyLoginAPI() {}
+protocol UserCredentials {
+    var firstName: String { get }
+    var lastName: String { get }
+    var passwordChangeDate: Date { get }
+}
+
+struct ErrorResponse {
+    let code: Int
+    let message: String
+}
+
+enum UserCredentialsError : Error {
+    case invalidUsername(ErrorResponse)
+}
+
+class User : UserCredentials {
+    var firstName, lastName: String
+    var passwordChangeDate: Date
+    
+    init(firstName: String, lastName: String, passwordChangeDate: Date) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.passwordChangeDate = passwordChangeDate
+    }
+}
+
+class UserLegacy : UserCredentials {
+    var firstName, lastName: String
+    var passwordChangeDate: Date
+    
+    init(firstName: String, lastName: String, passwordChangeDate: Date) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.passwordChangeDate = passwordChangeDate
+    }
+}
+
+func legacyLoginAPI(_ username: String, _ password: String) throws -> UserCredentials {
+    
+    if username == "newUser" {
+        var newUser = User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: Date.now)
+        return newUser
+    } else if username == "oldUser" {
+        var oldUser = UserLegacy(firstName: "Mitsos", lastName: "Dimitriou", passwordChangeDate: Date.now)
+        return oldUser
+    } else {
+        // Throw Unauthorized Client Error
+        throw UserCredentialsError.invalidUsername(ErrorResponse(code: 401, message: "WRONG USER NAME GIVEN."))
+    }
+}
+
+try legacyLoginAPI("newUser", "123456") // valid UserCredentials
+try legacyLoginAPI("oldUser", "123456") // valid UserCredentials
+do {
+    try legacyLoginAPI("wrongUsername", "123456") // Invalid UserCredentials
+} catch UserCredentialsError.invalidUsername(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)", terminator: "")
+}
 
 //3.2 Legacy API Cont.
 //Write code that handles the legacyLoginAPI reponse with the following logic:
