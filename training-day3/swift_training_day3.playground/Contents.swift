@@ -66,7 +66,7 @@ evaluate(grades)
 //For any other username
 //a Error object with a string error description
 
-protocol UserCredentials {
+protocol UserInfo {
     var firstName: String { get }
     var lastName: String { get }
     var passwordChangeDate: Date? { get }
@@ -83,44 +83,54 @@ enum UserCredentialsError : Error {
 
 extension Date {
     var displayFormat: String {
-        formatted(date: .numeric, time: .complete)
+        formatted(date: .numeric, time: .omitted)
     }
 }
 
+extension DateComponents {
+    static let minusSixMonths: Date? = {
+        var monthComponent = DateComponents()
+        monthComponent.month = -6
+        let gregorianCalendar = Calendar.current
+        let resultDate = gregorianCalendar.date(byAdding: monthComponent, to: Date.now)
+        return resultDate
+    }()
+}
+
 extension DateFormatter {
-    static let dateOnly: DateFormatter = {
+    static let dateOnlyFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         return formatter
     }()
 }
 
-class User : UserCredentials {
+class User : UserInfo {
     var firstName, lastName: String
     var passwordChangeDate: Date?
     
     init(firstName: String, lastName: String, passwordChangeDate: String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.passwordChangeDate = DateFormatter.dateOnly.date(from: passwordChangeDate)
+        self.passwordChangeDate = DateFormatter.dateOnlyFormatter.date(from: passwordChangeDate)
     }
 }
 
-class UserLegacy : UserCredentials {
+class UserLegacy : UserInfo {
     var firstName, lastName:String
     var passwordChangeDate: Date?
     
     init(firstName: String, lastName: String, passwordChangeDate: String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.passwordChangeDate = DateFormatter.dateOnly.date(from: passwordChangeDate)
+        self.passwordChangeDate = DateFormatter.dateOnlyFormatter.date(from: passwordChangeDate)
     }
 }
 
-func legacyLoginAPI(_ username: String, _ password: String) throws -> UserCredentials {
+func legacyLoginAPI(_ username: String, _ password: String) throws -> UserInfo {
     
     if username == "newUser" {
-        return User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: "12/23/2022")
+        return User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: "7/29/2022")
     } else if username == "oldUser" {
         return UserLegacy(firstName: "Mitsos", lastName: "Dimitriou", passwordChangeDate: "08/09/2004")
     } else {
@@ -135,19 +145,21 @@ func legacyLoginAPI(_ username: String, _ password: String) throws -> UserCreden
 //If it returns A user that has not change it's password for 6 months print "Please change your password"
 //Else print "Wellcome <first Name last name>"
 
+func checkPasswordChange(from date: Date?) -> Bool {
+    if DateComponents.minusSixMonths! < date! {
+        return false
+    }
+    return true
+}
+
 do {
-    var monthComponent    = DateComponents()
-    monthComponent.month    = -6 // For removing one day (yesterday): -1
-    let theCalendar     = Calendar.current
-    let nextDate        = theCalendar.date(byAdding: monthComponent, to: Date())
-    print("nextDate : \(String(describing: nextDate?.displayFormat))")
-    
-    var validUser = try legacyLoginAPI("newUser", "123456") // valid UserCredentials
-    var validUserLegacy = try legacyLoginAPI("oldUser", "123456") // valid UserCredentials
-    if nextDate! < Date.now {
+    let suspendedUserLegacy = try legacyLoginAPI("oldUser", "123456") // "Please change your password" case
+    let validUser = try legacyLoginAPI("newUser", "123456") // valid UserCredentials case
+    if checkPasswordChange(from: validUser.passwordChangeDate) {
         print("Please change your password.")
     } else {
-        print("Welcome \(validUser.firstName) \(validUser.lastName)")
+        print("Welcome \(validUser.firstName) \(validUser.lastName), last password change on: " +
+              "\(validUser.passwordChangeDate?.displayFormat ?? "No password change yet")")
     }
     try legacyLoginAPI("wrongUsername", "123456") // Invalid UserCredentials
 } catch UserCredentialsError.invalidUsername(let errorResponse) {
