@@ -57,7 +57,7 @@ func evaluate(_ grades: [Any?]) -> [Character] {
 
 evaluate(grades)
 
-//3.1 Legacy API
+//3.2 Legacy API
 //Create a legacyLoginAPI function that takes a username/password and returns one of the following
 //For username 'newUser'
 //a User object with 3 variables first,last name,last password change date
@@ -69,7 +69,7 @@ evaluate(grades)
 protocol UserCredentials {
     var firstName: String { get }
     var lastName: String { get }
-    var passwordChangeDate: Date { get }
+    var passwordChangeDate: Date? { get }
 }
 
 struct ErrorResponse {
@@ -81,76 +81,99 @@ enum UserCredentialsError : Error {
     case invalidUsername(ErrorResponse)
 }
 
+extension Date {
+    var displayFormat: String {
+        formatted(date: .numeric, time: .complete)
+    }
+}
+
+extension DateFormatter {
+    static let dateOnly: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        return formatter
+    }()
+}
+
 class User : UserCredentials {
     var firstName, lastName: String
-    var passwordChangeDate: Date
+    var passwordChangeDate: Date?
     
-    init(firstName: String, lastName: String, passwordChangeDate: Date) {
+    init(firstName: String, lastName: String, passwordChangeDate: String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.passwordChangeDate = passwordChangeDate
+        self.passwordChangeDate = DateFormatter.dateOnly.date(from: passwordChangeDate)
     }
 }
 
 class UserLegacy : UserCredentials {
-    var firstName, lastName: String
-    var passwordChangeDate: Date
+    var firstName, lastName:String
+    var passwordChangeDate: Date?
     
-    init(firstName: String, lastName: String, passwordChangeDate: Date) {
+    init(firstName: String, lastName: String, passwordChangeDate: String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.passwordChangeDate = passwordChangeDate
+        self.passwordChangeDate = DateFormatter.dateOnly.date(from: passwordChangeDate)
     }
 }
 
 func legacyLoginAPI(_ username: String, _ password: String) throws -> UserCredentials {
     
     if username == "newUser" {
-        var newUser = User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: Date.now)
-        return newUser
+        return User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: "12/23/2022")
     } else if username == "oldUser" {
-        var oldUser = UserLegacy(firstName: "Mitsos", lastName: "Dimitriou", passwordChangeDate: Date.now)
-        return oldUser
+        return UserLegacy(firstName: "Mitsos", lastName: "Dimitriou", passwordChangeDate: "08/09/2004")
     } else {
         // Throw Unauthorized Client Error
         throw UserCredentialsError.invalidUsername(ErrorResponse(code: 401, message: "WRONG USER NAME GIVEN."))
     }
 }
 
-try legacyLoginAPI("newUser", "123456") // valid UserCredentials
-try legacyLoginAPI("oldUser", "123456") // valid UserCredentials
-do {
-    try legacyLoginAPI("wrongUsername", "123456") // Invalid UserCredentials
-} catch UserCredentialsError.invalidUsername(let errorResponse) {
-    print("ERROR \(errorResponse.code): \(errorResponse.message)", terminator: "")
-}
-
-//3.2 Legacy API Cont.
+//3.3 Legacy API Cont.
 //Write code that handles the legacyLoginAPI reponse with the following logic:
 //If it returns Error print it.
 //If it returns A user that has not change it's password for 6 months print "Please change your password"
 //Else print "Wellcome <first Name last name>"
 
-//3.3 The calculator
+do {
+    var monthComponent    = DateComponents()
+    monthComponent.month    = -6 // For removing one day (yesterday): -1
+    let theCalendar     = Calendar.current
+    let nextDate        = theCalendar.date(byAdding: monthComponent, to: Date())
+    print("nextDate : \(String(describing: nextDate?.displayFormat))")
+    
+    var validUser = try legacyLoginAPI("newUser", "123456") // valid UserCredentials
+    var validUserLegacy = try legacyLoginAPI("oldUser", "123456") // valid UserCredentials
+    if nextDate! < Date.now {
+        print("Please change your password.")
+    } else {
+        print("Welcome \(validUser.firstName) \(validUser.lastName)")
+    }
+    try legacyLoginAPI("wrongUsername", "123456") // Invalid UserCredentials
+} catch UserCredentialsError.invalidUsername(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)", terminator: "")
+}
+
+//3.4 The calculator
 //Write a Class with name Calculator that parses a String with a simple arithmetic operation(+ and *) and calculates the result e.g. "1+4", all the operands will be integers
 //The class should have a method that registers a closure that performs an operation for an operand("+","*" etc.). All registered closures take two integers and return an other.
 //If the operation is already registed it will replace it and print an warning message. It should check that the operand is not empty.
 //The class should have a method with name calculate that takes a string and returns the result, if no valid operation is found it should print a relevant method.
 
-//3.4 Points & Rectangles
+//3.5 Points & Rectangles
 //Create a type that for a Point coordinate, when create a type that for a Rectangle (use the Point)
 //Add a pair of methods(mutating and non-mutating) in the Rectangle that will translate(e.g. move) a Rectangle from it's origin by an offset Point(x,y)
 //Add a pair of methods(mutating and non-mutating that will check if two Rectangles overlap
 //Add a method that will return the distance of a Point from the Axis centre 0,0
 //Add a method that will return the distance of a Point from an other Point
 
-//3.5 Phone and battery
+//3.6 Phone and battery
 //Create a type to represent a Phone, it should have a name, a batteryCharge and a display resolution as properties.
 //You can use the phone for 6 activities (Call,Video,Photo,GPS,Screen, Charge) each reduces the charge at specific rate per minute (0.5, 3.5, 1.5, 2.5, 2.0, -5.5)
 //Create a method that will peform an activity for x minutes. This method will print "consumed <X> battery for <Activity name>" if there is enough battery, then is should reduce the remaining battery charge
 //if not it will print not enough energy for <x> minutes of <Activity>.
 
-//3.6 Poker Game
+//3.7 Poker Game
 //Create a Player Object that has a name, and an array of Cards (from the 2.12 exercise Deck of cards)
 //Create a PokerEngine Object that will have
 //a init method that adds an array of Players
