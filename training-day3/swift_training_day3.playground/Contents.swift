@@ -69,7 +69,6 @@ evaluate(grades)
 protocol UserInfo {
     var firstName: String { get }
     var lastName: String { get }
-    var passwordChangeDate: Date? { get }
 }
 
 struct ErrorResponse {
@@ -79,6 +78,10 @@ struct ErrorResponse {
 
 enum UserCredentialsError : Error {
     case invalidUsername(ErrorResponse)
+}
+
+enum DateError: Error {
+    case invalidDate(ErrorResponse)
 }
 
 extension Date {
@@ -105,24 +108,31 @@ extension DateFormatter {
     }()
 }
 
-class User : UserInfo {
+class UserLegacy : UserInfo {
     var firstName, lastName: String
-    var passwordChangeDate: Date?
-    
-    init(firstName: String, lastName: String, passwordChangeDate: String) {
+
+    init(firstName: String, lastName: String) {
         self.firstName = firstName
         self.lastName = lastName
-        self.passwordChangeDate = DateFormatter.dateOnlyFormatter.date(from: passwordChangeDate)
     }
 }
 
-class UserLegacy : UserInfo {
-    var firstName, lastName:String
+class User : UserInfo {
+    var firstName: String {
+        get {
+            self.userLegacy.firstName
+        }
+    }
+    var lastName: String {
+        get {
+            self.userLegacy.lastName
+        }
+    }
     var passwordChangeDate: Date?
+    var userLegacy: UserLegacy
     
     init(firstName: String, lastName: String, passwordChangeDate: String) {
-        self.firstName = firstName
-        self.lastName = lastName
+        self.userLegacy = UserLegacy(firstName: firstName, lastName: lastName)
         self.passwordChangeDate = DateFormatter.dateOnlyFormatter.date(from: passwordChangeDate)
     }
 }
@@ -130,9 +140,10 @@ class UserLegacy : UserInfo {
 func legacyLoginAPI(_ username: String, _ password: String) throws -> UserInfo {
     
     if username == "newUser" {
-        return User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: "7/29/2022")
+        // if wrong date(MM-dd-yyyy) format given, invalidDate error is thrown later
+        return User(firstName: "Kostas", lastName: "Lambrou", passwordChangeDate: "10/29/2022")
     } else if username == "oldUser" {
-        return UserLegacy(firstName: "Mitsos", lastName: "Dimitriou", passwordChangeDate: "08/09/2004")
+        return UserLegacy(firstName: "Mitsos", lastName: "Dimitriou")
     } else {
         // Throw Unauthorized Client Error
         throw UserCredentialsError.invalidUsername(ErrorResponse(code: 401, message: "WRONG USER NAME GIVEN."))
@@ -145,25 +156,32 @@ func legacyLoginAPI(_ username: String, _ password: String) throws -> UserInfo {
 //If it returns A user that has not change it's password for 6 months print "Please change your password"
 //Else print "Wellcome <first Name last name>"
 
-func checkPasswordChange(from date: Date?) -> Bool {
-    if DateComponents.minusSixMonths! < date! {
+func checkPasswordChange(from date: Date?) throws -> Bool {
+    guard let dateMinusSixMonths = DateComponents.minusSixMonths,
+          let date = date else {
+        throw DateError.invalidDate(ErrorResponse(code: 411, message: "DATE GIVEN ERROR."))
+    }
+    
+    if dateMinusSixMonths < date {
         return false
     }
     return true
 }
 
 do {
-    let suspendedUserLegacy = try legacyLoginAPI("oldUser", "123456") // "Please change your password" case
-    let validUser = try legacyLoginAPI("newUser", "123456") // valid UserCredentials case
-    if checkPasswordChange(from: validUser.passwordChangeDate) {
+    let validUserLegacy = try legacyLoginAPI("oldUser", "123456")
+    let validUser = try legacyLoginAPI("newUser", "123456")// valid UserCredentials case
+
+    if try checkPasswordChange(from: (validUser as? User)?.passwordChangeDate) {
         print("Please change your password.")
     } else {
         print("Welcome \(validUser.firstName) \(validUser.lastName), last password change on: " +
-              "\(validUser.passwordChangeDate?.displayFormat ?? "No password change yet")")
+              "\((validUser as? User)?.passwordChangeDate?.displayFormat ?? "No password change yet").")
     }
+    
     try legacyLoginAPI("wrongUsername", "123456") // Invalid UserCredentials
 } catch UserCredentialsError.invalidUsername(let errorResponse) {
-    print("ERROR \(errorResponse.code): \(errorResponse.message)", terminator: "")
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
 }
 
 //3.4 The calculator
@@ -171,6 +189,63 @@ do {
 //The class should have a method that registers a closure that performs an operation for an operand("+","*" etc.). All registered closures take two integers and return an other.
 //If the operation is already registed it will replace it and print an warning message. It should check that the operand is not empty.
 //The class should have a method with name calculate that takes a string and returns the result, if no valid operation is found it should print a relevant method.
+
+extension String {
+    static func isArithmeticExpression(_ str: String) -> Character? {
+        if str.contains("+") {
+            return "+"
+        } else if str.contains("*") {
+            print("* APO EXTENSION")
+            return "*"
+        } else {
+            return nil
+        }
+    }
+}
+
+class Calculator {
+    var arithmeticOperator: String = ""
+    func arithmeticOperation() -> (Int, Int) -> Int {
+        
+        func multiplication(number1 int1: Int, number2 int2: Int) -> Int {
+            return int1 * int2
+        }
+
+        func addition(number1 int1: Int, number2 int2: Int) -> Int {
+            return int1 + int2
+        }
+        
+        if arithmeticOperator == "+" {
+            return addition
+        }
+        return multiplication
+    }
+    
+    func calculate(_ expression: String) -> Int? {
+        guard let operSymbol = String.isArithmeticExpression(expression),
+              let operSymbolIndex = expression.firstIndex(of: operSymbol) else {
+            return nil
+        }
+        
+        let firstOperand = Int(expression[expression.startIndex...expression.index(before: operSymbolIndex)])
+        let secondOperand = Int(expression[operSymbolIndex...])
+        arithmeticOperator = String(operSymbol)
+        arithmeticOperator
+        var result = arithmeticOperation()
+        return result(firstOperand!, secondOperand!)
+    }
+}
+var x = Calculator()
+x.calculate("32+12")
+x.calculate("321*2")
+
+var y = Calculator()
+
+
+
+
+
+
 
 //3.5 Points & Rectangles
 //Create a type that for a Point coordinate, when create a type that for a Rectangle (use the Point)
