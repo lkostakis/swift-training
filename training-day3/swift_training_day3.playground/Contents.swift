@@ -195,7 +195,6 @@ extension String {
         if str.contains("+") {
             return "+"
         } else if str.contains("*") {
-            print("* APO EXTENSION")
             return "*"
         } else {
             return nil
@@ -203,43 +202,90 @@ extension String {
     }
 }
 
+struct CalcErrorResponse {
+    var code: Int
+    var message: String
+}
+
+enum CalculatorError : Error {
+    case invalidExpressionError(CalcErrorResponse)
+    case invalidOperationError(CalcErrorResponse)
+}
+
 class Calculator {
+    var multiplicationOperation: ((Int, Int) -> Int)? {
+        didSet {
+            if oldValue != nil {
+                print("Warning: overriding previous multiplication method.")
+            }
+        }
+    }
+    var additionOperation: ((Int, Int) -> Int)? {
+        didSet {
+            if oldValue != nil {
+                print("Warning: overriding previous addition method.")
+            }
+        }
+    }
     var arithmeticOperator: String = ""
     
-    func arithmeticOperation() -> (Int, Int) -> Int {
-        
-        func multiplication(number1 int1: Int, number2 int2: Int) -> Int {
-            return int1 * int2
-        }
-
-        func addition(number1 int1: Int, number2 int2: Int) -> Int {
-            return int1 + int2
+    func arithmeticOperation() throws -> ((Int, Int) -> Int)? {
+        guard additionOperation != nil || multiplicationOperation != nil else {
+            throw CalculatorError.invalidOperationError(CalcErrorResponse(code: 422, message: "All operations are not defined yet."))
         }
         
         if arithmeticOperator == "+" {
-            return addition
+            return additionOperation
+        } else {
+            return multiplicationOperation
         }
-        return multiplication
     }
     
-    func calculate(_ expression: String) -> Int? {
+    func calculate(_ expression: String) throws -> Int? {
+        //        var x = additionOperation!(1,1)
         guard let operSymbol = String.isArithmeticExpression(expression),
               let operSymbolIndex = expression.firstIndex(of: operSymbol) else {
-            return nil
+            throw CalculatorError.invalidExpressionError(CalcErrorResponse(code: 423, message: "No valid symbol('+','*') found."))
         }
         
         let firstOperand = Int(expression[expression.startIndex...expression.index(before: operSymbolIndex)])
-        let secondOperand = Int(expression[operSymbolIndex...])
+        let secondOperand = Int(expression[expression.index(after: operSymbolIndex)...])
         arithmeticOperator = String(operSymbol)
-        var result = arithmeticOperation()
-        return result(firstOperand!, secondOperand!)
+        if let firstOperand = firstOperand, let secondOperand = secondOperand, let operationToExecute = try arithmeticOperation() {
+            return operationToExecute(firstOperand, secondOperand)
+        }
+        throw CalculatorError.invalidExpressionError(CalcErrorResponse(code: 424, message: "No left/right operand found."))
     }
 }
+
+var calc = Calculator()
+calc.additionOperation = {(a, b) in
+    a + b
+}
+calc.multiplicationOperation = {(a, b) in
+    a * b
+}
+
+do {
+    try calc.calculate("22*82") // prints 1804
+    try calc.calculate("12+68") // prints 80
+    try calc.calculate("12 32") // ERROR 423: No valid symbol('+','*') found.
+//    try calc.calculate("12+") // ERROR 424: No left/right operand found.
+} catch CalculatorError.invalidExpressionError(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
+} catch CalculatorError.invalidOperationError(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
+}
+
+//// // Test to trigger didSet warning overriding message.
+//calc.additionOperation = {(a, b) in
+//    a+a+b+b
+//}
 
 //3.5 Points & Rectangles
 //Create a type that for a Point coordinate, when create a type that for a Rectangle (use the Point)
 //Add a pair of methods(mutating and non-mutating) in the Rectangle that will translate(e.g. move) a Rectangle from it's origin by an offset Point(x,y)
-//Add a pair of methods(mutating and non-mutating that will check if two Rectangles overlap
+//Add a pair of methods that will check if two Rectangles overlap
 //Add a method that will return the distance of a Point from the Axis centre 0,0
 //Add a method that will return the distance of a Point from an other Point
 
@@ -343,6 +389,31 @@ Rectangle.pointToPointDistance(from: Point(x: 12.4, y: -33.2), to: Point(x: 32.4
 //You can use the phone for 6 activities (Call,Video,Photo,GPS,Screen, Charge) each reduces the charge at specific rate per minute (0.5, 3.5, 1.5, 2.5, 2.0, -5.5)
 //Create a method that will peform an activity for x minutes. This method will print "consumed <X> battery for <Activity name>" if there is enough battery, then is should reduce the remaining battery charge
 //if not it will print not enough energy for <x> minutes of <Activity>.
+
+struct Resolution {
+    var height: Int
+    var width: Int
+}
+
+enum PhoneActivity {
+    case Call
+    case Video
+    case Photo
+    case GPS
+    case Screen
+    case Charge
+}
+
+struct Phone {
+    var name: String
+    var batteryCharge: Int
+    var displayResolution: Resolution
+    
+    func perforrActivity(activity act: PhoneActivity, for minutes: Int) -> Void {
+        
+    }
+}
+
 
 //3.7 Poker Game
 //Create a Player Object that has a name, and an array of Cards (from the 2.12 exercise Deck of cards)
