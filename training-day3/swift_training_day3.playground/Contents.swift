@@ -395,8 +395,13 @@ struct Resolution {
     var width: Int
 }
 
-enum PhoneActivity {
-    case Call, Video, Photo, GPS, Screen, Charge
+enum PhoneActivity : Float {
+    case Call = 0.5
+    case Video = 3.5
+    case Photo = 1.5
+    case GPS = 2.5
+    case Screen = 2.0
+    case Charge = -5.5
 }
 
 class Phone {
@@ -411,7 +416,7 @@ class Phone {
     }
     
     func performActivity(activity operation: PhoneActivity, for minutes: Int) -> Void {
-        let batteryNeeded = Float(minutes) * batteryDrain(operation)
+        let batteryNeeded = Float(minutes) * operation.rawValue
         if self.batteryCharge - batteryNeeded > 0 {
             self.batteryCharge -= batteryNeeded
             print("Phone '\(self.name)' consumed \(batteryNeeded)% of battery for \(minutes) minutes of activity." +
@@ -421,20 +426,11 @@ class Phone {
         }
     }
     
+    // Create this helping func when activity is Charge because
+    // of not adding an extra if in the performActivity()
     func batteryCharged(minutes mins: Float) -> Void {
-        self.batteryCharge -= batteryDrain(.Charge) * mins
+        self.batteryCharge -= PhoneActivity.Charge.rawValue * mins
         print("Phone '\(self.name)' charged for \(mins) minutes, battery percentage is \(self.batteryCharge)%.")
-    }
-    
-    func batteryDrain(_ operation: PhoneActivity) -> Float {
-        switch operation {
-        case .Call: return 0.5
-        case .Video: return 3.5
-        case .Photo: return 1.5
-        case .GPS: return 2.5
-        case .Screen: return 2.0
-        case .Charge: return -5.5
-        }
     }
 }
 var phone1 = Phone(name: "iPhone", batteryCharge: 5, displayResolution: Resolution(height: 1080, width: 1980))
@@ -553,7 +549,7 @@ var playerY = Player(name: "Dimitra")
 var pokerEngine = PokerEngine(players: [playerX, playerY])
 pokerEngine.deal()
 
-////***********Example when deck is not enough**************
+//***********Example when deck is not enough************** //
 //var player1 = Player(name: "Kostas")
 //var player2 = Player(name: "Dimitris")
 //var player3 = Player(name: "Rafail")
