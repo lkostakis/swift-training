@@ -453,10 +453,117 @@ phone1.performActivity(activity: .Screen, for: 2) // Not enough ...
 //a method deal that give 5 random cards to each player
 //The player should print the each card's name when it is given, use property observers
 
+enum Suite: CaseIterable {
+    case diamonds, clubs, hearts, spades
+}
+
+enum Rank {
+    case number(Int)
+    case faceCards(String)
+}
+
+typealias Card = (suite: Suite, rank: Rank)
+
+func createDeck() -> [Card] {
+    var cards: [Card] = []
+    for num in 2..<11 {
+        cards.append(Card(.diamonds, .number(num)))
+        cards.append(Card(.clubs, .number(num)))
+        cards.append(Card(.hearts, .number(num)))
+        cards.append(Card(.spades, .number(num)))
+    }
+    
+    for suite in Suite.allCases {
+        cards.append(Card(suite, .faceCards("Jack")))
+        cards.append(Card(suite, .faceCards("Queen")))
+        cards.append(Card(suite, .faceCards("King")))
+        cards.append(Card(suite, .faceCards("Ace")))
+    }
+    return cards.shuffled()
+}
+
+//func printDeck(_ cards: [Card]) {
+//    for card in cards {
+//        var temp: Any = 0
+//        if case let .faceCards(str) = card.rank {
+//            temp = str
+//        }
+//        if case let .number(num) = card.rank {
+//            temp = num
+//        }
+//        print("\(temp) of \(card.suite)")
+//    }
+//}
+
+func printCard(_ card: Card) -> String {
+    var temp: Any = 0
+    if case let .faceCards(str) = card.rank {
+        temp = str
+    }
+    if case let .number(num) = card.rank {
+        temp = num
+    }
+    return "\(temp) of \(card.suite)"
+}
+
 class Player {
-    var name: String = ""
+    var name: String
+    var cards: [Card] {
+        didSet {
+            if let lastCard = cards.last {
+                print("Player \(self.name) got \(printCard(lastCard)).")
+            }
+        }
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.cards = []
+    }
 }
 
 class PokerEngine {
+    var players: [Player]
     
+    init(players: [Player]) {
+        self.players = players
+    }
+    
+    func deal() -> Void {
+        var cards = createDeck()
+        for player in self.players {
+            for _ in 0..<5 {
+                if let card = cards.popLast() {
+                    player.cards.append(card)
+                }
+                else {
+                    print("Not enough cards to deal.")
+                    break
+                }
+            }
+            if cards.isEmpty {
+                break
+            }
+        }
+    }
 }
+
+var playerX = Player(name: "Mariana")
+var playerY = Player(name: "Dimitra")
+var pokerEngine = PokerEngine(players: [playerX, playerY])
+pokerEngine.deal()
+
+////***********Example when deck is not enough**************
+//var player1 = Player(name: "Kostas")
+//var player2 = Player(name: "Dimitris")
+//var player3 = Player(name: "Rafail")
+//var player4 = Player(name: "Jimis")
+//var player5 = Player(name: "Lamros")
+//var player6 = Player(name: "Christos")
+//var player7 = Player(name: "Nikos")
+//var player8 = Player(name: "Leonardos")
+//var player9 = Player(name: "Ernesto")
+//var player10 = Player(name: "Mariana")
+//var player11 = Player(name: "Dimitra")
+//var pokerEngine2 = PokerEngine(players: [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11])
+//pokerEngine2.deal()
