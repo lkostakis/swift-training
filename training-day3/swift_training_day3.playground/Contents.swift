@@ -242,15 +242,15 @@ class Calculator {
     }
     
     func calculate(_ expression: String) throws -> Int? {
-        //        var x = additionOperation!(1,1)
+        // Check operation symbol('+' or '*') and its index in the expression has value
         guard let operSymbol = String.isArithmeticExpression(expression),
               let operSymbolIndex = expression.firstIndex(of: operSymbol) else {
             throw CalculatorError.invalidExpressionError(CalcErrorResponse(code: 423, message: "No valid symbol('+','*') found."))
         }
         
-        let firstOperand = Int(expression[expression.startIndex...expression.index(before: operSymbolIndex)])
-        let secondOperand = Int(expression[expression.index(after: operSymbolIndex)...])
-        arithmeticOperator = String(operSymbol)
+        let firstOperand = Int(expression[expression.startIndex...expression.index(before: operSymbolIndex)]) // Get left Int operand
+        let secondOperand = Int(expression[expression.index(after: operSymbolIndex)...]) // Get right Int operand
+        arithmeticOperator = String(operSymbol) // Set operation symbol
         if let firstOperand = firstOperand, let secondOperand = secondOperand, let operationToExecute = try arithmeticOperation() {
             return operationToExecute(firstOperand, secondOperand)
         }
@@ -396,24 +396,49 @@ struct Resolution {
 }
 
 enum PhoneActivity {
-    case Call
-    case Video
-    case Photo
-    case GPS
-    case Screen
-    case Charge
+    case Call, Video, Photo, GPS, Screen, Charge
 }
 
 struct Phone {
     var name: String
-    var batteryCharge: Int
+    var batteryCharge: Float
     var displayResolution: Resolution
     
-    func perforrActivity(activity act: PhoneActivity, for minutes: Int) -> Void {
-        
+    mutating func performActivity(activity operation: PhoneActivity, for minutes: Int) -> Void {
+        let batteryNeeded = Float(minutes) * batteryDrain(operation)
+        if self.batteryCharge - batteryNeeded > 0 {
+            self.batteryCharge -= batteryNeeded
+            print("Phone '\(self.name)' consumed \(batteryNeeded)% of battery for \(minutes) minutes of activity." +
+                  " Battery remained after activity is \(self.batteryCharge)%.")
+        } else {
+            print("Not enough battery (\(self.batteryCharge)%) to perform this activity for \(minutes) minutes.")
+        }
+    }
+    
+    mutating func batteryCharged(minutes mins: Float) -> Void {
+        self.batteryCharge -= batteryDrain(.Charge) * mins
+        print("Phone '\(self.name)' charged for \(mins) minutes, battery percentage is \(self.batteryCharge)%.")
+    }
+    
+    func batteryDrain(_ operation: PhoneActivity) -> Float {
+        switch operation {
+        case .Call: return 0.5
+        case .Video: return 3.5
+        case .Photo: return 1.5
+        case .GPS: return 2.5
+        case .Screen: return 2.0
+        case .Charge: return -5.5
+        }
     }
 }
-
+var phone1 = Phone(name: "iPhone", batteryCharge: 5, displayResolution: Resolution(height: 1080, width: 1980))
+phone1.performActivity(activity: .Call, for: 20) // Not enough battery
+phone1.batteryCharged(minutes: 10)  // Charge battery
+phone1.performActivity(activity: .Call, for: 20) // Try to perform activity again
+phone1.performActivity(activity: .Video, for: 7) // 25.5% remained
+phone1.performActivity(activity: .Photo, for: 8) // 13.5% remained
+phone1.performActivity(activity: .GPS, for: 5) // 1% remained
+phone1.performActivity(activity: .Screen, for: 2) // Not enough ...
 
 //3.7 Poker Game
 //Create a Player Object that has a name, and an array of Cards (from the 2.12 exercise Deck of cards)
