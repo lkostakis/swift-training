@@ -399,12 +399,18 @@ enum PhoneActivity {
     case Call, Video, Photo, GPS, Screen, Charge
 }
 
-struct Phone {
+class Phone {
     var name: String
     var batteryCharge: Float
     var displayResolution: Resolution
     
-    mutating func performActivity(activity operation: PhoneActivity, for minutes: Int) -> Void {
+    init(name: String, batteryCharge: Float, displayResolution: Resolution) {
+        self.name = name
+        self.batteryCharge = batteryCharge
+        self.displayResolution = displayResolution
+    }
+    
+    func performActivity(activity operation: PhoneActivity, for minutes: Int) -> Void {
         let batteryNeeded = Float(minutes) * batteryDrain(operation)
         if self.batteryCharge - batteryNeeded > 0 {
             self.batteryCharge -= batteryNeeded
@@ -415,7 +421,7 @@ struct Phone {
         }
     }
     
-    mutating func batteryCharged(minutes mins: Float) -> Void {
+    func batteryCharged(minutes mins: Float) -> Void {
         self.batteryCharge -= batteryDrain(.Charge) * mins
         print("Phone '\(self.name)' charged for \(mins) minutes, battery percentage is \(self.batteryCharge)%.")
     }
@@ -446,3 +452,11 @@ phone1.performActivity(activity: .Screen, for: 2) // Not enough ...
 //a init method that adds an array of Players
 //a method deal that give 5 random cards to each player
 //The player should print the each card's name when it is given, use property observers
+
+class Player {
+    var name: String = ""
+}
+
+class PokerEngine {
+    
+}
