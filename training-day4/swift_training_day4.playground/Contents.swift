@@ -68,7 +68,27 @@ class Rectangle: Shape {
 //Create a subclass of UILabel named UILabelDebug that prints a message when the text, font or color is changed
 
 class UILabelDebug : UILabel {
-    override func 
+    // After checking in Developer Documentation, UILabel uses `var text: String? { get set }` for text display
+    // in the label, `var font: UIFont! { get set }` for the font of the text and `var textColor: UIColor! { get set }`
+    // for the color of it.
+    
+    override var text: String? {
+        didSet {
+            print("Input text label changed.")
+        }
+    }
+    
+    override var font: UIFont! {
+        didSet {
+            print("Input text font changed.")
+        }
+    }
+    
+    override var textColor: UIColor! {
+        didSet {
+            print("Input text color changed.")
+        }
+    }
 }
 
 
