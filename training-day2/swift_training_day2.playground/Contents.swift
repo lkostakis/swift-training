@@ -131,6 +131,12 @@ postfix func ++(x: inout Int) -> Int {
     return x
 }
 
+postfix operator --
+postfix func --(x: inout Int) -> Int {
+    x-=1
+    return x
+}
+
 func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> Any? {
     var lastIndex = array.endIndex
     var startingIndex = array.startIndex - 1
@@ -138,12 +144,10 @@ func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> A
     func getElement() -> Any? {
         // From last
         if reversed! {
-            lastIndex -= 1
-            return array.indices.contains(lastIndex) ? array[lastIndex] : nil
+            return array.indices.contains(lastIndex--) ? array[lastIndex] : nil
         }
         // From start
-        startingIndex += 1
-        return array.indices.contains(startingIndex) ? array[startingIndex] : nil
+        return array.indices.contains(startingIndex++) ? array[startingIndex] : nil
     }
     return getElement
 }
@@ -322,4 +326,4 @@ func printDeck(_ cards: [Card]) {
     }
 }
 
-//printDeck(cards)
+printDeck(cards)
