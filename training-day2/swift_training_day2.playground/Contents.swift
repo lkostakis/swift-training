@@ -137,13 +137,13 @@ postfix func --(x: inout Int) -> Int {
     return x
 }
 
-func makeCustomInterator(_ array: ([Any]), _ reversed: Bool? = false) -> () -> Any? {
+func makeCustomInterator(_ array: ([Any]), _ reversed: Bool = false) -> () -> Any? {
     var lastIndex = array.endIndex
     var startingIndex = array.startIndex - 1
 
     func getElement() -> Any? {
         // From last
-        if reversed! {
+        if reversed {
             return array.indices.contains(lastIndex--) ? array[lastIndex] : nil
         }
         // From start
