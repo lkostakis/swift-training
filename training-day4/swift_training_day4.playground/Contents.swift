@@ -27,7 +27,7 @@ class Circle : Shape {
     }
     
     override func perimeter() -> Float {
-        return 2*Float.pi*radius
+        return 2 * Float.pi * radius
     }
 }
 
@@ -43,7 +43,7 @@ class Square : Shape {
     }
     
     override func perimeter() -> Float {
-        return 4*side
+        return 4 * side
     }
 }
 
@@ -60,7 +60,7 @@ class Rectangle: Shape {
     }
     
     override func perimeter() -> Float {
-        return 2*(width+length)
+        return 2 * (width+length)
     }
 }
 
@@ -91,15 +91,57 @@ class UILabelDebug : UILabel {
     }
 }
 
-
 //4.3
 //Create a class type with name CustomNumber that holds a integer number it should have a initilizer that takes an Integer. Add a subscript operator that takes an integer index and returns the digit of the number in that position e.g. the [2] of 4567 id 5. Add an overloaded initializer that accepts strings.
+
+class CustomNumber {
+    // Assume that value -1 is error value, otherwise number should hold optional or Any
+    var number: Int
+    
+    init(number: Int) {
+        self.number = number
+    }
+    
+    init(number: String) {
+        if let num = Int(number) {
+            self.number = num
+        } else {
+            self.number = -1
+        }
+    }
+    
+    subscript(index: Int) -> Int {
+        get {
+            var numberToArray = String(number).map { Int(String($0)) }
+            return numberToArray[index] ?? -1
+        }
+    }
+}
+
+var testNum = CustomNumber(number: "34756")
+testNum[3]
 
 //4.4
 //Given an array of numbers write a filter method that only selects odd integers
 
+let arrayOfNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+func oddFilter(array: [Int]) -> [Int] {
+    array.filter { $0 % 2 != 0 }
+}
+
+oddFilter(array: arrayOfNumbers)
+
 //4.5
 //Given an array of strings that only some can be converted to Int, map this array to an array of Ints filtering out th nil values
+
+let arrayOfStrings = ["///32", "312daw", "daw2d", "89", "2", "999", "0x", "5"]
+func filterOutNonInt(array: [String]) -> [Int] {
+    // From Developer Documentation:
+    // In contrast to map(), compactMap() returns array of the non-nil results of calling transform with each element of the sequence.
+    array.compactMap{ Int($0) }
+}
+
+filterOutNonInt(array: arrayOfStrings)
 
 //4.6
 //Given an array of Users which have properties name:String and age:Int write a map function that returns an array of strings consisting of the user’s names
