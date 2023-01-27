@@ -138,13 +138,25 @@ let arrayOfStrings = ["///32", "312daw", "daw2d", "89", "2", "999", "0x", "5"]
 func filterOutNonInt(array: [String]) -> [Int] {
     // From Developer Documentation:
     // In contrast to map(), compactMap() returns array of the non-nil results of calling transform with each element of the sequence.
-    array.compactMap{ Int($0) }
+    array.compactMap { Int($0) }
 }
 
 filterOutNonInt(array: arrayOfStrings)
 
 //4.6
 //Given an array of Users which have properties name:String and age:Int write a map function that returns an array of strings consisting of the user’s names
+
+struct User {
+    var name: String
+    var age: Int
+}
+
+let users = [User(name: "Kostas", age: 20), User(name: "Maria", age: 32)]
+func namesArray(_ users: [User]) -> [String] {
+    users.map { $0.name }
+}
+
+namesArray(users)
 
 //4.7
 //Given an array of UIViews write a filter function that selects only those views that are a subclass of UILabel
