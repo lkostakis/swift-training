@@ -3,7 +3,15 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "file:///Users/Kostakle/GitHub/swift-training/training-day2/swift_training_day2.playground#CharacterRangeLen=437&amp;CharacterRangeLoc=10394&amp;EndingColumnNumber=0&amp;EndingLineNumber=320&amp;StartingColumnNumber=1&amp;StartingLineNumber=310&amp;Timestamp=696594912.110065"
+         documentLocation = "file:///Users/Kostakle/GitHub/swift-training/training-day2/swift_training_day2.playground#CharacterRangeLen=79&amp;CharacterRangeLoc=10263&amp;EndingColumnNumber=0&amp;EndingLineNumber=311&amp;StartingColumnNumber=96&amp;StartingLineNumber=307&amp;Timestamp=696627954.173209"
+         selectedRepresentationIndex = "0">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/Kostakle/GitHub/swift-training/training-day2/swift_training_day2.playground#CharacterRangeLen=0&amp;CharacterRangeLoc=10342&amp;EndingColumnNumber=0&amp;EndingLineNumber=311&amp;StartingColumnNumber=0&amp;StartingLineNumber=311&amp;Timestamp=696627954.173335"
+         selectedRepresentationIndex = "0">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/Kostakle/GitHub/swift-training/training-day2/swift_training_day2.playground#CharacterRangeLen=0&amp;CharacterRangeLoc=10342&amp;EndingColumnNumber=0&amp;EndingLineNumber=311&amp;StartingColumnNumber=0&amp;StartingLineNumber=311&amp;Timestamp=696627954.173434"
          selectedRepresentationIndex = "0">
       </LoggerValueHistoryTimelineItem>
    </TimelineItems>
