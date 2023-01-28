@@ -449,9 +449,8 @@ phone1.performActivity(activity: .Screen, for: 2) // Not enough ...
 //a method deal that give 5 random cards to each player
 //The player should print the each card's name when it is given, use property observers
 
-
 // ****************************** 2.12 from previous day ********************************** //
-enum Suite: String {
+enum Suit: String {
     case diamonds = "\u{2662}", clubs = "\u{2663}", hearts = "\u{2661}", spades = "\u{2660}"
 }
 
@@ -460,29 +459,15 @@ enum Rank {
     case faceCards(String)
 }
 
-typealias Card = (rank: Rank, suite: Suite)
+typealias Card = (rank: Rank, suit: Suit)
 
 func createDeck() -> [Card] {
     // Initialize arrays for suites, numbers for cards, facecard symbols
-    let suitesArray: [Suite] = [Suite.diamonds, Suite.clubs, Suite.hearts, Suite.spades]
-    var numbersArray: [Rank] = []
-    (2..<11).forEach { number in numbersArray.append(Rank.number(number)) }
-    let faceCardsArray: [Rank] = [.faceCards("J"), .faceCards("Q"), .faceCards("K"), .faceCards("A")]
+    let suitsArray: [Suit] = [Suit.diamonds, Suit.clubs, Suit.hearts, Suit.spades]
+    var ranks: [Rank] = [.faceCards("J"), .faceCards("Q"), .faceCards("K"), .faceCards("A")]
+    (2..<11).forEach { number in ranks.append(Rank.number(number)) }
     
-    // Now create all face cards, like [Card(faceCards("J"), diamonds)]
-    let faceCards: [Card] = faceCardsArray.flatMap { suite in
-        suitesArray.map { rank in (suite, rank) }
-    }
-    // Now create all number cards, like [Card({number 2}, diamonds)]
-    let numberCards = numbersArray.flatMap { suit in
-        suitesArray.map { rank in (suit, rank) }
-    }
-    
-    // It could be easily done with ``cards = faceCards + numberCards``, but let's try to do it with flatMap() for fun.
-    // ``cards = [numberCards, faceCards].flatMap({ (card: [Card]) -> [Card] in return card })``
-    // or just ...
-    
-    return [numberCards, faceCards].flatMap({ $0 }).shuffled()
+    return ranks.flatMap { suit in suitsArray.map { rank in (suit, rank) }}.shuffled()
 }
 
 //func printDeck(_ cards: [Card]) {
@@ -507,7 +492,7 @@ func printCard(_ card: Card) -> String {
     if case let .number(num) = card.rank {
         temp = num
     }
-    return "\(temp)\(card.suite.rawValue)"
+    return "\(temp)\(card.suit.rawValue)"
 }
 
 class Player {
