@@ -287,8 +287,8 @@ let thirdGame = match(firstPlayer: .scissors, secondPlayer: .paper)
 //A card in a deck has a suite(diamonds,clubs,hearts,spades) and a rank which is a Number(from 2 to 10) or one of the following values Jack,Queen,King,Ace.
 //Create a enum type of the suite and the rank. Create a tuple typealias for a Card. Create an array with all the cards of a deck and print their values(e.g. 4 of diamonds, Queen of hearts).
 
-enum Suite: CaseIterable {
-    case diamonds, clubs, hearts, spades
+enum Suite: String {
+    case diamonds = "\u{2662}", clubs = "\u{2663}", hearts = "\u{2661}", spades = "\u{2660}"
 }
 
 enum Rank {
@@ -296,22 +296,28 @@ enum Rank {
     case faceCards(String)
 }
 
-typealias Card = (suite: Suite, rank: Rank)
+typealias Card = (rank: Rank, suite: Suite)
 var cards: [Card] = []
 
-for num in 2..<11 {
-    cards.append(Card(.diamonds, .number(num)))
-    cards.append(Card(.clubs, .number(num)))
-    cards.append(Card(.hearts, .number(num)))
-    cards.append(Card(.spades, .number(num)))
+// Initialize arrays for suites, numbers for cards, facecard symbols
+let suitesArray: [Suite] = [Suite.diamonds, Suite.clubs, Suite.hearts, Suite.spades]
+var numbersArray: [Rank] = []
+(2..<11).forEach { number in numbersArray.append(Rank.number(number)) }
+let faceCardsArray: [Rank] = [.faceCards("J"), .faceCards("Q"), .faceCards("K"), .faceCards("A")]
+
+// Now create all face cards, like [Card(faceCards("J"), diamonds)]
+let faceCards: [Card] = faceCardsArray.flatMap { suite in
+    suitesArray.map { rank in (suite, rank) }
+}
+// Now create all number cards, like [Card({number 2}, diamonds)]
+let numberCards = numbersArray.flatMap { suit in
+    suitesArray.map { rank in (suit, rank) }
 }
 
-for suite in Suite.allCases {
-    cards.append(Card(suite, .faceCards("Jack")))
-    cards.append(Card(suite, .faceCards("Queen")))
-    cards.append(Card(suite, .faceCards("King")))
-    cards.append(Card(suite, .faceCards("Ace")))
-}
+// It could be easily done with ``cards = faceCards + numberCards``, but let's try to do it with flatMap() for fun.
+// ``cards = [numberCards, faceCards].flatMap({ (card: [Card]) -> [Card] in return card })``
+// or just ...
+cards = [numberCards, faceCards].flatMap({ $0 })
 
 func printDeck(_ cards: [Card]) {
     for card in cards {
@@ -322,7 +328,7 @@ func printDeck(_ cards: [Card]) {
         if case let .number(num) = card.rank {
             temp = num
         }
-        print("\(temp) of \(card.suite)")
+        print("\(temp)\(card.suite.rawValue)")
     }
 }
 
