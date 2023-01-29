@@ -98,28 +98,38 @@ class CustomNumber {
     // Assume that value -1 is error value, otherwise number should hold optional or Any
     var number: Int
     
-    init(number: Int) {
+    init?(number: Int) {
         self.number = number
     }
     
-    init(number: String) {
-        if let num = Int(number) {
-            self.number = num
-        } else {
-            self.number = -1
+    // The designated init is failable, so the convenience has to be failable too
+    convenience init?(number: String) {
+        guard let num = Int(number) else {
+            return nil
         }
+        self.init(number: num)
     }
     
-    subscript(index: Int) -> Int {
+    // assign returning type as optional Int, in order to 'catch' wrong index inputs (out of bounds)
+    subscript(index: Int) -> Int? {
         get {
             var numberToArray = String(number).map { Int(String($0)) }
-            return numberToArray[index] ?? -1
+            return 0<=index && index<numberToArray.count ? numberToArray[index] : nil
         }
     }
 }
 
-var testNum = CustomNumber(number: "34756")
-testNum[3]
+// Some tests
+//let x = CustomNumber(number: 22)
+//x?.number // 22
+//x?[0] // 2
+//let y = CustomNumber(number: "213")
+//y?.number // 213
+//y?[2] // 3
+//y?[4] // nil (-- index out of bounds)
+//y?[-2] // nil (-- index out of bounds)
+//let z = CustomNumber(number: "3c231")
+//z?.number // nil
 
 //4.4
 //Given an array of numbers write a filter method that only selects odd integers
@@ -161,11 +171,31 @@ namesArray(users)
 //4.7
 //Given an array of UIViews write a filter function that selects only those views that are a subclass of UILabel
 
+let rect1 = CGRect(x: 10, y: 10, width: 150, height: 150)
+let rect2 = CGRect(x: 15, y: 15, width: 200, height: 200)
+var myView1 = UIView(frame: rect1)
+var myView2 = UIView(frame: rect2)
+// Create a UILabel in order to test the distinguishing method
+var myLabel1 = UILabel.init(frame: rect1)
+var uiviewArray = [myView1, myView2, myLabel1]
+
+func getUILabelSubclass(_ views: [UIView]) -> [UIView] {
+    views.filter { $0 is UILabel }
+}
+// As we can check here, myView1 and myView2 are not returned, while myLabel1 has been added to array as it inherits from UIView.
+getUILabelSubclass(uiviewArray)
+
 //4.8
 //Geven an array of strings use map to return an array of URLs
 
+var stringURLs: [String] = ["https://www.afse.eu/", "https://github.com/", "https://google.com"]
+let urlArray = stringURLs.map { URL(string: $0) }
+
 //4.9
 //Given an array of numbers find the sum of the squares of all the odd numbers from numbers and then print it. Use map, filter and reduce to solve this problem.
+
+var numberArray: [Int] = [1, 2, 3, 4, 5, 6, 7]
+var sumSquaresOfOddNums = numberArray.filter{ $0 % 2 == 1 }.map{ $0 * $0 }.reduce(0, +)
 
 //4.10
 //Create an array of tuples with (image name as string, image url as string), use map to convert it to an array of images, then filter out the nil objects, then merge photos in one using method mergeImages()
