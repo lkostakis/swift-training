@@ -119,7 +119,7 @@ class CustomNumber {
     }
 }
 
-// Some tests
+//// Some tests
 //let x = CustomNumber(number: 22)
 //x?.number // 22
 //x?[0] // 2
@@ -199,8 +199,14 @@ var sumSquaresOfOddNums = numberArray.filter{ $0 % 2 == 1 }.map{ $0 * $0 }.reduc
 
 //4.10
 //Create an array of tuples with (image name as string, image url as string), use map to convert it to an array of images, then filter out the nil objects, then merge photos in one using method mergeImages()
-// [("myImage.png", "https://imagesite..."), ("","")]
-// tha ksekninisw me ena array p na ehei imagenames k dipla ena url pou tha vrw afto to image, kapoia stigmh tha to metatrepsw se klaseis UIImage
+
+let images = [("code", "https://images.pexels.com/photos/256502/pexels-photo-256502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+              ("",""),
+              ("forest","https://images.pexels.com/photos/775201/pexels-photo-775201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+              ("sheep","https://images.pexels.com/photos/288621/pexels-photo-288621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")]
+
+let urlsToImages = images.map { URL(string: $0.1) }.filter{ $0 != nil }.map{ try? Data(contentsOf: $0!) }.map{ UIImage(data: $0!) }
+
 //func mergeImages(imageView: UIImageView) -> UIImage? {
 //    UIGraphicsBeginImageContextWithOptions(imageView.frame.size, false, 0.0)
 //    imageView.superview!.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -209,3 +215,4 @@ var sumSquaresOfOddNums = numberArray.filter{ $0 % 2 == 1 }.map{ $0 * $0 }.reduc
 //
 //    return image
 //}
+//mergeImages(imageView: UIImageView(image: urlsToImages[0]))
