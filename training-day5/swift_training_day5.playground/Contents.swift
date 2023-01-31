@@ -9,16 +9,103 @@ var things: [Any] = [0, 0.0, (0,0), "0,0", 42, { (name: String) -> String in "He
 //Iterate thru the array and bind their matched value to a constant of the specified type to enable its value to be printed (If it a function then call it)
 //Implement it both with if statement and with case pattern matching
 
+for element in things {
+    if let temp = element as? Int {
+        print(temp)
+    } else if let temp = element as? Double {
+        print(temp)
+    } else if let temp = element as? (Int,Int) {
+        print(temp)
+    } else if let temp = element as? String {
+        print(temp)
+    } else if let temp = element as? (String) -> String {
+        print(temp("Thomas"))
+    } else if let temp = element as? Cat {
+        print(temp)
+    } else if let temp = element as? () -> UInt32 {
+        print(temp())
+    } else if let temp = element as? UIButton {
+        print(temp)
+    } else if let temp = element as? [Any] {
+        print(temp)
+    } else if let temp = element as? NSString {
+        print(temp)
+    } else if let temp = element as? UILabel {
+        print(temp)
+    }
+}
+
+//for element in things {
+//    if case let temp = element as? Int {
+//        print(temp)
+//    } else if case let temp = element as? Double {
+//        print(temp)
+//    } else if case let temp = element as? (Int,Int) {
+//        print(temp)
+//    } else if case let temp = element as? String {
+//        print(temp)
+//    } else if case let temp = element as? (String) -> String {
+//        print(temp!("Thomas"))
+//    } else if case let temp = element as? Cat {
+//        print(temp)
+//    } else if case let temp = element as? () -> UInt32 {
+//        print(temp!())
+//    } else if case let temp = element as? UIButton {
+//        print(temp)
+//    } else if case let temp = element as? [Any] {
+//        print(temp)
+//    } else if case let temp = element as? NSString {
+//        print(temp)
+//    } else if case let temp = element as? UILabel {
+//        print(temp)
+//    }
+//}
 
 //5.1
 //Create MusicViewController,AlbumViewController subclass of UIViewController
-//Create and array that holds the types of MusicViewController & MusicViewController, give that array explicit type annotation
+//Create and array that holds the types of MusicViewController & AlbumViewController, give that array explicit type annotation
 //Create a method that takes that array and returns instances of the controllers
+
+class MusicViewController : UIViewController {
+}
+
+class AlbumViewController : UIViewController {
+}
+
+var viewControllersArray: [UIViewController] = []
+
+func getInstances(_ viewControllersArray: [UIViewController]) -> [UIViewController] {
+    return [MusicViewController(), AlbumViewController()]
+}
+
+getInstances(viewControllersArray)
 
 //5.2
 //Create a class Dog with a name property and an initializer.
 //Create a makePuppy method that takes a String and returns an instance of the same type. (e.g. if it is called on Dog instance will create new Dog instance)
 //Create two subclasses of that Dog class
+
+class Dog {
+    let name: String
+    
+    required init(name: String) {
+        self.name = name
+    }
+    
+    class func makePuppy(_ name: String) -> Self {
+        let dog = self.init(name: name)
+        return dog
+    }
+}
+
+class Affenpinscher : Dog {
+}
+
+class Boxer : Dog {
+}
+
+let affenDog = Affenpinscher.makePuppy("Jack")
+let boxerDog = Boxer.makePuppy("Jimmy")
 
 //5.3
 //Create a UIColor exention to add an initializer that creates a color from a hex string e.g "#66CCCC
