@@ -9,31 +9,31 @@ var things: [Any] = [0, 0.0, (0,0), "0,0", 42, { (name: String) -> String in "He
 //Iterate thru the array and bind their matched value to a constant of the specified type to enable its value to be printed (If it a function then call it)
 //Implement it both with if statement and with case pattern matching
 
-for element in things {
-    if let temp = element as? Int {
-        print(temp)
-    } else if let temp = element as? Double {
-        print(temp)
-    } else if let temp = element as? (Int,Int) {
-        print(temp)
-    } else if let temp = element as? String {
-        print(temp)
-    } else if let temp = element as? (String) -> String {
-        print(temp("Thomas"))
-    } else if let temp = element as? Cat {
-        print(temp)
-    } else if let temp = element as? () -> UInt32 {
-        print(temp())
-    } else if let temp = element as? UIButton {
-        print(temp)
-    } else if let temp = element as? [Any] {
-        print(temp)
-    } else if let temp = element as? NSString {
-        print(temp)
-    } else if let temp = element as? UILabel {
-        print(temp)
-    }
-}
+//for element in things {
+//    if let temp = element as? Int {
+//        print(temp)
+//    } else if let temp = element as? Double {
+//        print(temp)
+//    } else if let temp = element as? (Int,Int) {
+//        print(temp)
+//    } else if let temp = element as? String {
+//        print(temp)
+//    } else if let temp = element as? (String) -> String {
+//        print(temp("Thomas"))
+//    } else if let temp = element as? Cat {
+//        print(temp)
+//    } else if let temp = element as? () -> UInt32 {
+//        print(temp())
+//    } else if let temp = element as? UIButton {
+//        print(temp)
+//    } else if let temp = element as? [Any] {
+//        print(temp)
+//    } else if let temp = element as? NSString {
+//        print(temp)
+//    } else if let temp = element as? UILabel {
+//        print(temp)
+//    }
+//}
 
 //for element in things {
 //    if case let temp = element as? Int {
@@ -109,6 +109,17 @@ let boxerDog = Boxer.makePuppy("Jimmy")
 
 //5.3
 //Create a UIColor exention to add an initializer that creates a color from a hex string e.g "#66CCCC
+
+extension UIColor {
+    convenience init(hex: String) {
+        var r = Int(hex[hex.startIndex...hex.index(hex.startIndex, offsetBy: 1)] , radix: 16)!
+        var g = Int(hex[hex.index(hex.startIndex, offsetBy: 1)...hex.index(hex.startIndex, offsetBy: 3)] , radix: 16)!
+        var b = Int(hex[hex.index(hex.startIndex, offsetBy: 3)...] , radix: 16)!
+        self.init(red: CGFloat(r), green: CGFloat(b), blue: CGFloat(g), alpha: 1)
+    }
+}
+
+var k = UIColor.init(hex: "66CCCC")
 
 //5.4
 //Create a UIColor exention with the 4 basic colors of our Prooduct application. These should be constants and static, because their value will not change and will be the same across all instance of UIColor
