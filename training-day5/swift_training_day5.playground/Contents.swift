@@ -112,17 +112,24 @@ let boxerDog = Boxer.makePuppy("Jimmy")
 
 extension UIColor {
     convenience init(hex: String) {
-        var r = Int(hex[hex.startIndex...hex.index(hex.startIndex, offsetBy: 1)] , radix: 16)!
-        var g = Int(hex[hex.index(hex.startIndex, offsetBy: 1)...hex.index(hex.startIndex, offsetBy: 3)] , radix: 16)!
-        var b = Int(hex[hex.index(hex.startIndex, offsetBy: 3)...] , radix: 16)!
-        self.init(red: CGFloat(r), green: CGFloat(b), blue: CGFloat(g), alpha: 1)
+        let r = Int(hex[hex.startIndex...hex.index(hex.startIndex, offsetBy: 1)], radix: 16)!
+        let g = Int(hex[hex.index(hex.startIndex, offsetBy: 2)...hex.index(hex.startIndex, offsetBy: 3)], radix: 16)!
+        let b = Int(hex[hex.index(hex.startIndex, offsetBy: 4)...], radix: 16)!
+        self.init(red: CGFloat(Float(Float(r)/255.0)), green: CGFloat(Float(Float(g)/255.0)), blue: CGFloat(Float(Float(b)/255.0)), alpha: 1)
     }
 }
 
-var k = UIColor.init(hex: "66CCCC")
+let cyan = UIColor.init(hex: "66CCCC")
 
 //5.4
 //Create a UIColor exention with the 4 basic colors of our Prooduct application. These should be constants and static, because their value will not change and will be the same across all instance of UIColor
+
+extension UIColor {
+    static let basicGray = UIColor.init(hex: "808080")
+    static let basicMagenta = UIColor.init(hex: "FF00FF")
+    static let basicCyan = UIColor.init(hex: "7CFFFB")
+    static let basicLime = UIColor.init(hex: "00FF00")
+}
 
 //5.5
 //Extend the Date class to add some convenience methods to calculate time units using DateComponents.
