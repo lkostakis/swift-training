@@ -111,15 +111,28 @@ let boxerDog = Boxer.makePuppy("Jimmy")
 //Create a UIColor exention to add an initializer that creates a color from a hex string e.g "#66CCCC
 
 extension UIColor {
-    convenience init(hex: String) {
+    // Convenience failable init in order to catch cases that string input is not valid
+    convenience init?(hex: String) {
+        // check that the input is contained by valid letters and digits
+        // `{6}` can be omitted as it matches the first 6 characters of the input
+        let regex = /([a-fA-F0-9]{6}+)/
+        guard hex.count == 6 else {
+            return nil
+        }
+        if hex.firstMatch(of: regex) == nil {
+            return nil
+        }
+        // we can use force-unwrapping here as it is certain that the input string is in valid format
         let r = Int(hex[hex.startIndex...hex.index(hex.startIndex, offsetBy: 1)], radix: 16)!
         let g = Int(hex[hex.index(hex.startIndex, offsetBy: 2)...hex.index(hex.startIndex, offsetBy: 3)], radix: 16)!
         let b = Int(hex[hex.index(hex.startIndex, offsetBy: 4)...], radix: 16)!
-        self.init(red: CGFloat(Float(Float(r)/255.0)), green: CGFloat(Float(Float(g)/255.0)), blue: CGFloat(Float(Float(b)/255.0)), alpha: 1)
+        self.init(red: CGFloat(Float(r)/255.0), green: CGFloat(Float(g)/255.0), blue: CGFloat(Float(b)/255.0), alpha: 1)
     }
 }
 
-let cyan = UIColor.init(hex: "66CCCC")
+let cyan = UIColor.init(hex: "47F4B3")
+let colorTest1 = UIColor.init(hex: "47F4G3") // Fails as it contains letter `G`
+let colorTest2 = UIColor.init(hex: "abc23dd") // Fails as input.count > 6
 
 //5.4
 //Create a UIColor exention with the 4 basic colors of our Prooduct application. These should be constants and static, because their value will not change and will be the same across all instance of UIColor
@@ -137,6 +150,22 @@ extension UIColor {
 //The methods should replace the current object and return it
 //You should be able to calculate this:
 //let date1 = Date().plusMonths(2).minusDays(5).plusHours(15)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //5.6
 //Create an inverse method that takes a Double an returns the inversed (1/x) value.
