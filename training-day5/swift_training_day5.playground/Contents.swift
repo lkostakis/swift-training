@@ -151,21 +151,35 @@ extension UIColor {
 //You should be able to calculate this:
 //let date1 = Date().plusMonths(2).minusDays(5).plusHours(15)
 
+extension Date {
+    func plusMonths(_ months: Int) -> Date {
+        var monthComponent = DateComponents()
+        monthComponent.month = months
+        return Calendar.current.date(byAdding: monthComponent, to: self)!
+    }
+    
+    func minusDays(_ days: Int) -> Date {
+        var dayComponent = DateComponents()
+        dayComponent.day = -days
+        return Calendar.current.date(byAdding: dayComponent, to: self)!
+    }
 
+    func plusWeeks(_ weeks: Int) -> Date {
+        var weekComponent = DateComponents()
+        weekComponent.weekOfMonth = weeks
+        return Calendar.current.date(byAdding: weekComponent, to: self)!
+    }
 
+    func plusHours(_ hours: Int) -> Date {
+        var hourComponent = DateComponents()
+        hourComponent.hour = hours
+        return Calendar.current.date(byAdding: hourComponent, to: self)!
+    }
+    
+    // minusMonths(), minusWeeks(), plusDays(), minusHours() are omitted for brevity
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+let date1 = Date().plusMonths(2).plusWeeks(2).minusDays(3).plusHours(3)
 
 //5.6
 //Create an inverse method that takes a Double an returns the inversed (1/x) value.
