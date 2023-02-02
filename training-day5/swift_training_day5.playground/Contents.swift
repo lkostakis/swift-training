@@ -186,6 +186,23 @@ let date1 = Date().plusMonths(2).plusWeeks(2).minusDays(3).plusHours(3)
 //Call this method with values 1,2,0
 //The method should throw an custom error if the X is zero.
 
+struct ErrorResponse {
+    let code: Int
+    let message: String
+}
+
+enum InverseError : Error {
+    case ZeroDivisionError(ErrorResponse)
+}
+
+func inversed(_ num: Double) throws -> Double {
+    guard num != 0 else {
+        throw InverseError.ZeroDivisionError(ErrorResponse.init(code: 440, message: "Division by zero."))
+    }
+    return 1/num
+}
+try inversed(0)
+
 //5.7
 //Create an HttpClient class. It should have two methods, a userLogin that takes a username,password and returns a userID and a getUserProfile that takes a userID and returns a Userprofile(struct with first and last name of the user) .
 //The HttpClient should hold internaly a list of valid username/passwords and their mapping to userIDs and UserProfiles
