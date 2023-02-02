@@ -201,12 +201,93 @@ func inversed(_ num: Double) throws -> Double {
     }
     return 1/num
 }
-try inversed(0)
+
+do {
+    try inversed(0)
+} catch InverseError.ZeroDivisionError(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
+}
 
 //5.7
 //Create an HttpClient class. It should have two methods, a userLogin that takes a username,password and returns a userID and a getUserProfile that takes a userID and returns a Userprofile(struct with first and last name of the user) .
 //The HttpClient should hold internaly a list of valid username/passwords and their mapping to userIDs and UserProfiles
 //The methods userLogin/getUserProfile should throw the appropriate errors for wrong username/password and wrong userID.
+
+class HttpClient {
+    private var userCredentials: [String : String] = [:] // username:password
+    private var usernameUserIDMapping: [String : Int] = [:] // map username with user ID
+    private var userIDuserProfileMapping: [Int : UserProfile] = [:] // map user ID with UserProfile
+
+    // enclose error enum and response struct to avoid potential namespace collisions
+    struct ErrorResponse {
+        let code: Int
+        let message: String
+    }
+
+    enum HttpClientError : Error {
+        case InvalidCredentials(ErrorResponse)
+        case InvalidUserID(ErrorResponse)
+    }
+
+    struct UserProfile {
+        let firstName, lastName: String
+    }
+
+    func userLogin(username: String, password: String) throws -> Int? {
+        guard let storedCredentials = userCredentials[username], storedCredentials == password else {
+            throw HttpClientError.InvalidCredentials(ErrorResponse.init(code: 420, message: "INVALID CREDENTIALS."))
+        }
+        return usernameUserIDMapping[username]
+    }
+
+    func getUserProfile(userID: Int) throws -> UserProfile? {
+        guard let storedUserProfile = userIDuserProfileMapping[userID] else {
+            throw HttpClientError.InvalidUserID(ErrorResponse.init(code: 421, message: "NO USER WITH GIVEN USER ID EXISTS."))
+        }
+        return storedUserProfile
+    }
+
+    // Setup a test HttpClient model, init `userCredentials`, `userIDMapping`, `userProfileMapping`.
+    private func setupUserIDMapping() {
+        usernameUserIDMapping["johnK1992"] = 1
+        usernameUserIDMapping["mari@Kappa"] = 2
+    }
+
+    private func setupUserCredentials() {
+        userCredentials["johnK1992"] = "passw0rd123"
+        userCredentials["mari@Kappa"] = "p@ssw0rd23"
+    }
+
+    private func setupUserProfileMapping() {
+        userIDuserProfileMapping[1] = UserProfile(firstName: "John", lastName: "Kefalas")
+        userIDuserProfileMapping[2] = UserProfile(firstName: "Maria", lastName: "Karolou")
+    }
+
+    init() {
+        setupUserIDMapping()
+        setupUserProfileMapping()
+        setupUserCredentials()
+    }
+}
+
+let client = HttpClient()
+
+do {
+    try client.userLogin(username: "johnK1992", password: "passw0rd123") // fetch user ID when valid credentials given
+    try client.userLogin(username: "mari@Kappa", password: "p@ssw0rd23") // fetch user ID when valid credentials given
+    try client.getUserProfile(userID: 1) // fetch UserProfile when valid user ID given
+    try client.getUserProfile(userID: 2) // fetch UserProfile when valid user ID given
+    
+    // some error tests, when wrong password or username given
+    try client.userLogin(username: "johnK1992", password: "wrongPassword")
+    // try client.userLogin(username: "wrongUsername", password: "passw0rd123")
+    // test when wrong user ID given
+    // try client.getUserProfile(userID: 3)
+} catch HttpClient.HttpClientError.InvalidCredentials(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
+} catch HttpClient.HttpClientError.InvalidUserID(let errorResponse) {
+    print("ERROR \(errorResponse.code): \(errorResponse.message)")
+}
 
 //5.8
 //Add shuffle method to the Array type that performs a random permutation of its items
