@@ -9,55 +9,67 @@ var things: [Any] = [0, 0.0, (0,0), "0,0", 42, { (name: String) -> String in "He
 //Iterate thru the array and bind their matched value to a constant of the specified type to enable its value to be printed (If it a function then call it)
 //Implement it both with if statement and with case pattern matching
 
-//for element in things {
-//    if let temp = element as? Int {
-//        print(temp)
-//    } else if let temp = element as? Double {
-//        print(temp)
-//    } else if let temp = element as? (Int,Int) {
-//        print(temp)
-//    } else if let temp = element as? String {
-//        print(temp)
-//    } else if let temp = element as? (String) -> String {
-//        print(temp("Thomas"))
-//    } else if let temp = element as? Cat {
-//        print(temp)
-//    } else if let temp = element as? () -> UInt32 {
-//        print(temp())
-//    } else if let temp = element as? UIButton {
-//        print(temp)
-//    } else if let temp = element as? [Any] {
-//        print(temp)
-//    } else if let temp = element as? NSString {
-//        print(temp)
-//    } else if let temp = element as? UILabel {
-//        print(temp)
-//    }
-//}
+// Note that `{}` empty closure is captured in `if let sideEffect = element as? () -> ()`, but is not
+// visible as it does literally nothing. We can check it also because `Unmatched` is never printed.
 
 //for element in things {
-//    if case let temp = element as? Int {
-//        print(temp)
-//    } else if case let temp = element as? Double {
-//        print(temp)
-//    } else if case let temp = element as? (Int,Int) {
-//        print(temp)
-//    } else if case let temp = element as? String {
-//        print(temp)
-//    } else if case let temp = element as? (String) -> String {
-//        print(temp!("Thomas"))
-//    } else if case let temp = element as? Cat {
-//        print(temp)
-//    } else if case let temp = element as? () -> UInt32 {
-//        print(temp!())
-//    } else if case let temp = element as? UIButton {
-//        print(temp)
-//    } else if case let temp = element as? [Any] {
-//        print(temp)
-//    } else if case let temp = element as? NSString {
-//        print(temp)
-//    } else if case let temp = element as? UILabel {
-//        print(temp)
+//    if let intValue = element as? Int {
+//        print("Int: \(intValue)")
+//    } else if let doubleValue = element as? Double {
+//        print("Double: \(doubleValue)")
+//    } else if let tuple = element as? (Int,Int) {
+//        print("Tuple: (\(tuple.0), \(tuple.1))")
+//    } else if let stringValue = element as? String {
+//        print("String: \(stringValue)")
+//    } else if let closure = element as? (String) -> String {
+//        print("Closure: \(closure("Thomas"))")
+//    } else if let cat = element as? Cat {
+//        print("Cat: \(cat)")
+//    } else if let randomGenerator = element as? () -> UInt32 {
+//        print("Random: \(randomGenerator())")
+//    } else if let sideEffect = element as? () -> () {
+//        sideEffect()
+//    } else if let button = element as? UIButton {
+//        print("UIButton: \(button)")
+//    } else if let array = element as? [Any] {
+//        print("Array: \(array)")
+//    } else if let nsString = element as? NSString {
+//        print("NSString: \(nsString)")
+//    } else if let label = element as? UILabel {
+//        print("UILabel: \(label)")
+//    } else {
+//        print("Unmatched")
+//    }
+//}
+//
+//for item in things {
+//    switch item {
+//    case let intValue as Int:
+//        print("Int: \(intValue)")
+//    case let doubleValue as Double:
+//        print("Double: \(doubleValue)")
+//    case let tuple as (Int, Int):
+//        print("Tuple: (\(tuple.0), \(tuple.1))")
+//    case let stringValue as String:
+//        print("String: \(stringValue)")
+//    case let closure as (String) -> String:
+//        print("Closure: \(closure("Thomas"))")
+//    case let cat as Cat:
+//        print("Cat: \(cat)")
+//    case let randomGenerator as () -> UInt32:
+//        print("Random: \(randomGenerator())")
+//    case let sideEffect as ()->():
+//        sideEffect()
+//    case let button as UIButton:
+//        print("UIButton: \(button)")
+//    case let array as [Any]:
+//        print("Array: \(array)")
+//    case let nsString as NSString:
+//        print("NSString: \(nsString)")
+//    case let label as UILabel:
+//        print("UILabel: \(label)")
+//    default:
+//        print("Unmatched")
 //    }
 //}
 
@@ -66,21 +78,21 @@ var things: [Any] = [0, 0.0, (0,0), "0,0", 42, { (name: String) -> String in "He
 //Create and array that holds the types of MusicViewController & AlbumViewController, give that array explicit type annotation
 //Create a method that takes that array and returns instances of the controllers
 
-class MusicViewController : UIViewController {
+class MusicViewController: UIViewController {}
+class AlbumViewController: UIViewController {}
+
+// give the type values with .self
+let controllers: [UIViewController.Type] = [MusicViewController.self, AlbumViewController.self]
+
+func getControllers(types: [UIViewController.Type]) -> [UIViewController] {
+    return types.map { $0.init() }
 }
 
-class AlbumViewController : UIViewController {
-}
+// we can check that the instances are different each time
+let instances1 = getControllers(types: controllers)
+let instances2 = getControllers(types: controllers)
+// if we print instances1[0] and instances2[0] it is clear that the addresses are different
 
-var viewControllersArray: [UIViewController] = []
-
-func getInstances(_ viewControllersArray: [UIViewController]) -> [UIViewController] {
-    return [MusicViewController(), AlbumViewController()]
-}
-
-getInstances(viewControllersArray)
-
-//5.2
 //Create a class Dog with a name property and an initializer.
 //Create a makePuppy method that takes a String and returns an instance of the same type. (e.g. if it is called on Dog instance will create new Dog instance)
 //Create two subclasses of that Dog class
