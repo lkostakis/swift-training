@@ -14,6 +14,38 @@ func ^^ (lhs: Int, rhs: Int) -> Int {
 //Override the + operator so that it take an apple and an orange and return an array of Fruit
 //Now add apples instances with orange instances
 
+// we assigned Fruit parameters to `+` overloading in purpose of addition's commutative property:
+// `orange + apple` and `apple + orange`.
+func +(lhs: Fruit, rhs: Fruit) -> [Fruit] {
+    return [lhs, rhs]
+}
+
+class Fruit {
+    let name: String
+    let type: String
+    let size: Double
+    
+    init (name: String, type: String, size: Double) {
+        self.name = name
+        self.type = type
+        self.size = size
+    }
+}
+class Apple : Fruit {
+    override init(name: String, type: String, size: Double) {
+        super.init(name: name, type: type, size: size)
+    }
+}
+class Orange : Fruit {
+    override init(name: String, type: String, size: Double) {
+        super.init(name: name, type: type, size: size)
+    }
+}
+
+let bloodOrange: Orange = Orange(name: "Blood Orange", type: "Sanguinello", size: 220.32)
+let empireApple: Apple = Apple(name: "Empire", type: "McIntosh", size: 198.27)
+let fruitArray = bloodOrange + empireApple
+
 //6.2
 //Implement a <-> swap operator that takes two variables and swapes their values
 
