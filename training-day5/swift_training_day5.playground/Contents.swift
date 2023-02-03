@@ -294,9 +294,9 @@ do {
 
 // Swift offers shuffled() to return an array with a random permutation of its items, but
 // let's try doing it from scratch using the famous Fisher–Yates shuffle Algorithm
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-func shuffles(_ array: [Int]) -> [Int] {
-    var resultArray = array // copy input array to a temp in order to prevent mutating function
+var numbers: [Any] = [1, "jim", "chris", 4, 5, "abc", 7, 8, 9]
+func shuffles(_ array: [Any]) -> [Any] {
+    var resultArray = array // copy input array to a temp array in order to prevent mutating function
     
     for i in stride(from: array.count-1, to: 0, by: -1) {
         resultArray.swapAt(i, Int(arc4random_uniform(UInt32(i+1))))
@@ -311,13 +311,12 @@ shuffles(numbers)
 
 extension String {
     func replace(target: String, withString: String) -> String {
-            return self.replacingOccurrences(of: target, with: withString)
-        }
+        return self.replacingOccurrences(of: target, with: withString)
+    }
 }
 
-let originalString = "Hello, World!"
-let modifiedString = originalString.replace(target: "Hello, World!", withString: "Swift")
-print(originalString)
+let targetString = "Hello, World!"
+let modifiedString = targetString.replace(target: "Hello, World!", withString: "Hello, World!!!")
 
 //5.10
 //Create a class Temperature with a double value to hold the current temp in kelvin.
@@ -325,3 +324,13 @@ print(originalString)
 //declare a variable with type Temperature and assing Assign it the value -273.15
 //read the documentation of ExpressibleByFloatLiteral
 
+class Temperature : ExpressibleByFloatLiteral {
+    var kelvinTemp: Double
+
+    required init(floatLiteral val: Float) {
+        self.kelvinTemp = Double(val)
+    }
+}
+
+var temp: Temperature = -273.15
+temp.kelvinTemp
