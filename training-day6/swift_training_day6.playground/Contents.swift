@@ -31,11 +31,13 @@ class Fruit {
         self.size = size
     }
 }
+
 class Apple : Fruit {
     override init(name: String, type: String, size: Double) {
         super.init(name: name, type: type, size: size)
     }
 }
+
 class Orange : Fruit {
     override init(name: String, type: String, size: Double) {
         super.init(name: name, type: type, size: size)
@@ -59,6 +61,21 @@ func <-><T> (_ a: inout T, _ b: inout T) -> Void {
 //6.3
 //Add an extension for the Apples and Oranges and Fruit that adopts the Equality protocol.
 //Add an extensions that implements CustomStringConvertible, try and print an Apple object
+
+// Equatable extensions for Orange, Apple subclasses are omitted as they are also Fruit types
+extension Fruit : Equatable {
+    static func == (lhs: Fruit, rhs: Fruit) -> Bool {
+        lhs.name == rhs.name && lhs.type == rhs.type && lhs.size == rhs.size
+    }
+}
+
+extension Fruit : CustomStringConvertible {
+    var description: String {
+        return "name: \(name), type: \(type), size: \(size)"
+    }
+}
+print(bloodOrange)
+print(empireApple)
 
 //6.4
 //Create a Class Car that contains a property name, a property manufacture date
