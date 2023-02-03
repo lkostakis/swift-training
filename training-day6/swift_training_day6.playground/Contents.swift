@@ -49,6 +49,13 @@ let fruitArray = bloodOrange + empireApple
 //6.2
 //Implement a <-> swap operator that takes two variables and swapes their values
 
+infix operator <->
+func <-><T> (_ a: inout T, _ b: inout T) -> Void {
+    let tempA = a
+    a = b
+    b = tempA
+}
+
 //6.3
 //Add an extension for the Apples and Oranges and Fruit that adopts the Equality protocol.
 //Add an extensions that implements CustomStringConvertible, try and print an Apple object
