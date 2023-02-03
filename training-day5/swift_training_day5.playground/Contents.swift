@@ -247,7 +247,7 @@ class HttpClient {
         return storedUserProfile
     }
 
-    // Setup a test HttpClient model, init `userCredentials`, `userIDMapping`, `userProfileMapping`.
+    // Setup a test HttpClient model, init `userCredentials`, `usernameUserIDMapping`, `userIDuserProfileMapping`.
     private func setupUserIDMapping() {
         usernameUserIDMapping["johnK1992"] = 1
         usernameUserIDMapping["mari@Kappa"] = 2
@@ -292,8 +292,32 @@ do {
 //5.8
 //Add shuffle method to the Array type that performs a random permutation of its items
 
+// Swift offers shuffled() to return an array with a random permutation of its items, but
+// let's try doing it from scratch using the famous Fisher–Yates shuffle Algorithm
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+func shuffles(_ array: [Int]) -> [Int] {
+    var resultArray = array // copy input array to a temp in order to prevent mutating function
+    
+    for i in stride(from: array.count-1, to: 0, by: -1) {
+        resultArray.swapAt(i, Int(arc4random_uniform(UInt32(i+1))))
+    }
+    return resultArray
+}
+
+shuffles(numbers)
+
 //5.9
 //Add a replace(target: String, withString: String) -> String method in String type
+
+extension String {
+    func replace(target: String, withString: String) -> String {
+            return self.replacingOccurrences(of: target, with: withString)
+        }
+}
+
+let originalString = "Hello, World!"
+let modifiedString = originalString.replace(target: "Hello, World!", withString: "Swift")
+print(originalString)
 
 //5.10
 //Create a class Temperature with a double value to hold the current temp in kelvin.
