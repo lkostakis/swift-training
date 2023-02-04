@@ -85,6 +85,73 @@ print(empireApple)
 //Make the Swift Bool type implement it, it's implementation should reversing it's value.
 //Modify the code reversing the isOn property to make it sorter and more readable.
 
+// helping extension of Date struct to create Date instances in a more human-like manner
+extension Date {
+    static func fromString(_ str: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter.date(from: str)
+    }
+}
+
+class Car {
+    let name: String
+    let manufactureDate: Date
+    let engine: Engine
+    
+    init(name: String, manufactureDate: Date, engine: Engine) {
+        self.name = name
+        self.manufactureDate = manufactureDate
+        self.engine = engine
+    }
+    
+}
+
+// No return type
+protocol Togglable {
+    func toggle()
+}
+
+// First way with Bool return type
+protocol TogglableBool {
+    func toggle() -> Bool
+}
+
+// first implementation with Bool return type
+/*class Engine : TogglableBool {
+    var isOn = false
+
+    func toggle() -> Bool {
+        self.isOn = !self.isOn
+        return self.isOn
+    }
+}*/
+
+// second implementation with EngineState enum and on/off cases (more understandable)
+class Engine : Togglable {
+    enum EngineState {
+        case off, on
+    }
+    var isOn: EngineState = .off
+
+    func toggle() {
+        switch isOn {
+        case .off:
+            self.isOn = .on
+        case .on:
+            self.isOn = .off
+        }
+    }
+}
+
+// To see the results its the exactly same initializations and functions for both implementations
+// just comment out second impl and uncomment the first one. Second one switches from off to on
+// while the first one
+var alfaRomeo = Car(name: "Giulietta", manufactureDate: Date.fromString("19/4/2019")!, engine: Engine())
+
+// With Togglable protocol that returns Bool we have know which state represents Bool values true/false
+alfaRomeo.engine.toggle()
+
 //6.5
 //Create an array of 5 cars.
 //Implement the needed protocol(s) to compare Cars by name and date, validate using the contains method in the Array
