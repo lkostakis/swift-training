@@ -128,6 +128,8 @@ protocol TogglableBool {
 }*/
 
 // second implementation with EngineState enum and on/off cases (more understandable)
+// note that conforming to the protocol in the Engine class, because it is already
+// a small sized class, so there is no need to make an extension to keep it more simple
 class Engine : Togglable {
     enum EngineState {
         case off, on
@@ -145,11 +147,9 @@ class Engine : Togglable {
 }
 
 // To see the results its the exactly same initializations and functions for both implementations
-// just comment out second impl and uncomment the first one. Second one switches from off to on
-// while the first one
-var alfaRomeo = Car(name: "Giulietta", manufactureDate: Date.fromString("19/4/2019")!, engine: Engine())
-
-// With Togglable protocol that returns Bool we have know which state represents Bool values true/false
+// just comment out second impl and uncomment the first one. Second way switches an EngineState var
+// from off to on, while the first one modifies isOn with true/false and returns the boolean value
+let alfaRomeo = Car(name: "Giulietta", manufactureDate: Date.fromString("19/4/2019")!, engine: Engine())
 alfaRomeo.engine.toggle()
 
 //6.5
@@ -157,7 +157,52 @@ alfaRomeo.engine.toggle()
 //Implement the needed protocol(s) to compare Cars by name and date, validate using the contains method in the Array
 //Implement the needed protocol(s) to sort the array using the sort(by: >) method in the Array
 //Implement the needed protocol(s) to add the Cars instances in as keys in an dictionary.
+let ford = Car(name: "Mondeo", manufactureDate: Date.fromString("11/6/2020")!, engine: Engine())
+let nissan = Car(name: "Qashqai", manufactureDate: Date.fromString("23/11/2017")!, engine: Engine())
+let toyota = Car(name: "Corolla", manufactureDate: Date.fromString("31/8/2015")!, engine: Engine())
+let fiatScudo = Car(name: "Scudo", manufactureDate: Date.fromString("8/2/2023")!, engine: Engine())
+var carArray = [alfaRomeo, ford, nissan, toyota, fiatScudo]
 
+// a good practice to keep Car class more readable is to conform to the protocols needed outside of the class
+// as extensions of the particular class, in order to keep code more readable and simple and dont create huge class.
+extension Car : Equatable, Comparable {
+    
+    static func == (lhs: Car, rhs: Car) -> Bool {
+        lhs.name == rhs.name && lhs.manufactureDate == rhs.manufactureDate
+    }
+    
+    static func < (lhs: Car, rhs: Car) -> Bool {
+        if lhs.name != rhs.name {
+            return lhs.name < lhs.name
+        }
+        // we assume earlier dates are > than later dates. e.g.: 12/1/2020 > 12/2/2020 returns true
+        return lhs.manufactureDate > rhs.manufactureDate
+    }
+}
+
+// In order to use Car types as keys in a dictionary the Car class has to conform to the Hashable protocol.
+// Car type need to implement the hashValue property and be Equatable.
+
+extension Car : Hashable {
+    // create Int hash code with XOR gate
+    // Deprecated way to do so
+//    var hashValue: Int {
+//        name.hashValue ^ manufactureDate.hashValue
+//    }
+    
+    // More modern way to do it
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(manufactureDate)
+    }
+}
+
+// we can check sorting method sort(by: >). First the method will check the name and do naming sorting
+// if names are the equal then the manufacture date will be compared
+// so we can test sort(by:) method when creating an object with a name that already exists
+let newFiatScudo = Car(name: "Scudo", manufactureDate: Date.fromString("18/3/2023")!, engine: Engine())
+carArray.append(newFiatScudo)
+carArray.sort(by: >)
 
 //6.6
 //Write a generic function to count the number of elements in a collection that are are of specific class type.
