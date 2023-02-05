@@ -209,6 +209,17 @@ carArray.sort(by: >)
 //e.g. find all elements in [UIViewController(), UIView(), 3, [1,2], "42", UILabel()] that are of type UIResponder
 //e.g. find all elements in [UIViewController(), UIView(), 3, [1,2], "42", UILabel()] that are of type String
 
+// we specify that C generic has a type constraint as it is eligible to be used for resolving only
+// Collection types like Array, Set, Dict., Substring and so on...
+func countInstanceElements<T, C: Collection>(of type: T.Type, in collection: C) -> Int {
+    collection.filter { $0 is T }.count
+}
+
+let elements: [Any] = [UIViewController(), UIView(), 3, [1,2], "42", UILabel()]
+
+countInstanceElements(of: String.self, in: elements) // 1 instance
+countInstanceElements(of: UIResponder.self, in: elements) // 3 instances
+
 //6.7
 //write a generic function that takes an array an returns an dictionary which contains as keys the elements of the array and as values the frequency they appeared in the array.
 
