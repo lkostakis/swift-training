@@ -223,6 +223,18 @@ countInstanceElements(of: UIResponder.self, in: elements) // 3 instances
 //6.7
 //write a generic function that takes an array an returns an dictionary which contains as keys the elements of the array and as values the frequency they appeared in the array.
 
+// in order to map array values as keys in a dictionary, array element types have to conform to Hashable protocol
+func arrayToDict<T: Hashable> (_ array: [T]) -> [T:Int] {
+    var resultDictionary: [T:Int] = [:]
+    array.forEach { element in resultDictionary[element] = array.filter( { $0 == element } ).count }
+    return resultDictionary
+}
+
+let numbers = [1, 2, 2, 3, 3, 4]
+let strings = ["yes", "ok", "ne", "oxi", "yes", "oxi"]
+arrayToDict(numbers)
+arrayToDict(strings)
+
 //6.8
 //Create a protocol APIRequestProtocol, which contains two methods requestURL and performRequest, and the members baseURL and queryURL. The requestURL is a concatenation of baseURL and queryURL the performRequest performs an the http request(You can use a print statement in the function body).
 //Then, we create three classes, UsersAPIRequest, GroupsAPIRequest ResourcesAPIRequest, to get the users, groups and static data from an API request. The first two will have the same requestURL, all three will have different queryURL. The methods performRequest and requestURL will be the same. Use protocol extensions to give default implemenetations.
