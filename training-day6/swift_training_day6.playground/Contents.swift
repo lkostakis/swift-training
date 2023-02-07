@@ -166,7 +166,7 @@ var carArray = [alfaRomeo, ford, nissan, toyota, fiatScudo]
 // a good practice to keep Car class more readable is to conform to the protocols needed outside of the class
 // as extensions of the particular class, in order to keep code more readable and simple and dont create huge class.
 extension Car : Equatable, Comparable {
-    
+
     static func == (lhs: Car, rhs: Car) -> Bool {
         lhs.name == rhs.name && lhs.manufactureDate == rhs.manufactureDate
     }
@@ -175,7 +175,8 @@ extension Car : Equatable, Comparable {
         if lhs.name != rhs.name {
             return lhs.name < lhs.name
         }
-        // we assume earlier dates are > than later dates. e.g.: 12/1/2020 > 12/2/2020 returns true
+        // we assume earlier dates are > than later dates. e.g.: `12/1/2020 > 12/2/2020` returns true
+        // to adjust it to be earlier dates < later dates, just ``return lhs.manufactureDate < rhs.manufactureDate``
         return lhs.manufactureDate > rhs.manufactureDate
     }
 }
@@ -239,9 +240,83 @@ arrayToDict(strings)
 //Create a protocol APIRequestProtocol, which contains two methods requestURL and performRequest, and the members baseURL and queryURL. The requestURL is a concatenation of baseURL and queryURL the performRequest performs an the http request(You can use a print statement in the function body).
 //Then, we create three classes, UsersAPIRequest, GroupsAPIRequest ResourcesAPIRequest, to get the users, groups and static data from an API request. The first two will have the same requestURL, all three will have different queryURL. The methods performRequest and requestURL will be the same. Use protocol extensions to give default implemenetations.
 
+protocol APIRequestProtocol {
+    var baseURL: String { get }
+    var queryURL: String { get }
+    func requestURL() -> String
+    func performRequest()
+}
+
+extension APIRequestProtocol {
+    func requestURL() -> String {
+        baseURL + queryURL
+    }
+    
+    func performRequest() {
+        print("Fetching requested data from URL: \(requestURL())")
+    }
+}
+
+class UsersAPIRequest : APIRequestProtocol {
+    var baseURL = "https://api.facebook.com/"
+    var queryURL: String
+    
+    init(queryURL: String) {
+        self.queryURL = queryURL
+    }
+}
+
+class GroupsAPIRequest : APIRequestProtocol {
+    var baseURL = "https://api.facebook.com/"
+    var queryURL: String
+    
+    init(queryURL: String) {
+        self.queryURL = queryURL
+    }
+}
+
+class ResourcesAPIRequest : APIRequestProtocol {
+    var baseURL = "https://api.snapchat.com/"
+    var queryURL: String
+    
+    init(queryURL: String) {
+        self.queryURL = queryURL
+    }
+}
+
+let usersRequest = UsersAPIRequest.init(queryURL: "users/friends-only")
+usersRequest.performRequest()
+let groupsRequest = GroupsAPIRequest.init(queryURL: "groups/astronomy")
+groupsRequest.performRequest()
+let resourcesRequest = ResourcesAPIRequest.init(queryURL: "static-data")
+resourcesRequest.performRequest()
+
 //6.9
 //Create a Shareable protocol that inherits from the APIRequestProtocol.
 //It will have a method share that if the current adopter supports textual representation (e.g. CustomStringConvertible)
 //it will share the text using https://example.com/share/text, else if the current instance is UIImage it will share it
 //using https://example.com/share/image
 
+protocol Shareable {
+    func share()
+}
+
+extension Shareable where Self: CustomStringConvertible {
+    func share() {
+        print("Sharing text to: `\(self.description)`.")
+    }
+}
+
+//extension Shareable where Self: UIImage {
+//    func share() {
+//        print("Sharing image.")
+//    }
+//}
+
+extension UsersAPIRequest : CustomStringConvertible, Shareable {
+    var description: String {
+        "https://api.instagram.com/post/123"
+    }
+}
+
+usersRequest.share()
