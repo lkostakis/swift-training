@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var minusButton: UIButton!
@@ -20,8 +19,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func minusOne(_ sender: UIButton) {
+        
+    }
     
+    @IBAction func plusOne(_ sender: UIButton) {
+        
+    }
     
+    @IBAction func reset(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func adjustSlider(_ sender: UISlider) {
+        
+    }
     
 }
 
