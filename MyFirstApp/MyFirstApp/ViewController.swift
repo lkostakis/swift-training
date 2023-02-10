@@ -37,13 +37,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
     private lazy var roundCounter: (counter: Int, label: UILabel) = (0, roundLabel)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         startNextRound()
     }
 
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     
     @IBAction func startNewGame(_ sender: UIButton) {
         let alert = UIAlertController(
-            title: "New Game",
+            title: "Start Over",
             message: "Are you sure you wanna start new game?",
             preferredStyle: .alert)
         
@@ -100,6 +100,13 @@ class ViewController: UIViewController {
     
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
+        print(sliderValue)
+    }
+    
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
+        let aboutViewController = AboutViewController()
+        aboutViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(aboutViewController, animated: true)
     }
     
 }
