@@ -54,6 +54,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start Over"/>
+                                <connections>
+                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTq-e3-hyY"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zDZ-ZP-yCF">
                                 <rect key="frame" x="24" y="326" width="330" height="30"/>
@@ -84,7 +87,8 @@
                     </view>
                     <connections>
                         <outlet property="labelValue" destination="xAc-u8-r4D" id="9Hj-sN-i68"/>
-                        <outlet property="roundLabel" destination="THU-9Y-CtI" id="Ufs-u5-O7w"/>
+                        <outlet property="roundLabel" destination="THU-9Y-CtI" id="3vf-Uf-C2m"/>
+                        <outlet property="scoreLabel" destination="KfS-dG-vTy" id="U5R-V7-8xE"/>
                         <outlet property="slider" destination="zDZ-ZP-yCF" id="Vye-fJ-6ZL"/>
                     </connections>
                 </viewController>
