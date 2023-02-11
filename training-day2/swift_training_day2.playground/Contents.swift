@@ -180,11 +180,10 @@ enum Days: Int {
 // Add a method for converting between them. e.g. TimeUnit.Day.convertTo(TimeUnit.Hour) == 24.0
 
 enum TimeUnit: Int {
-    case Second = 1, Minute = 60, Hour = 3600, Day = 84600, Week = 604800
+    case Second = 1, Minute = 60, Hour = 3600, Day = 86400, Week = 604800
     
     func convertTimeUnit(from fromUnit: TimeUnit, to toUnit: TimeUnit) -> Int? {
-        let result = fromUnit.rawValue / toUnit.rawValue
-        return result
+        fromUnit.rawValue / toUnit.rawValue
     }
     
     func convertTo(_ to: TimeUnit) -> Int? {
@@ -199,47 +198,47 @@ enum TimeUnit: Int {
             }
         case .Second:
             if to == .Second {
-                return 1
+                return convertTimeUnit(from: .Second, to: .Second)
             }
             return nil
         case .Hour:
             if to == .Second {
-                return 86400
+                return convertTimeUnit(from: .Hour, to: .Second)
             } else if to == .Minute {
-                return 60
+                return convertTimeUnit(from: .Hour, to: .Minute)
             } else if to == .Hour {
-                return 1
+                return convertTimeUnit(from: .Hour, to: .Hour)
             } else {
                 return nil
             }
         case .Day:
             if to == .Second {
-                return 86400
+                return convertTimeUnit(from: .Day, to: .Second)
             } else if to == .Minute {
-                return 1440
+                return convertTimeUnit(from: .Day, to: .Minute)
             } else if to == .Hour {
-                return 24
+                return convertTimeUnit(from: .Day, to: .Hour)
             } else if to == .Day {
-                return 1
+                return convertTimeUnit(from: .Day, to: .Day)
             } else {
                 return nil
             }
         case .Week:
             if to == .Second {
-                return 86400*7
+                return convertTimeUnit(from: .Week, to: .Second)
             } else if to == .Minute {
-                return 1440*7
+                return convertTimeUnit(from: .Week, to: .Minute)
             } else if to == .Hour {
-                return 24*7
+                return convertTimeUnit(from: .Week, to: .Hour)
             } else if to == .Day {
-                return 1*7
+                return convertTimeUnit(from: .Week, to: .Day)
             }else {
-                return 1
+                return convertTimeUnit(from: .Week, to: .Week)
             }
         }
     }
 }
-var fromMinuteToSecond = TimeUnit.Minute.convertTo(.Minute)
+var fromMinuteToSecond = TimeUnit.Minute.convertTo(.Second)
 var fromDayToSecond = TimeUnit.Day.convertTo(.Second)
 var fromWeekToDay = TimeUnit.Week.convertTo(.Day)
 var fromWeekToSeconds = TimeUnit.Week.convertTo(.Second)
