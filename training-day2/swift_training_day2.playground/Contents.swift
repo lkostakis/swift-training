@@ -5,8 +5,11 @@ import Foundation
 //2.1 First Numbers
 //Write a function named first that takes an Int named N and returns an array with the first N numbers starting from 1. Use _ to ignore the argument label name.
 
-func first(_ N: Int) -> [Int] {
-    [Int](1...N)
+func first(_ N: Int) -> [Int]? {
+    guard N > 0 else {
+        return nil
+    }
+    return [Int](1...N)
 }
 
 //2.2 Repeat Print
@@ -42,20 +45,20 @@ func split(_ name: String) -> (Substring, Substring) {
 //2.4 Correct Pairs
 //Write a function named verify that takes a string expression of open and closed parentheses ((, )) and returns true if they are correctly paired and false otherwise. They should be equal ( and ) and there should not be more ) than ( at any given time
 
-func verify(_ expr: String) -> Bool {
-    var (countStart, countEnd) = (0,0)
+func verify2(_ expr: String) -> Bool {
+    var counter = 0
     for index in expr.indices {
         if expr[index] == "(" {
-            countStart += 1
+            counter += 1
         }
         if expr[index] == ")" {
-            countEnd += 1
+            counter -= 1
+        }
+        if counter < 0 {
+            return false
         }
     }
-    if countStart == countEnd {
-        return true
-    }
-    return false
+    return counter == 0
 }
 
 //2.5 Queue
