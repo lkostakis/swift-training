@@ -100,7 +100,6 @@ class ViewController: UIViewController {
     
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
-        print(sliderValue)
     }
     
     @IBAction func infoButtonTapped(_ sender: UIButton) {
