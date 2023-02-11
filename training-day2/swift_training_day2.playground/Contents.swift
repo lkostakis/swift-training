@@ -258,31 +258,13 @@ enum MatchResult {
 }
 
 func match(firstPlayer handShape1: HandShape, secondPlayer handShape2: HandShape) -> MatchResult {
-    switch handShape1 {
-    case .paper:
-        if handShape2 == .paper {
-            return .draw
-        } else if handShape2 == .rock {
-            return .win
-        } else {
-            return .lose
-        }
-    case .rock:
-        if handShape2 == .paper {
-            return .lose
-        } else if handShape2 == .rock {
-            return .draw
-        } else {
-            return .win
-        }
-    case .scissors:
-        if handShape2 == .paper {
-            return .win
-        } else if handShape2 == .rock {
-            return .lose
-        } else {
-            return .draw
-        }
+    switch (handShape1, handShape2) {
+    case (.scissors, .paper), (.rock, .scissors), (.paper, .rock):
+        return .win
+    case (.scissors, .rock), (.rock, .paper), (.paper, .scissors):
+        return .lose
+    default:
+        return .draw
     }
 }
 
