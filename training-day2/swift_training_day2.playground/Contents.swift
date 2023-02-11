@@ -179,16 +179,21 @@ enum Days: Int {
 // 10. Create enum of TimeUnit with values Second, Minute, Hour, Day and Week.
 // Add a method for converting between them. e.g. TimeUnit.Day.convertTo(TimeUnit.Hour) == 24.0
 
-enum TimeUnit {
-    case Second, Minute, Hour, Day, Week
+enum TimeUnit: Int {
+    case Second = 1, Minute = 60, Hour = 3600, Day = 84600, Week = 604800
+    
+    func convertTimeUnit(from fromUnit: TimeUnit, to toUnit: TimeUnit) -> Int? {
+        let result = fromUnit.rawValue / toUnit.rawValue
+        return result
+    }
     
     func convertTo(_ to: TimeUnit) -> Int? {
         switch self {
         case .Minute:
             if to == .Second {
-                return 3600
+                return convertTimeUnit(from: .Minute, to: .Second)
             } else if to == .Minute {
-                return 1
+                return convertTimeUnit(from: .Minute, to: .Minute)
             } else {
                 return nil
             }
@@ -234,7 +239,7 @@ enum TimeUnit {
         }
     }
 }
-
+var fromMinuteToSecond = TimeUnit.Minute.convertTo(.Minute)
 var fromDayToSecond = TimeUnit.Day.convertTo(.Second)
 var fromWeekToDay = TimeUnit.Week.convertTo(.Day)
 var fromWeekToSeconds = TimeUnit.Week.convertTo(.Second)
@@ -254,7 +259,7 @@ enum MatchResult {
 }
 
 func match(firstPlayer handShape1: HandShape, secondPlayer handShape2: HandShape) -> MatchResult {
-    switch handShape1{
+    switch handShape1 {
     case .paper:
         if handShape2 == .paper {
             return .draw
@@ -303,10 +308,10 @@ typealias Card = (rank: Rank, suit: Suit)
 var cards: [Card] = []
 
 // Initialize arrays for suites, numbers for cards, facecard symbols
-let suitsArray: [Suit] = [Suit.diamonds, Suit.clubs, Suit.hearts, Suit.spades]
+let suitsArray: [Suit] = [.diamonds, .clubs, .hearts, .spades]
 
 var ranks: [Rank] = [.faceCards("J"), .faceCards("Q"), .faceCards("K"), .faceCards("A")]
-(2..<11).forEach { number in ranks.append(Rank.number(number)) }
+(2..<11).forEach { number in ranks.append(.number(number)) }
 
 // Now create all deck cards, like [Card(faceCards("J"), diamonds), Card({number 2}, spades)]...
 cards = ranks.flatMap { suit in
