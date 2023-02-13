@@ -20,9 +20,7 @@ func repeatPrint(message msg: String, count number: Int = 1) {
     //        print(msg)
     //    }
     //    print("\n")
-    (0..<number).forEach({_ in
-        print(msg)
-    })
+    (0..<number).forEach { _ in print(msg) }
     print("\n")
 }
 
