@@ -186,55 +186,18 @@ enum TimeUnit: Int {
         fromUnit.rawValue / toUnit.rawValue
     }
     
-    func convertTo(_ to: TimeUnit) -> Int? {
+    func convertTo(_ timeUnit: TimeUnit) -> Int? {
         switch self {
         case .Minute:
-            if to == .Second {
-                return convertTimeUnit(from: .Minute, to: .Second)
-            } else if to == .Minute {
-                return convertTimeUnit(from: .Minute, to: .Minute)
-            } else {
-                return nil
-            }
+            return convertTimeUnit(from: .Minute, to: timeUnit)
         case .Second:
-            if to == .Second {
-                return convertTimeUnit(from: .Second, to: .Second)
-            }
-            return nil
+            return convertTimeUnit(from: .Minute, to: timeUnit)
         case .Hour:
-            if to == .Second {
-                return convertTimeUnit(from: .Hour, to: .Second)
-            } else if to == .Minute {
-                return convertTimeUnit(from: .Hour, to: .Minute)
-            } else if to == .Hour {
-                return convertTimeUnit(from: .Hour, to: .Hour)
-            } else {
-                return nil
-            }
+            return convertTimeUnit(from: .Hour, to: timeUnit)
         case .Day:
-            if to == .Second {
-                return convertTimeUnit(from: .Day, to: .Second)
-            } else if to == .Minute {
-                return convertTimeUnit(from: .Day, to: .Minute)
-            } else if to == .Hour {
-                return convertTimeUnit(from: .Day, to: .Hour)
-            } else if to == .Day {
-                return convertTimeUnit(from: .Day, to: .Day)
-            } else {
-                return nil
-            }
+            return convertTimeUnit(from: .Day, to: timeUnit)
         case .Week:
-            if to == .Second {
-                return convertTimeUnit(from: .Week, to: .Second)
-            } else if to == .Minute {
-                return convertTimeUnit(from: .Week, to: .Minute)
-            } else if to == .Hour {
-                return convertTimeUnit(from: .Week, to: .Hour)
-            } else if to == .Day {
-                return convertTimeUnit(from: .Week, to: .Day)
-            }else {
-                return convertTimeUnit(from: .Week, to: .Week)
-            }
+            return convertTimeUnit(from: .Week, to: timeUnit)
         }
     }
 }
