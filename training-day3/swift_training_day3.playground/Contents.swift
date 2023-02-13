@@ -5,13 +5,8 @@ import Foundation
 
 let swifts : [Any] = ["Suzuki Swift", 42, "Taylor Swift", "Maruti Swift", "someValue"]
 
-for element in swifts {
-    if let substring = element as? String {
-        if substring.contains("Swift") {
-            print(substring)
-        }
-    }
-}
+swifts.forEach { element in
+    if let substring = element as? String, substring.contains("Swift") { print(element) } }
 
 //3.1 grading
 //You need to write a function that takes an array of exams grades scores with value from 0 to 100 return the grade character for it (A - F). less or equal to 60 is F and then it uses the next character for each 10 points. Use pattern matching with ranges, the array will contain the grades as Ints or Strings and will contain nil values(you should count them as zero)
