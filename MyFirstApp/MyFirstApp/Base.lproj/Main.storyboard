@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jcq-Ze-g5L">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0co-OS-gb7" userLabel="ActionsView">
-                                <rect key="frame" x="0.0" y="729" width="393" height="89"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0co-OS-gb7" userLabel="ActionsView">
+                                <rect key="frame" x="0.0" y="717" width="428" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQV-Jd-nw3">
-                                        <rect key="frame" x="8" y="27" width="102" height="35"/>
+                                        <rect key="frame" x="8" y="70" width="102" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Start Over"/>
@@ -28,15 +29,8 @@
                                             <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTq-e3-hyY"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" fixedFrame="YES" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfS-dG-vTy">
-                                        <rect key="frame" x="118" y="34" width="107" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-y6-kV9">
-                                        <rect key="frame" x="335" y="27" width="50" height="34"/>
+                                        <rect key="frame" x="370" y="70" width="50" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -44,7 +38,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" fixedFrame="YES" text="Round: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THU-9Y-CtI">
-                                        <rect key="frame" x="228" y="34" width="116" height="21"/>
+                                        <rect key="frame" x="263" y="77" width="109" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" fixedFrame="YES" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfS-dG-vTy">
+                                        <rect key="frame" x="148" y="76" width="107" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -54,22 +55,22 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-pH-3hC" userLabel="ContainerView">
-                                <rect key="frame" x="0.0" y="380.66666666666669" width="393" height="159.66666666666669"/>
+                                <rect key="frame" x="0.0" y="411.66666666666669" width="428" height="159.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Put the Bull's eye as close as you can to:  109" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAc-u8-r4D">
-                                        <rect key="frame" x="5" y="20" width="383" height="21"/>
+                                        <rect key="frame" x="5" y="20" width="418" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-Fl-oXL">
-                                        <rect key="frame" x="8" y="70" width="7.6666666666666679" height="20"/>
+                                        <rect key="frame" x="8" y="69.333333333333314" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVN-rg-p13">
-                                        <rect key="frame" x="146.33333333333334" y="115.00000000000001" width="79" height="39.666666666666671"/>
+                                        <rect key="frame" x="164" y="114.99999999999996" width="79" height="39.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Hit Me!"/>
                                         <connections>
@@ -77,13 +78,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnJ-Ow-h5Z">
-                                        <rect key="frame" x="356" y="69.333333333333314" width="29" height="21"/>
+                                        <rect key="frame" x="391" y="69.333333333333314" width="29" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zDZ-ZP-yCF">
-                                        <rect key="frame" x="19.666666666666657" y="65" width="332.33333333333337" height="31"/>
+                                        <rect key="frame" x="20" y="65" width="367" height="31"/>
                                         <connections>
                                             <action selector="adjustSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="qVd-h3-0Ob"/>
                                         </connections>
@@ -112,12 +113,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0co-OS-gb7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0Dx-6n-D8E"/>
-                            <constraint firstItem="0co-OS-gb7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7aj-eu-r72"/>
+                            <constraint firstItem="o4c-pH-3hC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2or-I4-vIi"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ER8-pv-tqB"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IQK-6j-zoT"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YaH-pf-hkT"/>
-                            <constraint firstItem="0co-OS-gb7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kHu-HN-EHE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vQ0-3h-Xyh"/>
@@ -130,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500" y="-2957.7464788732395"/>
+            <point key="canvasLocation" x="-1319.1588785046729" y="-2957.2354211663069"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O65-SZ-clt">
@@ -138,7 +137,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jcq-Ze-g5L" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YEP-op-uwo">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

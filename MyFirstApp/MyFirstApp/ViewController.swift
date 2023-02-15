@@ -40,6 +40,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Bull's Eye"
+
+        navigationController?.navigationBar.backgroundColor = .systemGray6
+        navigationItem.rightBarButtonItem
+        = UIBarButtonItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), target: self, action: #selector(settingsTapped))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +111,13 @@ class ViewController: UIViewController {
         let aboutViewController = AboutViewController()
         aboutViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(aboutViewController, animated: true)
+    }
+    
+    @objc func settingsTapped() {
+        print("tapped")
+        let settingsViewController = SettingsViewController()
+        settingsViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
 }
