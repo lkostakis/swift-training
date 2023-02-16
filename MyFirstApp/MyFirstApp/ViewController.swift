@@ -19,10 +19,10 @@ class ViewController: UIViewController {
         
         static func toString(_ selectedLevel: Int) -> String {
             switch selectedLevel {
-            case 30: return "I'm too young to die (1-30)"
-            case 100: return "Hey, not too rough (1-100)"
-            case 200: return "Hurt me plenty (1-200)"
-            case 300: return "Ultra-Violence (1-300)"
+            case tooYoungToDie.rawValue: return "I'm too young to die (1-30)"
+            case heyNotTooRough.rawValue: return "Hey, not too rough (1-100)"
+            case hurtMePlenty.rawValue: return "Hurt me plenty (1-200)"
+            case ultraViolence.rawValue: return "Ultra-Violence (1-300)"
             default: return "Nightmare! (1-1000)"
             }
         }
