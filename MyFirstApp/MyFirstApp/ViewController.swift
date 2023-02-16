@@ -16,12 +16,24 @@ class ViewController: UIViewController {
     
     enum DifficultyLevel : Int {
         case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
+        
+        static func toString(_ selectedLevel: Int) -> String {
+            switch selectedLevel {
+            case 30: return "I'm too young to die (1-30)"
+            case 100: return "Hey, not too rough (1-100)"
+            case 200: return "Hurt me plenty (1-200)"
+            case 300: return "Ultra-Violence (1-300)"
+            default: return "Nightmare! (1-1000)"
+            }
+        }
     }
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
     // but if user changes the difficulty level then
-    // re-init score and round counters to zero.
+    // re-init score and round counters to zero, etc.
+    // so here we place only the things that are change
+    // when difficulty level changes.
     var selectedLevel = DifficultyLevel.heyNotTooRough.rawValue {
         didSet {
             if selectedLevel != oldValue {
@@ -31,6 +43,8 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var maxValueLabel: UILabel! // maximum label based on difficulty level
     @IBOutlet weak var labelValue: UILabel!  // container title
     @IBOutlet weak var slider: UISlider! // helping var in order to set slider at 50
@@ -56,8 +70,9 @@ class ViewController: UIViewController {
     }
 
     private final func startNextRound() {
-        maxValueLabel.text = String(selectedLevel) // set maximum value label
+        levelLabel.text = "Level: \(DifficultyLevel.toString(selectedLevel))"
         slider.maximumValue = Float(selectedLevel) // set slider's maximum value
+        maxValueLabel.text = String(Int(slider.maximumValue))
         slider.value = Float(selectedLevel/2) // init the slider to the middle
         roundCounter.counter += 1 // to the next round..
         roundCounter.label.text = "Round: \(roundCounter.counter)"  // set text labels for round, score

@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
     var viewController: ViewController?
     private var currentLevel: Int?
     private let difficultyRanges = [30, 100, 200, 300, 1000]
-    private let pickerViewRows = ["I'm too young to die (1-30)", "Hey, not too rough (1-100)", "Hurt me plenty (1-200)", "Ultra-Violence (1-300)", "Nightmare!  (1-1000)"]
+    private let pickerViewRows = ["I'm too young to die (1-30)", "Hey, not too rough (1-100)", "Hurt me plenty (1-200)", "Ultra-Violence (1-300)", "Nightmare! (1-1000)"]
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         self.pickerViewRows.count
@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
