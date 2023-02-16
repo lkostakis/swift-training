@@ -12,21 +12,33 @@ class ViewController: UIViewController {
     enum DifficultyLevel : Int {
         case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
     }
-    
-    private static var selectedLevel = DifficultyLevel.heyNotTooRough.rawValue // default level is 1-100 "hey not too rough"
+    // default level is 1-100 "hey not too rough"
+    // also if the difficulty level is not changed
+    // remember the score and round counters
+    // but if user changes the difficulty level then
+    // re-init score and round counters to zero.
+    var selectedLevel = DifficultyLevel.heyNotTooRough.rawValue {
+        didSet {
+            if selectedLevel != oldValue {
+                self.roundCounter.counter = 0
+                self.totalScore.total = 0
+                self.startNextRound()
+            }
+        }
+    }
     @IBOutlet weak var maxValueLabel: UILabel! // maximum label based on difficulty level
     @IBOutlet weak var labelValue: UILabel!  // container title
     @IBOutlet weak var slider: UISlider! // helping var in order to set slider at 50
-    private static var sliderValue = ViewController.selectedLevel // set sliderValue based on difficulty
+    private lazy var sliderValue = selectedLevel // set sliderValue based on difficulty
     private var targetValue: Int = 0 // target value
     // calculate the scores for all levels in scale from 1 to 100
     private var computeScore: Int {
-        get { (ViewController.selectedLevel - abs(Int(slider.value) - targetValue))*100/ViewController.selectedLevel }}
+        get { (selectedLevel - abs(Int(slider.value) - targetValue))*100/selectedLevel }}
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
     private lazy var roundCounter: (counter: Int, label: UILabel) = (0, roundLabel)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // these things has to be initialized just once in whole app lifecycle
@@ -38,14 +50,14 @@ class ViewController: UIViewController {
         startNextRound()
     }
 
-    final func startNextRound() {
-        maxValueLabel.text = String(ViewController.selectedLevel) // set maximum value label
-        slider.maximumValue = Float(ViewController.selectedLevel) // set slider's maximum value
-        slider.value = Float(ViewController.selectedLevel/2) // init the slider to the middle
+    private final func startNextRound() {
+        maxValueLabel.text = String(selectedLevel) // set maximum value label
+        slider.maximumValue = Float(selectedLevel) // set slider's maximum value
+        slider.value = Float(selectedLevel/2) // init the slider to the middle
         roundCounter.counter += 1 // to the next round..
         roundCounter.label.text = "Round: \(roundCounter.counter)"  // set text labels for round, score
         totalScore.label.text = "Score: \(totalScore.total)"
-        targetValue = Int.random(in: 1...ViewController.selectedLevel) // set target value based on difficulty level
+        targetValue = Int.random(in: 1...selectedLevel) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
     }
 
@@ -92,9 +104,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func adjustSlider(_ sender: UISlider) {
-        ViewController.sliderValue = Int(sender.value)
+        sliderValue = Int(sender.value)
     }
-    
+
     @IBAction func infoButtonTapped(_ sender: UIButton) {
         let aboutViewController = AboutViewController()
         aboutViewController.modalPresentationStyle = .fullScreen
@@ -102,8 +114,7 @@ class ViewController: UIViewController {
     }
     
     @objc func settingsTapped() {
-        print("tapped")
-        let settingsViewController = SettingsViewController(currentLevel: ViewController.selectedLevel)
+        let settingsViewController = SettingsViewController(currentLevel: selectedLevel, controller: self)
         settingsViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
