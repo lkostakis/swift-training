@@ -10,16 +10,18 @@ import UIKit
 class ViewController: UIViewController {
     
     enum DifficultyLevel : Int {
-        case easy = 30, medium = 100, hard = 200, veryHard = 300, ultraHard = 1000
+        case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
     }
-    private var selectedLevel = DifficultyLevel.medium.rawValue
-    @IBOutlet weak var maxValueLabel: UILabel!
-    @IBOutlet weak var labelValue: UILabel!
+    
+    private static var selectedLevel = DifficultyLevel.heyNotTooRough.rawValue // default level is 1-100 "hey not too rough"
+    @IBOutlet weak var maxValueLabel: UILabel! // maximum label based on difficulty level
+    @IBOutlet weak var labelValue: UILabel!  // container title
     @IBOutlet weak var slider: UISlider! // helping var in order to set slider at 50
-    private lazy var sliderValue = selectedLevel
-    private var targetValue: Int = 0
+    private static var sliderValue = ViewController.selectedLevel // set sliderValue based on difficulty
+    private var targetValue: Int = 0 // target value
+    // calculate the scores for all levels in scale from 1 to 100
     private var computeScore: Int {
-        get { (selectedLevel - abs(Int(slider.value) - targetValue))*100/selectedLevel }}
+        get { (ViewController.selectedLevel - abs(Int(slider.value) - targetValue))*100/ViewController.selectedLevel }}
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
@@ -27,27 +29,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // these things has to be initialized just once in whole app lifecycle
         title = "Bull's Eye"
-
+        slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
         navigationItem.rightBarButtonItem
         = UIBarButtonItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), target: self, action: #selector(settingsTapped))
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         startNextRound()
     }
-    
-    func startNextRound() {
-        maxValueLabel.text = String(selectedLevel)
-        slider.maximumValue = Float(selectedLevel)
-        slider.minimumValue = 1
-        slider.value = Float(selectedLevel/2) // init the slider to the middle
+
+    final func startNextRound() {
+        maxValueLabel.text = String(ViewController.selectedLevel) // set maximum value label
+        slider.maximumValue = Float(ViewController.selectedLevel) // set slider's maximum value
+        slider.value = Float(ViewController.selectedLevel/2) // init the slider to the middle
         roundCounter.counter += 1 // to the next round..
-        roundCounter.label.text = "Round: \(roundCounter.counter)"
+        roundCounter.label.text = "Round: \(roundCounter.counter)"  // set text labels for round, score
         totalScore.label.text = "Score: \(totalScore.total)"
-        targetValue = Int.random(in: 1...selectedLevel)
+        targetValue = Int.random(in: 1...ViewController.selectedLevel) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
     }
 
@@ -94,8 +92,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func adjustSlider(_ sender: UISlider) {
-        sliderValue = Int(sender.value)
-//        print(sliderValue)
+        ViewController.sliderValue = Int(sender.value)
     }
     
     @IBAction func infoButtonTapped(_ sender: UIButton) {
@@ -106,7 +103,7 @@ class ViewController: UIViewController {
     
     @objc func settingsTapped() {
         print("tapped")
-        let settingsViewController = SettingsViewController(currentLevel: selectedLevel)
+        let settingsViewController = SettingsViewController(currentLevel: ViewController.selectedLevel)
         settingsViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
