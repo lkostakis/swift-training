@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ViewControllerData {
+    var viewController: ViewController? { get set }
+    func changeLevel()
+}
+
 class ViewController: UIViewController {
     
     enum DifficultyLevel : Int {

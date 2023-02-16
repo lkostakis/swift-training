@@ -7,10 +7,9 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    private var viewController: ViewController?
-    private var currentLevel = 0
+class SettingsViewController: UIViewController, ViewControllerData, UIPickerViewDelegate, UIPickerViewDataSource {
+    var viewController: ViewController?
+    private var currentLevel: Int?
     private let difficultyRanges = [30, 100, 200, 300, 1000]
     private let pickerViewRows = ["I'm too young to die (1-30)", "Hey, not too rough (1-100)", "Hurt me plenty (1-200)", "Ultra-Violence (1-300)", "Nightmare!  (1-1000)"]
     
@@ -43,12 +42,15 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerView.delegate = self
         pickerView.dataSource = self
         // There is no chance that currentLevel is not contained in the array
-        pickerView.selectRow(difficultyRanges.firstIndex(of: currentLevel)!, inComponent: 0, animated: true)
+        pickerView.selectRow(difficultyRanges.firstIndex(of: currentLevel ?? 1)!, inComponent: 0, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print(pickerView.selectedRow(inComponent: 0))
-        viewController?.selectedLevel = difficultyRanges[pickerView.selectedRow(inComponent: 0)]
+        changeLevel()
     }
     
+    func changeLevel() {
+        viewController?.selectedLevel = difficultyRanges[pickerView.selectedRow(inComponent: 0)]
+    }
+
 }
