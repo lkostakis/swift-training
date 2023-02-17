@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController, ViewControllerData, UIPickerViewDelegate, UIPickerViewDataSource {
     var viewController: ViewController?
-    private var currentLevel: Int?
+    var currentLevel: Int?
     private let difficultyRanges = [30, 100, 200, 300, 1000]
     private let pickerViewRows = ["I'm too young to die (1-30)", "Hey, not too rough (1-100)", "Hurt me plenty (1-200)", "Ultra-Violence (1-300)", "Nightmare! (1-1000)"]
     
@@ -25,6 +25,8 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
         self.pickerViewRows[row]
     }
     @IBOutlet weak var pickerView: UIPickerView!
+    static let shared = SettingsViewController()
+    private init() { }
     
     init(currentLevel level: Int, controller: ViewController) {
         self.currentLevel = level
@@ -50,7 +52,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
     }
     
     func changeLevel() {
-        viewController?.selectedLevel = difficultyRanges[pickerView.selectedRow(inComponent: 0)]
+        viewController?.selectedLevel.rawValue = difficultyRanges[pickerView.selectedRow(inComponent: 0)]
     }
 
 }
