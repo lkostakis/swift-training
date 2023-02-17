@@ -23,13 +23,14 @@ class ViewController: UIViewController {
     var selectedLevel = SettingsViewController.DifficultyLevel.heyNotTooRough {
         didSet {
             if selectedLevel != oldValue {
+                HighScoreViewController.highScoreTable = [0]
                 self.roundCounter.counter = 0
                 self.totalScore.total = 0
                 self.startNextRound()
             }
         }
     }
-    var highScoreViewController: HighScoreViewController = HighScoreViewController()
+
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var maxValueLabel: UILabel! // maximum label based on difficulty level
     @IBOutlet weak var labelValue: UILabel!  // container title
@@ -98,8 +99,8 @@ class ViewController: UIViewController {
             handler: { _ in
                 ViewController.tempScore = self.totalScore.total
                 print("Self score: \(ViewController.tempScore)")
-                if HighScoreViewController.ifHighScore() {
-                    self.showHighScoreModal(position: self.highScoreViewController.place)
+                if let place = HighScoreViewController.ifHighScore(), place < 3 {
+                    self.showHighScoreModal(position: place)
                 }
                 self.roundCounter.counter = 0
                 self.totalScore.total = 0
@@ -115,11 +116,9 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     func showHighScoreModal(position place: Int) {
-        print(self.highScoreViewController.place)
-        print(SettingsViewController.shared.currentLevel!)
-//        let highScoreViewController = HighScoreViewController()
+        let highScoreViewController = HighScoreViewController(position: place, difficulty: selectedLevel.toString())
 
-        navigationController?.pushViewController(self.highScoreViewController, animated: true)
+        navigationController?.pushViewController(highScoreViewController, animated: true)
 
 //        let highScoreViewController = HighScoreViewController(position: place, difficulty: ViewController().selectedLevel.toString())
 //        let highScoreViewController = HighScoreViewController()
