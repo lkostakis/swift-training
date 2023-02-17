@@ -57,7 +57,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
     private lazy var roundCounter: (counter: Int, label: UILabel) = (0, roundLabel)
-
+    private var highScoreTable: [Int] = [0, 0, 0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // these things has to be initialized just once in whole app lifecycle
@@ -109,6 +110,7 @@ class ViewController: UIViewController {
             title: "OK",
             style: .default,
             handler: { _ in
+                self.checkForHighScore()
                 self.roundCounter.counter = 0
                 self.totalScore.total = 0
                 self.startNextRound()
@@ -121,6 +123,34 @@ class ViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func checkForHighScore() {
+        // assuming whoever does a highscore first he wins in draw case
+        if let minValue = highScoreTable.sorted().min(), minValue < totalScore.total {
+            // we can use force unwrap since the array always has a min value the way we initialezed it
+            let place = highScoreTable.firstIndex(of: minValue)! // 0, 1 or 2
+            highScoreTable[place] = totalScore.total
+            showHighScoreModal(position: place)
+        }
+    }
+    
+    func showHighScoreModal(position place: Int) {
+//        let alert = UIAlertController(
+//            title: "High Score Table",
+//            message: "Congratulations you have achieved a top \(place+1) score in \(DifficultyLevel.toString(selectedLevel)) difficulty.",
+//            preferredStyle: .alert)
+//
+//        let cancelAction = UIAlertAction(
+//            title: "close",
+//            style: .destructive)
+//
+//        alert.addAction(cancelAction)
+//        present(alert, animated: true, completion: nil)
+        let highScoreViewController = HighScoreViewController()
+//        highScoreViewController.modalPresentationStyle = .none
+        navigationController?.pushViewController(highScoreViewController, animated: true)
+        
     }
     
     @IBAction func adjustSlider(_ sender: UISlider) {

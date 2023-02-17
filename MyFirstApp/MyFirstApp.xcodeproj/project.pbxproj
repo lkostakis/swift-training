@@ -15,6 +15,8 @@
 		FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45729928A08009A937A /* LaunchScreen.storyboard */; };
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
+		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
+		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
 		FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4B91229968BCA00B1D29E /* AboutViewController.xib */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,8 @@
 		FC04E45A29928A08009A937A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FCD4B91229968BCA00B1D29E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +71,8 @@
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
 				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
 				FC04E45029928A06009A937A /* ViewController.swift */,
+				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
+				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
 				FCD4B91129968BCA00B1D29E /* AboutViewController.swift */,
 				FC04E45529928A08009A937A /* Assets.xcassets */,
 				FC04E45229928A06009A937A /* Main.storyboard */,
@@ -142,6 +148,7 @@
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
 				FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */,
+				FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +164,7 @@
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
+				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
