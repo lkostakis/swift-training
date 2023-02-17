@@ -13,30 +13,6 @@ protocol ViewControllerData {
 }
 
 class ViewController: UIViewController {
-    
-    enum DifficultyLevel : Int {
-        case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
-        
-        func toString2() -> String {
-            switch self {
-            case .tooYoungToDie: return "I'm too young to die (1-30)"
-            case .heyNotTooRough: return "Hey, not too rough (1-100)"
-            case .hurtMePlenty: return "Hurt me plenty (1-200)"
-            case .ultraViolence: return "Ultra-Violence (1-300)"
-            case .nightmare: return "Nightmare! (1-1000)"
-            }
-        }
-//        static func toString(_ selectedLevel: Int) -> String {
-//            switch selectedLevel {
-//            case tooYoungToDie.rawValue: return "I'm too young to die (1-30)"
-//            case heyNotTooRough.rawValue: return "Hey, not too rough (1-100)"
-//            case hurtMePlenty.rawValue: return "Hurt me plenty (1-200)"
-//            case ultraViolence.rawValue: return "Ultra-Violence (1-300)"
-//            case nightmare.rawValue: return "Nightmare! (1-1000)"
-//            default: return ""
-//            }
-//        }
-    }
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
@@ -44,7 +20,7 @@ class ViewController: UIViewController {
     // re-init score and round counters to zero, etc.
     // so here we place only the things that are change
     // when difficulty level changes.
-    var selectedLevel: DifficultyLevel = DifficultyLevel.heyNotTooRough {
+    var selectedLevel = SettingsViewController.DifficultyLevel.heyNotTooRough {
         didSet {
             if selectedLevel != oldValue {
                 self.roundCounter.counter = 0
@@ -53,7 +29,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    var highScoreViewController: HighScoreViewController = HighScoreViewController()
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var maxValueLabel: UILabel! // maximum label based on difficulty level
     @IBOutlet weak var labelValue: UILabel!  // container title
@@ -66,8 +42,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
+    static var tempScore = 0
     private lazy var roundCounter: (counter: Int, label: UILabel) = (0, roundLabel)
-    private var highScoreTable: [Int] = [0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +57,7 @@ class ViewController: UIViewController {
     }
 
     private final func startNextRound() {
-        levelLabel.text = "Level: \(selectedLevel.toString2())"
+        levelLabel.text = "Level: \(selectedLevel.toString())"
         slider.maximumValue = Float(selectedLevel.rawValue) // set slider's maximum value
         maxValueLabel.text = String(Int(slider.maximumValue))
         slider.value = Float(selectedLevel.rawValue/2) // init the slider to the middle
@@ -120,7 +96,11 @@ class ViewController: UIViewController {
             title: "OK",
             style: .default,
             handler: { _ in
-                self.checkForHighScore()
+                ViewController.tempScore = self.totalScore.total
+                print("Self score: \(ViewController.tempScore)")
+                if HighScoreViewController.ifHighScore() {
+                    self.showHighScoreModal(position: self.highScoreViewController.place)
+                }
                 self.roundCounter.counter = 0
                 self.totalScore.total = 0
                 self.startNextRound()
@@ -134,38 +114,17 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
-    
-    func checkForHighScore() {
-        // assuming whoever does a highscore first he wins in draw case
-        if let minValue = highScoreTable.min(), let place = highScoreTable.firstIndex(of: minValue), minValue < totalScore.total {
-            print("min val: \(minValue)")
-            print("min index: \(place)")
-            if !highScoreTable.isEmpty {
-                if place != 0 {
-                    highScoreTable.insert(totalScore.total, at: highScoreTable.index(before: place))
-                    if highScoreTable.count>3 { highScoreTable.remove(at: highScoreTable.endIndex) }
-                } else {
-                    var temp = highScoreTable[0]
-                    highScoreTable[0] = totalScore.total
-                    highScoreTable.insert(temp, at: highScoreTable.index(after: 0))
-                    if highScoreTable.count>3 { highScoreTable.remove(at: highScoreTable.endIndex) }
-                }
-            } else {
-                print("hey")
-                highScoreTable[0] = totalScore.total
-            }
-            
-            showHighScoreModal(position: place+1)
-        }
-        highScoreTable.sort(by: { $0 > $1 })
-        print(highScoreTable)
-    }
-    
     func showHighScoreModal(position place: Int) {
-        print(place)
-        let highScoreViewController = HighScoreViewController(position: place, difficulty: selectedLevel.toString2())
-//        highScoreViewController.modalPresentationStyle = .none
-        navigationController?.pushViewController(highScoreViewController, animated: true)
+        print(self.highScoreViewController.place)
+        print(SettingsViewController.shared.currentLevel!)
+//        let highScoreViewController = HighScoreViewController()
+
+        navigationController?.pushViewController(self.highScoreViewController, animated: true)
+
+//        let highScoreViewController = HighScoreViewController(position: place, difficulty: ViewController().selectedLevel.toString())
+//        let highScoreViewController = HighScoreViewController()
+//        // Present it
+//        present(highScoreViewController, animated: true, completion: nil)
     }
     
     @IBAction func adjustSlider(_ sender: UISlider) {
@@ -178,7 +137,6 @@ class ViewController: UIViewController {
     }
     
     @objc func settingsTapped() {
-//        let settingsViewController = SettingsViewController(currentLevel: selectedLevel.rawValue, controller: self)
         SettingsViewController.shared.currentLevel = selectedLevel.rawValue
         SettingsViewController.shared.viewController = self
         navigationController?.pushViewController(SettingsViewController.shared, animated: true)
