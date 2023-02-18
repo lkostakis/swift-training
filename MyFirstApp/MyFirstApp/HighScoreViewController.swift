@@ -10,7 +10,7 @@ import UIKit
 class HighScoreViewController: UIViewController {
 
     @IBOutlet weak var message: UILabel!
-    static var highScoreTable: [SettingsViewController.DifficultyLevel : [Int]] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
+    private static var highScoreTable: [SettingsViewController.DifficultyLevel : [Int]] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
     private var place: Int = 0
     private var level: String = ViewController().selectedLevel.toString()
     
@@ -30,43 +30,37 @@ class HighScoreViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        message.font = UIFont.boldSystemFont(ofSize: 20)
         message.text = "Congratulations you have achieved a top \(place) score in \(level) difficulty."
     }
     
     // check if is highScore based on score and level and return the position
     static func checkHighScorePosition(_ score: Int, in level: SettingsViewController.DifficultyLevel) -> Int? {
-        let scoreInLevel = HighScoreViewController.highScoreTable[level]!
+        guard HighScoreViewController.highScoreTable[level] != nil else {
+            return nil
+        }
         
+        if HighScoreViewController.highScoreTable[level]!.isEmpty {
+            HighScoreViewController.highScoreTable[level]!.insert(score, at: HighScoreViewController.highScoreTable[level]!.startIndex)
+            return 1
+        }
         
-        return 0
+        let boolArray = HighScoreViewController.highScoreTable[level]!.map { $0 < score }
+        if let index = boolArray.firstIndex(where: { $0 == true }) {
+            HighScoreViewController.highScoreTable[level]!.insert(score, at: index)
+            if HighScoreViewController.highScoreTable[level]!.count > 3 {
+                HighScoreViewController.highScoreTable[level]!.remove(at: HighScoreViewController.highScoreTable[level]!.endIndex-1)
+            }
+            HighScoreViewController.highScoreTable[level]!.sort(by: { $0 > $1 })
+            return index+1
+        } else {
+            if HighScoreViewController.highScoreTable[level]!.count < 3 {
+                HighScoreViewController.highScoreTable[level]!.insert(score, at: HighScoreViewController.highScoreTable[level]!.endIndex-1)
+                HighScoreViewController.highScoreTable[level]!.sort(by: { $0 > $1 })
+                return HighScoreViewController.highScoreTable[level]!.endIndex
+            }
+        }
+        return nil
     }
-//    static func getHighScorePosition() -> Int? {
-//        let score = ViewController.tempScore
-//        // assuming whoever does a highscore first he wins in draw case
-//        if let minValue = highScoreTable.min(), let place = highScoreTable.firstIndex(of: minValue), minValue < score {
-//            print("min val: \(minValue)")
-//            print("min index: \(place)")
-//            if !highScoreTable.isEmpty {
-//                if place != 0 {
-//                    highScoreTable.insert(score, at: highScoreTable.index(before: place))
-//                    if highScoreTable.count>3 { highScoreTable.remove(at: highScoreTable.endIndex) }
-//                } else {
-//                    let temp = highScoreTable[0]
-//                    highScoreTable[0] = score
-//                    highScoreTable.insert(temp, at: highScoreTable.index(after: 0))
-//                    if highScoreTable.count>3 { highScoreTable.remove(at: highScoreTable.endIndex) }
-//                }
-//            } else {
-//                print("hey")
-//                highScoreTable[0] = score
-//            }
-//            highScoreTable.sort(by: { $0 > $1 })
-//            print(highScoreTable)
-//            return place
-//        }
-//        highScoreTable.sort(by: { $0 > $1 })
-//        print(highScoreTable)
-//        return nil
-//    }
 
 }

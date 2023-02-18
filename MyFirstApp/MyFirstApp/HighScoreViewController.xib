@@ -20,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zn4-wq-upY">
-                    <rect key="frame" x="0.0" y="247.66666666666669" width="428" height="152.66666666666669"/>
+                    <rect key="frame" x="0.0" y="246.33333333333337" width="428" height="155.66666666666663"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Ov-OxK">
-                            <rect key="frame" x="8" y="84.000000000000028" width="412" height="37"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Ov-OxK">
+                            <rect key="frame" x="8" y="86.999999999999972" width="412" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="ktL-bz-Mez"/>
                             </constraints>
@@ -32,11 +32,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score Table" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-SK-PNZ">
-                            <rect key="frame" x="131" y="28.000000000000028" width="166" height="21"/>
+                            <rect key="frame" x="131" y="27.999999999999972" width="166" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="166" id="IKY-nM-4XP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" systemColor="systemBlueColor"/>
                             <nil key="highlightedColor"/>
                         </label>
