@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     var selectedLevel = SettingsViewController.DifficultyLevel.heyNotTooRough {
         didSet {
             if selectedLevel != oldValue {
-                HighScoreViewController.highScoreTable = [0]
                 self.roundCounter.counter = 0
                 self.totalScore.total = 0
                 self.startNextRound()
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     private lazy var totalScore: (total: Int, label: UILabel) = (0, scoreLabel)
-    static var tempScore = 0
     private lazy var roundCounter: (counter: Int, label: UILabel) = (0, roundLabel)
     
     override func viewDidLoad() {
@@ -52,8 +50,12 @@ class ViewController: UIViewController {
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
-        navigationItem.rightBarButtonItem
-        = UIBarButtonItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), target: self, action: #selector(settingsTapped))
+        navigationItem.rightBarButtonItem =
+        UIBarButtonItem(
+            title: nil,
+            image: UIImage(named: "znsNtvIconSettings"),
+            target: self,
+            action: #selector(settingsTapped))
         startNextRound()
     }
 
@@ -97,9 +99,7 @@ class ViewController: UIViewController {
             title: "OK",
             style: .default,
             handler: { _ in
-                ViewController.tempScore = self.totalScore.total
-                print("Self score: \(ViewController.tempScore)")
-                if let place = HighScoreViewController.ifHighScore(), place < 3 {
+                if let place = HighScoreViewController.checkHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
                     self.showHighScoreModal(position: place)
                 }
                 self.roundCounter.counter = 0
@@ -115,17 +115,12 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+
     func showHighScoreModal(position place: Int) {
         let highScoreViewController = HighScoreViewController(position: place, difficulty: selectedLevel.toString())
-
         navigationController?.pushViewController(highScoreViewController, animated: true)
-
-//        let highScoreViewController = HighScoreViewController(position: place, difficulty: ViewController().selectedLevel.toString())
-//        let highScoreViewController = HighScoreViewController()
-//        // Present it
-//        present(highScoreViewController, animated: true, completion: nil)
     }
-    
+
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
     }
@@ -134,7 +129,7 @@ class ViewController: UIViewController {
         let aboutViewController = AboutViewController()
         navigationController?.pushViewController(aboutViewController, animated: true)
     }
-    
+
     @objc func settingsTapped() {
         SettingsViewController.shared.currentLevel = selectedLevel.rawValue
         SettingsViewController.shared.viewController = self
