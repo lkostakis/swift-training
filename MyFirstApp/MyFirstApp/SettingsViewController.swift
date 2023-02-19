@@ -12,17 +12,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
     
     enum DifficultyLevel : Int, CaseIterable {
         case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
-        
-        // helping function to get case from Int param
-        static func getCaseFromInt(difficulty level: Int) -> DifficultyLevel {
-            switch level {
-            case 30: return .tooYoungToDie
-            case 100: return .heyNotTooRough
-            case 200: return .hurtMePlenty
-            case 300: return .ultraViolence
-            default: return .nightmare
-            }
-        }
+
         // helping function to get string based on case
         func toString() -> String {
             switch self {
@@ -33,6 +23,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
             case .nightmare: return "Nightmare! (1-1000)"
             }
         }
+
     }
     
     var viewController: ViewController?
@@ -72,8 +63,9 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
         changeLevel()
     }
     
-    func changeLevel() {
-        viewController?.selectedLevel = DifficultyLevel.getCaseFromInt(difficulty: difficultyArray[pickerView.selectedRow(inComponent: 0)])
+    final func changeLevel() {
+        // can safely use force-unwrap as pickerView already has data in component 0
+        viewController?.selectedLevel = DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)])!
     }
 
 }

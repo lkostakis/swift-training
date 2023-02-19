@@ -37,7 +37,7 @@ class HighScoreViewController: UIViewController {
         message.font = UIFont.boldSystemFont(ofSize: 20)
         message.text = "Congratulations you have achieved a top \(place) score in \(level.toString()) difficulty."
         [topScore1, topScore2, topScore3].enumerated().forEach { (index, label) in
-            label!.text = "\(index + 1). Score: \(HighScoreViewController.highScoreTable[level]![safe: index] ?? 0)" }
+            label!.text = "\(index + 1). Score: \(HighScoreViewController.highScoreTable[level]?[safe: index] ?? 0)" }
     }
 
     // check if is highScore based on score and level and return the position
@@ -55,6 +55,10 @@ class HighScoreViewController: UIViewController {
             return position+1
         }
         return nil
+    }
+
+    @IBAction func closeTapped(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 
 }

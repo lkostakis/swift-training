@@ -119,7 +119,7 @@ class ViewController: UIViewController {
     func showHighScoreModal(position place: Int) {
         HighScoreViewController.shared.place = place
         HighScoreViewController.shared.level = selectedLevel
-        navigationController?.pushViewController(HighScoreViewController.shared, animated: true)
+        present(HighScoreViewController.shared, animated: true, completion: nil)
     }
 
     @IBAction func adjustSlider(_ sender: UISlider) {
