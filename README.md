@@ -13,7 +13,7 @@ In order to organize our app's code to maintain it as concise, scalable, yet rea
 
 ViewController is the main screen and cooperates with all other view controllers. AboutViewController is the most simple as it only contains the game's objective. SettingsViewController is implemented as a Singleton design pattern since it is critical to ensure that only one instance of the class exists, as the difficulty level across the app is universal. In other words, it is an application-level functionality. The same goes for HighScoreViewController, as the score table should remain the same and track scores for all levels for the entire lifecycle of a game.
 
-That being said, to maintain the code concise, many concepts of the Swift language were used, such as Extension, Protocol, Enum. Moreover, higher-order functions were used widely. Also, static/lazy/private/final declarations were used to make the app more scalable for future improvements/additions.
+That being said, to maintain the code concise, many concepts of the Swift language were used, such as Extension, Protocol, Enum. Moreover, higher-order functions were used widely. Also, static/lazy/private/final declarations were used to make the app more scalable for future improvements/additions. In addition, force-unwrapping was used only in times where it was sure it won't cause any problems.
 
 For all the screen views of the app, constraints were added to maintain the quality of the experience the same across all the different screen sizes, and all contents are evenly divided on the screen.
 
