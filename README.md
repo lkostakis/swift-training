@@ -17,5 +17,9 @@ That being said, to maintain the code concise, many concepts of the Swift langua
 
 For all the screen views of the app, constraints were added to maintain the quality of the experience the same across all the different screen sizes, and all contents are evenly divided on the screen.
 
+## Key features
+* When user goes to settings and change the difficulty level, picker view is already showing the current difficulty level.
+* When user modifies the slider and press settings button (info button also) and returns back without making any change to the level of the difficulty the screen view is not re-rendering all the components. That means, target value, already modified slider value and score/round counters remain the same.
+
 ## Contributors
 * [Lefteris Kostakis](https://github.com/terrys48)
