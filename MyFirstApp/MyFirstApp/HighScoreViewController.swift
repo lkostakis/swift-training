@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        indices.contains(index) ? self[index] : nil
+    }
+}
+
 class HighScoreViewController: UIViewController {
     static let shared = HighScoreViewController()
     @IBOutlet weak var message: UILabel!
@@ -30,8 +36,8 @@ class HighScoreViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
         message.text = "Congratulations you have achieved a top \(place) score in \(level.toString()) difficulty."
-        let scoresArray = HighScoreViewController.highScoreTable[SettingsViewController.DifficultyLevel.getCaseFromInt(difficulty: 100)]!
-        zip([topScore1, topScore2, topScore3], scoresArray).map { $0?.text = (String($1)) }
+        [topScore1, topScore2, topScore3].enumerated().forEach { (index, label) in
+            label!.text = "\(index + 1). Score: \(HighScoreViewController.highScoreTable[level]![safe: index] ?? 0)" }
     }
 
     // check if is highScore based on score and level and return the position
