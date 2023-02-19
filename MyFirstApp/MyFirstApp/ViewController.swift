@@ -118,7 +118,7 @@ class ViewController: UIViewController {
 
     func showHighScoreModal(position place: Int) {
         HighScoreViewController.shared.place = place
-        HighScoreViewController.shared.level = selectedLevel.toString()
+        HighScoreViewController.shared.level = selectedLevel
         navigationController?.pushViewController(HighScoreViewController.shared, animated: true)
     }
 

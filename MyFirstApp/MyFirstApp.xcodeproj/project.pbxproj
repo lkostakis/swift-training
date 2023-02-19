@@ -74,11 +74,11 @@
 				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
 				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
 				FCD4B91129968BCA00B1D29E /* AboutViewController.swift */,
+				FCD4B91229968BCA00B1D29E /* AboutViewController.xib */,
 				FC04E45529928A08009A937A /* Assets.xcassets */,
 				FC04E45229928A06009A937A /* Main.storyboard */,
 				FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */,
 				FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */,
-				FCD4B91229968BCA00B1D29E /* AboutViewController.xib */,
 				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
 				FC04E45A29928A08009A937A /* Info.plist */,
 			);
