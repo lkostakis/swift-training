@@ -21,6 +21,7 @@ For all the screen views of the app, constraints were added to maintain the qual
 * When user goes to settings and change the difficulty level, picker view is already showing the current difficulty level.
 * When user modifies the slider and press settings button (info button also) and returns back without making any change to the level of the difficulty the screen view is not re-rendering all the components. That means, target value, already modified slider value and score/round counters remain the same.
 * At the start of each round, view components that are not changing independently of the difficulty level are not re-rendered in each round.
+* Scoring system is scaled in the range [0,100]. For example, in difficulty range[1,1000] if target value it 685 and the user "eyeballs" at 650, it is more appealing to say he scored 96/100 than 965/1000.
 
 ## Future improvements
 * Embed all the contents of the first view in a scrollview.
