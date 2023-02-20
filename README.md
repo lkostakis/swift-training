@@ -11,7 +11,7 @@ In order to organize our app's code to maintain it as concise, scalable, yet rea
 * SettingsViewController
 * HighScoreViewController
 
-ViewController is the main screen and cooperates with all other view controllers. AboutViewController is the most simple as it only contains the game's objective. SettingsViewController is implemented as a Singleton design pattern since it is critical to ensure that only one instance of the class exists, as the difficulty level across the app is universal. In other words, it is an application-level functionality. The same goes for HighScoreViewController, as the score table should remain the same and track scores for all levels for the entire lifecycle of a game.
+ViewController is the main screen and cooperates with all other view controllers. AboutViewController is the most simple as it only contains the game's objective. SettingsViewController is implemented as a Singleton design pattern since it is critical to ensure that only one instance of the class exists, as the difficulty level across the app is universal. In other words, it is an application-level functionality. The same goes for HighScoreViewController, as the score table should remain the same and track scores for all levels for the entire lifecycle of the app.
 
 That being said, to maintain the code concise, many concepts of the Swift language were used, such as Extension, Protocol, Enum. Moreover, higher-order functions were used widely. Also, static/lazy/private/final declarations were used to make the app more scalable for future improvements/additions. In addition, force-unwrapping was used only in times where it was sure it won't cause any problems.
 
@@ -20,6 +20,11 @@ For all the screen views of the app, constraints were added to maintain the qual
 ## Key features
 * When user goes to settings and change the difficulty level, picker view is already showing the current difficulty level.
 * When user modifies the slider and press settings button (info button also) and returns back without making any change to the level of the difficulty the screen view is not re-rendering all the components. That means, target value, already modified slider value and score/round counters remain the same.
+* At the start of each round, view components that are not changing independently of the difficulty level are not re-rendered in each round.
+
+## Future improvements
+* Embed all the contents of the first view in a scrollview.
+* Store persistently the nickname, their score, and the date they achieved it.
 
 ## Contributors
 * [Lefteris Kostakis](https://github.com/terrys48)
