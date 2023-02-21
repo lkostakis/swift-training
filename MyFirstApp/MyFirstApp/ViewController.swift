@@ -52,10 +52,18 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .systemGray6
         navigationItem.rightBarButtonItem =
         UIBarButtonItem(
-            title: nil,
             image: UIImage(named: "znsNtvIconSettings"),
+            style: .plain,
             target: self,
             action: #selector(settingsTapped))
+
+        navigationItem.leftBarButtonItem =
+        UIBarButtonItem(
+            image: UIImage(systemName: "crown"),
+            style: .plain,
+            target: self,
+            action: #selector(scoreTableTapped))
+        
         startNextRound()
     }
 
@@ -135,6 +143,10 @@ class ViewController: UIViewController {
         SettingsViewController.shared.currentLevel = selectedLevel.rawValue
         SettingsViewController.shared.viewController = self
         navigationController?.pushViewController(SettingsViewController.shared, animated: true)
+    }
+    
+    @objc func scoreTableTapped() {
+        
     }
 
 }

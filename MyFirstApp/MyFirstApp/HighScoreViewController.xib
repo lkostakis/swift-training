@@ -106,7 +106,7 @@
                 <constraint firstItem="zn4-wq-upY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZiJ-Az-Aq5"/>
                 <constraint firstItem="zn4-wq-upY" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="0.5" id="zG0-0p-Fm5"/>
             </constraints>
-            <point key="canvasLocation" x="127.5" y="-12.67605633802817"/>
+            <point key="canvasLocation" x="126.16822429906541" y="-12.958963282937367"/>
         </view>
     </objects>
     <resources>
