@@ -32,7 +32,7 @@ class HighScoreViewController: UIViewController {
     @IBOutlet weak var topScore1: UILabel!
     @IBOutlet weak var topScore2: UILabel!
     @IBOutlet weak var topScore3: UILabel!
-    private static var highScoreTable: [SettingsViewController.DifficultyLevel : [Player] ] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
+    private(set) static var highScoreTable: [SettingsViewController.DifficultyLevel : [Player] ] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
     var place: Int = 0
     var level: SettingsViewController.DifficultyLevel = ViewController().selectedLevel
     

@@ -146,7 +146,9 @@ class ViewController: UIViewController {
     }
     
     @objc func scoreTableTapped() {
-        
+//        TopScoresViewController.shared.currentLevel = selectedLevel.rawValue
+//        TopScoresViewController.shared.viewController = self
+        navigationController?.pushViewController(TopScoresViewController.shared, animated: true)
     }
 
 }
