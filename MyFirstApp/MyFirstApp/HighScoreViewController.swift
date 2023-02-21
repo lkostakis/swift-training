@@ -26,7 +26,6 @@ class Player : CustomStringConvertible {
     var description: String { "Name: \(name), Score: \(score), Date: \(date)" }
 }
 
-
 class HighScoreViewController: UIViewController {
     static let shared = HighScoreViewController()
     @IBOutlet weak var message: UILabel!

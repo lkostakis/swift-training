@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopScoresViewController" customModule="MyFirstApp" customModuleProvider="target">
             <connections>
+                <outlet property="top1Label" destination="gkP-ed-VP3" id="8QU-IA-MgX"/>
+                <outlet property="top2Label" destination="lG5-KA-25u" id="DOn-Sq-Dwq"/>
+                <outlet property="top3Label" destination="ylj-67-Cxn" id="WXk-hJ-7k9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +22,72 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-VR-vwQ">
+                    <rect key="frame" x="20" y="115.5" width="280" height="432.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG5-KA-25u">
+                            <rect key="frame" x="8" y="206" width="264" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylj-67-Cxn">
+                            <rect key="frame" x="8" y="314" width="264" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkP-ed-VP3">
+                            <rect key="frame" x="8" y="98" width="264" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ylj-67-Cxn" firstAttribute="width" secondItem="lG5-KA-25u" secondAttribute="width" id="2vA-JD-INj"/>
+                        <constraint firstItem="ylj-67-Cxn" firstAttribute="leading" secondItem="aiR-VR-vwQ" secondAttribute="leading" constant="8" id="3X2-FU-1Gt"/>
+                        <constraint firstItem="gkP-ed-VP3" firstAttribute="centerX" secondItem="aiR-VR-vwQ" secondAttribute="centerX" id="3bU-D0-oJL"/>
+                        <constraint firstItem="gkP-ed-VP3" firstAttribute="leading" secondItem="aiR-VR-vwQ" secondAttribute="leading" constant="8" id="Bkz-4d-48C"/>
+                        <constraint firstItem="lG5-KA-25u" firstAttribute="width" secondItem="gkP-ed-VP3" secondAttribute="width" id="KVj-Bh-eEr"/>
+                        <constraint firstItem="lG5-KA-25u" firstAttribute="leading" secondItem="aiR-VR-vwQ" secondAttribute="leading" constant="8" id="LI2-KO-ZCK"/>
+                        <constraint firstItem="ylj-67-Cxn" firstAttribute="centerX" secondItem="aiR-VR-vwQ" secondAttribute="centerX" id="Mhg-dF-nhk"/>
+                        <constraint firstItem="ylj-67-Cxn" firstAttribute="centerY" secondItem="aiR-VR-vwQ" secondAttribute="centerY" multiplier="1.5" id="VG6-p2-L9u"/>
+                        <constraint firstItem="lG5-KA-25u" firstAttribute="centerY" secondItem="aiR-VR-vwQ" secondAttribute="centerY" id="gB2-GV-V9m"/>
+                        <constraint firstItem="lG5-KA-25u" firstAttribute="centerX" secondItem="aiR-VR-vwQ" secondAttribute="centerX" id="lnN-Z5-4Wg"/>
+                        <constraint firstAttribute="trailing" secondItem="gkP-ed-VP3" secondAttribute="trailing" constant="8" id="ls9-7K-g9V"/>
+                        <constraint firstAttribute="trailing" secondItem="ylj-67-Cxn" secondAttribute="trailing" constant="8" id="vTI-md-b9C"/>
+                        <constraint firstItem="gkP-ed-VP3" firstAttribute="centerY" secondItem="aiR-VR-vwQ" secondAttribute="centerY" multiplier="0.5" id="xhj-9r-h7K"/>
+                        <constraint firstItem="lG5-KA-25u" firstAttribute="centerX" secondItem="aiR-VR-vwQ" secondAttribute="centerX" id="yGi-af-stm"/>
+                        <constraint firstAttribute="trailing" secondItem="lG5-KA-25u" secondAttribute="trailing" constant="8" id="ycd-pu-FJ2"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXs-gZ-sOf">
+                    <rect key="frame" x="129.5" y="74.5" width="61" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="AccentColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="25" y="-11"/>
+            <constraints>
+                <constraint firstItem="hXs-gZ-sOf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.3" id="1be-fL-8tC"/>
+                <constraint firstItem="aiR-VR-vwQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="5Aa-g5-rom"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aiR-VR-vwQ" secondAttribute="trailing" constant="20" id="9Ba-Uc-Qvq"/>
+                <constraint firstItem="aiR-VR-vwQ" firstAttribute="top" secondItem="hXs-gZ-sOf" secondAttribute="bottom" constant="20" id="O6G-Bl-H2P"/>
+                <constraint firstItem="hXs-gZ-sOf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WiT-Ct-4gk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aiR-VR-vwQ" secondAttribute="bottom" constant="20" id="ZgO-sn-L0A"/>
+            </constraints>
+            <point key="canvasLocation" x="24.375" y="-11.619718309859156"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
