@@ -12,7 +12,7 @@ protocol ViewControllerData {
     func changeLevel()
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ChangedLevelDelegate {
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
@@ -125,8 +125,8 @@ class ViewController: UIViewController {
     }
 
     func showHighScoreModal(position place: Int) {
-        HighScoreViewController.shared.place = place
-        HighScoreViewController.shared.level = selectedLevel
+        HighScoreViewController.place = place
+        HighScoreViewController.level = selectedLevel
         present(HighScoreViewController.shared, animated: true, completion: nil)
     }
 
@@ -140,8 +140,8 @@ class ViewController: UIViewController {
     }
 
     @objc func settingsTapped() {
-        SettingsViewController.shared.currentLevel = selectedLevel.rawValue
-        SettingsViewController.shared.viewController = self
+        SettingsViewController.currentLevel = selectedLevel.rawValue
+        SettingsViewController.viewController = self
         navigationController?.pushViewController(SettingsViewController.shared, animated: true)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0255B929A513F900BE6A9C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0255B829A513F900BE6A9C /* Player.swift */; };
 		FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44C29928A06009A937A /* AppDelegate.swift */; };
 		FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44E29928A06009A937A /* SceneDelegate.swift */; };
 		FC04E45129928A06009A937A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E45029928A06009A937A /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC0255B829A513F900BE6A9C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FC04E44929928A06009A937A /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC04E44C29928A06009A937A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC04E44E29928A06009A937A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				FC04E45029928A06009A937A /* ViewController.swift */,
 				FCFABF1029A37740006254D2 /* TopScoresViewController.swift */,
 				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
+				FC0255B829A513F900BE6A9C /* Player.swift */,
 				FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */,
 				FCFABF1129A37740006254D2 /* TopScoresViewController.xib */,
 				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
@@ -170,6 +173,7 @@
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
+				FC0255B929A513F900BE6A9C /* Player.swift in Sources */,
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,

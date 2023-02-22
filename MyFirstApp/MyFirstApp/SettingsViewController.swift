@@ -7,10 +7,18 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, ViewControllerData, UIPickerViewDelegate, UIPickerViewDataSource {
-    static let shared = SettingsViewController()
+protocol ChangedLevelDelegate {
+    var selectedLevel :SettingsViewController.DifficultyLevel {get set}
+}
+
+class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+//    static let shared = SettingsViewController()
     
     enum DifficultyLevel : Int, CaseIterable {
+        var description: String {
+            toString()
+        }
+        
         case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
 
         // helping function to get string based on case
@@ -26,11 +34,12 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
 
     }
     
-    var viewController: ViewController?
-    var currentLevel: Int?
+    static let shared = SettingsViewController()
+    static var viewController: ChangedLevelDelegate?
+    static var currentLevel: Int?
     private lazy var difficultyArray = DifficultyLevel.allCases.map { $0.rawValue }
-    private let pickerViewRows = [DifficultyLevel.tooYoungToDie.toString(), DifficultyLevel.heyNotTooRough.toString(), DifficultyLevel.hurtMePlenty.toString(), DifficultyLevel.ultraViolence.toString(), DifficultyLevel.nightmare.toString()]
-    
+    private let pickerViewRows = DifficultyLevel.allCases.map { $0.toString() }
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         self.pickerViewRows.count
     }
@@ -56,7 +65,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
         pickerView.delegate = self
         pickerView.dataSource = self
         // There is no chance that currentLevel is not contained in the array
-        pickerView.selectRow(difficultyArray.firstIndex(of: currentLevel ?? 1)!, inComponent: 0, animated: true)
+        pickerView.selectRow(difficultyArray.firstIndex(of: SettingsViewController.currentLevel ?? 1)!, inComponent: 0, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,7 +74,7 @@ class SettingsViewController: UIViewController, ViewControllerData, UIPickerView
     
     final func changeLevel() {
         // can safely use force-unwrap as pickerView already has data in component 0
-        viewController?.selectedLevel = DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)])!
+        SettingsViewController.viewController?.selectedLevel = DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)])!
     }
 
 }
