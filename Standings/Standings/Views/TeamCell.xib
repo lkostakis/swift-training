@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCell" rowHeight="89" id="zxL-QB-SkD" userLabel="TeamCell" customClass="TeamCell" customModule="Standings">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zxL-QB-SkD" id="Mpd-GW-uhS">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvT-8M-Ncf">
+                        <rect key="frame" x="0.0" y="5" width="320" height="79"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Panathinaikos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrg-lt-xGf">
+                                <rect key="frame" x="10" y="29" width="105.66666666666667" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Wins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drS-pw-CjR">
+                                <rect key="frame" x="146.66666666666666" y="29" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Draw" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKL-Qs-SQP">
+                                <rect key="frame" x="204.66666666666666" y="29" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lose" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfp-0c-FUF">
+                                <rect key="frame" x="263.66666666666669" y="29" width="26.333333333333314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nKL-Qs-SQP" firstAttribute="centerY" secondItem="OvT-8M-Ncf" secondAttribute="centerY" id="47K-mj-d8W"/>
+                            <constraint firstItem="hrg-lt-xGf" firstAttribute="leading" secondItem="OvT-8M-Ncf" secondAttribute="leading" constant="10" id="BLe-TM-FvW"/>
+                            <constraint firstItem="drS-pw-CjR" firstAttribute="centerY" secondItem="OvT-8M-Ncf" secondAttribute="centerY" id="KSq-8I-pCA"/>
+                            <constraint firstItem="nKL-Qs-SQP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="drS-pw-CjR" secondAttribute="trailing" constant="20" id="KWC-N2-UbN"/>
+                            <constraint firstItem="hrg-lt-xGf" firstAttribute="centerY" secondItem="OvT-8M-Ncf" secondAttribute="centerY" id="OXS-uw-gdB"/>
+                            <constraint firstItem="wfp-0c-FUF" firstAttribute="centerY" secondItem="OvT-8M-Ncf" secondAttribute="centerY" id="UNR-K8-Jt6"/>
+                            <constraint firstAttribute="trailing" secondItem="wfp-0c-FUF" secondAttribute="trailing" constant="30" id="VlH-HJ-bpa"/>
+                            <constraint firstItem="wfp-0c-FUF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKL-Qs-SQP" secondAttribute="trailing" constant="20" id="ZgS-hg-ego"/>
+                            <constraint firstItem="nKL-Qs-SQP" firstAttribute="centerX" secondItem="OvT-8M-Ncf" secondAttribute="centerX" multiplier="1.4" id="ajK-4a-wyw"/>
+                            <constraint firstItem="drS-pw-CjR" firstAttribute="centerX" secondItem="OvT-8M-Ncf" secondAttribute="centerX" multiplier="1.05" priority="749" id="nK8-gd-W3G"/>
+                            <constraint firstItem="drS-pw-CjR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hrg-lt-xGf" secondAttribute="trailing" constant="25" id="zIM-ys-Tle"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="OvT-8M-Ncf" secondAttribute="bottom" constant="5" id="746-fv-9Nq"/>
+                    <constraint firstAttribute="trailing" secondItem="OvT-8M-Ncf" secondAttribute="trailing" id="BNn-hb-eQe"/>
+                    <constraint firstItem="OvT-8M-Ncf" firstAttribute="top" secondItem="Mpd-GW-uhS" secondAttribute="top" constant="5" id="Jir-m0-kZm"/>
+                    <constraint firstItem="OvT-8M-Ncf" firstAttribute="leading" secondItem="Mpd-GW-uhS" secondAttribute="leading" id="uPg-oY-44a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="draws" destination="nKL-Qs-SQP" id="d9C-zF-8K0"/>
+                <outlet property="loses" destination="wfp-0c-FUF" id="cl2-Dm-GWd"/>
+                <outlet property="teamName" destination="hrg-lt-xGf" id="hcP-D5-mDO"/>
+                <outlet property="wins" destination="drS-pw-CjR" id="Fp7-wn-jPe"/>
+            </connections>
+            <point key="canvasLocation" x="3.0534351145038165" y="-274.29577464788736"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

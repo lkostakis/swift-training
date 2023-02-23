@@ -57,7 +57,7 @@
             <connections>
                 <outlet property="titleLabel" destination="Wsv-c5-sM7" id="UrY-po-k89"/>
             </connections>
-            <point key="canvasLocation" x="-572" y="33"/>
+            <point key="canvasLocation" x="-572" y="38"/>
         </view>
     </objects>
     <resources>

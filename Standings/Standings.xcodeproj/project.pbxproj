@@ -7,22 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD719A229A8040F009E3F0B /* TeamCell.swift */; };
+		FCD719A629A81984009E3F0B /* temp.geojson in Resources */ = {isa = PBXBuildFile; fileRef = FCD719A529A81984009E3F0B /* temp.geojson */; };
+		FCD719A829A819EC009E3F0B /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = FCD719A729A819EC009E3F0B /* teams.json */; };
 		FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */; };
 		FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */; };
+		FCE5CC2129A79B5400DCC1DB /* MatchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */; };
 		FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */; };
 		FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */; };
 		FCEBDD5D29A6C2D100013FE5 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5C29A6C2D100013FE5 /* StandingsViewController.swift */; };
 		FCEBDD6029A6C2D100013FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */; };
 		FCEBDD6229A6C2D300013FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCEBDD6129A6C2D300013FE5 /* Assets.xcassets */; };
 		FCEBDD6529A6C2D300013FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCEBDD6329A6C2D300013FE5 /* LaunchScreen.storyboard */; };
-		FCEBDD6D29A6C5C400013FE5 /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCEBDD6C29A6C5C400013FE5 /* TeamCell.xib */; };
-		FCEBDD6F29A6C95400013FE5 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD6E29A6C95400013FE5 /* TeamCell.swift */; };
 		FCEBDD7129A6CB1000013FE5 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD7029A6CB1000013FE5 /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FCD719A229A8040F009E3F0B /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		FCD719A529A81984009E3F0B /* temp.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = temp.geojson; sourceTree = "<group>"; };
+		FCD719A729A819EC009E3F0B /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
 		FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsHeaderView.xib; sourceTree = "<group>"; };
 		FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsFooterView.xib; sourceTree = "<group>"; };
+		FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewController.swift; sourceTree = "<group>"; };
 		FCEBDD5529A6C2D100013FE5 /* Standings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Standings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,8 +37,6 @@
 		FCEBDD6129A6C2D300013FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCEBDD6429A6C2D300013FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCEBDD6629A6C2D300013FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCEBDD6C29A6C5C400013FE5 /* TeamCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
-		FCEBDD6E29A6C95400013FE5 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		FCEBDD7029A6CB1000013FE5 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FCE5CC1B29A78AEF00DCC1DB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCEBDD5C29A6C2D100013FE5 /* StandingsViewController.swift */,
+				FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FCE5CC1C29A78AFC00DCC1DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCEBDD7029A6CB1000013FE5 /* Team.swift */,
+				FCD719A529A81984009E3F0B /* temp.geojson */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCE5CC1D29A78B1100DCC1DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */,
+				FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */,
+				FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */,
+				FCD719A229A8040F009E3F0B /* TeamCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FCE5CC1F29A7997900DCC1DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCD719A729A819EC009E3F0B /* teams.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FCEBDD4C29A6C2D100013FE5 = {
 			isa = PBXGroup;
 			children = (
@@ -66,15 +107,12 @@
 		FCEBDD5729A6C2D100013FE5 /* Standings */ = {
 			isa = PBXGroup;
 			children = (
+				FCE5CC1D29A78B1100DCC1DB /* Views */,
+				FCE5CC1B29A78AEF00DCC1DB /* View Controllers */,
+				FCE5CC1C29A78AFC00DCC1DB /* Models */,
+				FCE5CC1F29A7997900DCC1DB /* Resources */,
 				FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */,
 				FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */,
-				FCEBDD5C29A6C2D100013FE5 /* StandingsViewController.swift */,
-				FCEBDD6E29A6C95400013FE5 /* TeamCell.swift */,
-				FCEBDD7029A6CB1000013FE5 /* Team.swift */,
-				FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */,
-				FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */,
-				FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */,
-				FCEBDD6C29A6C5C400013FE5 /* TeamCell.xib */,
 				FCEBDD6129A6C2D300013FE5 /* Assets.xcassets */,
 				FCEBDD6329A6C2D300013FE5 /* LaunchScreen.storyboard */,
 				FCEBDD6629A6C2D300013FE5 /* Info.plist */,
@@ -140,12 +178,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCEBDD6D29A6C5C400013FE5 /* TeamCell.xib in Resources */,
 				FCEBDD6529A6C2D300013FE5 /* LaunchScreen.storyboard in Resources */,
 				FCEBDD6229A6C2D300013FE5 /* Assets.xcassets in Resources */,
 				FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */,
 				FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */,
 				FCEBDD6029A6C2D100013FE5 /* Main.storyboard in Resources */,
+				FCD719A829A819EC009E3F0B /* teams.json in Resources */,
+				FCD719A629A81984009E3F0B /* temp.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +196,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCEBDD5D29A6C2D100013FE5 /* StandingsViewController.swift in Sources */,
-				FCEBDD6F29A6C95400013FE5 /* TeamCell.swift in Sources */,
+				FCE5CC2129A79B5400DCC1DB /* MatchDetailsViewController.swift in Sources */,
+				FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */,
 				FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */,
 				FCEBDD7129A6CB1000013FE5 /* Team.swift in Sources */,
 				FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */,

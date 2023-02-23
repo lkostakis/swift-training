@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="footerLabel" destination="yfY-sK-g5Z" id="Y90-yt-rwq"/>
             </connections>
-            <point key="canvasLocation" x="189.31297709923663" y="-71.478873239436624"/>
+            <point key="canvasLocation" x="209" y="-29"/>
         </view>
     </objects>
     <resources>

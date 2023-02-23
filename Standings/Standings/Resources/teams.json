@@ -1,0 +1,18 @@
+{
+    "teams" : [
+        {
+            "name" : "Aek",
+            "founded" : 1923,
+            "lastGame" : "Aek - Atromitos",
+            "stadium" : "Hagia Sofia",
+            "emblem" : "aek"
+        },
+        {
+            "name" : "Paok",
+            "founded" : 1926,
+            "lastGame" : "Paok - Pao",
+            "stadium" : "Toumba",
+            "emblem" : "paok"
+        },
+    ]
+}
