@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="egS-5N-K0q">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Super League Standings-->
+        <scene sceneID="02J-aZ-s4j">
+            <objects>
+                <tableViewController storyboardIdentifier="Standings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CKT-RO-gaT" customClass="StandingsViewController" customModule="Standings" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YhC-PG-g5S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCell" rowHeight="89" id="bd8-TK-2E2" userLabel="TeamCell" customClass="TeamCell" customModule="Standings">
+                                <rect key="frame" x="0.0" y="50" width="320" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bd8-TK-2E2" id="apR-0y-InX">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-iC-Rlc">
+                                            <rect key="frame" x="0.0" y="5" width="320" height="79"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Panathinaikos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKh-3v-wOU">
+                                                    <rect key="frame" x="10" y="29" width="105.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-d2-A4Z">
+                                                    <rect key="frame" x="146.5" y="29" width="38" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Draw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phK-hA-vD1">
+                                                    <rect key="frame" x="204.5" y="29" width="39.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-CM-33K">
+                                                    <rect key="frame" x="273.5" y="29" width="36.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="phK-hA-vD1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ecF-d2-A4Z" secondAttribute="trailing" constant="20" id="2v9-dE-Xwc"/>
+                                                <constraint firstItem="KKh-3v-wOU" firstAttribute="centerY" secondItem="4Ig-iC-Rlc" secondAttribute="centerY" id="4z1-VH-Tfw"/>
+                                                <constraint firstItem="ecF-d2-A4Z" firstAttribute="centerX" secondItem="4Ig-iC-Rlc" secondAttribute="centerX" multiplier="1.05" priority="749" id="E2L-F4-eti"/>
+                                                <constraint firstItem="ecF-d2-A4Z" firstAttribute="centerY" secondItem="4Ig-iC-Rlc" secondAttribute="centerY" id="ID3-mD-dVk"/>
+                                                <constraint firstItem="B2l-CM-33K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="phK-hA-vD1" secondAttribute="trailing" constant="20" id="KjG-zs-qrZ"/>
+                                                <constraint firstItem="phK-hA-vD1" firstAttribute="centerY" secondItem="4Ig-iC-Rlc" secondAttribute="centerY" id="QK2-Cq-DdH"/>
+                                                <constraint firstItem="KKh-3v-wOU" firstAttribute="leading" secondItem="4Ig-iC-Rlc" secondAttribute="leading" constant="10" id="Vbo-sO-7ZA"/>
+                                                <constraint firstItem="B2l-CM-33K" firstAttribute="centerY" secondItem="4Ig-iC-Rlc" secondAttribute="centerY" id="VlN-6l-kCI"/>
+                                                <constraint firstItem="ecF-d2-A4Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KKh-3v-wOU" secondAttribute="trailing" constant="25" id="aZE-4Z-ItR"/>
+                                                <constraint firstAttribute="trailing" secondItem="B2l-CM-33K" secondAttribute="trailing" constant="10" id="f7s-Dl-gb6"/>
+                                                <constraint firstItem="phK-hA-vD1" firstAttribute="centerX" secondItem="4Ig-iC-Rlc" secondAttribute="centerX" multiplier="1.4" id="j7F-wm-Hm2"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Ig-iC-Rlc" firstAttribute="leading" secondItem="apR-0y-InX" secondAttribute="leading" id="MpM-8r-LUF"/>
+                                        <constraint firstAttribute="trailing" secondItem="4Ig-iC-Rlc" secondAttribute="trailing" id="N9a-I5-Znf"/>
+                                        <constraint firstAttribute="bottom" secondItem="4Ig-iC-Rlc" secondAttribute="bottom" constant="5" id="Quq-5u-0j2"/>
+                                        <constraint firstItem="4Ig-iC-Rlc" firstAttribute="top" secondItem="apR-0y-InX" secondAttribute="top" constant="5" id="S1U-nh-C7L"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="draws" destination="phK-hA-vD1" id="Xzv-UD-n5T"/>
+                                    <outlet property="loses" destination="B2l-CM-33K" id="wWD-4e-Apj"/>
+                                    <outlet property="teamName" destination="KKh-3v-wOU" id="y5i-Uj-Bn3"/>
+                                    <outlet property="wins" destination="ecF-d2-A4Z" id="XkI-0I-5Zd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CKT-RO-gaT" id="R0n-Kg-FcN"/>
+                            <outlet property="delegate" destination="CKT-RO-gaT" id="8uv-ul-Xeh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Super League Standings" id="dTV-Rd-eaf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2WX-Zn-1ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951.875" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J2y-8N-rRL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="egS-5N-K0q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S9D-u8-fy2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CKT-RO-gaT" kind="relationship" relationship="rootViewController" id="9fz-nw-PJY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oCh-fp-Fah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.375" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

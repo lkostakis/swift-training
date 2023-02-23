@@ -73,9 +73,9 @@ class HighScoreViewController: UIViewController {
     }
     
     @IBAction func edittingChanged(_ sender: UITextField) {
-        print(nameTextField.text)
+        print("textValueChanged text: \(sender.text)")
     }
-    
+
     static func getName() -> String {
         return ""
     }
