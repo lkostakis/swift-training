@@ -32,20 +32,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-d2-A4Z">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Wins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-d2-A4Z">
                                                     <rect key="frame" x="146.5" y="29" width="38" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Draw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phK-hA-vD1">
-                                                    <rect key="frame" x="204.5" y="29" width="39.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Draw" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phK-hA-vD1">
+                                                    <rect key="frame" x="204.5" y="29" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-CM-33K">
-                                                    <rect key="frame" x="273.5" y="29" width="36.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lose" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-CM-33K">
+                                                    <rect key="frame" x="263.5" y="29" width="26.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                                 <constraint firstItem="KKh-3v-wOU" firstAttribute="leading" secondItem="4Ig-iC-Rlc" secondAttribute="leading" constant="10" id="Vbo-sO-7ZA"/>
                                                 <constraint firstItem="B2l-CM-33K" firstAttribute="centerY" secondItem="4Ig-iC-Rlc" secondAttribute="centerY" id="VlN-6l-kCI"/>
                                                 <constraint firstItem="ecF-d2-A4Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KKh-3v-wOU" secondAttribute="trailing" constant="25" id="aZE-4Z-ItR"/>
-                                                <constraint firstAttribute="trailing" secondItem="B2l-CM-33K" secondAttribute="trailing" constant="10" id="f7s-Dl-gb6"/>
+                                                <constraint firstAttribute="trailing" secondItem="B2l-CM-33K" secondAttribute="trailing" constant="30" id="f7s-Dl-gb6"/>
                                                 <constraint firstItem="phK-hA-vD1" firstAttribute="centerX" secondItem="4Ig-iC-Rlc" secondAttribute="centerX" multiplier="1.4" id="j7F-wm-Hm2"/>
                                             </constraints>
                                         </view>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */; };
+		FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */; };
 		FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */; };
 		FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */; };
 		FCEBDD5D29A6C2D100013FE5 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5C29A6C2D100013FE5 /* StandingsViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsHeaderView.xib; sourceTree = "<group>"; };
+		FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsFooterView.xib; sourceTree = "<group>"; };
 		FCEBDD5529A6C2D100013FE5 /* Standings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Standings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				FCEBDD6E29A6C95400013FE5 /* TeamCell.swift */,
 				FCEBDD7029A6CB1000013FE5 /* Team.swift */,
 				FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */,
+				FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */,
+				FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */,
 				FCEBDD6C29A6C5C400013FE5 /* TeamCell.xib */,
 				FCEBDD6129A6C2D300013FE5 /* Assets.xcassets */,
 				FCEBDD6329A6C2D300013FE5 /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 				FCEBDD6D29A6C5C400013FE5 /* TeamCell.xib in Resources */,
 				FCEBDD6529A6C2D300013FE5 /* LaunchScreen.storyboard in Resources */,
 				FCEBDD6229A6C2D300013FE5 /* Assets.xcassets in Resources */,
+				FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */,
+				FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */,
 				FCEBDD6029A6C2D100013FE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
