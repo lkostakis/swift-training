@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC1E033629A8E5340087BC4B /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E033529A8E5340087BC4B /* MatchCell.swift */; };
+		FC1E033829A8E59B0087BC4B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E033729A8E59B0087BC4B /* Match.swift */; };
 		FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD719A229A8040F009E3F0B /* TeamCell.swift */; };
-		FCD719A629A81984009E3F0B /* temp.geojson in Resources */ = {isa = PBXBuildFile; fileRef = FCD719A529A81984009E3F0B /* temp.geojson */; };
 		FCD719A829A819EC009E3F0B /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = FCD719A729A819EC009E3F0B /* teams.json */; };
 		FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */; };
 		FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */; };
@@ -23,8 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC1E033529A8E5340087BC4B /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
+		FC1E033729A8E59B0087BC4B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		FCD719A229A8040F009E3F0B /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
-		FCD719A529A81984009E3F0B /* temp.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = temp.geojson; sourceTree = "<group>"; };
 		FCD719A729A819EC009E3F0B /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
 		FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsHeaderView.xib; sourceTree = "<group>"; };
 		FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsFooterView.xib; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				FCEBDD7029A6CB1000013FE5 /* Team.swift */,
-				FCD719A529A81984009E3F0B /* temp.geojson */,
+				FC1E033729A8E59B0087BC4B /* Match.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -76,6 +78,7 @@
 				FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */,
 				FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */,
 				FCD719A229A8040F009E3F0B /* TeamCell.swift */,
+				FC1E033529A8E5340087BC4B /* MatchCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,7 +187,6 @@
 				FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */,
 				FCEBDD6029A6C2D100013FE5 /* Main.storyboard in Resources */,
 				FCD719A829A819EC009E3F0B /* teams.json in Resources */,
-				FCD719A629A81984009E3F0B /* temp.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,8 +200,10 @@
 				FCEBDD5D29A6C2D100013FE5 /* StandingsViewController.swift in Sources */,
 				FCE5CC2129A79B5400DCC1DB /* MatchDetailsViewController.swift in Sources */,
 				FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */,
+				FC1E033829A8E59B0087BC4B /* Match.swift in Sources */,
 				FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */,
 				FCEBDD7129A6CB1000013FE5 /* Team.swift in Sources */,
+				FC1E033629A8E5340087BC4B /* MatchCell.swift in Sources */,
 				FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

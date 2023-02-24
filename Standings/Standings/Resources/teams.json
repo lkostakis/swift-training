@@ -5,14 +5,16 @@
             "founded" : 1923,
             "lastGame" : "Aek - Atromitos",
             "stadium" : "Hagia Sofia",
-            "emblem" : "aek"
+            "emblem" : "aek",
+            "abstract" : "AEK FC (Greek: ΠΑΕ A.E.K. [aek]; Αθλητική Ένωσις Κωνσταντινουπόλεως; Athlitikí Énosis Konstantinoupόleos, meaning Athletic Union of Constantinople) is a Greek professional football club based in Nea Filadelfeia, a suburb of Athens, Greece. Established in Nea Filadelfeia, in 1924 by Greek refugees from Constantinople in the wake of the Greco-Turkish War (1919–1922), AEK is one of the three most successful teams in Greek football (including Olympiacos and Panathinaikos), winning 30 national titles and the only one to have won all the competitions organised by the Hellenic Football Federation (12 Championships, 15 Greek Cups, 1 League Cup and 2 Super Cups)."
         },
         {
             "name" : "Paok",
             "founded" : 1926,
             "lastGame" : "Paok - Pao",
             "stadium" : "Toumba",
-            "emblem" : "paok"
+            "emblem" : "paok",
+            "abstract" : "P.A.O.K. FC (Greek: ΠΑΕ ΠΑΟΚ, Πανθεσσαλονίκειος Αθλητικός Όμιλος Κωνσταντινουπολιτών, Panthessaloníkios Athlitikós Ómilos Konstadinoupolitón, Pan-Thessalonian Athletic Club of Constantinopolitans),[3] commonly known as PAOK Thessaloniki or simply PAOK, is a Greek professional football club based in Thessaloniki, Macedonia. PAOK are one of the top domestic clubs, the most widely supported in Northern Greece and with the 3rd largest fanbase in the country, according to the latest polls and researches.[4][5][6][7][8] A research by Marca in August 2018, reported that PAOK are the most popular Greek football team on social media."
         },
     ]
 }

@@ -15,13 +15,16 @@ class TeamCell: UITableViewCell {
     @IBOutlet weak var stadiumLabel: UILabel!
     @IBOutlet weak var lastGameLabel: UILabel!
     @IBOutlet weak var emblemImage: UIImageView!
+    @IBOutlet weak var abstractLabel: UILabel!
     
-    func configure(name: String, founded: String, lastGame: String, stadium: String, emblemName: String) -> TeamCell {
+    
+    func configure(name: String, founded: String, lastGame: String, stadium: String, emblemName: String, abstract: String) -> TeamCell {
         nameLabel.text = name
-        foundedLabel.text = founded
-        lastGameLabel.text = lastGame
-        stadiumLabel.text = stadium
+        foundedLabel.text = "Founded: \(founded)"
+        lastGameLabel.text = "Last game: \(lastGame)"
+        stadiumLabel.text = "Ground: \(stadium)"
         emblemImage.image = UIImage(named: emblemName)
+        abstractLabel.text = "Abstract: \(abstract)"
       return self
     }
 }

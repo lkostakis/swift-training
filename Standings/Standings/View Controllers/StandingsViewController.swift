@@ -23,10 +23,11 @@ class StandingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.backgroundColor = .systemGray6
+        navigationController?.navigationBar.backgroundColor = .systemGray5
 
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,7 +35,6 @@ class StandingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(teams.count)
         return teams.count
     }
 
@@ -43,8 +43,18 @@ class StandingsViewController: UITableViewController {
         else { fatalError("Could not create TeamCell") }
         
         let team = teams[indexPath.row]
+        cell.backgroundColor = .systemGray6
         return cell.configure(name: team.name, founded: String(team.founded), lastGame: team.lastGame, stadium: team.stadium,
-                              emblemName: team.emblem)
+                              emblemName: team.emblem, abstract: team.abstract)
     }
+
+    @IBSegueAction func showMatchDetails(_ coder: NSCoder) -> MatchDetailsViewController? {
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("Nothing selected!")
+        }
+        let team = teams[indexPath.row]
+        return MatchDetailsViewController(coder: coder, team: team)
+    }
+    
 
 }
