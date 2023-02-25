@@ -44,7 +44,7 @@ class StandingsViewController: UITableViewController {
         
         let team = teams[indexPath.row]
         cell.backgroundColor = .systemGray6
-        return cell.configure(name: team.name, founded: String(team.founded), lastGame: team.lastGame, stadium: team.stadium,
+        return cell.configure(name: team.name, founded: String(team.founded), stadium: team.stadium,
                               emblemName: team.emblem, abstract: team.abstract)
     }
 

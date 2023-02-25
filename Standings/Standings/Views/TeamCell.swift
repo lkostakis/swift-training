@@ -18,10 +18,9 @@ class TeamCell: UITableViewCell {
     @IBOutlet weak var abstractLabel: UILabel!
     
     
-    func configure(name: String, founded: String, lastGame: String, stadium: String, emblemName: String, abstract: String) -> TeamCell {
+    func configure(name: String, founded: String, stadium: String, emblemName: String, abstract: String) -> TeamCell {
         nameLabel.text = name
         foundedLabel.text = "Founded: \(founded)"
-        lastGameLabel.text = "Last game: \(lastGame)"
         stadiumLabel.text = "Ground: \(stadium)"
         emblemImage.image = UIImage(named: emblemName)
         abstractLabel.text = "Abstract: \(abstract)"

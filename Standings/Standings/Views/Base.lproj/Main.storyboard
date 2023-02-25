@@ -33,42 +33,50 @@
                                                         <constraint firstAttribute="width" secondItem="Yua-Ed-qAX" secondAttribute="height" multiplier="5:1" id="6K9-ca-tG3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iL-fl-ePL">
-                                                    <rect key="frame" x="123.5" y="71.5" width="73.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iL-fl-ePL">
+                                                    <rect key="frame" x="10" y="71.5" width="300" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="abstract" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcl-gM-P05">
-                                                    <rect key="frame" x="123.5" y="107" width="73.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abstract" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcl-gM-P05">
+                                                    <rect key="frame" x="10" y="107" width="300" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Stadium" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0S-2S-dod">
-                                                    <rect key="frame" x="123.5" y="140" width="73.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0S-2S-dod">
+                                                    <rect key="frame" x="10" y="140" width="300" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Since" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi7-rq-rwP">
-                                                    <rect key="frame" x="123.5" y="173" width="73.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Since" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi7-rq-rwP">
+                                                    <rect key="frame" x="10" y="173" width="300" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Last Game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph8-nQ-ntn">
-                                                    <rect key="frame" x="123.5" y="206" width="73.5" height="18.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Game" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph8-nQ-ntn">
+                                                    <rect key="frame" x="10" y="206" width="300" height="18.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Hi7-rq-rwP" firstAttribute="leading" secondItem="XNF-3p-gds" secondAttribute="leading" constant="10" id="3b3-og-453"/>
+                                                <constraint firstAttribute="trailing" secondItem="6iL-fl-ePL" secondAttribute="trailing" constant="10" id="5az-aU-cIR"/>
                                                 <constraint firstItem="Q0S-2S-dod" firstAttribute="width" secondItem="6iL-fl-ePL" secondAttribute="width" id="CwZ-Xv-D85"/>
                                                 <constraint firstItem="Ph8-nQ-ntn" firstAttribute="width" secondItem="6iL-fl-ePL" secondAttribute="width" id="Ebo-pH-3T8"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ph8-nQ-ntn" secondAttribute="trailing" constant="10" id="Jov-ye-qm5"/>
+                                                <constraint firstItem="Q0S-2S-dod" firstAttribute="leading" secondItem="XNF-3p-gds" secondAttribute="leading" constant="10" id="LQn-vd-IMi"/>
                                                 <constraint firstItem="Dcl-gM-P05" firstAttribute="width" secondItem="6iL-fl-ePL" secondAttribute="width" id="OQg-mB-ZFZ"/>
                                                 <constraint firstItem="Hi7-rq-rwP" firstAttribute="width" secondItem="6iL-fl-ePL" secondAttribute="width" id="QOj-hv-Dyg"/>
+                                                <constraint firstAttribute="trailing" secondItem="Hi7-rq-rwP" secondAttribute="trailing" constant="10" id="VhY-2L-FJ2"/>
+                                                <constraint firstItem="6iL-fl-ePL" firstAttribute="leading" secondItem="XNF-3p-gds" secondAttribute="leading" constant="10" id="jVo-Yx-Uk1"/>
+                                                <constraint firstItem="Ph8-nQ-ntn" firstAttribute="leading" secondItem="XNF-3p-gds" secondAttribute="leading" constant="10" id="mp4-zJ-6OP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q0S-2S-dod" secondAttribute="trailing" constant="10" id="vz0-A0-aw5"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>

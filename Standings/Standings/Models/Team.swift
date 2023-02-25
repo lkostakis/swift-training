@@ -14,7 +14,7 @@ struct Teams: Codable {
 struct Team: Codable {
     let name: String
     let founded: Int
-    let lastGame: String
+    var lastGames: [Match]
     let stadium: String
     let emblem: String
     let abstract: String

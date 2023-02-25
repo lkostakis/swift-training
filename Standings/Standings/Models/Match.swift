@@ -10,6 +10,7 @@ import UIKit
 struct Match: Codable {
     let title: String
     let date: String
+    let result: String
     let review: String
     var isExpanded: Bool
 
@@ -18,6 +19,7 @@ struct Match: Codable {
         title = try container.decode(String.self, forKey: .title)
         date = try container.decode(String.self, forKey: .date)
         review = try container.decode(String.self, forKey: .review)
+        result = try container.decode(String.self, forKey: .result)
         isExpanded = false
     }
 }
