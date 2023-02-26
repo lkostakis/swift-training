@@ -7,27 +7,37 @@
 
 import UIKit
 
-//class StandingsHeaderView: UITableViewHeaderFooterView {
-//    static let reuseIdentifier = "\(StandingsHeaderView.self)"
-//    @IBOutlet weak var titleLabel: UILabel!
-//}
-//
-//class StandingsFooterView: UITableViewHeaderFooterView {
-//    static let reuseIdentifier = "\(StandingsFooterView.self)"
-//    @IBOutlet weak var footerLabel: UILabel!
-//
-//}
-
 class StandingsViewController: UITableViewController {
     let teams = Team.teamsFromBundle()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.backgroundColor = .systemGray5
-
+        tableView.register(UINib(nibName: "\(TeamsHeaderView.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: TeamsHeaderView.reuseIdentifier)
+        tableView.register(UINib(nibName: "\(TeamsFooterView.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: TeamsFooterView.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        tableView.sectionHeaderTopPadding = 0
         
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TeamsHeaderView.reuseIdentifier) as? TeamsHeaderView
+        else { return nil }
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TeamsFooterView.reuseIdentifier) as? TeamsFooterView
+        else { return nil }
+        footerView.footerLabel.font = footerView.footerLabel.font.withSize(12)
+        footerView.footerLabel.textColor = .systemGray2
+        footerView.footerLabel.text = "Powered by COSMOTE"
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        60
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

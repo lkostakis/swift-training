@@ -15,7 +15,7 @@ class MatchDetailsViewController: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
-        title = team?.name
+        title = "\(team?.name ?? "") - Last Games"
         self.tableView.contentInsetAdjustmentBehavior = .automatic
     }
     
@@ -40,9 +40,21 @@ class MatchDetailsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(MatchCell.self)", for: indexPath) as? MatchCell
         else { fatalError("Could not find match.") }
         if let lastGame = team?.lastGames[indexPath.row] {
-            cell.configure(title: lastGame.title, date: lastGame.date, result: lastGame.result , review: lastGame.review)
+            cell.backgroundColor = .systemGray6
+            cell.configure(title: lastGame.title, date: lastGame.date, ground: lastGame.ground, result: lastGame.result , review: lastGame.review, isExpanded: lastGame.isExpanded)
         }
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MatchCell, var match = team?.lastGames[indexPath.row] else {
+            return
+        }
+        match.isExpanded.toggle()
+        team?.lastGames[indexPath.row] = match 
+        tableView.beginUpdates()
+        cell.configure(title: match.title, date: match.date, ground: match.ground, result: match.result, review: match.review, isExpanded: match.isExpanded)
+        tableView.endUpdates()
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
 }

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC00BFD329ABFE4400DD3785 /* TeamsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00BFD229ABFE4400DD3785 /* TeamsHeaderView.swift */; };
+		FC00BFD529AC02F200DD3785 /* TeamsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC00BFD429AC02F200DD3785 /* TeamsFooterView.swift */; };
 		FC1E033629A8E5340087BC4B /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E033529A8E5340087BC4B /* MatchCell.swift */; };
 		FC1E033829A8E59B0087BC4B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E033729A8E59B0087BC4B /* Match.swift */; };
 		FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD719A229A8040F009E3F0B /* TeamCell.swift */; };
 		FCD719A829A819EC009E3F0B /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = FCD719A729A819EC009E3F0B /* teams.json */; };
-		FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */; };
-		FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */; };
+		FCE5CC1829A764AC00DCC1DB /* TeamsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1729A764AC00DCC1DB /* TeamsHeaderView.xib */; };
+		FCE5CC1A29A76E6F00DCC1DB /* TeamsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE5CC1929A76E6F00DCC1DB /* TeamsFooterView.xib */; };
 		FCE5CC2129A79B5400DCC1DB /* MatchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */; };
 		FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */; };
 		FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEBDD5A29A6C2D100013FE5 /* SceneDelegate.swift */; };
@@ -24,12 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC00BFD229ABFE4400DD3785 /* TeamsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsHeaderView.swift; sourceTree = "<group>"; };
+		FC00BFD429AC02F200DD3785 /* TeamsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsFooterView.swift; sourceTree = "<group>"; };
 		FC1E033529A8E5340087BC4B /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		FC1E033729A8E59B0087BC4B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		FCD719A229A8040F009E3F0B /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		FCD719A729A819EC009E3F0B /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
-		FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsHeaderView.xib; sourceTree = "<group>"; };
-		FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandingsFooterView.xib; sourceTree = "<group>"; };
+		FCE5CC1729A764AC00DCC1DB /* TeamsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsHeaderView.xib; sourceTree = "<group>"; };
+		FCE5CC1929A76E6F00DCC1DB /* TeamsFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsFooterView.xib; sourceTree = "<group>"; };
 		FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsViewController.swift; sourceTree = "<group>"; };
 		FCEBDD5529A6C2D100013FE5 /* Standings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Standings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEBDD5829A6C2D100013FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 			children = (
 				FCEBDD5C29A6C2D100013FE5 /* StandingsViewController.swift */,
 				FCE5CC2029A79B5400DCC1DB /* MatchDetailsViewController.swift */,
+				FC00BFD229ABFE4400DD3785 /* TeamsHeaderView.swift */,
+				FC00BFD429AC02F200DD3785 /* TeamsFooterView.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -74,8 +80,8 @@
 		FCE5CC1D29A78B1100DCC1DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FCE5CC1729A764AC00DCC1DB /* StandingsHeaderView.xib */,
-				FCE5CC1929A76E6F00DCC1DB /* StandingsFooterView.xib */,
+				FCE5CC1729A764AC00DCC1DB /* TeamsHeaderView.xib */,
+				FCE5CC1929A76E6F00DCC1DB /* TeamsFooterView.xib */,
 				FCEBDD5E29A6C2D100013FE5 /* Main.storyboard */,
 				FCD719A229A8040F009E3F0B /* TeamCell.swift */,
 				FC1E033529A8E5340087BC4B /* MatchCell.swift */,
@@ -183,8 +189,8 @@
 			files = (
 				FCEBDD6529A6C2D300013FE5 /* LaunchScreen.storyboard in Resources */,
 				FCEBDD6229A6C2D300013FE5 /* Assets.xcassets in Resources */,
-				FCE5CC1A29A76E6F00DCC1DB /* StandingsFooterView.xib in Resources */,
-				FCE5CC1829A764AC00DCC1DB /* StandingsHeaderView.xib in Resources */,
+				FCE5CC1A29A76E6F00DCC1DB /* TeamsFooterView.xib in Resources */,
+				FCE5CC1829A764AC00DCC1DB /* TeamsHeaderView.xib in Resources */,
 				FCEBDD6029A6C2D100013FE5 /* Main.storyboard in Resources */,
 				FCD719A829A819EC009E3F0B /* teams.json in Resources */,
 			);
@@ -202,9 +208,11 @@
 				FCD719A329A8040F009E3F0B /* TeamCell.swift in Sources */,
 				FC1E033829A8E59B0087BC4B /* Match.swift in Sources */,
 				FCEBDD5929A6C2D100013FE5 /* AppDelegate.swift in Sources */,
+				FC00BFD529AC02F200DD3785 /* TeamsFooterView.swift in Sources */,
 				FCEBDD7129A6CB1000013FE5 /* Team.swift in Sources */,
 				FC1E033629A8E5340087BC4B /* MatchCell.swift in Sources */,
 				FCEBDD5B29A6C2D100013FE5 /* SceneDelegate.swift in Sources */,
+				FC00BFD329ABFE4400DD3785 /* TeamsHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -334,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -359,6 +367,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,6 +396,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
