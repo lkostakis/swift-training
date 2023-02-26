@@ -15,7 +15,6 @@ class MatchCell: UITableViewCell {
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     
-    
     func configure(title: String, date: String, result: String, review: String) -> MatchCell {
         titleLabel.text = title
         dateLabel.text = date

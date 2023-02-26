@@ -5,9 +5,19 @@
             "founded" : 1923,
             "lastGames" : [
                 {
-                    "title" : "The Grand Budapest Hotel",
-                    "date": "2017",
-                    "result" : "budapestHotel",
+                    "title" : "Atromitos - Aek",
+                    "date": "29/2/2023",
+                    "result" : "2 - 3",
+                    "review" : "review of the game" },
+                {
+                    "title" : "OSFP - Aek",
+                    "date": "12/1/2023",
+                    "result" : "0 - 3",
+                    "review" : "review of the game" },
+                {
+                    "title" : "Paok - Aek",
+                    "date": "06/12/2022",
+                    "result" : "1 - 0",
                     "review" : "review of the game" },
             ],
             "stadium" : "Hagia Sofia",
