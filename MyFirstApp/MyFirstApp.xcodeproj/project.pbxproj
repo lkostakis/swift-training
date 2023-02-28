@@ -16,6 +16,7 @@
 		FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45729928A08009A937A /* LaunchScreen.storyboard */; };
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
+		FC3D465929ADEFA30071004F /* ReadWriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D465829ADEFA30071004F /* ReadWriteController.swift */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
@@ -36,6 +37,7 @@
 		FC04E45A29928A08009A937A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		FC3D465829ADEFA30071004F /* ReadWriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteController.swift; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -74,24 +76,49 @@
 		FC04E44B29928A06009A937A /* MyFirstApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC3D465729ADEC660071004F /* Models */,
+				FC3D465629ADEC5F0071004F /* View Controllers */,
+				FC3D465529ADEC570071004F /* Views */,
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
 				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
-				FCD4B91129968BCA00B1D29E /* AboutViewController.swift */,
-				FC04E45029928A06009A937A /* ViewController.swift */,
-				FCFABF1029A37740006254D2 /* TopScoresViewController.swift */,
-				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
-				FC0255B829A513F900BE6A9C /* Player.swift */,
-				FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */,
-				FCFABF1129A37740006254D2 /* TopScoresViewController.xib */,
-				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
-				FCD4B91229968BCA00B1D29E /* AboutViewController.xib */,
-				FC04E45229928A06009A937A /* Main.storyboard */,
-				FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */,
 				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
 				FC04E45529928A08009A937A /* Assets.xcassets */,
 				FC04E45A29928A08009A937A /* Info.plist */,
 			);
 			path = MyFirstApp;
+			sourceTree = "<group>";
+		};
+		FC3D465529ADEC570071004F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCFABF1129A37740006254D2 /* TopScoresViewController.xib */,
+				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
+				FCD4B91229968BCA00B1D29E /* AboutViewController.xib */,
+				FC04E45229928A06009A937A /* Main.storyboard */,
+				FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC3D465629ADEC5F0071004F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC04E45029928A06009A937A /* ViewController.swift */,
+				FCD4B91129968BCA00B1D29E /* AboutViewController.swift */,
+				FCFABF1029A37740006254D2 /* TopScoresViewController.swift */,
+				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
+				FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */,
+				FC3D465829ADEFA30071004F /* ReadWriteController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FC3D465729ADEC660071004F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC0255B829A513F900BE6A9C /* Player.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC04E45129928A06009A937A /* ViewController.swift in Sources */,
+				FC3D465929ADEFA30071004F /* ReadWriteController.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,

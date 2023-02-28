@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Player : CustomStringConvertible {
+class Player {
     var name: String
     var score: Int
     var date: Date
@@ -17,9 +17,10 @@ class Player : CustomStringConvertible {
         self.score = score
         self.date = date
     }
+    
     var description: String { "Name: \(name), Score: \(score), Date: \(date)" }
     
     func setName() {
-        self.name = "str"
+        self.name = ""
     }
 }

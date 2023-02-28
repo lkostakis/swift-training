@@ -13,7 +13,7 @@ extension Collection {
     }
 }
 
-class HighScoreViewController: UIViewController {
+class HighScoreViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var topScore1: UILabel!
@@ -23,9 +23,11 @@ class HighScoreViewController: UIViewController {
     static let shared = HighScoreViewController()
     static var place: Int = 0
     static var level: SettingsViewController.DifficultyLevel = ViewController().selectedLevel
-    
+    var name: String?
+    static var score = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
     }
     
     private init() { super.init(nibName: nil, bundle: nil) }
@@ -36,7 +38,7 @@ class HighScoreViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
-        message.text = "Congratulations you have achieved a top \(HighScoreViewController.place) score in \(HighScoreViewController.level.toString()) difficulty."
+        message.text = "Congratulations you have achieved a top \(HighScoreViewController.place) score with \(HighScoreViewController.score) in \(HighScoreViewController.level.toString()) difficulty."
         [topScore1, topScore2, topScore3].enumerated().forEach { (index, label) in
             label!.text = "\(index + 1). Score: \(HighScoreViewController.highScoreTable[HighScoreViewController.level]![safe: index]?.score ?? 0) Date: \(String(describing: HighScoreViewController.highScoreTable[HighScoreViewController.level]![safe: index]?.date ?? nil))"
         }
@@ -48,36 +50,48 @@ class HighScoreViewController: UIViewController {
             return nil
         }
 
-        // When score ladder is empty, just append and return top1
+        // When score ladder is empty, just return top1
         if HighScoreViewController.highScoreTable[level]!.isEmpty {
-            HighScoreViewController.highScoreTable[level]?.append(Player(name: getName(), score: score, date: Date.now))
-            return 1
+            return 0
         }
-        // if you a find a `score in table < input score` insert input score at that pos, and check if size > 3 to remove last element
+        // if you a find a `score in table < input score` return that index
         if let position = HighScoreViewController.highScoreTable[level]!.firstIndex(where: { $0.score < score }) {
-            HighScoreViewController.highScoreTable[level]!.insert(Player(name: getName(), score: score, date: Date.now), at: position)
-            if HighScoreViewController.highScoreTable[level]!.count > 3 {
-                HighScoreViewController.highScoreTable[level]!.remove(at: HighScoreViewController.highScoreTable[level]!.endIndex-1) }
-            return position + 1
+            return position
         }
-        // if there is not any `score in table < input score`, but table size < 3, append input score, return last index as position
+        // if there is not any `score in table < input score`, but table size < 3, return last index as position
         if HighScoreViewController.highScoreTable[level]!.count < 3 {
-            HighScoreViewController.highScoreTable[level]!.append(Player(name: getName(), score: score, date: Date.now))
             return HighScoreViewController.highScoreTable[level]!.endIndex
         }
         return nil
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {
+        addPlayerToHighScoreTable()
         dismiss(animated: true)
+    }
+    
+    func addPlayerToHighScoreTable() {
+        let player = Player(name: nameTextField.text!, score: HighScoreViewController.score, date: Date.now)
+        if HighScoreViewController.highScoreTable[HighScoreViewController.level]!.isEmpty {
+            HighScoreViewController.highScoreTable[HighScoreViewController.level]!.append(player)
+        } else if HighScoreViewController.highScoreTable[HighScoreViewController.level]!.count <= 3 {
+            HighScoreViewController.highScoreTable[HighScoreViewController.level]!.insert(player, at: HighScoreViewController.place)
+        }
+        if HighScoreViewController.highScoreTable[HighScoreViewController.level]!.count > 3 {
+            HighScoreViewController.highScoreTable[HighScoreViewController.level]!.remove(at: HighScoreViewController.highScoreTable[HighScoreViewController.level]!.endIndex-1)
+        }
     }
     
     @IBAction func edittingChanged(_ sender: UITextField) {
         print("textValueChanged text: \(sender.text)")
     }
-
-    static func getName() -> String {
-        return ""
+    
+    @IBAction func didEndOnExit(_ sender: UITextField) {
+        self.becomeFirstResponder()
+    }
+    
+    @IBAction func editingDidEnd(_ sender: UITextField) {
+        addPlayerToHighScoreTable()
     }
 
 }

@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="102" width="375" height="464"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0r-Ov-OxK">
-                            <rect key="frame" x="8" y="74" width="359" height="141.5"/>
+                            <rect key="frame" x="8" y="73.999999999999986" width="359" height="141.66666666666663"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="37" id="ktL-bz-Mez"/>
                             </constraints>
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="High Score Table" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-SK-PNZ">
-                            <rect key="frame" x="104.5" y="30" width="166" height="24"/>
+                            <rect key="frame" x="104.66666666666669" y="30" width="166" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="166" id="IKY-nM-4XP"/>
                             </constraints>
@@ -46,19 +46,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. No score." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zi7-Eh-P4z">
-                            <rect key="frame" x="142.5" y="276.5" width="92" height="21"/>
+                            <rect key="frame" x="142.66666666666666" y="276.66666666666669" width="92" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="1. No score." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YES-GV-GWN">
-                            <rect key="frame" x="143" y="235.5" width="89" height="21"/>
+                            <rect key="frame" x="143" y="235.66666666666669" width="89" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMq-HJ-Iku">
-                            <rect key="frame" x="154" y="392" width="67" height="52"/>
+                            <rect key="frame" x="154" y="392.33333333333331" width="67" height="51.666666666666686"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Close"/>
                             <connections>
@@ -66,25 +66,26 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="3. No score." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7a-CJ-HXf">
-                            <rect key="frame" x="142.5" y="317.5" width="92" height="21"/>
+                            <rect key="frame" x="142.66666666666666" y="317.66666666666669" width="92" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oZw-5a-Ixt">
-                            <rect key="frame" x="107" y="358.5" width="258" height="25"/>
+                            <rect key="frame" x="107" y="358.66666666666669" width="258" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="9Ms-u8-RcA"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
+                                <action selector="didEndOnExit:" destination="-1" eventType="editingDidEndOnExit" id="IJM-iP-7WS"/>
+                                <action selector="editingDidEnd:" destination="-1" eventType="editingDidEnd" id="dBB-vL-FP3"/>
                                 <action selector="edittingChanged:" destination="-1" eventType="editingChanged" id="9ra-KU-eHw"/>
-                                <action selector="nameTextField:" destination="-1" eventType="editingDidEnd" id="geK-L2-zbH"/>
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-WD-HzN">
-                            <rect key="frame" x="7.5" y="360.5" width="91.5" height="21"/>
+                            <rect key="frame" x="7.6666666666666643" y="360.66666666666669" width="91.333333333333343" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

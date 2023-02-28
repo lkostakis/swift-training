@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol ViewControllerData {
-    var viewController: ViewController? { get set }
-    func changeLevel()
-}
-
 class ViewController: UIViewController, ChangedLevelDelegate {
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
@@ -57,17 +52,11 @@ class ViewController: UIViewController, ChangedLevelDelegate {
             target: self,
             action: #selector(settingsTapped))
 
-        navigationItem.leftBarButtonItem =
-        UIBarButtonItem(
-            image: UIImage(systemName: "crown"),
-            style: .plain,
-            target: self,
-            action: #selector(scoreTableTapped))
-        
         startNextRound()
     }
 
     private final func startNextRound() {
+        topScoresButton() // create or not Crown button
         levelLabel.text = "Level: \(selectedLevel.toString())"
         slider.maximumValue = Float(selectedLevel.rawValue) // set slider's maximum value
         maxValueLabel.text = String(Int(slider.maximumValue))
@@ -77,6 +66,24 @@ class ViewController: UIViewController, ChangedLevelDelegate {
         totalScore.label.text = "Score: \(totalScore.total)"
         targetValue = Int.random(in: 1...selectedLevel.rawValue) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
+    }
+    
+    // topScoresButton() and createCrownButton() are a workaround because isHidden is not available on <iOS16
+    func topScoresButton() {
+        if HighScoreViewController.highScoreTable[selectedLevel]!.count >= 3 {
+            createCrownButton()
+        } else {
+            navigationItem.leftBarButtonItem = nil
+        }
+    }
+    
+    func createCrownButton() {
+        navigationItem.leftBarButtonItem =
+        UIBarButtonItem(
+            image: UIImage(systemName: "crown"),
+            style: .plain,
+            target: self,
+            action: #selector(scoreTableTapped))
     }
 
     @IBAction func hitMeTapped(_ sender: UIButton) {
@@ -127,6 +134,7 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     func showHighScoreModal(position place: Int) {
         HighScoreViewController.place = place
         HighScoreViewController.level = selectedLevel
+        HighScoreViewController.score = totalScore.total
         present(HighScoreViewController.shared, animated: true, completion: nil)
     }
 
@@ -146,8 +154,8 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     }
     
     @objc func scoreTableTapped() {
-//        TopScoresViewController.shared.currentLevel = selectedLevel.rawValue
-//        TopScoresViewController.shared.viewController = self
+        TopScoresViewController.currentLevel = selectedLevel.rawValue
+        TopScoresViewController.viewController = self
         navigationController?.pushViewController(TopScoresViewController.shared, animated: true)
     }
 
