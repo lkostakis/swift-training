@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StandingsViewController: UITableViewController {
+class TeamsViewController: UITableViewController {
     let teams = Team.teamsFromBundle()
 
     override func viewDidLoad() {
