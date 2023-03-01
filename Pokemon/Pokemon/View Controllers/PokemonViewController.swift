@@ -19,7 +19,7 @@ class PokemonViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
         self.tableView.contentInsetAdjustmentBehavior = .automatic
-        network.fetchPokemonWithURL(url: pokemonURL!, comp: { data in
+        network.fetchPokemonWithURL(url: pokemonURL ?? "", comp: { data in
             self.pokemon = data
             DispatchQueue.main.async {
                 self.tableView.reloadData()
