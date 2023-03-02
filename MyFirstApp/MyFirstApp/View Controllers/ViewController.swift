@@ -42,6 +42,7 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // these things has to be initialized just once in whole app lifecycle
+        Reader.readFromMemory()
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6

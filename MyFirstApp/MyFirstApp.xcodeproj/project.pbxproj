@@ -17,6 +17,8 @@
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
 		FC3D465929ADEFA30071004F /* ReadWriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D465829ADEFA30071004F /* ReadWriteController.swift */; };
+		FC60819429B0B427002C4466 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819329B0B427002C4466 /* Writer.swift */; };
+		FC60819629B0B433002C4466 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819529B0B433002C4466 /* Reader.swift */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
@@ -38,6 +40,8 @@
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		FC3D465829ADEFA30071004F /* ReadWriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteController.swift; sourceTree = "<group>"; };
+		FC60819329B0B427002C4466 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
+		FC60819529B0B433002C4466 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -76,13 +80,13 @@
 		FC04E44B29928A06009A937A /* MyFirstApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC60819229B0A5D5002C4466 /* Resources */,
 				FC3D465729ADEC660071004F /* Models */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
 				FC3D465529ADEC570071004F /* Views */,
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
 				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
 				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
-				FC04E45529928A08009A937A /* Assets.xcassets */,
 				FC04E45A29928A08009A937A /* Info.plist */,
 			);
 			path = MyFirstApp;
@@ -117,8 +121,18 @@
 			isa = PBXGroup;
 			children = (
 				FC0255B829A513F900BE6A9C /* Player.swift */,
+				FC60819329B0B427002C4466 /* Writer.swift */,
+				FC60819529B0B433002C4466 /* Reader.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FC60819229B0A5D5002C4466 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC04E45529928A08009A937A /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +215,9 @@
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
+				FC60819629B0B433002C4466 /* Reader.swift in Sources */,
 				FC0255B929A513F900BE6A9C /* Player.swift in Sources */,
+				FC60819429B0B427002C4466 /* Writer.swift in Sources */,
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,

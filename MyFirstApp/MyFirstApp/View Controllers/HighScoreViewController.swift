@@ -14,12 +14,14 @@ extension Collection {
 }
 
 class HighScoreViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var topScore1: UILabel!
     @IBOutlet weak var topScore2: UILabel!
     @IBOutlet weak var topScore3: UILabel!
-    private(set) static var highScoreTable: [SettingsViewController.DifficultyLevel : [Player] ] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
+    private lazy var topScoreLabels = [topScore1, topScore2, topScore3]
+    static var highScoreTable: [SettingsViewController.DifficultyLevel : [Player] ] = [SettingsViewController.DifficultyLevel.tooYoungToDie : [], SettingsViewController.DifficultyLevel.heyNotTooRough : [], SettingsViewController.DifficultyLevel.hurtMePlenty : [], SettingsViewController.DifficultyLevel.ultraViolence : [], SettingsViewController.DifficultyLevel.nightmare : [] ]
     static let shared = HighScoreViewController()
     static var place: Int = 0
     static var level: SettingsViewController.DifficultyLevel = ViewController().selectedLevel
@@ -38,10 +40,12 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
-        message.text = "Congratulations you have achieved a top \(HighScoreViewController.place) score with \(HighScoreViewController.score) in \(HighScoreViewController.level.toString()) difficulty."
-        [topScore1, topScore2, topScore3].enumerated().forEach { (index, label) in
-            label!.text = "\(index + 1). Score: \(HighScoreViewController.highScoreTable[HighScoreViewController.level]![safe: index]?.score ?? 0) Date: \(String(describing: HighScoreViewController.highScoreTable[HighScoreViewController.level]![safe: index]?.date ?? nil))"
+        message.text = "Congratulations you have achieved a top \(HighScoreViewController.place+1) score with \(HighScoreViewController.score) in \(HighScoreViewController.level.toString()) difficulty."
+        
+        for (index, player)in HighScoreViewController.highScoreTable[HighScoreViewController.level]!.enumerated() {
+            topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score) Date: \(player.date)"
         }
+        nameTextField.text = ""
     }
 
     // check if is highScore based on score and level and return the position
@@ -67,6 +71,7 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func closeTapped(_ sender: UIButton) {
         addPlayerToHighScoreTable()
+        // Writer.writeToMemory()
         dismiss(animated: true)
     }
     
@@ -91,7 +96,7 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func editingDidEnd(_ sender: UITextField) {
-        addPlayerToHighScoreTable()
+
     }
 
 }
