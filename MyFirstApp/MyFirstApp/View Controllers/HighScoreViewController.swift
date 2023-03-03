@@ -7,15 +7,15 @@
 
 import UIKit
 
-class HighScoreViewController: UIViewController, UITextFieldDelegate {
-    
+class HighScoreViewController: UIViewController, UITextFieldDelegate, ChangedMainViewDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var topScore1: UILabel!
     @IBOutlet weak var topScore2: UILabel!
     @IBOutlet weak var topScore3: UILabel!
     private lazy var topScoreLabels = [topScore1, topScore2, topScore3]
-    
+    var mainViewController: MainViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -34,6 +34,7 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
     @IBAction func closeTapped(_ sender: UIButton) {
         HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text!, score: HighScoreTable.score, date: Date.now))
         Writer.writeToMemory()
+        mainViewController?.topScoresButton()
         dismiss(animated: true)
     }
     

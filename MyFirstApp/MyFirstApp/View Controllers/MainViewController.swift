@@ -136,7 +136,9 @@ class MainViewController: UIViewController, ChangedLevelDelegate {
         HighScoreTable.place = place
         HighScoreTable.level = selectedLevel
         HighScoreTable.score = totalScore.total
-        present(HighScoreViewController(), animated: true, completion: nil)
+        let highScoreViewController = HighScoreViewController()
+        highScoreViewController.mainViewController = self
+        present(highScoreViewController, animated: true, completion: nil)
     }
 
     @IBAction func adjustSlider(_ sender: UISlider) {
