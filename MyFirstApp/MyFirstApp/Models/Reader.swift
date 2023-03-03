@@ -13,12 +13,14 @@ class Reader {
     private init() { }
     
     static func readFromMemory() {
-        
-        if let savedScoreTable = (UserDefaults.standard.dictionary(forKey: "ScoreTable") as? [SettingsViewController.DifficultyLevel : [Player] ]) {
-            HighScoreViewController.highScoreTable = savedScoreTable
+        print("starting read...1")
+        if let data = UserDefaults.standard.data(forKey: "HighScoreTable") {
+            let decoder = JSONDecoder()
+            if let highScoreTable = try? decoder.decode([Settings.DifficultyLevel : [Player]].self, from: data) {
+                HighScoreTable.scoreTable = highScoreTable
+            }
         } else {
-            print("NO DATA SAVED")
+            print("nothing to read")
         }
-        
     }
 }

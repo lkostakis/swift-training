@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, ChangedLevelDelegate {
+class MainViewController: UIViewController, ChangedLevelDelegate {
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
@@ -15,7 +15,7 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     // re-init score and round counters to zero, etc.
     // so here we place only the things that are change
     // when difficulty level changes.
-    var selectedLevel = SettingsViewController.DifficultyLevel.heyNotTooRough {
+    var selectedLevel = Settings.DifficultyLevel.heyNotTooRough {
         didSet {
             if selectedLevel != oldValue {
                 self.roundCounter.counter = 0
@@ -71,7 +71,7 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     
     // topScoresButton() and createCrownButton() are a workaround because isHidden is not available on <iOS16
     func topScoresButton() {
-        if HighScoreViewController.highScoreTable[selectedLevel]!.count >= 3 {
+        if HighScoreTable.scoreTable[selectedLevel]!.count >= 3 {
             createCrownButton()
         } else {
             navigationItem.leftBarButtonItem = nil
@@ -115,7 +115,7 @@ class ViewController: UIViewController, ChangedLevelDelegate {
             title: "OK",
             style: .default,
             handler: { _ in
-                if let place = HighScoreViewController.checkHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
+                if let place = HighScoreTable.checkHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
                     self.showHighScoreModal(position: place)
                 }
                 self.roundCounter.counter = 0
@@ -133,10 +133,10 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     }
 
     func showHighScoreModal(position place: Int) {
-        HighScoreViewController.place = place
-        HighScoreViewController.level = selectedLevel
-        HighScoreViewController.score = totalScore.total
-        present(HighScoreViewController.shared, animated: true, completion: nil)
+        HighScoreTable.place = place
+        HighScoreTable.level = selectedLevel
+        HighScoreTable.score = totalScore.total
+        present(HighScoreViewController(), animated: true, completion: nil)
     }
 
     @IBAction func adjustSlider(_ sender: UISlider) {
@@ -144,20 +144,19 @@ class ViewController: UIViewController, ChangedLevelDelegate {
     }
 
     @IBAction func infoButtonTapped(_ sender: UIButton) {
-        let aboutViewController = AboutViewController()
-        navigationController?.pushViewController(aboutViewController, animated: true)
+        navigationController?.pushViewController(AboutViewController(), animated: true)
     }
 
     @objc func settingsTapped() {
-        SettingsViewController.currentLevel = selectedLevel.rawValue
-        SettingsViewController.viewController = self
-        navigationController?.pushViewController(SettingsViewController.shared, animated: true)
+        Settings.currentLevel = selectedLevel.rawValue
+        Settings.viewController = self
+        navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
     @objc func scoreTableTapped() {
-        TopScoresViewController.currentLevel = selectedLevel.rawValue
-        TopScoresViewController.viewController = self
-        navigationController?.pushViewController(TopScoresViewController.shared, animated: true)
+        Settings.currentLevel = selectedLevel.rawValue
+        Settings.viewController = self
+        navigationController?.pushViewController(TopScoresViewController(), animated: true)
     }
 
 }

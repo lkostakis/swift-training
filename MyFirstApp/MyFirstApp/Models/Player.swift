@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Player {
+class Player : Codable {
     var name: String
     var score: Int
     var date: Date
@@ -19,8 +19,5 @@ class Player {
     }
     
     var description: String { "Name: \(name), Score: \(score), Date: \(date)" }
-    
-    func setName() {
-        self.name = ""
-    }
+
 }

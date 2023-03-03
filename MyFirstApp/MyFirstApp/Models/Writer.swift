@@ -14,6 +14,11 @@ class Writer {
     private init() { }
     
     static func writeToMemory() {
-        UserDefaults.standard.set(HighScoreViewController.highScoreTable, forKey: "ScoreTable")
+        print("encoding...1")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(HighScoreTable.scoreTable) {
+            print("encoding...2")
+            UserDefaults.standard.set(encoded, forKey: "HighScoreTable")
+        }
     }
 }

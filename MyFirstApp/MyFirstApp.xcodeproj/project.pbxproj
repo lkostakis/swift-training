@@ -10,15 +10,19 @@
 		FC0255B929A513F900BE6A9C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0255B829A513F900BE6A9C /* Player.swift */; };
 		FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44C29928A06009A937A /* AppDelegate.swift */; };
 		FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44E29928A06009A937A /* SceneDelegate.swift */; };
-		FC04E45129928A06009A937A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E45029928A06009A937A /* ViewController.swift */; };
+		FC04E45129928A06009A937A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E45029928A06009A937A /* MainViewController.swift */; };
 		FC04E45429928A06009A937A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45229928A06009A937A /* Main.storyboard */; };
 		FC04E45629928A08009A937A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45529928A08009A937A /* Assets.xcassets */; };
 		FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45729928A08009A937A /* LaunchScreen.storyboard */; };
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
-		FC3D465929ADEFA30071004F /* ReadWriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3D465829ADEFA30071004F /* ReadWriteController.swift */; };
 		FC60819429B0B427002C4466 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819329B0B427002C4466 /* Writer.swift */; };
 		FC60819629B0B433002C4466 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819529B0B433002C4466 /* Reader.swift */; };
+		FC60819929B11771002C4466 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819829B11771002C4466 /* Date.swift */; };
+		FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819A29B117D3002C4466 /* DateFormatter.swift */; };
+		FC60819D29B119A5002C4466 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819C29B119A5002C4466 /* Settings.swift */; };
+		FC60819F29B119E1002C4466 /* HighScoreTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819E29B119E1002C4466 /* HighScoreTable.swift */; };
+		FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
@@ -32,16 +36,20 @@
 		FC04E44929928A06009A937A /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC04E44C29928A06009A937A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC04E44E29928A06009A937A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC04E45029928A06009A937A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC04E45029928A06009A937A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FC04E45329928A06009A937A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC04E45529928A08009A937A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC04E45829928A08009A937A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC04E45A29928A08009A937A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		FC3D465829ADEFA30071004F /* ReadWriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteController.swift; sourceTree = "<group>"; };
 		FC60819329B0B427002C4466 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		FC60819529B0B433002C4466 /* Reader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		FC60819829B11771002C4466 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		FC60819A29B117D3002C4466 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		FC60819C29B119A5002C4466 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		FC60819E29B119E1002C4466 /* HighScoreTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTable.swift; sourceTree = "<group>"; };
+		FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagnedLevelDelegate.swift; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +88,8 @@
 		FC04E44B29928A06009A937A /* MyFirstApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC6081A029B11A6B002C4466 /* Delegates */,
+				FC60819729B11758002C4466 /* Extensions */,
 				FC60819229B0A5D5002C4466 /* Resources */,
 				FC3D465729ADEC660071004F /* Models */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
@@ -107,12 +117,11 @@
 		FC3D465629ADEC5F0071004F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FC04E45029928A06009A937A /* ViewController.swift */,
+				FC04E45029928A06009A937A /* MainViewController.swift */,
 				FCD4B91129968BCA00B1D29E /* AboutViewController.swift */,
 				FCFABF1029A37740006254D2 /* TopScoresViewController.swift */,
 				FCB949FE299FA63000A6814A /* HighScoreViewController.swift */,
 				FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */,
-				FC3D465829ADEFA30071004F /* ReadWriteController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -123,6 +132,8 @@
 				FC0255B829A513F900BE6A9C /* Player.swift */,
 				FC60819329B0B427002C4466 /* Writer.swift */,
 				FC60819529B0B433002C4466 /* Reader.swift */,
+				FC60819C29B119A5002C4466 /* Settings.swift */,
+				FC60819E29B119E1002C4466 /* HighScoreTable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +144,23 @@
 				FC04E45529928A08009A937A /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FC60819729B11758002C4466 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC60819829B11771002C4466 /* Date.swift */,
+				FC60819A29B117D3002C4466 /* DateFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC6081A029B11A6B002C4466 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,17 +238,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC04E45129928A06009A937A /* ViewController.swift in Sources */,
-				FC3D465929ADEFA30071004F /* ReadWriteController.swift in Sources */,
+				FC04E45129928A06009A937A /* MainViewController.swift in Sources */,
+				FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
+				FC60819D29B119A5002C4466 /* Settings.swift in Sources */,
+				FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
 				FC60819629B0B433002C4466 /* Reader.swift in Sources */,
 				FC0255B929A513F900BE6A9C /* Player.swift in Sources */,
 				FC60819429B0B427002C4466 /* Writer.swift in Sources */,
+				FC60819F29B119E1002C4466 /* HighScoreTable.swift in Sources */,
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,
+				FC60819929B11771002C4466 /* Date.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
