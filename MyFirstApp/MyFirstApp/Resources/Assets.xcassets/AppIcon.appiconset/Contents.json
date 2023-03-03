@@ -29,12 +29,14 @@
       "size" : "29x29"
     },
     {
+      "filename" : "Icon-76.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "38x38"
     },
     {
+      "filename" : "Icon@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -69,6 +71,7 @@
       "size" : "60x60"
     },
     {
+      "filename" : "128x128.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
@@ -87,24 +90,21 @@
       "size" : "68x68"
     },
     {
+      "filename" : "Icon-76@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "Icon-83_5@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "logo.png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
-    },
-    {
+      "filename" : "logo 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

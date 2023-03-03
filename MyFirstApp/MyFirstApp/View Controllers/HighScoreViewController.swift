@@ -27,7 +27,6 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
         
         for (index, player)in HighScoreTable.scoreTable[HighScoreTable.level]!.enumerated() {
             topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
-            print(player.date.displayFormat)
         }
         nameTextField.text = ""
     }
@@ -38,16 +37,8 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true)
     }
     
-    @IBAction func edittingChanged(_ sender: UITextField) {
-        print("textValueChanged text: \(sender.text)")
-    }
-    
     @IBAction func didEndOnExit(_ sender: UITextField) {
         self.becomeFirstResponder()
-    }
-    
-    @IBAction func editingDidEnd(_ sender: UITextField) {
-
     }
 
 }

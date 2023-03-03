@@ -80,8 +80,6 @@
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <action selector="didEndOnExit:" destination="-1" eventType="editingDidEndOnExit" id="IJM-iP-7WS"/>
-                                <action selector="editingDidEnd:" destination="-1" eventType="editingDidEnd" id="dBB-vL-FP3"/>
-                                <action selector="edittingChanged:" destination="-1" eventType="editingChanged" id="9ra-KU-eHw"/>
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYU-WD-HzN">
