@@ -13,14 +13,12 @@ class Reader {
     private init() { }
     
     static func readFromMemory() {
-        print("starting read...1")
         if let data = UserDefaults.standard.data(forKey: "HighScoreTable") {
-            let decoder = JSONDecoder()
-            if let highScoreTable = try? decoder.decode([Settings.DifficultyLevel : [Player]].self, from: data) {
+            if let highScoreTable = try? JSONDecoder().decode([Settings.DifficultyLevel : [Player]].self, from: data) {
                 HighScoreTable.scoreTable = highScoreTable
             }
         } else {
-            print("nothing to read")
+            print("No data to read.")
         }
     }
 }
