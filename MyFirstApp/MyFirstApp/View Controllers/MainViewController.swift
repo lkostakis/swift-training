@@ -115,7 +115,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate {
             title: "OK",
             style: .default,
             handler: { _ in
-                if let place = HighScoreTable.checkHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
+                if let place = HighScoreTable.getHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
                     self.showHighScoreModal(position: place)
                 }
                 self.roundCounter.counter = 0

@@ -8,8 +8,6 @@
 import UIKit
 
 class TopScoresViewController: UIViewController {
-//    static var viewController: ChangedLevelDelegate?
-//    static var currentLevel: Int?
     
     @IBOutlet weak var top1Label: UILabel!
     @IBOutlet weak var top2Label: UILabel!
