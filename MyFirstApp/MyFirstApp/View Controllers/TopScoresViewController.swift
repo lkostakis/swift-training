@@ -7,24 +7,40 @@
 
 import UIKit
 
-class TopScoresViewController: UIViewController {
-    
-    @IBOutlet weak var top1Label: UILabel!
-    @IBOutlet weak var top2Label: UILabel!
-    @IBOutlet weak var top3Label: UILabel!
-    
+class TopScoresViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        title = "Leaders"
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+        tableView.register(UINib(nibName: "\(TopScoreCell.self)", bundle: nil), forCellReuseIdentifier: TopScoreCell.reuseIdentifier)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let level = Settings.viewController?.selectedLevel
-        if let players = HighScoreTable.scoreTable[level!] {
-            [top1Label, top2Label, top3Label].enumerated().forEach { (index, label) in
-                label.text = "Name: \(players[index].name)\nScore: \(players[index].score)\nDate: \(players[index].date.displayFormat)" }
+        return HighScoreTable.scoreTable[level!]?.count ?? 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(TopScoreCell.self)", for: indexPath) as? TopScoreCell
+        else { fatalError("Could not create TeamCell") }
+        
+        let level = Settings.viewController?.selectedLevel
+//        if let players = HighScoreTable.scoreTable[level!] {
+//            [top1Label, top2Label, top3Label].enumerated().forEach { (index, label) in
+//                label.text = "Name: \(players[index].name)\nScore: \(players[index].score)\nDate: \(players[index].date.displayFormat)" }
+//        }
+        guard let players = HighScoreTable.scoreTable[level!] else {
+            return UITableViewCell()
         }
+        cell.backgroundColor = .systemGray6
+        return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)
     }
 
 }

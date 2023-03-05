@@ -14,8 +14,6 @@
 		FC04E45429928A06009A937A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45229928A06009A937A /* Main.storyboard */; };
 		FC04E45629928A08009A937A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45529928A08009A937A /* Assets.xcassets */; };
 		FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45729928A08009A937A /* LaunchScreen.storyboard */; };
-		FC1D7AB129B20BDE0056DAB9 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1D7AAF29B20BDE0056DAB9 /* StackViewController.swift */; };
-		FC1D7AB229B20BDE0056DAB9 /* StackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC1D7AB029B20BDE0056DAB9 /* StackViewController.xib */; };
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
 		FC60819429B0B427002C4466 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819329B0B427002C4466 /* Writer.swift */; };
@@ -25,15 +23,15 @@
 		FC60819D29B119A5002C4466 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819C29B119A5002C4466 /* Settings.swift */; };
 		FC60819F29B119E1002C4466 /* HighScoreTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819E29B119E1002C4466 /* HighScoreTable.swift */; };
 		FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */; };
+		FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */; };
+		FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCBE533A29B260B300A01E35 /* ChangedMainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE533929B260B300A01E35 /* ChangedMainViewDelegate.swift */; };
 		FCC5494029B2074F0059D78E /* TopScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5493F29B2074E0059D78E /* TopScoreCell.swift */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
 		FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4B91229968BCA00B1D29E /* AboutViewController.xib */; };
-		FCD9C8C129B4AB53005429C7 /* TopScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C8C029B4AB53005429C7 /* TopScoreCell.xib */; };
 		FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFABF1029A37740006254D2 /* TopScoresViewController.swift */; };
-		FCFABF1329A37740006254D2 /* TopScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCFABF1129A37740006254D2 /* TopScoresViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +44,6 @@
 		FC04E45529928A08009A937A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC04E45829928A08009A937A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC04E45A29928A08009A937A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC1D7AAF29B20BDE0056DAB9 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		FC1D7AB029B20BDE0056DAB9 /* StackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackViewController.xib; sourceTree = "<group>"; };
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		FC60819329B0B427002C4466 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
@@ -57,15 +53,15 @@
 		FC60819C29B119A5002C4466 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		FC60819E29B119E1002C4466 /* HighScoreTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTable.swift; sourceTree = "<group>"; };
 		FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChagnedLevelDelegate.swift; sourceTree = "<group>"; };
+		FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresViewController.xib; sourceTree = "<group>"; };
+		FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoreCell.xib; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCBE533929B260B300A01E35 /* ChangedMainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangedMainViewDelegate.swift; sourceTree = "<group>"; };
 		FCC5493F29B2074E0059D78E /* TopScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoreCell.swift; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FCD4B91229968BCA00B1D29E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		FCD9C8C029B4AB53005429C7 /* TopScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoreCell.xib; sourceTree = "<group>"; };
 		FCFABF1029A37740006254D2 /* TopScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresViewController.swift; sourceTree = "<group>"; };
-		FCFABF1129A37740006254D2 /* TopScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +100,6 @@
 				FC3D465729ADEC660071004F /* Models */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
 				FC3D465529ADEC570071004F /* Views */,
-				FC1D7AB529B212400056DAB9 /* StackViewRefactor */,
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
 				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
 				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
@@ -113,25 +108,15 @@
 			path = MyFirstApp;
 			sourceTree = "<group>";
 		};
-		FC1D7AB529B212400056DAB9 /* StackViewRefactor */ = {
-			isa = PBXGroup;
-			children = (
-				FCC5493F29B2074E0059D78E /* TopScoreCell.swift */,
-				FC1D7AAF29B20BDE0056DAB9 /* StackViewController.swift */,
-				FC1D7AB029B20BDE0056DAB9 /* StackViewController.xib */,
-				FCD9C8C029B4AB53005429C7 /* TopScoreCell.xib */,
-			);
-			path = StackViewRefactor;
-			sourceTree = "<group>";
-		};
 		FC3D465529ADEC570071004F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FC04E45229928A06009A937A /* Main.storyboard */,
 				FCB949FF299FA63000A6814A /* HighScoreViewController.xib */,
-				FCFABF1129A37740006254D2 /* TopScoresViewController.xib */,
 				FCD4B91229968BCA00B1D29E /* AboutViewController.xib */,
 				FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */,
+				FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */,
+				FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +141,7 @@
 				FC60819529B0B433002C4466 /* Reader.swift */,
 				FC60819C29B119A5002C4466 /* Settings.swift */,
 				FC60819E29B119E1002C4466 /* HighScoreTable.swift */,
+				FCC5493F29B2074E0059D78E /* TopScoreCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,15 +230,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */,
 				FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */,
 				FC04E45629928A08009A937A /* Assets.xcassets in Resources */,
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
-				FCFABF1329A37740006254D2 /* TopScoresViewController.xib in Resources */,
-				FC1D7AB229B20BDE0056DAB9 /* StackViewController.xib in Resources */,
+				FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */,
 				FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */,
 				FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */,
-				FCD9C8C129B4AB53005429C7 /* TopScoreCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +263,6 @@
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FCC5494029B2074F0059D78E /* TopScoreCell.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
-				FC1D7AB129B20BDE0056DAB9 /* StackViewController.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,
 				FC60819929B11771002C4466 /* Date.swift in Sources */,
 			);

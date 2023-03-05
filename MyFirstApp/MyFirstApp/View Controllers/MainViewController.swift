@@ -8,13 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController, ChangedLevelDelegate {
-    
-    
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        present(StackViewController(), animated: true, completion: nil)
-    }
-    
-    
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
