@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConstraintsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spiderman" translatesAutoresizingMaskIntoConstraints="NO" id="vcN-0S-Ybw">
+                                <rect key="frame" x="0.0" y="59" width="393" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="e6x-0u-rIA"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPr-i2-Efu">
+                                <rect key="frame" x="20" y="768" width="353" height="50"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kHf-9b-bB2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biI-Lv-L7r">
+                                <rect key="frame" x="20" y="207" width="353" height="182.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTs-RI-cqo">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="182.66666666666666"/>
+                                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fTs-RI-cqo" secondAttribute="trailing" id="Xjj-ue-Q7s"/>
+                                    <constraint firstAttribute="bottom" secondItem="fTs-RI-cqo" secondAttribute="bottom" id="p8m-lL-e0r"/>
+                                    <constraint firstItem="fTs-RI-cqo" firstAttribute="leading" secondItem="biI-Lv-L7r" secondAttribute="leading" id="qt5-6E-NVC"/>
+                                    <constraint firstItem="fTs-RI-cqo" firstAttribute="top" secondItem="biI-Lv-L7r" secondAttribute="top" id="tk1-Sf-XrG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqi-q5-aIO">
+                                <rect key="frame" x="20" y="409.66666666666669" width="353" height="152.33333333333331"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-9W-KK6">
+                                        <rect key="frame" x="5" y="5" width="276.33333333333331" height="142.33333333333334"/>
+                                        <string key="text">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w41-ZW-9dc">
+                                        <rect key="frame" x="299" y="60.666666666666629" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="sSn-9W-KK6" firstAttribute="leading" secondItem="sqi-q5-aIO" secondAttribute="leading" constant="5" id="3fZ-zS-CEF"/>
+                                    <constraint firstAttribute="trailing" secondItem="w41-ZW-9dc" secondAttribute="trailing" constant="5" id="gmf-rb-9vn"/>
+                                    <constraint firstItem="w41-ZW-9dc" firstAttribute="centerY" secondItem="sSn-9W-KK6" secondAttribute="centerY" id="mJi-hP-fZk"/>
+                                    <constraint firstAttribute="bottom" secondItem="sSn-9W-KK6" secondAttribute="bottom" constant="5" id="nEA-21-p78"/>
+                                    <constraint firstItem="sSn-9W-KK6" firstAttribute="top" secondItem="sqi-q5-aIO" secondAttribute="top" constant="5" id="p7f-q1-ZQj"/>
+                                    <constraint firstItem="w41-ZW-9dc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sSn-9W-KK6" secondAttribute="trailing" priority="750" constant="15" id="txh-av-OWx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elX-qx-7Hm">
+                                <rect key="frame" x="20" y="582" width="353" height="30.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmerominia ektelesis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-CX-eOg">
+                                        <rect key="frame" x="5" y="5" width="163" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="22/22/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-fC-5vX">
+                                        <rect key="frame" x="259" y="4.6666666666666288" width="89" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ufd-fC-5vX" secondAttribute="trailing" constant="5" id="4lU-cP-L9C"/>
+                                    <constraint firstAttribute="bottom" secondItem="GWm-CX-eOg" secondAttribute="bottom" constant="5" id="CZT-Qs-4Qm"/>
+                                    <constraint firstItem="Ufd-fC-5vX" firstAttribute="centerY" secondItem="GWm-CX-eOg" secondAttribute="centerY" id="adH-sQ-AhD"/>
+                                    <constraint firstItem="GWm-CX-eOg" firstAttribute="leading" secondItem="elX-qx-7Hm" secondAttribute="leading" constant="5" id="biA-Rc-pxX"/>
+                                    <constraint firstItem="Ufd-fC-5vX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GWm-CX-eOg" secondAttribute="trailing" priority="750" constant="91" id="q35-IL-48t"/>
+                                    <constraint firstItem="GWm-CX-eOg" firstAttribute="top" secondItem="elX-qx-7Hm" secondAttribute="top" constant="5" id="uIY-OR-Got"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-rF-lTQ">
+                                <rect key="frame" x="20" y="632.33333333333337" width="353" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="5oL-cX-3ot">
+                                        <rect key="frame" x="288" y="5" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="ACz-oi-MCJ"/>
+                                            <constraint firstAttribute="height" constant="60" id="Xiq-1a-SQp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Movies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlx-Na-yYI">
+                                        <rect key="frame" x="5" y="25" width="109.66666666666667" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Mlx-Na-yYI" firstAttribute="centerY" secondItem="5oL-cX-3ot" secondAttribute="centerY" id="6lI-v8-8Xx"/>
+                                    <constraint firstAttribute="trailing" secondItem="5oL-cX-3ot" secondAttribute="trailing" constant="5" id="K9W-rL-d0C"/>
+                                    <constraint firstItem="Mlx-Na-yYI" firstAttribute="leading" secondItem="Abe-rF-lTQ" secondAttribute="leading" constant="5" id="TY9-RA-yZe"/>
+                                    <constraint firstAttribute="bottom" secondItem="5oL-cX-3ot" secondAttribute="bottom" constant="5" id="WFG-gP-lXZ"/>
+                                    <constraint firstItem="5oL-cX-3ot" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mlx-Na-yYI" secondAttribute="trailing" priority="750" constant="20" id="duJ-Ye-uws"/>
+                                    <constraint firstItem="5oL-cX-3ot" firstAttribute="top" secondItem="Abe-rF-lTQ" secondAttribute="top" constant="5" id="nhY-Vl-xmw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="biI-Lv-L7r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Gk-GO-E9p"/>
+                            <constraint firstItem="Abe-rF-lTQ" firstAttribute="leading" secondItem="elX-qx-7Hm" secondAttribute="leading" id="6JX-Px-QKT"/>
+                            <constraint firstItem="dPr-i2-Efu" firstAttribute="trailing" secondItem="Abe-rF-lTQ" secondAttribute="trailing" id="AbT-KP-MCC"/>
+                            <constraint firstItem="vcN-0S-Ybw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JMr-Wa-Rzo"/>
+                            <constraint firstItem="vcN-0S-Ybw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N62-EE-U0I"/>
+                            <constraint firstItem="dPr-i2-Efu" firstAttribute="leading" secondItem="Abe-rF-lTQ" secondAttribute="leading" id="QAO-E4-L06"/>
+                            <constraint firstItem="Abe-rF-lTQ" firstAttribute="top" secondItem="elX-qx-7Hm" secondAttribute="bottom" constant="20" id="QjN-68-LRv"/>
+                            <constraint firstItem="elX-qx-7Hm" firstAttribute="trailing" secondItem="sqi-q5-aIO" secondAttribute="trailing" id="UlS-kb-iqq"/>
+                            <constraint firstItem="sqi-q5-aIO" firstAttribute="leading" secondItem="fTs-RI-cqo" secondAttribute="leading" id="Yt0-nG-w6Z"/>
+                            <constraint firstItem="Abe-rF-lTQ" firstAttribute="trailing" secondItem="elX-qx-7Hm" secondAttribute="trailing" id="Yxe-1b-KEX"/>
+                            <constraint firstItem="elX-qx-7Hm" firstAttribute="top" secondItem="sqi-q5-aIO" secondAttribute="bottom" constant="20" id="afQ-nb-m7K"/>
+                            <constraint firstItem="elX-qx-7Hm" firstAttribute="leading" secondItem="sqi-q5-aIO" secondAttribute="leading" id="cAx-cj-Zed"/>
+                            <constraint firstItem="sqi-q5-aIO" firstAttribute="top" secondItem="fTs-RI-cqo" secondAttribute="bottom" constant="20" id="hac-gG-0AZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="biI-Lv-L7r" secondAttribute="trailing" constant="20" id="kdM-39-Bh7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcN-0S-Ybw" secondAttribute="trailing" id="sqv-Qu-6bi"/>
+                            <constraint firstItem="sqi-q5-aIO" firstAttribute="trailing" secondItem="fTs-RI-cqo" secondAttribute="trailing" id="tZa-Im-dcN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dPr-i2-Efu" secondAttribute="bottom" id="udP-Ro-l56"/>
+                            <constraint firstItem="biI-Lv-L7r" firstAttribute="top" secondItem="vcN-0S-Ybw" secondAttribute="bottom" constant="20" id="xDs-r8-6KS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="movie" width="2000" height="2000"/>
+        <image name="spiderman" width="1922" height="634"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

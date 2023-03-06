@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HighscoreListChangedDelegate {
-    var mainViewController: MainViewController? {get set}
+    func highscoreListChanged()
 }

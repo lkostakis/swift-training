@@ -51,7 +51,8 @@ extension PokemonViewController: UITableViewDataSource {
             fatalError("error")
         }
         cell.backgroundColor = .systemGray6
-        return cell.configure(name: pokemon.name ?? "", baseStat: self.pokemon?.stats?[indexPath.row].baseStat ?? 0, type: pokemon.types?[indexPath.row].type?["name"]! ?? "")
+        cell.configure(name: pokemon.name ?? "", baseStat: self.pokemon?.stats?[indexPath.row].baseStat ?? 0, type: pokemon.types?[indexPath.row].type?["name"]! ?? "")
+        return cell
     }
     
     

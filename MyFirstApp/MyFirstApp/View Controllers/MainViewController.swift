@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, ChangedLevelDelegate {
+class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListChangedDelegate {
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
@@ -57,7 +57,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate {
     }
 
     private final func startNextRound() {
-        topScoresButton() // create or not Crown button
+        highscoreListChanged() // create or not Crown button
         levelLabel.text = "Level: \(selectedLevel.toString())"
         slider.maximumValue = Float(selectedLevel.rawValue) // set slider's maximum value
         maxValueLabel.text = String(Int(slider.maximumValue))
@@ -70,7 +70,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate {
     }
     
     // topScoresButton() and createCrownButton() are a workaround because isHidden is not available on <iOS16
-    func topScoresButton() {
+    func highscoreListChanged() {
         if HighScoreTable.scoreTable[selectedLevel]!.count >= 3 {
             createCrownButton()
         } else {
@@ -137,7 +137,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate {
         HighScoreTable.level = selectedLevel
         HighScoreTable.score = totalScore.total
         let highScoreViewController = HighScoreViewController()
-        highScoreViewController.mainViewController = self
+        highScoreViewController.delegate = self
         present(highScoreViewController, animated: true, completion: nil)
     }
 

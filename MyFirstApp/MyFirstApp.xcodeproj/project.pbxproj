@@ -27,7 +27,7 @@
 		FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
-		FCBE533A29B260B300A01E35 /* ChangedMainViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE533929B260B300A01E35 /* ChangedMainViewDelegate.swift */; };
+		FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */; };
 		FCC5494029B2074F0059D78E /* TopScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5493F29B2074E0059D78E /* TopScoreCell.swift */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
 		FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4B91229968BCA00B1D29E /* AboutViewController.xib */; };
@@ -57,7 +57,7 @@
 		FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoreCell.xib; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
-		FCBE533929B260B300A01E35 /* ChangedMainViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangedMainViewDelegate.swift; sourceTree = "<group>"; };
+		FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreListChangedDelegate.swift; sourceTree = "<group>"; };
 		FCC5493F29B2074E0059D78E /* TopScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoreCell.swift; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FCD4B91229968BCA00B1D29E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */,
-				FCBE533929B260B300A01E35 /* ChangedMainViewDelegate.swift */,
+				FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FC60819D29B119A5002C4466 /* Settings.swift in Sources */,
-				FCBE533A29B260B300A01E35 /* ChangedMainViewDelegate.swift in Sources */,
+				FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */,
 				FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
 				FC60819629B0B433002C4466 /* Reader.swift in Sources */,

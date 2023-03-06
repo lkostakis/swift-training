@@ -32,14 +32,10 @@ class TopScoresViewController: UITableViewController {
         else { fatalError("Could not create TeamCell") }
         
         let level = Settings.viewController?.selectedLevel
-//        if let players = HighScoreTable.scoreTable[level!] {
-//            [top1Label, top2Label, top3Label].enumerated().forEach { (index, label) in
-//                label.text = "Name: \(players[index].name)\nScore: \(players[index].score)\nDate: \(players[index].date.displayFormat)" }
-//        }
         guard let players = HighScoreTable.scoreTable[level!] else {
             return UITableViewCell()
         }
-        cell.backgroundColor = .systemGray6
+
         return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)
     }
 
