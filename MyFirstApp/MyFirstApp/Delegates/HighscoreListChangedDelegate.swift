@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ChangedMainViewDelegate {
+protocol HighscoreListChangedDelegate {
     var mainViewController: MainViewController? {get set}
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loaderIndicator: UITableView!
     let network = OldNetworkingManager()
     @IBOutlet weak var tableView: UITableView!
     var pokedex: Pokedex?
@@ -50,8 +51,21 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell else {
             fatalError("error")
         }
+        
+        let imageURL = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+"\(pokedex.results![indexPath.row].pokemonID)"+".png")!
+        
+        DispatchQueue.global().async {
+            let imageData = try! Data(contentsOf: imageURL)
+            if let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "", image: image)
+                }
+            } else {
+                cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "")
+            }
+        }
+        return cell
 
-        return cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "")
     }
 }
 

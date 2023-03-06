@@ -5,7 +5,7 @@
 //  Created by Lefteris Kostakis on 28/2/23.
 //
 
-import Foundation
+import UIKit
 
 final class OldNetworkingManager {
     static let shared: OldNetworkingManager = OldNetworkingManager()
@@ -53,4 +53,13 @@ final class OldNetworkingManager {
         }
         task.resume()
     }
+    
+//    func fetchPokemonImage(url: URL) -> UIImage? {
+//        let imageData = try! Data(contentsOf: url)
+//        if let image = UIImage(data: imageData) {
+//            return image
+//        }
+//        return nil
+//    }
+    
 }

@@ -13,4 +13,7 @@ struct Pokedex: Codable {
 struct PokemonName: Codable {
     let name: String?
     let url: String?
+    var pokemonID: String {
+        URL(string: url!)!.lastPathComponent
+    }
 }
