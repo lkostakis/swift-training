@@ -9,24 +9,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var loaderIndicator: UITableView!
     let network = OldNetworkingManager()
+    @IBOutlet weak var networkLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var pokedex: Pokedex?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadingIndicator.startAnimating()
+        networkLabel.text = "Waiting for internet connection..."
         navigationController?.navigationBar.backgroundColor = .systemGray5
         title = "Pokedex"
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        tableView.rowHeight = UITableView.automaticDimension
         self.tableView.contentInsetAdjustmentBehavior = .automatic
-        network.fetchFirst151Pokemon { data in
+        
+        self.network.fetchFirst151Pokemon { data in
             self.pokedex = data
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            // Writer.shared.writeToMemory()
         }
+//        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
+//        }
     }
 
     @IBSegueAction func showPokemonDetails(_ coder: NSCoder) -> PokemonViewController? {
@@ -52,26 +58,28 @@ extension ViewController: UITableViewDataSource {
             fatalError("error")
         }
         
-        let imageURL = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+"\(pokedex.results![indexPath.row].pokemonID)"+".png")!
+        loadingIndicator.startAnimating()
+        let imageURL = URL(string:
+                            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+"\(pokedex.results![indexPath.row].pokemonID)"+".png")
         
-        DispatchQueue.global().async {
-            let imageData = try! Data(contentsOf: imageURL)
-            if let image = UIImage(data: imageData) {
+        network.fetchPokemonImage(imageURL: imageURL!, completion: { data in
+            if let data = data {
                 DispatchQueue.main.async {
-                    cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "", image: image)
+                    self.loadingIndicator.stopAnimating()
+                    self.loadingIndicator.isHidden = true
+                    self.networkLabel.isHidden = true
+                    cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "", image: data)
                 }
             } else {
                 cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "")
             }
-        }
+        })
         return cell
-
     }
 }
 
 extension ViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
 }

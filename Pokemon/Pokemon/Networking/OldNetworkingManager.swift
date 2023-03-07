@@ -54,12 +54,20 @@ final class OldNetworkingManager {
         task.resume()
     }
     
-//    func fetchPokemonImage(url: URL) -> UIImage? {
-//        let imageData = try! Data(contentsOf: url)
-//        if let image = UIImage(data: imageData) {
-//            return image
-//        }
-//        return nil
-//    }
+    func fetchPokemonImage(imageURL: URL, completion: @escaping (UIImage?) -> ()) {
+        let request = URLRequest(url: imageURL)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                return print(error)
+            } else if let data = data {
+                let imageData = UIImage(data: data)
+                completion(imageData)
+            } else {
+                return
+            }
+        }
+        task.resume()
+    }
     
 }
