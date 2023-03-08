@@ -54,12 +54,18 @@ final class OldNetworkingManager {
         task.resume()
     }
     
-    func fetchPokemonImage(imageURL: URL, completion: @escaping (UIImage?) -> ()) {
+    func fetchPokemonImage(pokemon: PokedexEntries, completion: @escaping (UIImage?) -> ()) {
+        guard let pokemonID = pokemon.pokemonID else {
+            return
+        }
+        guard let imageURL = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemonID).png") else {
+            return
+        }
         let request = URLRequest(url: imageURL)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                return print(error)
+                return print("Error from network manager: \(error)")
             } else if let data = data {
                 let imageData = UIImage(data: data)
                 completion(imageData)

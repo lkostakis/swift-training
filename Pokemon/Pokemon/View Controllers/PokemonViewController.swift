@@ -12,11 +12,9 @@ class PokemonViewController: UIViewController {
     private let network = OldNetworkingManager()
     private let pokemonURL: String?
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
         self.tableView.contentInsetAdjustmentBehavior = .automatic
         network.fetchPokemonWithURL(url: pokemonURL ?? "", comp: { data in
@@ -26,23 +24,22 @@ class PokemonViewController: UIViewController {
             }
         })
     }
-    
+
     init?(coder: NSCoder, pokemonURL: String) {
         self.pokemonURL = pokemonURL
         super.init(coder: coder)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 extension PokemonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let pokemon = pokemon else {
             return UITableViewCell()
@@ -54,12 +51,9 @@ extension PokemonViewController: UITableViewDataSource {
         cell.configure(name: pokemon.name ?? "", baseStat: self.pokemon?.stats?[indexPath.row].baseStat ?? 0, type: pokemon.types?[indexPath.row].type?["name"]! ?? "")
         return cell
     }
-    
-    
 }
 
 extension PokemonViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }

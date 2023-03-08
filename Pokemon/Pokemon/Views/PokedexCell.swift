@@ -13,6 +13,12 @@ class PokedexCell: UITableViewCell {
     @IBOutlet weak var URLLabel: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     
+    override func prepareForReuse() {
+        nameLabel.text = nil
+        URLLabel.text = nil
+        pokemonImage.image = nil
+    }
+    
     func configure(name: String, url: String) {
         nameLabel.text = name
         URLLabel.text = url

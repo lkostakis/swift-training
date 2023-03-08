@@ -9,37 +9,34 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let network = OldNetworkingManager()
+    private let network = OldNetworkingManager()
     @IBOutlet weak var networkLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    var pokedex: Pokedex?
+    private var pokedex: Pokedex?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingIndicator.startAnimating()
-        networkLabel.text = "Waiting for internet connection..."
         navigationController?.navigationBar.backgroundColor = .systemGray5
         title = "Pokedex"
         tableView.estimatedRowHeight = 600
-        tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.contentInsetAdjustmentBehavior = .automatic
+        tableView.contentInsetAdjustmentBehavior = .automatic
         
-        self.network.fetchFirst151Pokemon { data in
+        network.fetchFirst151Pokemon { data in
             self.pokedex = data
+            Writer.shared.writeToMemory(pokedex: self.pokedex)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.hideLoading()
             }
-            // Writer.shared.writeToMemory()
         }
-//        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
-//        }
     }
 
     @IBSegueAction func showPokemonDetails(_ coder: NSCoder) -> PokemonViewController? {
         guard let indexPath = tableView.indexPathForSelectedRow else {
             fatalError("Nothing selected!")
         }
-        let pokemon = pokedex?.results?[indexPath.row]
+        let pokemon = self.pokedex?.results?[indexPath.row]
         return PokemonViewController(coder: coder, pokemonURL: pokemon?.url ?? "")
     }
 }
@@ -47,34 +44,45 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        pokedex?.results?.count ?? 0
+        self.pokedex?.results?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokedex = pokedex else {
+        guard let pokedex = self.pokedex else {
             return UITableViewCell()
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell else {
-            fatalError("error")
+            return UITableViewCell()
         }
-        
-        loadingIndicator.startAnimating()
-        let imageURL = URL(string:
-                            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"+"\(pokedex.results![indexPath.row].pokemonID)"+".png")
-        
-        network.fetchPokemonImage(imageURL: imageURL!, completion: { data in
-            if let data = data {
+        guard let pokemon = pokedex.results?[indexPath.row], let pokemonName = pokemon.name, let pokemonURL = pokemon.url else {
+            return UITableViewCell()
+        }
+
+        network.fetchPokemonImage(pokemon: pokemon, completion: { image in
+            if let image = image {
                 DispatchQueue.main.async {
-                    self.loadingIndicator.stopAnimating()
-                    self.loadingIndicator.isHidden = true
-                    self.networkLabel.isHidden = true
-                    cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "", image: data)
+                    if pokemonURL == cell.URLLabel.text {
+                        return cell.configure(name: pokemonName, url: pokemonURL, image: image)
+                    }
                 }
-            } else {
-                cell.configure(name: pokedex.results?[indexPath.row].name ?? "", url: pokedex.results?[indexPath.row].url ?? "")
             }
         })
+
+        cell.configure(name: pokemonName, url: pokemonURL)
         return cell
+    }
+}
+
+extension ViewController {
+    func hideLoading() {
+        self.loadingIndicator.stopAnimating()
+        self.loadingIndicator.isHidden = true
+        self.networkLabel.isHidden = true
+    }
+
+    func showLoading() {
+        loadingIndicator.startAnimating()
+        networkLabel.text = "Waiting for internet connection..."
     }
 }
 

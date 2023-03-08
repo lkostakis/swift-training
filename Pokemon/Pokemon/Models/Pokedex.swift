@@ -7,13 +7,13 @@
 import Foundation
 
 struct Pokedex: Codable {
-    let results: [PokemonName]?
+    let results: [PokedexEntries]?
 }
 
-struct PokemonName: Codable {
+struct PokedexEntries: Codable {
     let name: String?
     let url: String?
-    var pokemonID: String {
-        URL(string: url!)!.lastPathComponent
+    var pokemonID: String? {
+        URL(string: url ?? "")?.lastPathComponent
     }
 }

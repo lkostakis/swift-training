@@ -12,13 +12,12 @@ class Writer {
     
     private init() {}
     
-    func writeToMemory() {
+    func writeToMemory(pokedex: Pokedex?) {
         do {
-            let encoded = try JSONEncoder().encode(ViewController().pokedex)
+            let encoded = try JSONEncoder().encode(pokedex)
             UserDefaults.standard.set(encoded, forKey: "Pokedex")
         } catch {
             print("Could not encode data.")
         }
     }
-    
 }
