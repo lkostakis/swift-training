@@ -28,7 +28,9 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
         for (index, player) in HighScoreTable.scoreTable[HighScoreTable.level]!.enumerated() {
             topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
         }
-        nameTextField.text = ""
+        
+        nameTextField.placeholder = "Enter your name..."
+        nameTextField.becomeFirstResponder()
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {

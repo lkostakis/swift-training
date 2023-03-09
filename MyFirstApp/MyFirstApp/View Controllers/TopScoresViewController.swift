@@ -23,16 +23,18 @@ class TopScoresViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let level = Settings.viewController?.selectedLevel
-        return HighScoreTable.scoreTable[level!]?.count ?? 0
+        guard let level = Settings.viewController?.selectedLevel else {
+            return 0
+        }
+        return HighScoreTable.scoreTable[level]?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(TopScoreCell.self)", for: indexPath) as? TopScoreCell
-        else { fatalError("Could not create TeamCell") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(TopScoreCell.self)", for: indexPath) as? TopScoreCell else {
+            return UITableViewCell()
+        }
         
-        let level = Settings.viewController?.selectedLevel
-        guard let players = HighScoreTable.scoreTable[level!] else {
+        guard let level = Settings.viewController?.selectedLevel, let players = HighScoreTable.scoreTable[level] else {
             return UITableViewCell()
         }
 

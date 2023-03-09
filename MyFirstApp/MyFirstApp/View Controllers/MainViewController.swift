@@ -46,12 +46,6 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
-//        navigationItem.rightBarButtonItem =
-//        UIBarButtonItem(
-//            image: UIImage(named: "znsNtvIconSettings"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(settingsTapped))
 
         startNextRound()
     }
@@ -144,17 +138,6 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
     }
-
-    @IBAction func infoButtonTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(AboutViewController(), animated: true)
-    }
-
-//    @objc func settingsTapped() {
-//        print("DAWDWAADWADWWADDWAADW")
-//        Settings.currentLevel = selectedLevel.rawValue
-//        Settings.viewController = self
-//        navigationController?.pushViewController(SettingsViewController(), animated: true)
-//    }
     
     @objc func scoreTableTapped() {
         Settings.currentLevel = selectedLevel.rawValue

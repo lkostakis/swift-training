@@ -94,6 +94,7 @@
 		FC04E44B29928A06009A937A /* MyFirstApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCDF0E0029BA727800208FF3 /* Storage */,
 				FC6081A029B11A6B002C4466 /* Delegates */,
 				FC60819729B11758002C4466 /* Extensions */,
 				FC60819229B0A5D5002C4466 /* Resources */,
@@ -137,8 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				FC0255B829A513F900BE6A9C /* Player.swift */,
-				FC60819329B0B427002C4466 /* Writer.swift */,
-				FC60819529B0B433002C4466 /* Reader.swift */,
 				FC60819C29B119A5002C4466 /* Settings.swift */,
 				FC60819E29B119E1002C4466 /* HighScoreTable.swift */,
 				FCC5493F29B2074E0059D78E /* TopScoreCell.swift */,
@@ -170,6 +169,15 @@
 				FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FCDF0E0029BA727800208FF3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FC60819529B0B433002C4466 /* Reader.swift */,
+				FC60819329B0B427002C4466 /* Writer.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

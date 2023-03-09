@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
         pickerView.delegate = self
         pickerView.dataSource = self
-        // There is no chance that currentLevel is not contained in the array
+        // There is no chance that difficultyArray[] is out of index
         pickerView.selectRow(difficultyArray.firstIndex(of: Settings.currentLevel ?? 1)!, inComponent: 0, animated: true)
     }
 

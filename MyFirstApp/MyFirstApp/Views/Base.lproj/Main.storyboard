@@ -98,10 +98,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSG-xA-33f" userLabel="TapView">
-                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="513" width="320" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQV-Jd-nw3">
-                                        <rect key="frame" x="0.0" y="12.5" width="102" height="35"/>
+                                        <rect key="frame" x="0.0" y="10" width="102" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="102" id="J9C-3r-n9H"/>
                                         </constraints>
@@ -111,43 +111,29 @@
                                             <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vTq-e3-hyY"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Score:3222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfS-dG-vTy">
-                                        <rect key="frame" x="103" y="19.5" width="89" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" text="Round:12421" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4H-xn-CBV">
+                                        <rect key="frame" x="216.5" y="17.5" width="98.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round:12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4H-xn-CBV">
-                                        <rect key="frame" x="196.5" y="19.5" width="71" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Score:322244" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfS-dG-vTy">
+                                        <rect key="frame" x="105.5" y="17.5" width="109.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMD-PF-lAQ">
-                                        <rect key="frame" x="292" y="13" width="20" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="SJD-iL-tJm"/>
-                                        </constraints>
-                                        <buttonConfiguration key="configuration" style="plain"/>
-                                        <connections>
-                                            <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf3-m2-IfZ"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="centerY" secondItem="aSG-xA-33f" secondAttribute="centerY" id="0CY-Ji-Und"/>
-                                    <constraint firstItem="JMD-PF-lAQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D4H-xn-CBV" secondAttribute="trailing" constant="1" id="9Tg-Dy-w0U"/>
-                                    <constraint firstAttribute="trailing" secondItem="JMD-PF-lAQ" secondAttribute="trailing" constant="8" id="Cgf-Kx-Qx5"/>
-                                    <constraint firstItem="zQV-Jd-nw3" firstAttribute="centerY" secondItem="aSG-xA-33f" secondAttribute="centerY" id="DeK-fY-aE3"/>
-                                    <constraint firstItem="JMD-PF-lAQ" firstAttribute="centerY" secondItem="aSG-xA-33f" secondAttribute="centerY" id="Iai-s0-Q2e"/>
+                                    <constraint firstAttribute="trailing" secondItem="D4H-xn-CBV" secondAttribute="trailing" priority="750" constant="5" id="DSK-FZ-CYd"/>
+                                    <constraint firstItem="D4H-xn-CBV" firstAttribute="centerY" secondItem="KfS-dG-vTy" secondAttribute="centerY" id="I6G-3l-ha4"/>
                                     <constraint firstItem="zQV-Jd-nw3" firstAttribute="leading" secondItem="aSG-xA-33f" secondAttribute="leading" id="Jxm-H9-azW"/>
-                                    <constraint firstAttribute="height" constant="60" id="UGe-QG-2vo"/>
-                                    <constraint firstItem="D4H-xn-CBV" firstAttribute="centerY" secondItem="aSG-xA-33f" secondAttribute="centerY" id="cLA-dg-PJe"/>
-                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="centerX" secondItem="aSG-xA-33f" secondAttribute="centerX" multiplier="0.8" priority="749" id="ceu-E7-Yvg"/>
-                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zQV-Jd-nw3" secondAttribute="trailing" constant="1" id="ls9-Uj-PAj"/>
-                                    <constraint firstItem="D4H-xn-CBV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KfS-dG-vTy" secondAttribute="trailing" constant="1" id="qY7-3M-5rO"/>
-                                    <constraint firstItem="D4H-xn-CBV" firstAttribute="centerX" secondItem="aSG-xA-33f" secondAttribute="centerX" multiplier="1.45" id="xTr-Br-RCj"/>
+                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="centerY" secondItem="zQV-Jd-nw3" secondAttribute="centerY" id="Qau-tT-C8j"/>
+                                    <constraint firstItem="D4H-xn-CBV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KfS-dG-vTy" secondAttribute="trailing" constant="1.5" id="iig-Nq-UG2"/>
+                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="centerY" secondItem="aSG-xA-33f" secondAttribute="centerY" id="qwo-mb-UZi"/>
+                                    <constraint firstItem="KfS-dG-vTy" firstAttribute="centerX" secondItem="aSG-xA-33f" secondAttribute="centerX" id="rIs-iZ-A7N"/>
+                                    <constraint firstItem="zQV-Jd-nw3" firstAttribute="top" secondItem="aSG-xA-33f" secondAttribute="top" constant="10" id="uSJ-NU-wDn"/>
                                 </constraints>
                             </view>
                         </subviews>

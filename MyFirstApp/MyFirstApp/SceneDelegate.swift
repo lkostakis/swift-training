@@ -20,50 +20,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: sc)
         //Initialize tabbarController
         let tabBarCtrl = UITabBarController()
-//        tabBarCtrl.tabBar.tintColor = .red
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainVC = storyboard.instantiateViewController(withIdentifier: "MainView")
-        mainVC.view.backgroundColor = .white
-        let settingsVC = SettingsViewController()
         
         guard let mainVC = mainVC as? MainViewController else {
             fatalError("Could not instantiate main view controller.")
         }
+        
+        mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "smallcircle.filled.circle"), tag: 1)
+        let settingsVC = SettingsViewController()
         Settings.viewController = mainVC
         Settings.currentLevel = mainVC.selectedLevel.rawValue
-        settingsVC.view.backgroundColor = .white
-        settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 1)
+        settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
         
-//        let settingsVC = SettingsViewController()
-//        settingsVC.view.backgroundColor = .systemBlue
-//        settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "line.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(weight: .heavy)), tag: 1)
-//        let pokemonsVC = storyboard.instantiateViewController(withIdentifier: "pokemonVC")
-//        let unselectedImage = UIImage(systemName: "plus",
-//                                      withConfiguration: UIImage.SymbolConfiguration(weight: .heavy))
-//        let selectedImage = UIImage(systemName: "minus",
-//                                    withConfiguration: UIImage.SymbolConfiguration(weight: .medium))
-//        let f1 = UITabBarItem(title: "pokemons", image: unselectedImage, selectedImage: selectedImage)
-//        f1.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 20.0)
-//        pokemonsVC.tabBarItem = f1
-        
-        // 2nd view controller on tab bar
-//        let transactionVC = FirstViewController()
-//        transactionVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "line.horizontal.3", withConfiguration: UIImage.SymbolConfiguration(weight: .heavy)), tag: 1)
-//
-//        // 3rd view controller on tab bar
-//        let summaryVC = UIViewController()
-//        summaryVC.view.backgroundColor = .white
-//        summaryVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "chart.pie", withConfiguration: UIImage.SymbolConfiguration(weight: .heavy)), tag: 2)
-//
-//        // 3th view controller on tab bar
-//        let fourthVC = UIViewController()
-//        fourthVC.view.backgroundColor = .white
-//        let image = UIImage(systemName: "crown",
-//                            withConfiguration: UIImage.SymbolConfiguration(weight: .medium))
-//
-//        fourthVC.tabBarItem = UITabBarItem(title: "4th VC", image: image, tag: 3)
+        let infoButtonVC = AboutViewController()
+        infoButtonVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 3)
+
         let navigationController = UINavigationController(rootViewController: mainVC)
-        tabBarCtrl.setViewControllers([navigationController, settingsVC], animated: false)
+        tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC], animated: false)
         
         window?.rootViewController = tabBarCtrl
         window?.makeKeyAndVisible()
