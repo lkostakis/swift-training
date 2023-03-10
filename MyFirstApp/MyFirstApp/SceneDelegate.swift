@@ -35,9 +35,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let infoButtonVC = AboutViewController()
         infoButtonVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 3)
-
+        
+        let publisherVC = PublisherViewController()
+        publisherVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 4)
+        
+        let subscriberVC = SubscriberViewController()
+        subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 5)
+        
         let navigationController = UINavigationController(rootViewController: mainVC)
-        tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC], animated: false)
+        tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC, publisherVC, subscriberVC], animated: false)
         
         window?.rootViewController = tabBarCtrl
         window?.makeKeyAndVisible()
