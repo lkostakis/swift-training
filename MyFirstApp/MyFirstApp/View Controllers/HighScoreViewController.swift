@@ -35,13 +35,26 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func closeTapped(_ sender: UIButton) {
         HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text!, score: HighScoreTable.score, date: Date.now))
+        
+        highScoreListChanged()
+        print("from closeTapped()")
         Writer.writeToMemory()
-        delegate?.highscoreListChanged()
+        // delegate?.highscoreListChanged()
         dismiss(animated: true)
+    }
+    
+    private func highScoreListChanged() {
+        NotificationCenter.default.post(name: NSNotification.Name.HighScoreListChangedN,
+                                        object: self,
+                                        userInfo: ["highscore_changed" : HighScoreTable.scoreTable[HighScoreTable.level]!])
     }
     
     @IBAction func didEndOnExit(_ sender: UITextField) {
         self.becomeFirstResponder()
     }
 
+}
+
+extension NSNotification.Name {
+  static let HighScoreListChangedN = NSNotification.Name(rawValue: "highscore_changed")
 }

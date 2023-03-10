@@ -46,7 +46,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
-
+        self.startListeningWhenHighScoreListChanged()
         startNextRound()
     }
 
@@ -62,6 +62,28 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         targetValue = Int.random(in: 1...selectedLevel.rawValue) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
     }
+    // *************************************************************
+    func startListeningWhenHighScoreListChanged() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(highScoreListChangedN(notification:)),
+                                               name: NSNotification.Name.HighScoreListChangedN,
+                                               object: nil)
+    }
+
+    @objc func highScoreListChangedN(notification: Notification) {
+        if let newList = notification.userInfo?["highscore_changed"] as? [Player] {
+            print("yes")
+        }
+    }
+
+    func stopListeningWhenHighScoreListChanged() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.HighScoreListChangedN,
+                                                  object: nil)
+    }
+    // *************************************************************
+    
+    
     
     // topScoresButton() and createCrownButton() are a workaround because isHidden is not available on <iOS16
     func highscoreListChanged() {
@@ -131,7 +153,7 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         HighScoreTable.level = selectedLevel
         HighScoreTable.score = totalScore.total
         let highScoreViewController = HighScoreViewController()
-        highScoreViewController.delegate = self
+//        highScoreViewController.delegate = self
         present(highScoreViewController, animated: true, completion: nil)
     }
 

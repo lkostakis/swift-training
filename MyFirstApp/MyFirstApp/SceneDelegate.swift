@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         infoButtonVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 3)
         
         let publisherVC = PublisherViewController()
-        publisherVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 4)
+        publisherVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "colorPicker"), tag: 4)
         
         let subscriberVC = SubscriberViewController()
         subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 5)
