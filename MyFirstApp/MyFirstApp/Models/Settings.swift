@@ -9,7 +9,7 @@ import Foundation
 
 class Settings {
     static let shared = Settings()
-    static var viewController: ChangedLevelDelegate?
+    // static var viewController: ChangedLevelDelegate?
     static var currentLevel: Int?
     private init() { }
     

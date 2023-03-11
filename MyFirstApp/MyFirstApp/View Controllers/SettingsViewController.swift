@@ -31,17 +31,17 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
         pickerView.delegate = self
         pickerView.dataSource = self
-        // There is no chance that difficultyArray[] is out of index
-        pickerView.selectRow(difficultyArray.firstIndex(of: Settings.currentLevel ?? 1)!, inComponent: 0, animated: true)
+        pickerView.selectRow(difficultyArray.firstIndex(of: Settings.currentLevel ?? 100) ?? 100, inComponent: 0, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        changeLevel()
+        Settings.currentLevel = difficultyArray[pickerView.selectedRow(inComponent: 0)]
+        difficultyLevelChanged()
     }
     
-    final func changeLevel() {
-        // can safely use force-unwrap as pickerView already has data in component 0
-        Settings.viewController?.selectedLevel = Settings.DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)])!
+    private func difficultyLevelChanged() {
+        NotificationCenter.default.post(name: NSNotification.Name.DifficultyLevelChanged,
+                                        object: self,
+                                        userInfo: ["level_changed" : Settings.DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)]) ?? Settings.DifficultyLevel.heyNotTooRough])
     }
-
 }

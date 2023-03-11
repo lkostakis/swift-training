@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListChangedDelegate {
+class MainViewController: UIViewController {
     // default level is 1-100 "hey not too rough"
     // also if the difficulty level is not changed
     // remember the score and round counters
@@ -46,12 +46,11 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
-        self.startListeningWhenHighScoreListChanged()
+        self.startListeningWhenDifficultyLevelChanged()
         startNextRound()
     }
 
     private final func startNextRound() {
-        highscoreListChanged() // create or not Crown button
         levelLabel.text = "Level: \(selectedLevel.toString())"
         slider.maximumValue = Float(selectedLevel.rawValue) // set slider's maximum value
         maxValueLabel.text = String(Int(slider.maximumValue))
@@ -62,45 +61,24 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         targetValue = Int.random(in: 1...selectedLevel.rawValue) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
     }
-    // *************************************************************
-    func startListeningWhenHighScoreListChanged() {
+    
+    func startListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(highScoreListChangedN(notification:)),
-                                               name: NSNotification.Name.HighScoreListChangedN,
+                                               selector: #selector(changeSelectedLevel(notification:)),
+                                               name: NSNotification.Name.DifficultyLevelChanged,
                                                object: nil)
     }
 
-    @objc func highScoreListChangedN(notification: Notification) {
-        if let newList = notification.userInfo?["highscore_changed"] as? [Player] {
-            print("yes")
+    @objc func changeSelectedLevel(notification: Notification) {
+        if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
+            self.selectedLevel = level
         }
     }
 
-    func stopListeningWhenHighScoreListChanged() {
+    func stopListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.HighScoreListChangedN,
+                                                  name: NSNotification.Name.DifficultyLevelChanged,
                                                   object: nil)
-    }
-    // *************************************************************
-    
-    
-    
-    // topScoresButton() and createCrownButton() are a workaround because isHidden is not available on <iOS16
-    func highscoreListChanged() {
-        if HighScoreTable.scoreTable[selectedLevel]!.count >= 3 {
-            createCrownButton()
-        } else {
-            navigationItem.leftBarButtonItem = nil
-        }
-    }
-    
-    func createCrownButton() {
-        navigationItem.leftBarButtonItem =
-        UIBarButtonItem(
-            image: UIImage(systemName: "crown"),
-            style: .plain,
-            target: self,
-            action: #selector(scoreTableTapped))
     }
 
     @IBAction func hitMeTapped(_ sender: UIButton) {
@@ -152,19 +130,11 @@ class MainViewController: UIViewController, ChangedLevelDelegate, HighscoreListC
         HighScoreTable.place = place
         HighScoreTable.level = selectedLevel
         HighScoreTable.score = totalScore.total
-        let highScoreViewController = HighScoreViewController()
-//        highScoreViewController.delegate = self
-        present(highScoreViewController, animated: true, completion: nil)
+        present(HighScoreViewController(), animated: true, completion: nil)
     }
 
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
-    }
-    
-    @objc func scoreTableTapped() {
-        Settings.currentLevel = selectedLevel.rawValue
-        Settings.viewController = self
-        navigationController?.pushViewController(TopScoresViewController(), animated: true)
     }
 
 }

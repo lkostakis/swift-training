@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "smallcircle.filled.circle"), tag: 1)
         let settingsVC = SettingsViewController()
-        Settings.viewController = mainVC
         Settings.currentLevel = mainVC.selectedLevel.rawValue
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
         
@@ -38,12 +37,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let publisherVC = PublisherViewController()
         publisherVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "colorPicker"), tag: 4)
-        
+        publisherVC.view.backgroundColor = .white
+
         let subscriberVC = SubscriberViewController()
+        subscriberVC.view.backgroundColor = .white
         subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 5)
         
+        let topScoresVC = TopScoresViewController()
+        topScoresVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "crown"), tag: 6)
+        
         let navigationController = UINavigationController(rootViewController: mainVC)
-        tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC, publisherVC, subscriberVC], animated: false)
+        tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC, topScoresVC, subscriberVC, publisherVC], animated: false)
         
         window?.rootViewController = tabBarCtrl
         window?.makeKeyAndVisible()
