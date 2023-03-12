@@ -27,9 +27,11 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
         for (index, player) in HighScoreTable.scoreTable[HighScoreTable.level]!.enumerated() {
             topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
         }
-        
-        nameTextField.placeholder = "Enter your name..."
-        nameTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.", score: HighScoreTable.score, date: Date.now))
+        Writer.writeToMemory()
     }
     
     @IBAction func closeTapped(_ sender: UIButton) {

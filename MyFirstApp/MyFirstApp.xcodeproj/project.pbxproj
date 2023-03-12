@@ -26,6 +26,7 @@
 		FC8EA00129BBBC220065CD43 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EA00029BBBC220065CD43 /* Notification.swift */; };
 		FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */; };
 		FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */; };
+		FC9A8A8329BDE4690053FC74 /* TopScoresHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
 		FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */; };
@@ -61,6 +62,7 @@
 		FC8EA00029BBBC220065CD43 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresViewController.xib; sourceTree = "<group>"; };
 		FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoreCell.xib; sourceTree = "<group>"; };
+		FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresHeaderView.xib; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreListChangedDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */,
 				FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */,
 				FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */,
+				FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */,
 				FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */,
 				FCC81DDD29BB24E500C84D91 /* PublisherViewController.xib in Resources */,
+				FC9A8A8329BDE4690053FC74 /* TopScoresHeaderView.xib in Resources */,
 				FC04E45629928A08009A937A /* Assets.xcassets in Resources */,
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
