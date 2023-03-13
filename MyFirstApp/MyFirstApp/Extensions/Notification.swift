@@ -14,3 +14,7 @@ extension NSNotification.Name {
 extension NSNotification.Name {
   static let DifficultyLevelChanged = NSNotification.Name(rawValue: "level_changed")
 }
+
+extension NSNotification.Name {
+  static let ColorSelected = NSNotification.Name(rawValue: "color_selected")
+}

@@ -14,7 +14,7 @@ class SubscriberViewController: UIViewController {
         self.startListeningWhenColorSelected()
     }
     
-    func startListeningWhenColorSelected() {
+    private final func startListeningWhenColorSelected() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(colorSelected(notification:)),
                                                name: NSNotification.Name.ColorSelected,
@@ -27,14 +27,10 @@ class SubscriberViewController: UIViewController {
         }
     }
 
-    func stopListeningWhenColorSelected() {
+    private final func stopListeningWhenColorSelected() {
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.ColorSelected,
                                                   object: nil)
     }
 
-}
-
-extension NSNotification.Name {
-  static let ColorSelected = NSNotification.Name(rawValue: "color_selected")
 }

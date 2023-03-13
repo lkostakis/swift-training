@@ -40,11 +40,11 @@ class PublisherViewController: UIViewController {
         colorSelected()
     }
 
-    func colorSelected() {
+    private final func colorSelected() {
         onColorSelected(color: PublisherViewController.colorSelected)
     }
 
-    private func onColorSelected(color: UIColor) {
+    private final func onColorSelected(color: UIColor) {
         NotificationCenter.default.post(name: NSNotification.Name.ColorSelected,
                                         object: self,
                                         userInfo: ["color_selected" : color])

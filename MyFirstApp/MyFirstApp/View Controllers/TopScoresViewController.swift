@@ -15,6 +15,7 @@ class TopScoresHeaderView: UITableViewHeaderFooterView {
 class TopScoresViewController: UITableViewController {
 
     private var level: Settings.DifficultyLevel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,15 +24,7 @@ class TopScoresViewController: UITableViewController {
         tableView.estimatedRowHeight = 600
         tableView.register(UINib(nibName: "\(TopScoreCell.self)", bundle: nil), forCellReuseIdentifier: TopScoreCell.reuseIdentifier)
         tableView.register(UINib(nibName: "\(TopScoresHeaderView.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: TopScoresHeaderView.reuseIdentifier)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
-        guard let level = Settings.DifficultyLevel(rawValue: Settings.currentLevel!) else {
-            return
-        }
-        self.level = level
-        tableView.reloadData()
+        startListeningWhenDifficultyLevelChanged()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,5 +62,25 @@ class TopScoresViewController: UITableViewController {
         }
 
         return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)
+    }
+    
+    private final func startListeningWhenDifficultyLevelChanged() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeSelectedLevel(notification:)),
+                                               name: NSNotification.Name.DifficultyLevelChanged,
+                                               object: nil)
+    }
+
+    @objc func changeSelectedLevel(notification: Notification) {
+        if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
+            self.level = level
+            tableView.reloadData()
+        }
+    }
+
+    private final func stopListeningWhenDifficultyLevelChanged() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.DifficultyLevelChanged,
+                                                  object: nil)
     }
 }

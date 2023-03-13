@@ -28,19 +28,17 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
             topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
-        HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.", score: HighScoreTable.score, date: Date.now))
-        Writer.writeToMemory()
-    }
-    
-    @IBAction func closeTapped(_ sender: UIButton) {
         if nameTextField.text == "" {
             nameTextField.text = "No name entered."
         }
 
         HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.", score: HighScoreTable.score, date: Date.now))
-        Writer.writeToMemory()
+        Writer.shared.writeToMemory()
+    }
+    
+    @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     

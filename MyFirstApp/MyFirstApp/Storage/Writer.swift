@@ -12,7 +12,7 @@ class Writer {
     
     private init() { }
     
-    static func writeToMemory() {
+    func writeToMemory() {
         if let encoded = try? JSONEncoder().encode(HighScoreTable.scoreTable) {
             UserDefaults.standard.set(encoded, forKey: "HighScoreTable")
         } else {

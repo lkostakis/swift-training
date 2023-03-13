@@ -8,14 +8,14 @@
 import Foundation
 
 class Reader {
-    static let reader = Reader()
+    static let shared = Reader()
     
     private init() {}
     
-    func readPokedexFromMemory() -> Pokedex? {
-        if let data = UserDefaults.standard.data(forKey: "Pokedex") {
-            if let pokedex = try? JSONDecoder().decode(Pokedex.self, from: data) {
-                return pokedex
+    func readPokedexInfoFromMemory() -> PokedexInfo? {
+        if let data = UserDefaults.standard.data(forKey: "PokedexInfo") {
+            if let pokedexInfo = try? JSONDecoder().decode(PokedexInfo.self, from: data) {
+                return pokedexInfo
             }
         }
         return nil

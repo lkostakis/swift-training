@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // these things has to be initialized just once in whole app lifecycle
-        Reader.readFromMemory()
+        Reader.shared.readFromMemory()
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
         setUIElements()
         startNextRound()
     }
-    
+
     // here we set the labels and variables that
     // changes only when the level is changed and
     // not whenever a new round starts. So we dont
@@ -62,8 +62,8 @@ class MainViewController: UIViewController {
         targetValue = Int.random(in: 1...selectedLevel.rawValue) // set target value based on difficulty level
         labelValue.text = "Put the Bull's eye as close as you can to: \(targetValue)"
     }
-    
-    func startListeningWhenDifficultyLevelChanged() {
+
+    private final func startListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeSelectedLevel(notification:)),
                                                name: NSNotification.Name.DifficultyLevelChanged,
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    func stopListeningWhenDifficultyLevelChanged() {
+    private final func stopListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.DifficultyLevelChanged,
                                                   object: nil)
@@ -99,13 +99,13 @@ class MainViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
+
     @IBAction func startNewGame(_ sender: UIButton) {
         let alert = UIAlertController(
             title: "Start Over",
             message: "Are you sure you wanna start new game?",
             preferredStyle: .alert)
-        
+
         let okAction = UIAlertAction(
             title: "OK",
             style: .default,
@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
                 self.totalScore.total = 0
                 self.startNextRound()
             })
-        
+
         let cancelAction = UIAlertAction(
             title: "cancel",
             style: .destructive)
@@ -127,7 +127,7 @@ class MainViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    func showHighScoreModal(position place: Int) {
+    private final func showHighScoreModal(position place: Int) {
         HighScoreTable.place = place
         HighScoreTable.level = selectedLevel
         HighScoreTable.score = totalScore.total

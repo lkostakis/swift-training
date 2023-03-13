@@ -16,13 +16,8 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 600
-        self.tableView.contentInsetAdjustmentBehavior = .automatic
-        network.fetchPokemonWithURL(url: pokemonURL ?? "", comp: { data in
-            self.pokemon = data
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        })
+        tableView.contentInsetAdjustmentBehavior = .automatic
+        initPokemon()
     }
 
     init?(coder: NSCoder, pokemonURL: String) {
@@ -33,6 +28,19 @@ class PokemonViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func initPokemon() {
+        guard let pokemonURL = self.pokemonURL else {
+            return
+        }
+
+        network.fetchPokemonWithURL(url: pokemonURL, comp: { data in
+            self.pokemon = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+    }
 }
 
 extension PokemonViewController: UITableViewDataSource {
@@ -41,14 +49,15 @@ extension PokemonViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokemon = pokemon else {
+        guard let pokemon = pokemon, let pokemonName = pokemon.name, let baseStat = pokemon.stats?[indexPath.row].baseStat,
+              let typeName = pokemon.types?[indexPath.row].type?["name"] else {
             return UITableViewCell()
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as? PokemonCell else {
-            fatalError("error")
+            return UITableViewCell()
         }
-        cell.backgroundColor = .systemGray6
-        cell.configure(name: pokemon.name ?? "", baseStat: self.pokemon?.stats?[indexPath.row].baseStat ?? 0, type: pokemon.types?[indexPath.row].type?["name"]! ?? "")
+
+        cell.configure(name: pokemonName, baseStat: baseStat, type: typeName)
         return cell
     }
 }

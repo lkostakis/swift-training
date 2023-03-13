@@ -1,15 +1,21 @@
-# Mac OS X
-*.DS_Store
+# Created by https://www.toptal.com/developers/gitignore/api/xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode
 
-# Xcode
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-*.xcuserstate
-*.xcworkspace/
-project.xcworkspace/
+### Xcode ###
+## User settings
 xcuserdata/
 
-# Podfiles
-Pods/
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+### Xcode Patch ###
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# End of https://www.toptal.com/developers/gitignore/api/xcode

@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    private var timer: Timer?
     private let network = OldNetworkingManager()
     @IBOutlet weak var networkLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -21,23 +21,48 @@ class ViewController: UIViewController {
         title = "Pokedex"
         tableView.estimatedRowHeight = 600
         tableView.contentInsetAdjustmentBehavior = .automatic
+        showLoading()
+        initPokedex()
+
+        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+            self.initPokedex()
+        }
+    }
+
+    func initPokedex() {
         
-        network.fetchFirst151Pokemon { data in
-            self.pokedex = data
-            Writer.shared.writeToMemory(pokedex: self.pokedex)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.hideLoading()
+        if let data = Reader.shared.readPokedexInfoFromMemory() {
+            print("yes")
+            self.pokedex = data.pokedex
+            self.hideLoading()
+            print(data.date)
+            print("\n")
+        } else {
+            print("no")
+            network.fetchFirst151Pokemon { data in
+                self.pokedex = data
+                Writer.shared.writeToMemory(pokedex: self.pokedex)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.hideLoading()
+                }
             }
         }
+        
+        
+        
     }
 
     @IBSegueAction func showPokemonDetails(_ coder: NSCoder) -> PokemonViewController? {
         guard let indexPath = tableView.indexPathForSelectedRow else {
-            fatalError("Nothing selected!")
+            print("Nothing selected")
+            return nil
         }
-        let pokemon = self.pokedex?.results?[indexPath.row]
-        return PokemonViewController(coder: coder, pokemonURL: pokemon?.url ?? "")
+        guard let pokedex = self.pokedex, let pokemon = pokedex.results?[indexPath.row], let pokemonURL = pokemon.url else {
+            return nil
+        }
+        
+        return PokemonViewController(coder: coder, pokemonURL: pokemonURL)
     }
 }
 
@@ -48,13 +73,10 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokedex = self.pokedex else {
+        guard let pokedex = self.pokedex, let pokemon = pokedex.results?[indexPath.row], let pokemonName = pokemon.name, let pokemonURL = pokemon.url else {
             return UITableViewCell()
         }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell else {
-            return UITableViewCell()
-        }
-        guard let pokemon = pokedex.results?[indexPath.row], let pokemonName = pokemon.name, let pokemonURL = pokemon.url else {
             return UITableViewCell()
         }
 
@@ -82,7 +104,7 @@ extension ViewController {
 
     func showLoading() {
         loadingIndicator.startAnimating()
-        networkLabel.text = "Waiting for internet connection..."
+        networkLabel.text = "Waiting pokemons..."
     }
 }
 

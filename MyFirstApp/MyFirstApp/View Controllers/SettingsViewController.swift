@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         difficultyLevelChanged()
     }
     
-    private func difficultyLevelChanged() {
+    private final func difficultyLevelChanged() {
         NotificationCenter.default.post(name: NSNotification.Name.DifficultyLevelChanged,
                                         object: self,
                                         userInfo: ["level_changed" : Settings.DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)]) ?? Settings.DifficultyLevel.heyNotTooRough])

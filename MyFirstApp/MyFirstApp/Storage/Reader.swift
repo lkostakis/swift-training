@@ -12,7 +12,7 @@ class Reader {
     
     private init() { }
     
-    static func readFromMemory() {
+    func readFromMemory() {
         if let data = UserDefaults.standard.data(forKey: "HighScoreTable") {
             if let highScoreTable = try? JSONDecoder().decode([Settings.DifficultyLevel : [Player]].self, from: data) {
                 HighScoreTable.scoreTable = highScoreTable

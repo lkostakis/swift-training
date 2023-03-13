@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,17 +14,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ConstraintsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spiderman" translatesAutoresizingMaskIntoConstraints="NO" id="vcN-0S-Ybw">
-                                <rect key="frame" x="0.0" y="59" width="393" height="128"/>
+                                <rect key="frame" x="0.0" y="59" width="430" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="e6x-0u-rIA"/>
+                                    <constraint firstAttribute="height" constant="200" id="e6x-0u-rIA"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPr-i2-Efu">
-                                <rect key="frame" x="20" y="768" width="353" height="50"/>
+                                <rect key="frame" x="20" y="848" width="390" height="50"/>
                                 <color key="backgroundColor" systemColor="tintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kHf-9b-bB2"/>
@@ -35,11 +35,10 @@
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biI-Lv-L7r">
-                                <rect key="frame" x="20" y="207" width="353" height="182.66666666666663"/>
+                                <rect key="frame" x="20" y="279" width="390" height="20.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTs-RI-cqo">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="182.66666666666666"/>
-                                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTs-RI-cqo">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -54,17 +53,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqi-q5-aIO">
-                                <rect key="frame" x="20" y="409.66666666666669" width="353" height="152.33333333333331"/>
+                                <rect key="frame" x="20" y="319.33333333333331" width="390" height="30.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-9W-KK6">
-                                        <rect key="frame" x="5" y="5" width="276.33333333333331" height="142.33333333333334"/>
-                                        <string key="text">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It was" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-9W-KK6">
+                                        <rect key="frame" x="5" y="5" width="44.333333333333336" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w41-ZW-9dc">
-                                        <rect key="frame" x="299" y="60.666666666666629" width="51" height="31"/>
+                                        <rect key="frame" x="336" y="-0.33333333333331439" width="51" height="31"/>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,7 +76,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elX-qx-7Hm">
-                                <rect key="frame" x="20" y="582" width="353" height="30.333333333333371"/>
+                                <rect key="frame" x="20" y="369.66666666666669" width="390" height="30.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hmerominia ektelesis" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-CX-eOg">
                                         <rect key="frame" x="5" y="5" width="163" height="20.333333333333332"/>
@@ -87,7 +85,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="22/22/2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-fC-5vX">
-                                        <rect key="frame" x="259" y="4.6666666666666288" width="89" height="21"/>
+                                        <rect key="frame" x="296" y="4.6666666666666288" width="89" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,15 +97,15 @@
                                     <constraint firstAttribute="bottom" secondItem="GWm-CX-eOg" secondAttribute="bottom" constant="5" id="CZT-Qs-4Qm"/>
                                     <constraint firstItem="Ufd-fC-5vX" firstAttribute="centerY" secondItem="GWm-CX-eOg" secondAttribute="centerY" id="adH-sQ-AhD"/>
                                     <constraint firstItem="GWm-CX-eOg" firstAttribute="leading" secondItem="elX-qx-7Hm" secondAttribute="leading" constant="5" id="biA-Rc-pxX"/>
-                                    <constraint firstItem="Ufd-fC-5vX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GWm-CX-eOg" secondAttribute="trailing" priority="750" constant="91" id="q35-IL-48t"/>
+                                    <constraint firstItem="Ufd-fC-5vX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GWm-CX-eOg" secondAttribute="trailing" priority="750" constant="20" id="q35-IL-48t"/>
                                     <constraint firstItem="GWm-CX-eOg" firstAttribute="top" secondItem="elX-qx-7Hm" secondAttribute="top" constant="5" id="uIY-OR-Got"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abe-rF-lTQ">
-                                <rect key="frame" x="20" y="632.33333333333337" width="353" height="70"/>
+                                <rect key="frame" x="20" y="420" width="390" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="5oL-cX-3ot">
-                                        <rect key="frame" x="288" y="5" width="60" height="60"/>
+                                        <rect key="frame" x="325" y="5" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="ACz-oi-MCJ"/>
                                             <constraint firstAttribute="height" constant="60" id="Xiq-1a-SQp"/>

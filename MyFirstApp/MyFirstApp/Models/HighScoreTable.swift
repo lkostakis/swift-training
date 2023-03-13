@@ -21,7 +21,7 @@ class HighScoreTable {
     private init() {}
     
     // check if is highScore based on score and level and return the position
-    func getHighScorePosition(_ score: Int, in level: Settings.DifficultyLevel) -> Int? {
+    final func getHighScorePosition(_ score: Int, in level: Settings.DifficultyLevel) -> Int? {
         guard let highScoreTable = HighScoreTable.scoreTable[level] else {
             return nil
         }
@@ -41,7 +41,7 @@ class HighScoreTable {
         return nil
     }
     
-    func addPlayerToHighScoreTable(player: Player) {
+    final func addPlayerToHighScoreTable(player: Player) {
         guard var highScoreTable = HighScoreTable.scoreTable[HighScoreTable.level] else {
             return
         }
