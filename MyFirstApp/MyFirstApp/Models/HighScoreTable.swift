@@ -15,7 +15,6 @@ class HighScoreTable {
                                                                      Settings.DifficultyLevel.ultraViolence : [],
                                                                      Settings.DifficultyLevel.nightmare : [] ]
     static var place: Int = 0
-    static var level: Settings.DifficultyLevel = MainViewController().selectedLevel
     static var score = 0
 
     private init() {}
@@ -42,7 +41,7 @@ class HighScoreTable {
     }
     
     final func addPlayerToHighScoreTable(player: Player) {
-        guard var highScoreTable = HighScoreTable.scoreTable[HighScoreTable.level] else {
+        guard var highScoreTable = HighScoreTable.scoreTable[Settings.currentLevel] else {
             return
         }
         
@@ -54,7 +53,7 @@ class HighScoreTable {
         if highScoreTable.count > 3 {
             highScoreTable.remove(at: highScoreTable.endIndex-1)
         }
-        HighScoreTable.scoreTable[HighScoreTable.level] = highScoreTable
+        HighScoreTable.scoreTable[Settings.currentLevel] = highScoreTable
     }
 }
 

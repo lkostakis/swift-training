@@ -30,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "smallcircle.filled.circle"), tag: 1)
         let settingsVC = SettingsViewController()
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
+        settingsVC.view.backgroundColor = .white
         
         let infoButtonVC = AboutViewController()
         infoButtonVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 3)

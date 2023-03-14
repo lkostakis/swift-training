@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startListeningWhenDifficultyLevelChanged()
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.selectRow(1, inComponent: 0, animated: true)
@@ -44,5 +44,18 @@ extension SettingsViewController {
         NotificationCenter.default.post(name: NSNotification.Name.DifficultyLevelChanged,
                                         object: self,
                                         userInfo: ["level_changed" : Settings.DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)]) ?? Settings.DifficultyLevel.heyNotTooRough])
+    }
+    
+    private final func startListeningWhenDifficultyLevelChanged() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeSelectedLevel(notification:)),
+                                               name: NSNotification.Name.DifficultyLevelChanged,
+                                               object: nil)
+    }
+
+    @objc func changeSelectedLevel(notification: Notification) {
+        if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
+            Settings.currentLevel = level
+        }
     }
 }

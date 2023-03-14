@@ -9,8 +9,9 @@ import Foundation
 
 class Settings {
     static let shared = Settings()
-    private init() { }
-    
+    static var currentLevel: DifficultyLevel = .heyNotTooRough
+    private init() {}
+
     enum DifficultyLevel : Int, CaseIterable, Codable {
         var description: String {
             toString()
