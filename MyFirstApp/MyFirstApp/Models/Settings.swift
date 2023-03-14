@@ -9,7 +9,6 @@ import Foundation
 
 class Settings {
     static let shared = Settings()
-    static var currentLevel: Int?
     private init() { }
     
     enum DifficultyLevel : Int, CaseIterable, Codable {

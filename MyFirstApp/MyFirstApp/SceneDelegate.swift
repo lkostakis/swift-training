@@ -29,7 +29,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "smallcircle.filled.circle"), tag: 1)
         let settingsVC = SettingsViewController()
-        Settings.currentLevel = mainVC.selectedLevel.rawValue
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
         
         let infoButtonVC = AboutViewController()

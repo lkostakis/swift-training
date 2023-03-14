@@ -76,12 +76,6 @@ class MainViewController: UIViewController {
         }
     }
 
-    private final func stopListeningWhenDifficultyLevelChanged() {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.DifficultyLevelChanged,
-                                                  object: nil)
-    }
-
     @IBAction func hitMeTapped(_ sender: UIButton) {
         let alert = UIAlertController(
             title: "Scoreboard",

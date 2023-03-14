@@ -48,7 +48,7 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
     @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
-    
+
     @IBAction func didEndOnExit(_ sender: UITextField) {
         self.becomeFirstResponder()
     }

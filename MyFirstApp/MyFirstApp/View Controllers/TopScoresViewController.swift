@@ -81,12 +81,6 @@ extension TopScoresViewController {
         tableView.reloadData()
     }
 
-    private final func stopListeningWhenDifficultyLevelChanged() {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.DifficultyLevelChanged,
-                                                  object: nil)
-    }
-
     private final func startListeningWhenHighScoreTableChanged() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeHighScoreTable(notification:)),
@@ -96,11 +90,5 @@ extension TopScoresViewController {
 
     @objc func changeHighScoreTable(notification: Notification) {
         tableView.reloadData()
-    }
-
-    private final func stopListeningWhenHighScoreTableChanged() {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.HighScoreTableChanged,
-                                                  object: nil)
     }
 }

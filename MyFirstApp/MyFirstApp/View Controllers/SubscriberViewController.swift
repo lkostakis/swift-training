@@ -26,11 +26,4 @@ class SubscriberViewController: UIViewController {
             self.view.backgroundColor = color
         }
     }
-
-    private final func stopListeningWhenColorSelected() {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.ColorSelected,
-                                                  object: nil)
-    }
-
 }
