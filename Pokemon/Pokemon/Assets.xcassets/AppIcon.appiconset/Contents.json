@@ -29,12 +29,14 @@
       "size" : "29x29"
     },
     {
+      "filename" : "icons8-pokeball-100-76x76.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "38x38"
     },
     {
+      "filename" : "icons8-pokeball-100-114x114.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -69,36 +71,42 @@
       "size" : "60x60"
     },
     {
+      "filename" : "icons8-pokeball-100-128x128.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
+      "filename" : "icons8-pokeball-100-192x192.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
+      "filename" : "icons8-pokeball-100-136x136.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "68x68"
     },
     {
+      "filename" : "icons8-pokeball-100-152x152.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "icons8-pokeball-100-167x167.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "icons8-pokeball-100-1024x1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

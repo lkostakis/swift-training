@@ -24,21 +24,16 @@ class ViewController: UIViewController {
         showLoading()
         initPokedex()
 
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { _ in
             self.initPokedex()
         }
     }
 
-    func initPokedex() {
-        
-        if let data = Reader.shared.readPokedexInfoFromMemory() {
-            print("yes")
+    private final func initPokedex() {
+        if let data = Reader.shared.readPokedexInfoFromMemory(), dateDifferenceSince(since: data.date) < 120 {
             self.pokedex = data.pokedex
             self.hideLoading()
-            print(data.date)
-            print("\n")
         } else {
-            print("no")
             network.fetchFirst151Pokemon { data in
                 self.pokedex = data
                 Writer.shared.writeToMemory(pokedex: self.pokedex)
@@ -48,9 +43,10 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
+    }
+
+    private final func dateDifferenceSince(since date: Date) -> Double {
+        return round(Date.now.timeIntervalSince(date))
     }
 
     @IBSegueAction func showPokemonDetails(_ coder: NSCoder) -> PokemonViewController? {
@@ -96,13 +92,13 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController {
-    func hideLoading() {
+    private final func hideLoading() {
         self.loadingIndicator.stopAnimating()
         self.loadingIndicator.isHidden = true
         self.networkLabel.isHidden = true
     }
 
-    func showLoading() {
+    private final func showLoading() {
         loadingIndicator.startAnimating()
         networkLabel.text = "Waiting pokemons..."
     }
