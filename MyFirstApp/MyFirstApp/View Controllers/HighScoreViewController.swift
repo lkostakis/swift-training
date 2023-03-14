@@ -18,8 +18,10 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap))
+        view.addGestureRecognizer(tapGesture)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
         message.text = "Congratulations you have achieved a top \(HighScoreTable.place+1) score with \(HighScoreTable.score) in \(Settings.currentLevel.toString()) difficulty."
@@ -51,5 +53,9 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func didEndOnExit(_ sender: UITextField) {
         self.becomeFirstResponder()
+    }
+
+    @objc func dismissKeyboardOnTap() {
+        nameTextField.resignFirstResponder()
     }
 }
