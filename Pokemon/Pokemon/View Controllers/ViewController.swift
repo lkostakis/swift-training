@@ -8,11 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var timer: Timer?
-    private let network = OldNetworkingManager()
+
     @IBOutlet weak var networkLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    private let network = OldNetworkingManager()
     private var pokedex: Pokedex?
 
     override func viewDidLoad() {
@@ -23,10 +23,6 @@ class ViewController: UIViewController {
         tableView.contentInsetAdjustmentBehavior = .automatic
         showLoading()
         initPokedex()
-
-        timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { _ in
-            self.initPokedex()
-        }
     }
 
     private final func initPokedex() {

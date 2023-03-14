@@ -14,10 +14,16 @@ class Writer {
     
     func writeToMemory(pokedex: Pokedex?) {
         do {
-            let encoded = try JSONEncoder().encode(PokedexInfo(pokedex: pokedex!, date: Date.now))
-            UserDefaults.standard.set(encoded, forKey: "PokedexInfo")
+            if let pokedex = pokedex {
+                let encoded = try JSONEncoder().encode(PokedexInfo(pokedex: pokedex, date: Date.now))
+                UserDefaults.standard.set(encoded, forKey: "PokedexInfo")
+            } else {
+                print("Could not store data.")
+                return
+            }
         } catch {
             print("Could not encode data.")
+            return
         }
     }
 }
