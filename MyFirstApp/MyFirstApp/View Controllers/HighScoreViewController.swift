@@ -29,15 +29,22 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         if nameTextField.text == "" {
             nameTextField.text = "No name entered."
         }
 
         HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.", score: HighScoreTable.score, date: Date.now))
+        HighScoreTableChanged()
         Writer.shared.writeToMemory()
     }
     
+    private final func HighScoreTableChanged() {
+        NotificationCenter.default.post(name: NSNotification.Name.HighScoreTableChanged,
+                                        object: self,
+                                        userInfo: ["highscore_changed" : HighScoreTable.scoreTable])
+    }
+
     @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }

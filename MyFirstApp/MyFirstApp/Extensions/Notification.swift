@@ -8,7 +8,7 @@
 import Foundation
 
 extension NSNotification.Name {
-  static let HighScoreListChanged = NSNotification.Name(rawValue: "highscore_changed")
+  static let HighScoreTableChanged = NSNotification.Name(rawValue: "highscore_changed")
 }
 
 extension NSNotification.Name {

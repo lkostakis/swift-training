@@ -14,8 +14,6 @@ class TopScoresHeaderView: UITableViewHeaderFooterView {
 
 class TopScoresViewController: UITableViewController {
 
-    private var level: Settings.DifficultyLevel?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +23,8 @@ class TopScoresViewController: UITableViewController {
         tableView.register(UINib(nibName: "\(TopScoreCell.self)", bundle: nil), forCellReuseIdentifier: TopScoreCell.reuseIdentifier)
         tableView.register(UINib(nibName: "\(TopScoresHeaderView.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: TopScoresHeaderView.reuseIdentifier)
         startListeningWhenDifficultyLevelChanged()
+        startListeningWhenHighScoreTableChanged()
+        tableView.reloadData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,7 +36,7 @@ class TopScoresViewController: UITableViewController {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TopScoresHeaderView.reuseIdentifier) as? TopScoresHeaderView
         else { return nil }
 
-        headerView.headerLabel.text = "Top Scores Table: \(level?.toString() ?? "Unknown level")"
+        headerView.headerLabel.text = "Top Scores Table: \(HighScoreTable.level.toString())"
         headerView.headerLabel.textColor = .systemBlue
         return headerView
     }
@@ -46,10 +46,10 @@ class TopScoresViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let level = self.level else {
+        guard let players = HighScoreTable.scoreTable[HighScoreTable.level] else {
             return 0
         }
-        return section == 0 ? 0 : HighScoreTable.scoreTable[level]?.count ?? 0
+        return section == 0 ? 0 : players.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,13 +57,16 @@ class TopScoresViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        guard let level = self.level, let players = HighScoreTable.scoreTable[level], !players.isEmpty else {
+        guard let players = HighScoreTable.scoreTable[HighScoreTable.level], !players.isEmpty else {
             return UITableViewCell()
         }
 
         return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)
     }
-    
+
+}
+
+extension TopScoresViewController {
     private final func startListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeSelectedLevel(notification:)),
@@ -73,14 +76,31 @@ class TopScoresViewController: UITableViewController {
 
     @objc func changeSelectedLevel(notification: Notification) {
         if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
-            self.level = level
-            tableView.reloadData()
+            HighScoreTable.level = level
         }
+        tableView.reloadData()
     }
 
     private final func stopListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.DifficultyLevelChanged,
+                                                  object: nil)
+    }
+
+    private final func startListeningWhenHighScoreTableChanged() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeHighScoreTable(notification:)),
+                                               name: NSNotification.Name.HighScoreTableChanged,
+                                               object: nil)
+    }
+
+    @objc func changeHighScoreTable(notification: Notification) {
+        tableView.reloadData()
+    }
+
+    private final func stopListeningWhenHighScoreTableChanged() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.HighScoreTableChanged,
                                                   object: nil)
     }
 }
