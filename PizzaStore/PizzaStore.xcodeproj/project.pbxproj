@@ -7,27 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FCAE685C29BF2E1D00FDBC0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE685B29BF2E1D00FDBC0D /* AppDelegate.swift */; };
-		FCAE685E29BF2E1D00FDBC0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE685D29BF2E1D00FDBC0D /* SceneDelegate.swift */; };
-		FCAE686029BF2E1D00FDBC0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE685F29BF2E1D00FDBC0D /* ViewController.swift */; };
-		FCAE686329BF2E1D00FDBC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE686129BF2E1D00FDBC0D /* Main.storyboard */; };
-		FCAE686529BF2E1E00FDBC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE686429BF2E1E00FDBC0D /* Assets.xcassets */; };
-		FCAE686829BF2E1E00FDBC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE686629BF2E1E00FDBC0D /* LaunchScreen.storyboard */; };
+		FC0B1BC829C1C6DE00E9BCFC /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0B1BC729C1C6DE00E9BCFC /* OrderViewCell.xib */; };
+		FC0B1BCA29C1C72200E9BCFC /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B1BC929C1C72200E9BCFC /* OrderViewCell.swift */; };
+		FC4206F229C1C5C300453338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4206F129C1C5C300453338 /* AppDelegate.swift */; };
+		FC4206F429C1C5C300453338 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4206F329C1C5C300453338 /* SceneDelegate.swift */; };
+		FC4206F629C1C5C300453338 /* PizzaStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4206F529C1C5C300453338 /* PizzaStoreViewController.swift */; };
+		FC4206F929C1C5C300453338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4206F729C1C5C300453338 /* Main.storyboard */; };
+		FC4206FB29C1C5C400453338 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4206FA29C1C5C400453338 /* Assets.xcassets */; };
+		FC4206FE29C1C5C400453338 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4206FC29C1C5C400453338 /* LaunchScreen.storyboard */; };
+		FCD1E84829C1CA08008DF1E7 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1E84729C1CA08008DF1E7 /* Pizza.swift */; };
+		FCD1E84B29C1CEC1008DF1E7 /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1E84929C1CEC1008DF1E7 /* CustomerViewController.swift */; };
+		FCD1E84C29C1CEC1008DF1E7 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD1E84A29C1CEC1008DF1E7 /* CustomerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FCAE685829BF2E1D00FDBC0D /* PizzaStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCAE685B29BF2E1D00FDBC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCAE685D29BF2E1D00FDBC0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCAE685F29BF2E1D00FDBC0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCAE686229BF2E1D00FDBC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCAE686429BF2E1E00FDBC0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FCAE686729BF2E1E00FDBC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FCAE686929BF2E1E00FDBC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC0B1BC729C1C6DE00E9BCFC /* OrderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewCell.xib; sourceTree = "<group>"; };
+		FC0B1BC929C1C72200E9BCFC /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
+		FC4206EE29C1C5C300453338 /* PizzaStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC4206F129C1C5C300453338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC4206F329C1C5C300453338 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FC4206F529C1C5C300453338 /* PizzaStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaStoreViewController.swift; sourceTree = "<group>"; };
+		FC4206F829C1C5C300453338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC4206FA29C1C5C400453338 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC4206FD29C1C5C400453338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC4206FF29C1C5C400453338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCD1E84729C1CA08008DF1E7 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		FCD1E84929C1CEC1008DF1E7 /* CustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
+		FCD1E84A29C1CEC1008DF1E7 /* CustomerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FCAE685529BF2E1D00FDBC0D /* Frameworks */ = {
+		FC4206EB29C1C5C300453338 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,32 +47,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FCAE684F29BF2E1D00FDBC0D = {
+		FC4206E529C1C5C300453338 = {
 			isa = PBXGroup;
 			children = (
-				FCAE685A29BF2E1D00FDBC0D /* PizzaStore */,
-				FCAE685929BF2E1D00FDBC0D /* Products */,
+				FC4206F029C1C5C300453338 /* PizzaStore */,
+				FC4206EF29C1C5C300453338 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FCAE685929BF2E1D00FDBC0D /* Products */ = {
+		FC4206EF29C1C5C300453338 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCAE685829BF2E1D00FDBC0D /* PizzaStore.app */,
+				FC4206EE29C1C5C300453338 /* PizzaStore.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FCAE685A29BF2E1D00FDBC0D /* PizzaStore */ = {
+		FC4206F029C1C5C300453338 /* PizzaStore */ = {
 			isa = PBXGroup;
 			children = (
-				FCAE685B29BF2E1D00FDBC0D /* AppDelegate.swift */,
-				FCAE685D29BF2E1D00FDBC0D /* SceneDelegate.swift */,
-				FCAE685F29BF2E1D00FDBC0D /* ViewController.swift */,
-				FCAE686129BF2E1D00FDBC0D /* Main.storyboard */,
-				FCAE686429BF2E1E00FDBC0D /* Assets.xcassets */,
-				FCAE686629BF2E1E00FDBC0D /* LaunchScreen.storyboard */,
-				FCAE686929BF2E1E00FDBC0D /* Info.plist */,
+				FC4206F129C1C5C300453338 /* AppDelegate.swift */,
+				FC4206F329C1C5C300453338 /* SceneDelegate.swift */,
+				FC4206F529C1C5C300453338 /* PizzaStoreViewController.swift */,
+				FCD1E84729C1CA08008DF1E7 /* Pizza.swift */,
+				FCD1E84929C1CEC1008DF1E7 /* CustomerViewController.swift */,
+				FCD1E84A29C1CEC1008DF1E7 /* CustomerViewController.xib */,
+				FC0B1BC929C1C72200E9BCFC /* OrderViewCell.swift */,
+				FC4206F729C1C5C300453338 /* Main.storyboard */,
+				FC0B1BC729C1C6DE00E9BCFC /* OrderViewCell.xib */,
+				FC4206FA29C1C5C400453338 /* Assets.xcassets */,
+				FC4206FC29C1C5C400453338 /* LaunchScreen.storyboard */,
+				FC4206FF29C1C5C400453338 /* Info.plist */,
 			);
 			path = PizzaStore;
 			sourceTree = "<group>";
@@ -70,13 +85,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FCAE685729BF2E1D00FDBC0D /* PizzaStore */ = {
+		FC4206ED29C1C5C300453338 /* PizzaStore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCAE686C29BF2E1E00FDBC0D /* Build configuration list for PBXNativeTarget "PizzaStore" */;
+			buildConfigurationList = FC42070229C1C5C400453338 /* Build configuration list for PBXNativeTarget "PizzaStore" */;
 			buildPhases = (
-				FCAE685429BF2E1D00FDBC0D /* Sources */,
-				FCAE685529BF2E1D00FDBC0D /* Frameworks */,
-				FCAE685629BF2E1D00FDBC0D /* Resources */,
+				FC4206EA29C1C5C300453338 /* Sources */,
+				FC4206EB29C1C5C300453338 /* Frameworks */,
+				FC4206EC29C1C5C300453338 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +99,25 @@
 			);
 			name = PizzaStore;
 			productName = PizzaStore;
-			productReference = FCAE685829BF2E1D00FDBC0D /* PizzaStore.app */;
+			productReference = FC4206EE29C1C5C300453338 /* PizzaStore.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FCAE685029BF2E1D00FDBC0D /* Project object */ = {
+		FC4206E629C1C5C300453338 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					FCAE685729BF2E1D00FDBC0D = {
+					FC4206ED29C1C5C300453338 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = FCAE685329BF2E1D00FDBC0D /* Build configuration list for PBXProject "PizzaStore" */;
+			buildConfigurationList = FC4206E929C1C5C300453338 /* Build configuration list for PBXProject "PizzaStore" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +125,60 @@
 				en,
 				Base,
 			);
-			mainGroup = FCAE684F29BF2E1D00FDBC0D;
-			productRefGroup = FCAE685929BF2E1D00FDBC0D /* Products */;
+			mainGroup = FC4206E529C1C5C300453338;
+			productRefGroup = FC4206EF29C1C5C300453338 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FCAE685729BF2E1D00FDBC0D /* PizzaStore */,
+				FC4206ED29C1C5C300453338 /* PizzaStore */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FCAE685629BF2E1D00FDBC0D /* Resources */ = {
+		FC4206EC29C1C5C300453338 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCAE686829BF2E1E00FDBC0D /* LaunchScreen.storyboard in Resources */,
-				FCAE686529BF2E1E00FDBC0D /* Assets.xcassets in Resources */,
-				FCAE686329BF2E1D00FDBC0D /* Main.storyboard in Resources */,
+				FC4206FE29C1C5C400453338 /* LaunchScreen.storyboard in Resources */,
+				FC0B1BC829C1C6DE00E9BCFC /* OrderViewCell.xib in Resources */,
+				FC4206FB29C1C5C400453338 /* Assets.xcassets in Resources */,
+				FC4206F929C1C5C300453338 /* Main.storyboard in Resources */,
+				FCD1E84C29C1CEC1008DF1E7 /* CustomerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FCAE685429BF2E1D00FDBC0D /* Sources */ = {
+		FC4206EA29C1C5C300453338 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCAE686029BF2E1D00FDBC0D /* ViewController.swift in Sources */,
-				FCAE685C29BF2E1D00FDBC0D /* AppDelegate.swift in Sources */,
-				FCAE685E29BF2E1D00FDBC0D /* SceneDelegate.swift in Sources */,
+				FCD1E84B29C1CEC1008DF1E7 /* CustomerViewController.swift in Sources */,
+				FC4206F629C1C5C300453338 /* PizzaStoreViewController.swift in Sources */,
+				FC0B1BCA29C1C72200E9BCFC /* OrderViewCell.swift in Sources */,
+				FC4206F229C1C5C300453338 /* AppDelegate.swift in Sources */,
+				FCD1E84829C1CA08008DF1E7 /* Pizza.swift in Sources */,
+				FC4206F429C1C5C300453338 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FCAE686129BF2E1D00FDBC0D /* Main.storyboard */ = {
+		FC4206F729C1C5C300453338 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCAE686229BF2E1D00FDBC0D /* Base */,
+				FC4206F829C1C5C300453338 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FCAE686629BF2E1E00FDBC0D /* LaunchScreen.storyboard */ = {
+		FC4206FC29C1C5C400453338 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCAE686729BF2E1E00FDBC0D /* Base */,
+				FC4206FD29C1C5C400453338 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +186,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FCAE686A29BF2E1E00FDBC0D /* Debug */ = {
+		FC42070029C1C5C400453338 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +246,7 @@
 			};
 			name = Debug;
 		};
-		FCAE686B29BF2E1E00FDBC0D /* Release */ = {
+		FC42070129C1C5C400453338 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,7 +300,7 @@
 			};
 			name = Release;
 		};
-		FCAE686D29BF2E1E00FDBC0D /* Debug */ = {
+		FC42070329C1C5C400453338 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -295,6 +315,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +329,7 @@
 			};
 			name = Debug;
 		};
-		FCAE686E29BF2E1E00FDBC0D /* Release */ = {
+		FC42070429C1C5C400453338 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -323,6 +344,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,25 +361,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FCAE685329BF2E1D00FDBC0D /* Build configuration list for PBXProject "PizzaStore" */ = {
+		FC4206E929C1C5C300453338 /* Build configuration list for PBXProject "PizzaStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FCAE686A29BF2E1E00FDBC0D /* Debug */,
-				FCAE686B29BF2E1E00FDBC0D /* Release */,
+				FC42070029C1C5C400453338 /* Debug */,
+				FC42070129C1C5C400453338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCAE686C29BF2E1E00FDBC0D /* Build configuration list for PBXNativeTarget "PizzaStore" */ = {
+		FC42070229C1C5C400453338 /* Build configuration list for PBXNativeTarget "PizzaStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FCAE686D29BF2E1E00FDBC0D /* Debug */,
-				FCAE686E29BF2E1E00FDBC0D /* Release */,
+				FC42070329C1C5C400453338 /* Debug */,
+				FC42070429C1C5C400453338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FCAE685029BF2E1D00FDBC0D /* Project object */;
+	rootObject = FC4206E629C1C5C300453338 /* Project object */;
 }
