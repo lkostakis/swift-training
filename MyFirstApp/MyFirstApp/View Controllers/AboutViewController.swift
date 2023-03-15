@@ -12,6 +12,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var textViewDescription: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "About"
     }
     
     override func viewWillAppear(_ animated: Bool) {

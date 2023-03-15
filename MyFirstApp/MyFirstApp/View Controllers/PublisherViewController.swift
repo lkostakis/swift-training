@@ -17,7 +17,7 @@ class PublisherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Publisher"
     }
     
     @IBAction func blueButtonTapped(_ sender: UIButton) {

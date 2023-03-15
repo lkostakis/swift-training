@@ -11,6 +11,7 @@ class SubscriberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Subscriber"
         self.startListeningWhenColorSelected()
     }
     

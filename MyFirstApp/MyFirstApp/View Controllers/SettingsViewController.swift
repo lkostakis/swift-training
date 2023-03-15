@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Settings"
         startListeningWhenDifficultyLevelChanged()
         pickerView.delegate = self
         pickerView.dataSource = self

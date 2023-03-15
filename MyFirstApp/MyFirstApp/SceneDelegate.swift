@@ -27,13 +27,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Could not instantiate main view controller.")
         }
         
-        mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "smallcircle.filled.circle"), tag: 1)
+        mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home"), tag: 1)
         let settingsVC = SettingsViewController()
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
         settingsVC.view.backgroundColor = .white
         
         let infoButtonVC = AboutViewController()
         infoButtonVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 3)
+        infoButtonVC.view.backgroundColor = .white
         
         let publisherVC = PublisherViewController()
         publisherVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "colorPicker"), tag: 4)
@@ -41,11 +42,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let subscriberVC = SubscriberViewController()
         subscriberVC.view.backgroundColor = .white
-        subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "info.circle"), tag: 5)
+        subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "target"), tag: 5)
         
         let topScoresVC = TopScoresViewController()
         topScoresVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "crown"), tag: 6)
-        
+        topScoresVC.view.backgroundColor = .white
+
         let navigationController = UINavigationController(rootViewController: mainVC)
         tabBarCtrl.setViewControllers([navigationController, settingsVC, infoButtonVC, topScoresVC, subscriberVC, publisherVC], animated: false)
         
