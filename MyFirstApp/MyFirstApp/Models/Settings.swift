@@ -32,3 +32,18 @@ class Settings {
     }
     
 }
+
+extension Settings {
+    final func startListeningWhenDifficultyLevelChanged() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeSelectedLevel(notification:)),
+                                               name: NSNotification.Name.DifficultyLevelChanged,
+                                               object: nil)
+    }
+    
+    @objc func changeSelectedLevel(notification: Notification) {
+        if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
+            Settings.currentLevel = level
+        }
+    }
+}
