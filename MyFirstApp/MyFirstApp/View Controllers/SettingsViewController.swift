@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        Settings.shared.startListeningWhenDifficultyLevelChanged()
+
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.selectRow(1, inComponent: 0, animated: true)

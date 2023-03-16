@@ -8,7 +8,11 @@
 import Foundation
 
 class Settings {
-    static let shared = Settings()
+    static let shared: Settings = {
+        let instance = Settings()
+        instance.startListeningWhenDifficultyLevelChanged()
+        return instance
+    }()
     static var currentLevel: DifficultyLevel = .heyNotTooRough
     private init() {}
 
@@ -16,7 +20,7 @@ class Settings {
         var description: String {
             toString()
         }
-        
+
         case tooYoungToDie = 30, heyNotTooRough = 100, hurtMePlenty = 200, ultraViolence = 300, nightmare = 1000
 
         // helping function to get string based on case
@@ -34,7 +38,7 @@ class Settings {
 }
 
 extension Settings {
-    final func startListeningWhenDifficultyLevelChanged() {
+    private final func startListeningWhenDifficultyLevelChanged() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(changeSelectedLevel(notification:)),
                                                name: NSNotification.Name.DifficultyLevelChanged,
