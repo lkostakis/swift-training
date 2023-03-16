@@ -24,9 +24,9 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
-        message.text = "Congratulations you have achieved a top \(HighScoreTable.place+1) score with \(HighScoreTable.score) in \(Settings.currentLevel.toString()) difficulty."
+        message.text = "Congratulations you have achieved a top \(HighScoreTable.place+1) score with \(HighScoreTable.score) in \(Settings.shared.currentLevel.toString()) difficulty."
         
-        for (index, player) in HighScoreTable.scoreTable[Settings.currentLevel]!.enumerated() {
+        for (index, player) in HighScoreTable.scoreTable[Settings.shared.currentLevel]!.enumerated() {
             topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
         }
     }

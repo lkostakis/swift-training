@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let mainVC = mainVC as? MainViewController else {
             fatalError("Could not instantiate main view controller.")
         }
-
-        Settings.shared
+        
+        Settings.shared.currentLevel
         mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home"), tag: 1)
         let settingsVC = SettingsViewController()
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)

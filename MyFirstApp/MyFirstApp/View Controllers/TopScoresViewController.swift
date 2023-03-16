@@ -36,7 +36,7 @@ class TopScoresViewController: UITableViewController {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TopScoresHeaderView.reuseIdentifier) as? TopScoresHeaderView
         else { return nil }
 
-        headerView.headerLabel.text = "Top Scores Table: \(Settings.currentLevel.toString())"
+        headerView.headerLabel.text = "Top Scores Table: \(Settings.shared.currentLevel.toString())"
         headerView.headerLabel.textColor = .systemBlue
         return headerView
     }
@@ -46,7 +46,7 @@ class TopScoresViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let players = HighScoreTable.scoreTable[Settings.currentLevel] else {
+        guard let players = HighScoreTable.scoreTable[Settings.shared.currentLevel] else {
             return 0
         }
         return section == 0 ? 0 : players.count
@@ -57,7 +57,7 @@ class TopScoresViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        guard let players = HighScoreTable.scoreTable[Settings.currentLevel], !players.isEmpty else {
+        guard let players = HighScoreTable.scoreTable[Settings.shared.currentLevel], !players.isEmpty else {
             return UITableViewCell()
         }
         return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)

@@ -13,7 +13,7 @@ class Settings {
         instance.startListeningWhenDifficultyLevelChanged()
         return instance
     }()
-    static var currentLevel: DifficultyLevel = .heyNotTooRough
+    var currentLevel: DifficultyLevel = .heyNotTooRough
     private init() {}
 
     enum DifficultyLevel : Int, CaseIterable, Codable {
@@ -47,7 +47,7 @@ extension Settings {
     
     @objc func changeSelectedLevel(notification: Notification) {
         if let level = notification.userInfo?["level_changed"] as? Settings.DifficultyLevel {
-            Settings.currentLevel = level
+            Settings.shared.currentLevel = level
         }
     }
 }

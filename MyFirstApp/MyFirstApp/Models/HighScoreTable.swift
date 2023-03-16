@@ -41,7 +41,7 @@ class HighScoreTable {
     }
     
     final func addPlayerToHighScoreTable(player: Player) {
-        guard var highScoreTable = HighScoreTable.scoreTable[Settings.currentLevel] else {
+        guard var highScoreTable = HighScoreTable.scoreTable[Settings.shared.currentLevel] else {
             return
         }
         
@@ -53,7 +53,7 @@ class HighScoreTable {
         if highScoreTable.count > 3 {
             highScoreTable.remove(at: highScoreTable.endIndex-1)
         }
-        HighScoreTable.scoreTable[Settings.currentLevel] = highScoreTable
+        HighScoreTable.scoreTable[Settings.shared.currentLevel] = highScoreTable
     }
 }
 
