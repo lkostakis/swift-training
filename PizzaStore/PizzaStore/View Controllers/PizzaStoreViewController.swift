@@ -11,8 +11,7 @@ class PizzaStoreViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var timer: Timer?
-    var pizzaStore = PizzaStore()
-    private let customerVC = CustomerViewController()
+    private var pizzaStore = PizzaStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +26,15 @@ class PizzaStoreViewController: UIViewController {
                     action: #selector(addPizzaTapped))
         tableView.estimatedRowHeight = 300
         tableView.register(UINib(nibName: "\(OrderViewCell.self)", bundle: nil), forCellReuseIdentifier: OrderViewCell.reuseIdentifier)
+        pizzaStore.startListeningWhenPizzaDelivered()
     }
     
     @objc func addPizzaTapped() {
-        navigationController?.pushViewController(customerVC, animated: true)
+        navigationController?.pushViewController(CustomerViewController(), animated: true)
     }
-    
+
     func preparePizza(pizza: Pizza) {
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
             print("Pizza is delivered to: \(pizza.clientName)")
             self.pizzaStore.orders.remove(at: self.pizzaStore.orders.endIndex - 1)
             self.tableView.reloadData()
@@ -76,7 +76,6 @@ extension PizzaStoreViewController {
         }
     }
     
-    
     private final func deliverPizza(pizza: Pizza) {
         print("pizza to be delivered: \(pizza)")
         NotificationCenter.default.post(name: NSNotification.Name.PizzaOnReady,
@@ -85,6 +84,7 @@ extension PizzaStoreViewController {
     }
     
 }
+
 extension NSNotification.Name {
     static let PizzaOnReady = NSNotification.Name(rawValue: "pizza_ready")
 }

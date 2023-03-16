@@ -15,7 +15,6 @@ class CustomerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        startListeningWhenPizzaDelivered()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +25,15 @@ class CustomerViewController: UIViewController {
 
     @IBAction func addPizzaTapped(_ sender: UIButton) {
         print("Button Tapped")
-        let pizza1 = Pizza(pizzaName: pizzaTextField.text!, clientName: nameTextField.text!)
-        addPizzaOrder(pizza: pizza1)
+        guard let pizzaName = pizzaTextField.text, let clientName = nameTextField.text else {
+            return
+        }
+
+        if pizzaName != "" && clientName != "" {
+            let pizzaObj = Pizza(pizzaName: pizzaName, clientName: clientName)
+            addPizzaOrder(pizza: pizzaObj)
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -39,18 +45,18 @@ extension CustomerViewController {
                                         userInfo: ["pizza_order" : pizza])
     }
     
-    private final func startListeningWhenPizzaDelivered() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(pizzaDelivered(notification:)),
-                                               name: NSNotification.Name.PizzaOnReady,
-                                               object: nil)
-    }
-    
-    @objc func pizzaDelivered(notification: Notification) {
-        if let pizza = notification.userInfo?["pizza_ready"] as? Pizza {
-            print("yummy pizza \(pizza.pizzaName)")
-        }
-    }
+//    private final func startListeningWhenPizzaDelivered() {
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(pizzaDelivered(notification:)),
+//                                               name: NSNotification.Name.PizzaOnReady,
+//                                               object: nil)
+//    }
+//
+//    @objc func pizzaDelivered(notification: Notification) {
+//        if let pizza = notification.userInfo?["pizza_ready"] as? Pizza {
+//            print("yummy pizza \(pizza.pizzaName)")
+//        }
+//    }
     
 }
 

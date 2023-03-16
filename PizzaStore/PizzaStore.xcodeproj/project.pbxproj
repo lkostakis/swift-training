@@ -66,20 +66,44 @@
 		FC4206F029C1C5C300453338 /* PizzaStore */ = {
 			isa = PBXGroup;
 			children = (
+				FC622FFD29C1EA560004D24E /* Models */,
+				FC622FFF29C1EA600004D24E /* Views */,
+				FC622FFE29C1EA5A0004D24E /* View Controllers */,
 				FC4206F129C1C5C300453338 /* AppDelegate.swift */,
 				FC4206F329C1C5C300453338 /* SceneDelegate.swift */,
-				FC4206F529C1C5C300453338 /* PizzaStoreViewController.swift */,
-				FCD1E84729C1CA08008DF1E7 /* Pizza.swift */,
-				FCD1E84929C1CEC1008DF1E7 /* CustomerViewController.swift */,
-				FCD1E84A29C1CEC1008DF1E7 /* CustomerViewController.xib */,
-				FC0B1BC929C1C72200E9BCFC /* OrderViewCell.swift */,
-				FC4206F729C1C5C300453338 /* Main.storyboard */,
-				FC0B1BC729C1C6DE00E9BCFC /* OrderViewCell.xib */,
 				FC4206FA29C1C5C400453338 /* Assets.xcassets */,
 				FC4206FC29C1C5C400453338 /* LaunchScreen.storyboard */,
 				FC4206FF29C1C5C400453338 /* Info.plist */,
 			);
 			path = PizzaStore;
+			sourceTree = "<group>";
+		};
+		FC622FFD29C1EA560004D24E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCD1E84729C1CA08008DF1E7 /* Pizza.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC622FFE29C1EA5A0004D24E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC4206F529C1C5C300453338 /* PizzaStoreViewController.swift */,
+				FCD1E84929C1CEC1008DF1E7 /* CustomerViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FC622FFF29C1EA600004D24E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC4206F729C1C5C300453338 /* Main.storyboard */,
+				FC0B1BC929C1C72200E9BCFC /* OrderViewCell.swift */,
+				FC0B1BC729C1C6DE00E9BCFC /* OrderViewCell.xib */,
+				FCD1E84A29C1CEC1008DF1E7 /* CustomerViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
