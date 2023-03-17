@@ -20,8 +20,10 @@ class TopScoresViewController: UITableViewController {
         title = "Leaders"
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
-        tableView.register(UINib(nibName: "\(TopScoreCell.self)", bundle: nil), forCellReuseIdentifier: TopScoreCell.reuseIdentifier)
-        tableView.register(UINib(nibName: "\(TopScoresHeaderView.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: TopScoresHeaderView.reuseIdentifier)
+        tableView.register(UINib(nibName: "\(TopScoreCell.self)", bundle: nil),
+                           forCellReuseIdentifier: TopScoreCell.reuseIdentifier)
+        tableView.register(UINib(nibName: "\(TopScoresHeaderView.self)", bundle: nil),
+                           forHeaderFooterViewReuseIdentifier: TopScoresHeaderView.reuseIdentifier)
         startListeningWhenDifficultyLevelChanged()
         startListeningWhenHighScoreTableChanged()
         tableView.reloadData()
@@ -33,7 +35,8 @@ class TopScoresViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 { return nil }
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TopScoresHeaderView.reuseIdentifier) as? TopScoresHeaderView
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: TopScoresHeaderView.reuseIdentifier) as? TopScoresHeaderView
         else { return nil }
 
         headerView.headerLabel.text = "Top Scores Table: \(Settings.shared.currentLevel.toString())"
@@ -53,14 +56,16 @@ class TopScoresViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(TopScoreCell.self)", for: indexPath) as? TopScoreCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier:
+                                                        "\(TopScoreCell.self)", for: indexPath) as? TopScoreCell else {
             return UITableViewCell()
         }
 
         guard let players = HighScoreTable.scoreTable[Settings.shared.currentLevel], !players.isEmpty else {
             return UITableViewCell()
         }
-        return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score, date: players[indexPath.row].date)
+        return cell.configure(name: players[indexPath.row].name, score: players[indexPath.row].score,
+                              date: players[indexPath.row].date)
     }
 
 }

@@ -14,12 +14,12 @@ class PublisherViewController: UIViewController {
     @IBOutlet weak var orangeButton: UIButton!
     @IBOutlet weak var mintButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Publisher"
     }
-    
+
     @IBAction func blueButtonTapped(_ sender: UIButton) {
         PublisherViewController.colorSelected = .systemBlue
         colorSelected()
@@ -29,12 +29,12 @@ class PublisherViewController: UIViewController {
         PublisherViewController.colorSelected = .systemOrange
         colorSelected()
     }
-    
+
     @IBAction func tintButtonTapped(_ sender: UIButton) {
         PublisherViewController.colorSelected = .systemTeal
         colorSelected()
     }
-    
+
     @IBAction func yellowButtonTapped(_ sender: UIButton) {
         PublisherViewController.colorSelected = .systemYellow
         colorSelected()
@@ -47,7 +47,7 @@ class PublisherViewController: UIViewController {
     private final func onColorSelected(color: UIColor) {
         NotificationCenter.default.post(name: NSNotification.Name.ColorSelected,
                                         object: self,
-                                        userInfo: ["color_selected" : color])
+                                        userInfo: ["color_selected": color])
     }
 
 }

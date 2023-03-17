@@ -9,9 +9,9 @@ import Foundation
 
 class Writer {
     static let shared = Writer()
-    
+
     private init() { }
-    
+
     func writeToMemory() {
         if let encoded = try? JSONEncoder().encode(HighScoreTable.scoreTable) {
             UserDefaults.standard.set(encoded, forKey: "HighScoreTable")

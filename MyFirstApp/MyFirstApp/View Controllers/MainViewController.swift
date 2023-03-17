@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     private var targetValue: Int = 0 // target value
     // calculate the scores for all levels in scale from 1 to 100
     private var computeScore: Int {
-        get { (selectedLevel.rawValue - abs(Int(slider.value) - targetValue))*100/selectedLevel.rawValue }}
+          (selectedLevel.rawValue - abs(Int(slider.value) - targetValue))*100/selectedLevel.rawValue }
     private var selectedLevel = Settings.shared.currentLevel {
         didSet {
             if selectedLevel != oldValue {
@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
                 self.totalScore.total += self.computeScore
                 self.startNextRound()
             })
-        
+
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
@@ -104,7 +104,8 @@ class MainViewController: UIViewController {
             title: "OK",
             style: .default,
             handler: { _ in
-                if let place = HighScoreTable.shared.getHighScorePosition(self.totalScore.total, in: self.selectedLevel) {
+                if let place = HighScoreTable.shared.getHighScorePosition(self.totalScore.total,
+                                                                          in: self.selectedLevel) {
                     self.showHighScoreModal(position: place)
                 }
                 self.roundCounter.counter = 0

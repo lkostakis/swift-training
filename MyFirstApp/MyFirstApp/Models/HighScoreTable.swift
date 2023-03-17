@@ -9,16 +9,16 @@ import Foundation
 
 class HighScoreTable {
     static let shared = HighScoreTable()
-    static var scoreTable: [Settings.DifficultyLevel : [Player] ] = [Settings.DifficultyLevel.tooYoungToDie : [],
-                                                                     Settings.DifficultyLevel.heyNotTooRough : [],
-                                                                     Settings.DifficultyLevel.hurtMePlenty : [],
-                                                                     Settings.DifficultyLevel.ultraViolence : [],
-                                                                     Settings.DifficultyLevel.nightmare : [] ]
+    static var scoreTable: [Settings.DifficultyLevel: [Player] ] = [Settings.DifficultyLevel.tooYoungToDie: [],
+                                                                     Settings.DifficultyLevel.heyNotTooRough: [],
+                                                                     Settings.DifficultyLevel.hurtMePlenty: [],
+                                                                     Settings.DifficultyLevel.ultraViolence: [],
+                                                                     Settings.DifficultyLevel.nightmare: [] ]
     static var place: Int = 0
     static var score = 0
 
     private init() {}
-    
+
     // check if is highScore based on score and level and return the position
     final func getHighScorePosition(_ score: Int, in level: Settings.DifficultyLevel) -> Int? {
         guard let highScoreTable = HighScoreTable.scoreTable[level] else {
@@ -39,12 +39,12 @@ class HighScoreTable {
         }
         return nil
     }
-    
+
     final func addPlayerToHighScoreTable(player: Player) {
         guard var highScoreTable = HighScoreTable.scoreTable[Settings.shared.currentLevel] else {
             return
         }
-        
+
         if highScoreTable.isEmpty {
             highScoreTable.append(player)
         } else if highScoreTable.count <= 3 {
@@ -56,4 +56,3 @@ class HighScoreTable {
         HighScoreTable.scoreTable[Settings.shared.currentLevel] = highScoreTable
     }
 }
-

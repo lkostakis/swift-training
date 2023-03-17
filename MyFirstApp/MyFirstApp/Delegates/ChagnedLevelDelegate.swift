@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ChangedLevelDelegate {
+protocol ChangedLevelDelegate: AnyObject {
     var selectedLevel: Settings.DifficultyLevel {get set}
 }

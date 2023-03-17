@@ -7,13 +7,13 @@
 
 import UIKit
 
-class TopScoreCell : UITableViewCell {
-    
+class TopScoreCell: UITableViewCell {
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     static let reuseIdentifier = "\(TopScoreCell.self)"
-    
+
     func configure(name: String, score: Int, date: Date) -> TopScoreCell {
         nameLabel.text = "Name: \(name)"
         scoreLabel.text = "Score: \(score)"

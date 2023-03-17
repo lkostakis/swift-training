@@ -9,12 +9,12 @@ import Foundation
 
 class Reader {
     static let shared = Reader()
-    
+
     private init() { }
-    
+
     func readFromMemory() {
         if let data = UserDefaults.standard.data(forKey: "HighScoreTable") {
-            if let highScoreTable = try? JSONDecoder().decode([Settings.DifficultyLevel : [Player]].self, from: data) {
+            if let highScoreTable = try? JSONDecoder().decode([Settings.DifficultyLevel: [Player]].self, from: data) {
                 HighScoreTable.scoreTable = highScoreTable
             }
         } else {

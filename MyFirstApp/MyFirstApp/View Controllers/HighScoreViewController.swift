@@ -14,7 +14,7 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var topScore2: UILabel!
     @IBOutlet weak var topScore3: UILabel!
     private lazy var topScoreLabels = [topScore1, topScore2, topScore3]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
@@ -24,10 +24,12 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         message.font = UIFont.boldSystemFont(ofSize: 20)
-        message.text = "Congratulations you have achieved a top \(HighScoreTable.place+1) score with \(HighScoreTable.score) in \(Settings.shared.currentLevel.toString()) difficulty."
-        
+        message.text = "Congratulations you have achieved a top \(HighScoreTable.place+1)"
+                       + "score with \(HighScoreTable.score) in \(Settings.shared.currentLevel.toString()) difficulty."
+
         for (index, player) in HighScoreTable.scoreTable[Settings.shared.currentLevel]!.enumerated() {
-            topScoreLabels[index]?.text = "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
+            topScoreLabels[index]?.text =
+            "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
         }
     }
 
@@ -36,15 +38,16 @@ class HighScoreViewController: UIViewController, UITextFieldDelegate {
             nameTextField.text = "No name entered."
         }
 
-        HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.", score: HighScoreTable.score, date: Date.now))
-        HighScoreTableChanged()
+        HighScoreTable.shared.addPlayerToHighScoreTable(player: Player(name: nameTextField.text ?? "No name entered.",
+                                                                       score: HighScoreTable.score, date: Date.now))
+        highScoreTableChanged()
         Writer.shared.writeToMemory()
     }
-    
-    private final func HighScoreTableChanged() {
+
+    private final func highScoreTableChanged() {
         NotificationCenter.default.post(name: NSNotification.Name.HighScoreTableChanged,
                                         object: self,
-                                        userInfo: ["highscore_changed" : HighScoreTable.scoreTable])
+                                        userInfo: ["highscore_changed": HighScoreTable.scoreTable])
     }
 
     @IBAction func closeTapped(_ sender: UIButton) {

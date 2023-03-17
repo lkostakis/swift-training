@@ -8,13 +8,13 @@
 import UIKit
 
 class SubscriberViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Subscriber"
         self.startListeningWhenColorSelected()
     }
-    
+
     private final func startListeningWhenColorSelected() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(colorSelected(notification:)),

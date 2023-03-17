@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HighscoreListChangedDelegate {
+protocol HighscoreListChangedDelegate: AnyObject {
     func highscoreListChanged()
 }

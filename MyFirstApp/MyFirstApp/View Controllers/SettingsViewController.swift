@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
 
     @IBOutlet weak var pickerView: UIPickerView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
@@ -44,6 +44,8 @@ extension SettingsViewController {
     private final func difficultyLevelChanged() {
         NotificationCenter.default.post(name: NSNotification.Name.DifficultyLevelChanged,
                                         object: self,
-                                        userInfo: ["level_changed" : Settings.DifficultyLevel(rawValue: difficultyArray[pickerView.selectedRow(inComponent: 0)]) ?? Settings.DifficultyLevel.heyNotTooRough])
+                                        userInfo: ["level_changed": Settings.DifficultyLevel(rawValue:
+                                                difficultyArray[pickerView.selectedRow(inComponent: 0)])
+                                                ?? Settings.DifficultyLevel.heyNotTooRough])
     }
 }
