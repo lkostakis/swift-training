@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     // calculate the scores for all levels in scale from 1 to 100
     private var computeScore: Int {
         get { (selectedLevel.rawValue - abs(Int(slider.value) - targetValue))*100/selectedLevel.rawValue }}
-    private var selectedLevel = Settings.DifficultyLevel.heyNotTooRough {
+    private var selectedLevel = Settings.shared.currentLevel {
         didSet {
             if selectedLevel != oldValue {
                 setUIElements()
