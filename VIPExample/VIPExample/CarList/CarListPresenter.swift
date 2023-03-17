@@ -13,9 +13,9 @@ final class CarListPresenter {
         let manufacturedDateDate: String
     }
 
-    weak var controller: CarListViewController?
+    weak var controller: CarListTableViewController?
 
-    init(controller: CarListViewController) {
+    init(controller: CarListTableViewController) {
         self.controller = controller
     }
 

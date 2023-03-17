@@ -21,6 +21,9 @@
 		09B24BC429C31FAE00925CB1 /* CarListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B24BC329C31FAE00925CB1 /* CarListInteractor.swift */; };
 		09B24BC629C3273300925CB1 /* CarListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B24BC529C3273300925CB1 /* CarListItemView.xib */; };
 		09B24BC829C32B9400925CB1 /* CarListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B24BC729C32B9400925CB1 /* CarListPresenter.swift */; };
+		FC2DF87529C482DA00EE97EB /* CarListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */; };
+		FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2DF87629C4843400EE97EB /* CarListCell.xib */; };
+		FC2DF87929C4849F00EE97EB /* CarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF87829C4849F00EE97EB /* CarListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		09B24BC329C31FAE00925CB1 /* CarListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListInteractor.swift; sourceTree = "<group>"; };
 		09B24BC529C3273300925CB1 /* CarListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListItemView.xib; sourceTree = "<group>"; };
 		09B24BC729C32B9400925CB1 /* CarListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListPresenter.swift; sourceTree = "<group>"; };
+		FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListTableViewController.xib; sourceTree = "<group>"; };
+		FC2DF87629C4843400EE97EB /* CarListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListCell.xib; sourceTree = "<group>"; };
+		FC2DF87829C4849F00EE97EB /* CarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,9 @@
 				09B24B9B29C1CAB700925CB1 /* Models */,
 				09B24BC929C3467D00925CB1 /* CarList */,
 				09B24B8D29C1CA9700925CB1 /* Main.storyboard */,
+				FC2DF87629C4843400EE97EB /* CarListCell.xib */,
+				FC2DF87829C4849F00EE97EB /* CarListCell.swift */,
+				FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */,
 				09B24BC529C3273300925CB1 /* CarListItemView.xib */,
 				09B24B9029C1CA9B00925CB1 /* Assets.xcassets */,
 				09B24B9229C1CA9B00925CB1 /* LaunchScreen.storyboard */,
@@ -175,7 +184,9 @@
 			files = (
 				09B24B9429C1CA9B00925CB1 /* LaunchScreen.storyboard in Resources */,
 				09B24BA229C1CC7E00925CB1 /* APIResponse.json in Resources */,
+				FC2DF87529C482DA00EE97EB /* CarListTableViewController.xib in Resources */,
 				09B24B9129C1CA9B00925CB1 /* Assets.xcassets in Resources */,
+				FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */,
 				09B24B8F29C1CA9700925CB1 /* Main.storyboard in Resources */,
 				09B24BC629C3273300925CB1 /* CarListItemView.xib in Resources */,
 			);
@@ -190,6 +201,7 @@
 			files = (
 				09B24B9D29C1CAC600925CB1 /* CarModel.swift in Sources */,
 				09B24B8C29C1CA9700925CB1 /* CarListViewController.swift in Sources */,
+				FC2DF87929C4849F00EE97EB /* CarListCell.swift in Sources */,
 				09B24BA029C1CBA400925CB1 /* CarDTO.swift in Sources */,
 				09B24BA429C1CC9E00925CB1 /* CarRepository.swift in Sources */,
 				09B24B8829C1CA9700925CB1 /* AppDelegate.swift in Sources */,

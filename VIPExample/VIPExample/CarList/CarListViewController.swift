@@ -10,8 +10,55 @@ import UIKit
 // Create a CarListTableViewController that displays the same information as in the CarListViewController
 // but uses a UITableview instead of a UIPickerView
 class CarListTableViewController: UIViewController {
-
+    var interactor: CarListInteractor!
+    @IBOutlet var tableView: UITableView!
+    
+    var carList: [CarListPresenter.CarListViewModel]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UINib(nibName: "\(CarListCell.self)", bundle: nil), forCellReuseIdentifier: CarListCell.reuseIdentifier)
+        let presenter = CarListPresenter(controller: self)
+        interactor = CarListInteractor(presenter: presenter)
+        interactor.viewDidLoad()
+    }
 }
+
+extension CarListTableViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        carList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CarListCell.self)", for: indexPath) as? CarListCell else {
+            return UITableViewCell()
+        }
+        
+        guard let car = carList?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        cell.configure(model: car.nameAndEngine, date: car.manufacturedDateDate)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor.didSelectCarAtIndex(indexPath.row)
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 class CarListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var interactor: CarListInteractor!
@@ -22,14 +69,18 @@ class CarListViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
 
+    @IBAction func tableViewShow(_ sender: UIButton) {
+        present(CarListTableViewController(), animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var picker: UIPickerView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let presenter = CarListPresenter(controller: self)
-        interactor = CarListInteractor(presenter: presenter)
-        interactor.viewDidLoad()
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        let presenter = CarListPresenter(controller: self)
+//        interactor = CarListInteractor(presenter: presenter)
+//        interactor.viewDidLoad()
+//    }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
