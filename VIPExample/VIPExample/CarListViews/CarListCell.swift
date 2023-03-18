@@ -10,11 +10,10 @@ import UIKit
 class CarListCell: UITableViewCell {
     static let reuseIdentifier = "\(CarListCell.self)"
     @IBOutlet weak var modelLabel: UILabel!
-    @IBOutlet weak var engineTypeLabel: UILabel!
-    
-    
+    @IBOutlet weak var dateLabel: UILabel!
+
     func configure(model: String, date: String) {
         modelLabel.text = model
-        engineTypeLabel.text = date
+        dateLabel.text = date
     }
 }

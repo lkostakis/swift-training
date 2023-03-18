@@ -21,7 +21,6 @@
 		09B24BC429C31FAE00925CB1 /* CarListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B24BC329C31FAE00925CB1 /* CarListInteractor.swift */; };
 		09B24BC629C3273300925CB1 /* CarListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B24BC529C3273300925CB1 /* CarListItemView.xib */; };
 		09B24BC829C32B9400925CB1 /* CarListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B24BC729C32B9400925CB1 /* CarListPresenter.swift */; };
-		FC2DF87529C482DA00EE97EB /* CarListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */; };
 		FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2DF87629C4843400EE97EB /* CarListCell.xib */; };
 		FC2DF87929C4849F00EE97EB /* CarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF87829C4849F00EE97EB /* CarListCell.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		09B24BC329C31FAE00925CB1 /* CarListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListInteractor.swift; sourceTree = "<group>"; };
 		09B24BC529C3273300925CB1 /* CarListItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListItemView.xib; sourceTree = "<group>"; };
 		09B24BC729C32B9400925CB1 /* CarListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListPresenter.swift; sourceTree = "<group>"; };
-		FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListTableViewController.xib; sourceTree = "<group>"; };
 		FC2DF87629C4843400EE97EB /* CarListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListCell.xib; sourceTree = "<group>"; };
 		FC2DF87829C4849F00EE97EB /* CarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,12 +80,9 @@
 				09B24B8929C1CA9700925CB1 /* SceneDelegate.swift */,
 				09B24B9E29C1CB9600925CB1 /* Networking */,
 				09B24B9B29C1CAB700925CB1 /* Models */,
+				FC70A37029C5D39B00C6184B /* CarListViews */,
 				09B24BC929C3467D00925CB1 /* CarList */,
 				09B24B8D29C1CA9700925CB1 /* Main.storyboard */,
-				FC2DF87629C4843400EE97EB /* CarListCell.xib */,
-				FC2DF87829C4849F00EE97EB /* CarListCell.swift */,
-				FC2DF87329C482DA00EE97EB /* CarListTableViewController.xib */,
-				09B24BC529C3273300925CB1 /* CarListItemView.xib */,
 				09B24B9029C1CA9B00925CB1 /* Assets.xcassets */,
 				09B24B9229C1CA9B00925CB1 /* LaunchScreen.storyboard */,
 				09B24B9529C1CA9B00925CB1 /* Info.plist */,
@@ -124,6 +119,16 @@
 			path = CarList;
 			sourceTree = "<group>";
 		};
+		FC70A37029C5D39B00C6184B /* CarListViews */ = {
+			isa = PBXGroup;
+			children = (
+				09B24BC529C3273300925CB1 /* CarListItemView.xib */,
+				FC2DF87829C4849F00EE97EB /* CarListCell.swift */,
+				FC2DF87629C4843400EE97EB /* CarListCell.xib */,
+			);
+			path = CarListViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +139,7 @@
 				09B24B8029C1CA9700925CB1 /* Sources */,
 				09B24B8129C1CA9700925CB1 /* Frameworks */,
 				09B24B8229C1CA9700925CB1 /* Resources */,
+				FC9D29DE29C5CCFD00067CFA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -184,7 +190,6 @@
 			files = (
 				09B24B9429C1CA9B00925CB1 /* LaunchScreen.storyboard in Resources */,
 				09B24BA229C1CC7E00925CB1 /* APIResponse.json in Resources */,
-				FC2DF87529C482DA00EE97EB /* CarListTableViewController.xib in Resources */,
 				09B24B9129C1CA9B00925CB1 /* Assets.xcassets in Resources */,
 				FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */,
 				09B24B8F29C1CA9700925CB1 /* Main.storyboard in Resources */,
@@ -193,6 +198,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FC9D29DE29C5CCFD00067CFA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09B24B8029C1CA9700925CB1 /* Sources */ = {

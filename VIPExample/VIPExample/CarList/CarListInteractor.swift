@@ -35,4 +35,3 @@ final class CarListInteractor {
         print("did select car \(carModels[index].model)")
     }
 }
-

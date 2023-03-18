@@ -8,7 +8,7 @@
 import Foundation
 
 enum EngineType: String {
-    case Petrol, Gas, Hybrid
+    case petrol, gas, hybrid
 }
 
 struct CarModel {

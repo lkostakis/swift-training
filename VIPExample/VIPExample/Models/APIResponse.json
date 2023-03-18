@@ -2,10 +2,10 @@
     "model": "Ford PUMA Hybrid",
     "imageURL": "https://media.autoexpress.co.uk/image/private/s--0CSd6ZEa--/v1582030233/autoexpress/2020/02/dsc_0880.jpg",
     "manufacturedDate": "2023-2-1",
-    "engineType": "Hybrid"
+    "engineType": "hybrid"
 }, {
     "model": "Ford PUMA",
     "imageURL": "https://media.autoexpress.co.uk/image/private/s--0CSd6ZEa--/v1582030233/autoexpress/2020/02/dsc_0880.jpg",
     "manufacturedDate": "2022-10-3",
-    "engineType": "Petrol"
+    "engineType": "petrol"
 }]

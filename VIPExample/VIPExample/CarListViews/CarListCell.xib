@@ -37,7 +37,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="engineTypeLabel" destination="0iz-lc-z2i" id="3wt-mp-qNJ"/>
+                <outlet property="dateLabel" destination="0iz-lc-z2i" id="3wt-mp-qNJ"/>
                 <outlet property="modelLabel" destination="ktd-Z8-sQ0" id="Zit-3U-4Ly"/>
             </connections>
             <point key="canvasLocation" x="19.083969465648853" y="-138.02816901408451"/>

@@ -18,7 +18,7 @@ final class CarModelRepository {
         self.networking.performAPICall { carDTOs in
             // convert the response from the Server to Domain Models
 
-            let carModels = carDTOs.compactMap {try? CarModel(carDTO:$0)}
+            let carModels = carDTOs.compactMap {try? CarModel(carDTO: $0)}
             completion(carModels)
         }
     }
