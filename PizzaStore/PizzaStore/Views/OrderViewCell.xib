@@ -9,39 +9,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Er1-al-cHL" customClass="OrderViewCell" customModule="PizzaStore" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="479" height="134"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="149" id="Er1-al-cHL" customClass="OrderViewCell" customModule="PizzaStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="487" height="83"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Er1-al-cHL" id="cX3-PB-6yh">
-                <rect key="frame" x="0.0" y="0.0" width="479" height="134"/>
+                <rect key="frame" x="0.0" y="0.0" width="487" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6K-K3-yFC">
-                        <rect key="frame" x="218.66666666666666" y="90" width="41.999999999999972" height="21"/>
+                        <rect key="frame" x="10" y="51" width="467" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJs-NS-myw">
-                        <rect key="frame" x="218.66666666666666" y="23" width="41.999999999999972" height="21"/>
+                        <rect key="frame" x="10" y="10" width="467" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="o6K-K3-yFC" firstAttribute="centerX" secondItem="cX3-PB-6yh" secondAttribute="centerX" id="L3W-q1-UEC"/>
-                    <constraint firstItem="o6K-K3-yFC" firstAttribute="top" secondItem="XJs-NS-myw" secondAttribute="bottom" constant="46" id="RQx-f9-lIJ"/>
-                    <constraint firstItem="o6K-K3-yFC" firstAttribute="centerY" secondItem="cX3-PB-6yh" secondAttribute="centerY" multiplier="1.5" id="bNe-i7-LTO"/>
-                    <constraint firstItem="XJs-NS-myw" firstAttribute="centerX" secondItem="cX3-PB-6yh" secondAttribute="centerX" id="gFV-Yh-uay"/>
-                    <constraint firstItem="XJs-NS-myw" firstAttribute="centerY" secondItem="cX3-PB-6yh" secondAttribute="centerY" multiplier="0.5" id="ksj-p1-WL9"/>
+                    <constraint firstItem="o6K-K3-yFC" firstAttribute="top" secondItem="XJs-NS-myw" secondAttribute="bottom" constant="20" id="Ac0-ap-6Pl"/>
+                    <constraint firstItem="o6K-K3-yFC" firstAttribute="trailing" secondItem="XJs-NS-myw" secondAttribute="trailing" id="Dr5-o7-CxF"/>
+                    <constraint firstItem="o6K-K3-yFC" firstAttribute="leading" secondItem="XJs-NS-myw" secondAttribute="leading" id="LHD-kp-8O6"/>
+                    <constraint firstAttribute="bottom" secondItem="o6K-K3-yFC" secondAttribute="bottom" constant="11" id="LUj-r5-zmh"/>
+                    <constraint firstItem="XJs-NS-myw" firstAttribute="leading" secondItem="cX3-PB-6yh" secondAttribute="leading" constant="10" id="Nxe-HP-Kya"/>
+                    <constraint firstAttribute="trailing" secondItem="XJs-NS-myw" secondAttribute="trailing" constant="10" id="eae-cs-GQo"/>
+                    <constraint firstItem="XJs-NS-myw" firstAttribute="top" secondItem="cX3-PB-6yh" secondAttribute="top" constant="10" id="fZ3-US-vWe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="XJs-NS-myw" id="D2X-Cz-Z9r"/>
                 <outlet property="orderLabel" destination="o6K-K3-yFC" id="Xsc-UO-b3x"/>
             </connections>
-            <point key="canvasLocation" x="296.94656488549617" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="303.05343511450383" y="-46.126760563380287"/>
         </tableViewCell>
     </objects>
 </document>

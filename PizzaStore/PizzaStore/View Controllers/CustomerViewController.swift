@@ -12,15 +12,28 @@ class CustomerViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var pizzaTextField: UITextField!
     @IBOutlet weak var addPizzaButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+
+//    private func startObservingKeyboardEvents() {
+//        NotificationCenter.default.addObserver(self,
+//                                               selector:Selector(("keyboardWillShow:")),
+//                                               name:UIResponder.keyboardWillShowNotification,
+//                                               object:nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector:Selector(("keyboardWillHide:")),
+//                                               name:UIResponder.keyboardWillHideNotification,
+//                                               object:nil)
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap))
+        view.addGestureRecognizer(tapGesture)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        nameTextField.text = nil
-        pizzaTextField.text = nil
+        scrollView.contentInset.bottom = 100
     }
 
     @IBAction func addPizzaTapped(_ sender: UIButton) {
@@ -35,29 +48,27 @@ class CustomerViewController: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-}
 
+    @IBAction func pizzaNameDidEndOnExit(_ sender: UITextField) {
+        self.becomeFirstResponder()
+    }
+
+    @IBAction func clientNameDidEndOnExit(_ sender: UITextField) {
+        self.becomeFirstResponder()
+    }
+
+    @objc func dismissKeyboardOnTap() {
+        nameTextField.resignFirstResponder()
+        pizzaTextField.resignFirstResponder()
+    }
+}
 
 extension CustomerViewController {
     private final func addPizzaOrder(pizza: Pizza) {
         NotificationCenter.default.post(name: NSNotification.Name.PizzaOrdered,
                                         object: self,
-                                        userInfo: ["pizza_order" : pizza])
+                                        userInfo: ["pizza_order": pizza])
     }
-    
-//    private final func startListeningWhenPizzaDelivered() {
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(pizzaDelivered(notification:)),
-//                                               name: NSNotification.Name.PizzaOnReady,
-//                                               object: nil)
-//    }
-//
-//    @objc func pizzaDelivered(notification: Notification) {
-//        if let pizza = notification.userInfo?["pizza_ready"] as? Pizza {
-//            print("yummy pizza \(pizza.pizzaName)")
-//        }
-//    }
-    
 }
 
 extension NSNotification.Name {
