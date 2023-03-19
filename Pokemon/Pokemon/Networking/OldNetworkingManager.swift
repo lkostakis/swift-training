@@ -69,8 +69,8 @@ final class OldNetworkingManager {
             } else if let data = data {
                 let imageData = UIImage(data: data)
                 completion(imageData)
-            } else {
-                return
+            } else if let response = response {
+                return print("Response: \(response)")
             }
         }
         task.resume()
