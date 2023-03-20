@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FC0255B929A513F900BE6A9C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0255B829A513F900BE6A9C /* Player.swift */; };
+		FC02D65A29C86F7500E68669 /* ChangeLevelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC02D65929C86F7500E68669 /* ChangeLevelRepository.swift */; };
+		FC02D65C29C88A4800E68669 /* ChangeLevelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC02D65B29C88A4800E68669 /* ChangeLevelViewController.xib */; };
 		FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44C29928A06009A937A /* AppDelegate.swift */; };
 		FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E44E29928A06009A937A /* SceneDelegate.swift */; };
 		FC04E45129928A06009A937A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04E45029928A06009A937A /* MainViewController.swift */; };
@@ -37,11 +39,16 @@
 		FCC81DDD29BB24E500C84D91 /* PublisherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
 		FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4B91229968BCA00B1D29E /* AboutViewController.xib */; };
+		FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */; };
+		FCD4E0B929C85244009C6E9B /* ChangeLevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0B829C85244009C6E9B /* ChangeLevelPresenter.swift */; };
+		FCD4E0BB29C85266009C6E9B /* ChangeLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0BA29C85266009C6E9B /* ChangeLevelViewController.swift */; };
 		FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFABF1029A37740006254D2 /* TopScoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC0255B829A513F900BE6A9C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		FC02D65929C86F7500E68669 /* ChangeLevelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelRepository.swift; sourceTree = "<group>"; };
+		FC02D65B29C88A4800E68669 /* ChangeLevelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLevelViewController.xib; sourceTree = "<group>"; };
 		FC04E44929928A06009A937A /* Bull's Eye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bull's Eye.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC04E44C29928A06009A937A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC04E44E29928A06009A937A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +80,9 @@
 		FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublisherViewController.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FCD4B91229968BCA00B1D29E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelInteractor.swift; sourceTree = "<group>"; };
+		FCD4E0B829C85244009C6E9B /* ChangeLevelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelPresenter.swift; sourceTree = "<group>"; };
+		FCD4E0BA29C85266009C6E9B /* ChangeLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelViewController.swift; sourceTree = "<group>"; };
 		FCFABF1029A37740006254D2 /* TopScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +121,7 @@
 				FC60819729B11758002C4466 /* Extensions */,
 				FC60819229B0A5D5002C4466 /* Resources */,
 				FC3D465729ADEC660071004F /* Models */,
+				FCD4E0B529C851B1009C6E9B /* SettingsVIP */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
 				FC3D465529ADEC570071004F /* Views */,
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
@@ -133,6 +144,7 @@
 				FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */,
 				FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */,
 				FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */,
+				FC02D65B29C88A4800E68669 /* ChangeLevelViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +199,17 @@
 				FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FCD4E0B529C851B1009C6E9B /* SettingsVIP */ = {
+			isa = PBXGroup;
+			children = (
+				FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */,
+				FCD4E0B829C85244009C6E9B /* ChangeLevelPresenter.swift */,
+				FCD4E0BA29C85266009C6E9B /* ChangeLevelViewController.swift */,
+				FC02D65929C86F7500E68669 /* ChangeLevelRepository.swift */,
+			);
+			path = SettingsVIP;
 			sourceTree = "<group>";
 		};
 		FCDF0E0029BA727800208FF3 /* Storage */ = {
@@ -264,6 +287,7 @@
 				FC9A8A8329BDE4690053FC74 /* TopScoresHeaderView.xib in Resources */,
 				FC04E45629928A08009A937A /* Assets.xcassets in Resources */,
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
+				FC02D65C29C88A4800E68669 /* ChangeLevelViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
 				FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */,
 				FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */,
@@ -302,7 +326,10 @@
 				FC04E45129928A06009A937A /* MainViewController.swift in Sources */,
 				FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
+				FC02D65A29C86F7500E68669 /* ChangeLevelRepository.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
+				FCD4E0B929C85244009C6E9B /* ChangeLevelPresenter.swift in Sources */,
+				FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */,
 				FC60819D29B119A5002C4466 /* Settings.swift in Sources */,
 				FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */,
 				FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */,
@@ -314,6 +341,7 @@
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FCC5494029B2074F0059D78E /* TopScoreCell.swift in Sources */,
 				FC04E44F29928A06009A937A /* SceneDelegate.swift in Sources */,
+				FCD4E0BB29C85266009C6E9B /* ChangeLevelViewController.swift in Sources */,
 				FC8EA00129BBBC220065CD43 /* Notification.swift in Sources */,
 				FCC81DDC29BB24E500C84D91 /* PublisherViewController.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,

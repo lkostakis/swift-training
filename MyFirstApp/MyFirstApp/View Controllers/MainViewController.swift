@@ -37,6 +37,12 @@ class MainViewController: UIViewController {
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
+        navigationItem.rightBarButtonItem =
+                UIBarButtonItem(
+                    image: UIImage(named: "znsNtvIconSettings"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(changeLevelTapped))
         startListeningWhenDifficultyLevelChanged()
         setUIElements()
         startNextRound()
@@ -132,4 +138,7 @@ class MainViewController: UIViewController {
         sliderValue = Int(sender.value)
     }
 
+    @objc func changeLevelTapped(_ sender: UIButton) {
+        navigationController?.pushViewController(ChangeLevelViewController(), animated: true)
+    }
 }

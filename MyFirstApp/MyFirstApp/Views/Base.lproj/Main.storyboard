@@ -17,25 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unh-lF-Q2m">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gx-4j-2R8">
-                                        <rect key="frame" x="0.0" y="-44" width="320" height="568"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="UaE-Xi-vjQ" firstAttribute="top" secondItem="1gx-4j-2R8" secondAttribute="top" constant="44" id="Hac-Fj-wMG"/>
-                                    <constraint firstItem="1gx-4j-2R8" firstAttribute="width" secondItem="KhG-1i-yyv" secondAttribute="width" id="IGT-ID-FE4"/>
-                                    <constraint firstItem="1gx-4j-2R8" firstAttribute="trailing" secondItem="UaE-Xi-vjQ" secondAttribute="trailing" constant="320" id="Q5U-2V-KXl"/>
-                                    <constraint firstItem="1gx-4j-2R8" firstAttribute="height" secondItem="KhG-1i-yyv" secondAttribute="height" id="rHA-Wr-QPS"/>
-                                    <constraint firstItem="1gx-4j-2R8" firstAttribute="bottom" secondItem="UaE-Xi-vjQ" secondAttribute="bottom" constant="524" id="uFa-38-G4F"/>
-                                    <constraint firstItem="1gx-4j-2R8" firstAttribute="leading" secondItem="UaE-Xi-vjQ" secondAttribute="leading" id="v3N-Ve-Vy1"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="UaE-Xi-vjQ"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="KhG-1i-yyv"/>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4c-pH-3hC" userLabel="ContainerView">
                                 <rect key="frame" x="0.0" y="184.5" width="320" height="199"/>
                                 <subviews>
@@ -146,11 +127,7 @@
                             <constraint firstItem="aSG-xA-33f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Efh-ow-Y4t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aSG-xA-33f" secondAttribute="trailing" id="Eh7-rk-DCW"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IQK-6j-zoT"/>
-                            <constraint firstItem="Unh-lF-Q2m" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JGd-Rm-xFO"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="top" secondItem="Xir-tN-WUh" secondAttribute="bottom" constant="20" id="Kj5-Dd-ORQ"/>
-                            <constraint firstItem="Unh-lF-Q2m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N8q-4Z-fiv"/>
-                            <constraint firstItem="Unh-lF-Q2m" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VkA-sn-LOl"/>
-                            <constraint firstItem="Unh-lF-Q2m" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Weq-cb-FXg"/>
                             <constraint firstItem="o4c-pH-3hC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YaH-pf-hkT"/>
                             <constraint firstItem="Xir-tN-WUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rJt-r6-fYA"/>
                         </constraints>
