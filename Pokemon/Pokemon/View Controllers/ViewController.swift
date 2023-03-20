@@ -50,10 +50,12 @@ class ViewController: UIViewController {
             print("Nothing selected")
             return nil
         }
-        guard let pokedex = self.pokedex, let pokemon = pokedex.results?[indexPath.row], let pokemonURL = pokemon.url else {
+        guard let pokedex = self.pokedex,
+              let pokemon = pokedex.results?[indexPath.row],
+              let pokemonURL = pokemon.url else {
             return nil
         }
-        
+
         return PokemonViewController(coder: coder, pokemonURL: pokemonURL)
     }
 }
@@ -65,10 +67,14 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokedex = self.pokedex, let pokemon = pokedex.results?[indexPath.row], let pokemonName = pokemon.name, let pokemonURL = pokemon.url else {
+        guard let pokedex = self.pokedex,
+              let pokemon = pokedex.results?[indexPath.row],
+              let pokemonName = pokemon.name,
+              let pokemonURL = pokemon.url else {
             return UITableViewCell()
         }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell", for: indexPath) as? PokedexCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokedexCell",
+                                                       for: indexPath) as? PokedexCell else {
             return UITableViewCell()
         }
 

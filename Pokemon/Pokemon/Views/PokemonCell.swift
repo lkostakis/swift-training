@@ -8,7 +8,7 @@
 import UIKit
 
 class PokemonCell: UITableViewCell {
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var baseStatLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!

@@ -33,7 +33,7 @@ extension Sprite: Codable {
 
 struct Types: Codable {
     let slot: Int?
-    let type: [String:String]?
+    let type: [String: String]?
 }
 
 struct Stats: Hashable {

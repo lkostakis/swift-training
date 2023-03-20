@@ -9,9 +9,9 @@ import Foundation
 
 class Writer {
     static let shared = Writer()
-    
+
     private init() {}
-    
+
     func writeToMemory(pokedex: Pokedex?) {
         do {
             if let pokedex = pokedex {
@@ -28,7 +28,7 @@ class Writer {
     }
 }
 
-struct PokedexInfo : Codable {
+struct PokedexInfo: Codable {
     let pokedex: Pokedex
     let date: Date
 }

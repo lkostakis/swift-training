@@ -8,22 +8,22 @@
 import UIKit
 
 class PokedexCell: UITableViewCell {
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var URLLabel: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
-    
+
     override func prepareForReuse() {
         nameLabel.text = nil
         URLLabel.text = nil
         pokemonImage.image = nil
     }
-    
+
     func configure(name: String, url: String) {
         nameLabel.text = name
         URLLabel.text = url
     }
-    
+
     func configure(name: String, url: String, image: UIImage) {
         nameLabel.text = name
         URLLabel.text = url

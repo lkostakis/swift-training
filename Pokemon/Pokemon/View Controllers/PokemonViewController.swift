@@ -28,7 +28,7 @@ class PokemonViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func initPokemon() {
         guard let pokemonURL = self.pokemonURL else {
             return
@@ -49,11 +49,13 @@ extension PokemonViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokemon = pokemon, let pokemonName = pokemon.name, let baseStat = pokemon.stats?[indexPath.row].baseStat,
+        guard let pokemon = pokemon, let pokemonName = pokemon.name,
+              let baseStat = pokemon.stats?[indexPath.row].baseStat,
               let typeName = pokemon.types?[indexPath.row].type?["name"] else {
             return UITableViewCell()
         }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as? PokemonCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell",
+                                                       for: indexPath) as? PokemonCell else {
             return UITableViewCell()
         }
 
