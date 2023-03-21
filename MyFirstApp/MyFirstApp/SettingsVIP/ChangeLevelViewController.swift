@@ -23,7 +23,7 @@ class ChangeLevelViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        levelList?.count ?? 5
+        levelList?.count ?? 0
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -41,10 +41,14 @@ class ChangeLevelViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        interactor.viewWillAppear(pickerView)
+        interactor.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        interactor.viewWillDisappear(pickerView)
+        interactor.viewWillDisappear(pickerView.selectedRow(inComponent: 0))
+    }
+
+    func displayPickerViewSelectedRow(_ index: Int) {
+        pickerView.selectRow(index, inComponent: 0, animated: true)
     }
 }

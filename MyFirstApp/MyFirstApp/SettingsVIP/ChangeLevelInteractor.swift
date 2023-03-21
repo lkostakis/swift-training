@@ -5,7 +5,7 @@
 //  Created by Lefteris Kostakis on 20/3/23.
 //
 
-import UIKit
+import Foundation
 
 final class ChangeLevelInteractor {
     private var presenter: ChangeLevelPresenter
@@ -25,22 +25,24 @@ final class ChangeLevelInteractor {
         }
     }
 
-    func viewWillDisappear(_ pickerView: UIPickerView) {
-        difficultyLevelChanged(pickerView)
+    func viewWillDisappear(_ pickerViewIndex: Int) {
+        difficultyLevelChanged(pickerViewIndex)
     }
 
-    func viewWillAppear(_ pickerView: UIPickerView) {
-        let levelToShow = difficultyLevels?.firstIndex(of: Settings.shared.currentLevel)
-        pickerView.selectRow(levelToShow ?? 1, inComponent: 0, animated: true)
+    func viewWillAppear() {
+        guard let difficultyLevels,
+              let indexOfLevelToShow = difficultyLevels.firstIndex(of: Settings.shared.currentLevel) else {
+            return
+        }
+        presenter.displayPickerView(indexOfLevelToShow)
     }
 
-    private final func difficultyLevelChanged(_ pickerView: UIPickerView) {
+    private final func difficultyLevelChanged(_ pickerViewIndex: Int) {
 
         guard let difficultyLevels else {
             return
         }
-        let index = pickerView.selectedRow(inComponent: 0)
-        let level = difficultyLevels[index]
+        let level = difficultyLevels[pickerViewIndex]
 
         NotificationCenter.default.post(name: NSNotification.Name.DifficultyLevelChanged,
                                         object: self,

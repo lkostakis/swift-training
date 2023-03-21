@@ -5,7 +5,7 @@
 //  Created by Lefteris Kostakis on 20/3/23.
 //
 
-import UIKit
+import Foundation
 
 final class ChangeLevelPresenter {
     struct ChangeLevelViewModel {
@@ -18,11 +18,15 @@ final class ChangeLevelPresenter {
         self.controller = controller
     }
 
-    func displayChangeLevel(_ diffucultyLevels: [Settings.DifficultyLevel]) {
-        let viewModels = diffucultyLevels.map {
+    func displayChangeLevel(_ difficultyLevels: [Settings.DifficultyLevel]) {
+        let viewModels = difficultyLevels.map {
             let level = $0.toString()
             return ChangeLevelViewModel(difficultyName: level)
         }
-        self.controller?.levelList = viewModels
+        controller?.levelList = viewModels
+    }
+
+    func displayPickerView(_ index: Int) {
+        controller?.displayPickerViewSelectedRow(index)
     }
 }
