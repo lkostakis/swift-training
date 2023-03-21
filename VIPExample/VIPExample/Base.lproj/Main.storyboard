@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,29 +12,52 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CarListTableViewController" customModule="VIPExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aOp-XE-THM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <view key="view" contentMode="scaleToFill" id="CTg-kt-Y7C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cg5-5V-DA4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="UzB-B6-I1Z"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nOC-x3-7li"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-JG-4kY">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sfc-7o-hY9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="BYZ-38-t0r" id="SvV-lz-cCK"/>
-                            <outlet property="delegate" destination="BYZ-38-t0r" id="rue-2C-kvm"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="Sfc-7o-hY9" firstAttribute="bottom" secondItem="Cg5-5V-DA4" secondAttribute="bottom" id="7DH-GJ-Mic"/>
+                            <constraint firstItem="cl2-JG-4kY" firstAttribute="centerY" secondItem="CTg-kt-Y7C" secondAttribute="centerY" id="L8O-mP-zQk"/>
+                            <constraint firstItem="Cg5-5V-DA4" firstAttribute="top" secondItem="Sfc-7o-hY9" secondAttribute="top" id="Vnc-dh-y9s"/>
+                            <constraint firstItem="Sfc-7o-hY9" firstAttribute="trailing" secondItem="Cg5-5V-DA4" secondAttribute="trailing" id="lLC-op-9nT"/>
+                            <constraint firstItem="cl2-JG-4kY" firstAttribute="centerX" secondItem="CTg-kt-Y7C" secondAttribute="centerX" id="nA4-kf-dMG"/>
+                            <constraint firstItem="Cg5-5V-DA4" firstAttribute="leading" secondItem="Sfc-7o-hY9" secondAttribute="leading" id="rtY-TA-N5U"/>
+                        </constraints>
+                    </view>
                     <navigationItem key="navigationItem" id="nzC-lc-5Td"/>
                     <connections>
-                        <outlet property="tableView" destination="aOp-XE-THM" id="2Iw-DG-w3o"/>
-                        <outlet property="view" destination="aOp-XE-THM" id="BQy-FR-oL5"/>
+                        <outlet property="loaderIndicator" destination="cl2-JG-4kY" id="0BS-4T-TX7"/>
+                        <outlet property="tableView" destination="Cg5-5V-DA4" id="tSo-w6-bzU"/>
+                        <outlet property="view" destination="Cg5-5V-DA4" id="fdL-yC-MkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066.4122137404579" y="24.647887323943664"/>
+            <point key="canvasLocation" x="1065" y="24.295774647887324"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

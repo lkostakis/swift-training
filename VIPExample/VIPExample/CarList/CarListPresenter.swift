@@ -9,6 +9,7 @@ import Foundation
 
 protocol CarListViewControllerProtocol: AnyObject {
     var carList: [CarListPresenter.CarListViewModel]? {get set}
+    func setLoadingIndicator(_ shouldDisplay: Bool)
 }
 
 final class CarListPresenter {
@@ -23,8 +24,8 @@ final class CarListPresenter {
         self.controller = controller
     }
 
-    // Implemented his empty method
     func displayLoaderIndicator(_ shouldDisplay: Bool) {
+        controller?.setLoadingIndicator(shouldDisplay)
     }
 
     func displayCars(_ cars: [CarModel]) {

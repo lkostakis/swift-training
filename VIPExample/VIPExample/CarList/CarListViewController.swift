@@ -10,9 +10,10 @@ import UIKit
 // Create a CarListTableViewController that displays the same information as in the CarListViewController
 // but uses a UITableview instead of a UIPickerView
 class CarListTableViewController: UIViewController, CarListViewControllerProtocol {
-    var interactor: CarListInteractor!
-    @IBOutlet var tableView: UITableView!
 
+    @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
+    @IBOutlet var tableView: UITableView!
+    var interactor: CarListInteractor!
     var carList: [CarListPresenter.CarListViewModel]? {
         didSet {
             tableView.reloadData()
@@ -26,6 +27,15 @@ class CarListTableViewController: UIViewController, CarListViewControllerProtoco
         let presenter = CarListPresenter(controller: self)
         interactor = CarListInteractor(presenter: presenter)
         interactor.viewDidLoad()
+    }
+
+    func setLoadingIndicator(_ shouldDisplay: Bool) {
+        if shouldDisplay {
+            loaderIndicator.startAnimating()
+        } else {
+            loaderIndicator.stopAnimating()
+            loaderIndicator.isHidden = true
+        }
     }
 }
 
@@ -52,8 +62,9 @@ extension CarListTableViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
-class CarListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
-                             CarListViewControllerProtocol {
+/*                  PICKER VIEW UI
+class CarListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
     var interactor: CarListInteractor!
 
     var carList: [CarListPresenter.CarListViewModel]? {
@@ -100,3 +111,4 @@ class CarListViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return view
     }
 }
+*/

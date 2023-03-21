@@ -20,10 +20,12 @@ final class CarListInteractor {
 
     func viewDidLoad() {
         self.presenter.displayLoaderIndicator(true)
-        repository.fetchCars { carModels in
-            self.carModels = carModels
-            self.presenter.displayLoaderIndicator(false)
-            self.presenter.displayCars(carModels)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.repository.fetchCars { carModels in
+                self.carModels = carModels
+                self.presenter.displayLoaderIndicator(false)
+                self.presenter.displayCars(carModels)
+            }
         }
     }
 
