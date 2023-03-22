@@ -22,7 +22,6 @@ class LeaderboardViewController: UIViewController {
                            forCellReuseIdentifier: LeaderboardCellView.reuseIdentifier)
         tableView.register(UINib(nibName: "\(LeaderboardHeaderView.self)", bundle: nil),
                            forHeaderFooterViewReuseIdentifier: LeaderboardHeaderView.reuseIdentifier)
-        print("ok")
         interactor.initTableView()
     }
 }

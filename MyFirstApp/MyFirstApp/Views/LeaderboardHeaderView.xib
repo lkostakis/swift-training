@@ -17,13 +17,13 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-k0-ch3">
                     <rect key="frame" x="218.5" y="28" width="42" height="21"/>
+                    <color key="tintColor" systemColor="systemGray6Color"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Zol-rC-ehg"/>
-            <color key="backgroundColor" systemColor="systemGray6Color"/>
             <constraints>
                 <constraint firstItem="Wha-k0-ch3" firstAttribute="centerX" secondItem="bam-GS-fNU" secondAttribute="centerX" id="fAT-zP-MdX"/>
                 <constraint firstItem="Wha-k0-ch3" firstAttribute="centerY" secondItem="bam-GS-fNU" secondAttribute="centerY" id="sLY-Sd-CSe"/>

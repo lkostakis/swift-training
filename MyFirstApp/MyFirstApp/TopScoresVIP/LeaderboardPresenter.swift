@@ -17,11 +17,9 @@ final class LeaderboardPresenter {
     func displayTableView() {
         controller?.tableView.estimatedRowHeight = 600
         reloadTableData()
-        print("ok3")
     }
 
     func reloadTableData() {
-        print("ok4")
         controller?.tableView.reloadData()
     }
 }

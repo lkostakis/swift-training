@@ -18,7 +18,6 @@ final class LeaderboardInteractor {
 
     func initTableView() {
         presenter.displayTableView()
-        print("ok2")
         startListeningWhenDifficultyLevelChanged()
         startListeningWhenHighScoreTableChanged()
     }

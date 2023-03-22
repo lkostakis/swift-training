@@ -151,12 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				FC06C90A29C9E75200D01049 /* LeaderboardViewController.swift */,
-				FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */,
 				FC06C90E29C9E7B200D01049 /* LeaderboardPresenter.swift */,
 				FC06C91029C9E80600D01049 /* LeaderboardInteractor.swift */,
-				FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */,
 				FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */,
-				FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */,
 			);
 			path = TopScoresVIP;
 			sourceTree = "<group>";
@@ -164,6 +161,9 @@
 		FC3D465529ADEC570071004F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */,
+				FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */,
+				FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */,
 				FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */,
 				FCC81DD729BB24D700C84D91 /* SubscriberViewController.xib */,
 				FC04E45229928A06009A937A /* Main.storyboard */,

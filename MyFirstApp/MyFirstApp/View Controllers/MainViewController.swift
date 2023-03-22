@@ -149,7 +149,6 @@ class MainViewController: UIViewController {
     }
 
     @objc func leaderboardTapped(_ sender: UIButton) {
-//        navigationController?.pushViewController(LeaderboardViewController(), animated: true)
-        present(LeaderboardViewController(), animated: true, completion: nil)
+        navigationController?.pushViewController(LeaderboardViewController(), animated: true)
     }
 }
