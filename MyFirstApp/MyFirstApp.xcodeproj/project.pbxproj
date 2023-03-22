@@ -16,6 +16,10 @@
 		FC04E45429928A06009A937A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45229928A06009A937A /* Main.storyboard */; };
 		FC04E45629928A08009A937A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45529928A08009A937A /* Assets.xcassets */; };
 		FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC04E45729928A08009A937A /* LaunchScreen.storyboard */; };
+		FC06C90C29C9E75200D01049 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06C90A29C9E75200D01049 /* LeaderboardViewController.swift */; };
+		FC06C90D29C9E75200D01049 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */; };
+		FC06C90F29C9E7B200D01049 /* LeaderboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06C90E29C9E7B200D01049 /* LeaderboardPresenter.swift */; };
+		FC06C91129C9E80600D01049 /* LeaderboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06C91029C9E80600D01049 /* LeaderboardInteractor.swift */; };
 		FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */; };
 		FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */; };
 		FC60819429B0B427002C4466 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60819329B0B427002C4466 /* Writer.swift */; };
@@ -37,6 +41,9 @@
 		FCC81DD929BB24D700C84D91 /* SubscriberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC81DD729BB24D700C84D91 /* SubscriberViewController.xib */; };
 		FCC81DDC29BB24E500C84D91 /* PublisherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC81DDA29BB24E500C84D91 /* PublisherViewController.swift */; };
 		FCC81DDD29BB24E500C84D91 /* PublisherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */; };
+		FCCD4B4329CB00A1000CB332 /* LeaderboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */; };
+		FCCD4B4729CB01C8000CB332 /* LeaderboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */; };
+		FCCD4B4929CB025A000CB332 /* LeaderboardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */; };
 		FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4B91129968BCA00B1D29E /* AboutViewController.swift */; };
 		FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD4B91229968BCA00B1D29E /* AboutViewController.xib */; };
 		FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */; };
@@ -57,6 +64,10 @@
 		FC04E45529928A08009A937A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC04E45829928A08009A937A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC04E45A29928A08009A937A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC06C90A29C9E75200D01049 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
+		FC06C90E29C9E7B200D01049 /* LeaderboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPresenter.swift; sourceTree = "<group>"; };
+		FC06C91029C9E80600D01049 /* LeaderboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardInteractor.swift; sourceTree = "<group>"; };
 		FC2050DE299D75EF00CEE1D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC2050DF299D75EF00CEE1D5 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		FC60819329B0B427002C4466 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
@@ -78,6 +89,9 @@
 		FCC81DD729BB24D700C84D91 /* SubscriberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriberViewController.xib; sourceTree = "<group>"; };
 		FCC81DDA29BB24E500C84D91 /* PublisherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherViewController.swift; sourceTree = "<group>"; };
 		FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublisherViewController.xib; sourceTree = "<group>"; };
+		FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardHeaderView.xib; sourceTree = "<group>"; };
+		FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCellView.swift; sourceTree = "<group>"; };
+		FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardCellView.xib; sourceTree = "<group>"; };
 		FCD4B91129968BCA00B1D29E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FCD4B91229968BCA00B1D29E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelInteractor.swift; sourceTree = "<group>"; };
@@ -122,6 +136,7 @@
 				FC60819229B0A5D5002C4466 /* Resources */,
 				FC3D465729ADEC660071004F /* Models */,
 				FCD4E0B529C851B1009C6E9B /* SettingsVIP */,
+				FC06C90529C9E63900D01049 /* TopScoresVIP */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
 				FC3D465529ADEC570071004F /* Views */,
 				FC04E44C29928A06009A937A /* AppDelegate.swift */,
@@ -130,6 +145,20 @@
 				FC04E45A29928A08009A937A /* Info.plist */,
 			);
 			path = MyFirstApp;
+			sourceTree = "<group>";
+		};
+		FC06C90529C9E63900D01049 /* TopScoresVIP */ = {
+			isa = PBXGroup;
+			children = (
+				FC06C90A29C9E75200D01049 /* LeaderboardViewController.swift */,
+				FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */,
+				FC06C90E29C9E7B200D01049 /* LeaderboardPresenter.swift */,
+				FC06C91029C9E80600D01049 /* LeaderboardInteractor.swift */,
+				FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */,
+				FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */,
+				FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */,
+			);
+			path = TopScoresVIP;
 			sourceTree = "<group>";
 		};
 		FC3D465529ADEC570071004F /* Views */ = {
@@ -281,12 +310,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCC81DD929BB24D700C84D91 /* SubscriberViewController.xib in Resources */,
+				FCCD4B4329CB00A1000CB332 /* LeaderboardHeaderView.xib in Resources */,
 				FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */,
 				FC04E45929928A08009A937A /* LaunchScreen.storyboard in Resources */,
 				FCC81DDD29BB24E500C84D91 /* PublisherViewController.xib in Resources */,
 				FC9A8A8329BDE4690053FC74 /* TopScoresHeaderView.xib in Resources */,
 				FC04E45629928A08009A937A /* Assets.xcassets in Resources */,
+				FCCD4B4929CB025A000CB332 /* LeaderboardCellView.xib in Resources */,
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
+				FC06C90D29C9E75200D01049 /* LeaderboardViewController.xib in Resources */,
 				FC02D65C29C88A4800E68669 /* ChangeLevelViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
 				FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */,
@@ -326,17 +358,21 @@
 				FC04E45129928A06009A937A /* MainViewController.swift in Sources */,
 				FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
+				FCCD4B4729CB01C8000CB332 /* LeaderboardCellView.swift in Sources */,
 				FC02D65A29C86F7500E68669 /* ChangeLevelRepository.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FCD4E0B929C85244009C6E9B /* ChangeLevelPresenter.swift in Sources */,
+				FC06C90C29C9E75200D01049 /* LeaderboardViewController.swift in Sources */,
 				FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */,
 				FC60819D29B119A5002C4466 /* Settings.swift in Sources */,
+				FC06C90F29C9E7B200D01049 /* LeaderboardPresenter.swift in Sources */,
 				FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */,
 				FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
 				FC60819629B0B433002C4466 /* Reader.swift in Sources */,
 				FC0255B929A513F900BE6A9C /* Player.swift in Sources */,
 				FC60819429B0B427002C4466 /* Writer.swift in Sources */,
+				FC06C91129C9E80600D01049 /* LeaderboardInteractor.swift in Sources */,
 				FC60819F29B119E1002C4466 /* HighScoreTable.swift in Sources */,
 				FC2050E0299D75EF00CEE1D5 /* SettingsViewController.swift in Sources */,
 				FCC5494029B2074F0059D78E /* TopScoreCell.swift in Sources */,

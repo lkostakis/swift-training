@@ -43,6 +43,12 @@ class MainViewController: UIViewController {
                     style: .plain,
                     target: self,
                     action: #selector(changeLevelTapped))
+        navigationItem.leftBarButtonItem =
+                UIBarButtonItem(
+                    image: UIImage(systemName: "crown"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(leaderboardTapped))
         startListeningWhenDifficultyLevelChanged()
         setUIElements()
         startNextRound()
@@ -140,5 +146,10 @@ class MainViewController: UIViewController {
 
     @objc func changeLevelTapped(_ sender: UIButton) {
         navigationController?.pushViewController(ChangeLevelViewController(), animated: true)
+    }
+
+    @objc func leaderboardTapped(_ sender: UIButton) {
+//        navigationController?.pushViewController(LeaderboardViewController(), animated: true)
+        present(LeaderboardViewController(), animated: true, completion: nil)
     }
 }
