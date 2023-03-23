@@ -12,6 +12,7 @@ final class OldNetworkingManager {
     static let shared: OldNetworkingManager = OldNetworkingManager()
 
     private let baseUrl = "https://pokeapi.co/api/v2/"
+
     func fetchFirst151Pokemon(comp: @escaping (Pokedex) -> Void) {
         let endpoint: String = "pokemon?limit=151&offset=0"
         guard let url = URL(string: baseUrl + endpoint) else { return }
