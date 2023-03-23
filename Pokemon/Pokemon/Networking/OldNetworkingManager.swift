@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class OldNetworkingManager {
     static let shared: OldNetworkingManager = OldNetworkingManager()
@@ -14,21 +15,14 @@ final class OldNetworkingManager {
     func fetchFirst151Pokemon(comp: @escaping (Pokedex) -> Void) {
         let endpoint: String = "pokemon?limit=151&offset=0"
         guard let url = URL(string: baseUrl + endpoint) else { return }
-        let request = URLRequest(url: url)
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                return print(error)
-            } else if let data = data {
-                do {
-                    let json = try JSONDecoder().decode(Pokedex.self, from: data)
-                    comp(json)
-                } catch {
-                    print("Error occured during parsing", error)
-                }
-            } else if let response = response {
-                print("Response: \(response)")
-                return
+        let task = AF.request(url)
+        task.responseDecodable(of: Pokedex.self) { response in
+            switch response.result {
+            case .success(let pokedex):
+                comp(pokedex)
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
         task.resume()
@@ -36,21 +30,14 @@ final class OldNetworkingManager {
 
     func fetchPokemonWithURL(url: String, comp: @escaping (Pokemon) -> Void) {
         guard let url = URL(string: url) else { return }
-        let request = URLRequest(url: url)
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                return print(error)
-            } else if let data = data {
-                do {
-                    let json = try JSONDecoder().decode(Pokemon.self, from: data)
-                    comp(json)
-                } catch {
-                    print("Error occured during parsing", error)
-                }
-            } else if let response = response {
-                print("Response: \(response)")
-                return
+        let task = AF.request(url)
+        task.responseDecodable(of: Pokemon.self) { response in
+            switch response.result {
+            case .success(let jsonData):
+                comp(jsonData)
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
         task.resume()
@@ -67,16 +54,14 @@ final class OldNetworkingManager {
             return
         }
 
-        let request = URLRequest(url: imageURL)
-
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                return print("Error from network manager: \(error)")
-            } else if let data = data {
+        let task = AF.request(imageURL, method: .get)
+        task.responseData { response in
+            switch response.result {
+            case .success(let data):
                 let imageData = UIImage(data: data)
                 completion(imageData)
-            } else if let response = response {
-                return print("Response: \(response)")
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
         task.resume()
