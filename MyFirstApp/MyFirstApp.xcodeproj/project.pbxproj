@@ -32,6 +32,7 @@
 		FC8EA00129BBBC220065CD43 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EA00029BBBC220065CD43 /* Notification.swift */; };
 		FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */; };
 		FC90B79029B4DB260004D7E0 /* TopScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */; };
+		FC91C16F29CDCA8F004CEA7B /* LeaderboardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91C16E29CDCA8F004CEA7B /* LeaderboardRepository.swift */; };
 		FC9A8A8329BDE4690053FC74 /* TopScoresHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */; };
 		FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB949FE299FA63000A6814A /* HighScoreViewController.swift */; };
 		FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB949FF299FA63000A6814A /* HighScoreViewController.xib */; };
@@ -80,6 +81,7 @@
 		FC8EA00029BBBC220065CD43 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		FC9078F629B4CF3300DD7F87 /* TopScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresViewController.xib; sourceTree = "<group>"; };
 		FC90B78F29B4DB260004D7E0 /* TopScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoreCell.xib; sourceTree = "<group>"; };
+		FC91C16E29CDCA8F004CEA7B /* LeaderboardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRepository.swift; sourceTree = "<group>"; };
 		FC9A8A8229BDE4690053FC74 /* TopScoresHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopScoresHeaderView.xib; sourceTree = "<group>"; };
 		FCB949FE299FA63000A6814A /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		FCB949FF299FA63000A6814A /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				FC06C90E29C9E7B200D01049 /* LeaderboardPresenter.swift */,
 				FC06C91029C9E80600D01049 /* LeaderboardInteractor.swift */,
 				FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */,
+				FC91C16E29CDCA8F004CEA7B /* LeaderboardRepository.swift */,
 			);
 			path = TopScoresVIP;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCC81DD829BB24D700C84D91 /* SubscriberViewController.swift in Sources */,
+				FC91C16F29CDCA8F004CEA7B /* LeaderboardRepository.swift in Sources */,
 				FC04E45129928A06009A937A /* MainViewController.swift in Sources */,
 				FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,

@@ -8,18 +8,28 @@
 import Foundation
 
 final class LeaderboardPresenter {
+
+    struct PlayerViewModel {
+        var name: String
+        var date: Date
+        var score: Int
+    }
+
+    struct HeaderViewModel {
+        var title: String
+    }
+
     weak var controller: LeaderboardViewController?
 
     init(controller: LeaderboardViewController) {
         self.controller = controller
     }
 
-    func displayTableView() {
-        controller?.tableView.estimatedRowHeight = 600
-        reloadTableData()
-    }
-
-    func reloadTableData() {
-        controller?.tableView.reloadData()
+    func displayPlayers(for level: Settings.DifficultyLevel, data players: [Player]) {
+        let viewModels = players.map {
+            return PlayerViewModel(name: $0.name, date: $0.date, score: $0.score)
+        }
+        controller?.header = HeaderViewModel(title: level.toString())
+        controller?.players = viewModels
     }
 }

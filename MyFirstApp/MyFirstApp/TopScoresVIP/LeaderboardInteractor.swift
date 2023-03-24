@@ -10,16 +10,35 @@ import Foundation
 final class LeaderboardInteractor {
 
     private var presenter: LeaderboardPresenter
+    private let repository: LeaderboardRepository
     private var level = Settings.shared.currentLevel
+    private var players: [Player]?
 
-    init(presenter: LeaderboardPresenter) {
+    init(presenter: LeaderboardPresenter, repository: LeaderboardRepository = LeaderboardRepository()) {
         self.presenter = presenter
+        self.repository = repository
     }
 
     func initTableView() {
-        presenter.displayTableView()
         startListeningWhenDifficultyLevelChanged()
         startListeningWhenHighScoreTableChanged()
+        prepareDataToDisplay()
+    }
+
+    func fetchPlayers() {
+        repository.fetchPlayers(for: level, completion: { players in
+            self.players = players
+        })
+    }
+
+    func prepareDataToDisplay() {
+        level = Settings.shared.currentLevel
+        fetchPlayers()
+        guard let players else {
+            print("Could not fetch players.")
+            return
+        }
+        presenter.displayPlayers(for: level, data: players)
     }
 }
 
@@ -32,7 +51,7 @@ extension LeaderboardInteractor {
     }
 
     @objc func changeSelectedLevel(notification: Notification) {
-        presenter.reloadTableData()
+        prepareDataToDisplay()
     }
 
     private final func startListeningWhenHighScoreTableChanged() {
@@ -43,6 +62,6 @@ extension LeaderboardInteractor {
     }
 
     @objc func changeHighScoreTable(notification: Notification) {
-        presenter.reloadTableData()
+        prepareDataToDisplay()
     }
 }

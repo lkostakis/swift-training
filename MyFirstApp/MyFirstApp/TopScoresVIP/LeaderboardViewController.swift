@@ -11,12 +11,19 @@ class LeaderboardViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var interactor: LeaderboardInteractor!
+    var header: LeaderboardPresenter.HeaderViewModel?
+    var players: [LeaderboardPresenter.PlayerViewModel]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let presenter = LeaderboardPresenter(controller: self)
         interactor = LeaderboardInteractor(presenter: presenter)
         title = "Leaders"
+        tableView.estimatedRowHeight = 600
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "\(LeaderboardCellView.self)", bundle: nil),
                            forCellReuseIdentifier: LeaderboardCellView.reuseIdentifier)
@@ -32,6 +39,7 @@ class LeaderboardHeaderView: UITableViewHeaderFooterView {
 }
 
 extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate {
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -39,20 +47,21 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 { return nil }
         guard let headerView = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: LeaderboardHeaderView.reuseIdentifier) as? LeaderboardHeaderView
+            withIdentifier: LeaderboardHeaderView.reuseIdentifier) as? LeaderboardHeaderView,
+              let header
         else { return nil }
 
-        headerView.headerLabel.text = "Top Scores Table: \(Settings.shared.currentLevel.toString())"
+        headerView.headerLabel.text = "Top Scores Table: \(header.title)"
         headerView.headerLabel.textColor = .systemBlue
         return headerView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 40 : 0
+        section == 0 ? 40 : 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let players = HighScoreTable.scoreTable[Settings.shared.currentLevel] else {
+        guard let players else {
             return 0
         }
         return section == 0 ? 0 : players.count
@@ -64,7 +73,8 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate 
             return UITableViewCell()
         }
 
-        guard let players = HighScoreTable.scoreTable[Settings.shared.currentLevel], !players.isEmpty else {
+        guard let players else {
+            print("No players to display.")
             return UITableViewCell()
         }
 
