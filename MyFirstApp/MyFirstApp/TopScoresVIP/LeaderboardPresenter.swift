@@ -11,7 +11,7 @@ final class LeaderboardPresenter {
 
     struct PlayerViewModel {
         var name: String
-        var date: Date
+        var date: String
         var score: Int
     }
 
@@ -27,7 +27,7 @@ final class LeaderboardPresenter {
 
     func displayPlayers(for level: Settings.DifficultyLevel, data players: [Player]) {
         let viewModels = players.map {
-            return PlayerViewModel(name: $0.name, date: $0.date, score: $0.score)
+            return PlayerViewModel(name: $0.name, date: $0.date.displayFormat, score: $0.score)
         }
         controller?.header = HeaderViewModel(title: level.toString())
         controller?.players = viewModels

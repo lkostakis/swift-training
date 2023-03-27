@@ -14,10 +14,10 @@ class LeaderboardCellView: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     static let reuseIdentifier = "\(LeaderboardCellView.self)"
 
-    func configure(name: String, score: Int, date: Date) -> LeaderboardCellView {
+    func configure(name: String, score: Int, date: String) -> LeaderboardCellView {
         nameLabel.text = "Name: \(name)"
         scoreLabel.text = "Score: \(score)"
-        dateLabel.text = "Date: \(date.displayFormat)"
+        dateLabel.text = "Date: \(date)"
         return self
     }
 }
