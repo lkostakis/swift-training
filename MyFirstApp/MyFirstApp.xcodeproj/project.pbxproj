@@ -42,6 +42,11 @@
 		FCC81DD929BB24D700C84D91 /* SubscriberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC81DD729BB24D700C84D91 /* SubscriberViewController.xib */; };
 		FCC81DDC29BB24E500C84D91 /* PublisherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC81DDA29BB24E500C84D91 /* PublisherViewController.swift */; };
 		FCC81DDD29BB24E500C84D91 /* PublisherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */; };
+		FCCBD29629D1913C008B3655 /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBD29429D1913C008B3655 /* HighScoresViewController.swift */; };
+		FCCBD29729D1913C008B3655 /* HighScoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCBD29529D1913C008B3655 /* HighScoresViewController.xib */; };
+		FCCBD29929D1914B008B3655 /* HighScoresPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBD29829D1914A008B3655 /* HighScoresPresenter.swift */; };
+		FCCBD29B29D1915C008B3655 /* HighScoresInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBD29A29D1915C008B3655 /* HighScoresInteractor.swift */; };
+		FCCBD29D29D19173008B3655 /* HighScoresRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBD29C29D19173008B3655 /* HighScoresRepository.swift */; };
 		FCCD4B4329CB00A1000CB332 /* LeaderboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */; };
 		FCCD4B4729CB01C8000CB332 /* LeaderboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */; };
 		FCCD4B4929CB025A000CB332 /* LeaderboardCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */; };
@@ -91,6 +96,11 @@
 		FCC81DD729BB24D700C84D91 /* SubscriberViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriberViewController.xib; sourceTree = "<group>"; };
 		FCC81DDA29BB24E500C84D91 /* PublisherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherViewController.swift; sourceTree = "<group>"; };
 		FCC81DDB29BB24E500C84D91 /* PublisherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublisherViewController.xib; sourceTree = "<group>"; };
+		FCCBD29429D1913C008B3655 /* HighScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		FCCBD29529D1913C008B3655 /* HighScoresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoresViewController.xib; sourceTree = "<group>"; };
+		FCCBD29829D1914A008B3655 /* HighScoresPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresPresenter.swift; sourceTree = "<group>"; };
+		FCCBD29A29D1915C008B3655 /* HighScoresInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresInteractor.swift; sourceTree = "<group>"; };
+		FCCBD29C29D19173008B3655 /* HighScoresRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresRepository.swift; sourceTree = "<group>"; };
 		FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardHeaderView.xib; sourceTree = "<group>"; };
 		FCCD4B4629CB01C7000CB332 /* LeaderboardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCellView.swift; sourceTree = "<group>"; };
 		FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardCellView.xib; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 				FC60819729B11758002C4466 /* Extensions */,
 				FC60819229B0A5D5002C4466 /* Resources */,
 				FC3D465729ADEC660071004F /* Models */,
+				FCCBD29329D190AA008B3655 /* HighScoresVIP */,
 				FCD4E0B529C851B1009C6E9B /* SettingsVIP */,
 				FC06C90529C9E63900D01049 /* TopScoresVIP */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
@@ -233,6 +244,18 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		FCCBD29329D190AA008B3655 /* HighScoresVIP */ = {
+			isa = PBXGroup;
+			children = (
+				FCCBD29429D1913C008B3655 /* HighScoresViewController.swift */,
+				FCCBD29529D1913C008B3655 /* HighScoresViewController.xib */,
+				FCCBD29829D1914A008B3655 /* HighScoresPresenter.swift */,
+				FCCBD29A29D1915C008B3655 /* HighScoresInteractor.swift */,
+				FCCBD29C29D19173008B3655 /* HighScoresRepository.swift */,
+			);
+			path = HighScoresVIP;
+			sourceTree = "<group>";
+		};
 		FCD4E0B529C851B1009C6E9B /* SettingsVIP */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +346,7 @@
 				FCD4B91429968BCA00B1D29E /* AboutViewController.xib in Resources */,
 				FC06C90D29C9E75200D01049 /* LeaderboardViewController.xib in Resources */,
 				FC02D65C29C88A4800E68669 /* ChangeLevelViewController.xib in Resources */,
+				FCCBD29729D1913C008B3655 /* HighScoresViewController.xib in Resources */,
 				FC04E45429928A06009A937A /* Main.storyboard in Resources */,
 				FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */,
 				FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */,
@@ -362,16 +386,19 @@
 				FC04E45129928A06009A937A /* MainViewController.swift in Sources */,
 				FC6081A229B11A7C002C4466 /* ChagnedLevelDelegate.swift in Sources */,
 				FC04E44D29928A06009A937A /* AppDelegate.swift in Sources */,
+				FCCBD29D29D19173008B3655 /* HighScoresRepository.swift in Sources */,
 				FCCD4B4729CB01C8000CB332 /* LeaderboardCellView.swift in Sources */,
 				FC02D65A29C86F7500E68669 /* ChangeLevelRepository.swift in Sources */,
 				FCD4B91329968BCA00B1D29E /* AboutViewController.swift in Sources */,
 				FCD4E0B929C85244009C6E9B /* ChangeLevelPresenter.swift in Sources */,
 				FC06C90C29C9E75200D01049 /* LeaderboardViewController.swift in Sources */,
+				FCCBD29929D1914B008B3655 /* HighScoresPresenter.swift in Sources */,
 				FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */,
 				FC60819D29B119A5002C4466 /* Settings.swift in Sources */,
 				FC06C90F29C9E7B200D01049 /* LeaderboardPresenter.swift in Sources */,
 				FCBE533A29B260B300A01E35 /* HighscoreListChangedDelegate.swift in Sources */,
 				FC60819B29B117D3002C4466 /* DateFormatter.swift in Sources */,
+				FCCBD29629D1913C008B3655 /* HighScoresViewController.swift in Sources */,
 				FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */,
 				FC60819629B0B433002C4466 /* Reader.swift in Sources */,
 				FC0255B929A513F900BE6A9C /* Player.swift in Sources */,
@@ -386,6 +413,7 @@
 				FCC81DDC29BB24E500C84D91 /* PublisherViewController.swift in Sources */,
 				FCB94A00299FA63000A6814A /* HighScoreViewController.swift in Sources */,
 				FC60819929B11771002C4466 /* Date.swift in Sources */,
+				FCCBD29B29D1915C008B3655 /* HighScoresInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
