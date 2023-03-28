@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
 
     private final func dateDifferenceSince(since date: Date) -> Double {
-        return round(Date.now.timeIntervalSince(date))
+        round(Date.now.timeIntervalSince(date))
     }
 
     @IBSegueAction func showPokemonDetails(_ coder: NSCoder) -> PokemonViewController? {
@@ -108,6 +108,6 @@ extension ViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
     }
 }
