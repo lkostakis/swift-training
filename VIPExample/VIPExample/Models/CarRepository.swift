@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class CarModelRepository {
+protocol CarModelRepositoryProtocol {
+
+    func fetchCars(completion: @escaping ([CarModel]) -> Void)
+}
+
+final class CarModelRepository: CarModelRepositoryProtocol {
     private var networking: NetworkingManager
 
     init(networking: NetworkingManager = NetworkingManager.shared) {

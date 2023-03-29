@@ -10,10 +10,10 @@ import UIKit
 
 final class CarListInteractor {
     private var presenter: CarListPresenter
-    private let repository: CarModelRepository
+    private let repository: CarModelRepositoryProtocol
     private var carModels: [CarModel]?
 
-    init(presenter: CarListPresenter, carRepository: CarModelRepository = CarModelRepository()) {
+    init(presenter: CarListPresenter, carRepository: CarModelRepositoryProtocol = CarModelRepository()) {
         self.presenter = presenter
         self.repository = carRepository
     }
@@ -24,7 +24,11 @@ final class CarListInteractor {
             self.repository.fetchCars { carModels in
                 self.carModels = carModels
                 self.presenter.displayLoaderIndicator(false)
-                self.presenter.displayCars(carModels)
+                if carModels.isEmpty {
+                    self.presenter.displayErrorEmptyResponse()
+                } else {
+                    self.presenter.displayCars(carModels)
+                }
             }
         }
     }

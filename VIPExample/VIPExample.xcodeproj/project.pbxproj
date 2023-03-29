@@ -23,7 +23,20 @@
 		09B24BC829C32B9400925CB1 /* CarListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B24BC729C32B9400925CB1 /* CarListPresenter.swift */; };
 		FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC2DF87629C4843400EE97EB /* CarListCell.xib */; };
 		FC2DF87929C4849F00EE97EB /* CarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF87829C4849F00EE97EB /* CarListCell.swift */; };
+		FCA6635E29D4463F009CC9EB /* CarListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6635D29D4463F009CC9EB /* CarListInteractorTests.swift */; };
+		FCA6636029D44654009CC9EB /* CarModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6635F29D44654009CC9EB /* CarModelTests.swift */; };
+		FCA6636229D4466C009CC9EB /* CarListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA6636129D4466C009CC9EB /* CarListPresenterTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCA6635629D445E9009CC9EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09B24B7C29C1CA9700925CB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09B24B8329C1CA9700925CB1;
+			remoteInfo = VIPExample;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		09B24B8429C1CA9700925CB1 /* VIPExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIPExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,10 +57,21 @@
 		09B24BC729C32B9400925CB1 /* CarListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListPresenter.swift; sourceTree = "<group>"; };
 		FC2DF87629C4843400EE97EB /* CarListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListCell.xib; sourceTree = "<group>"; };
 		FC2DF87829C4849F00EE97EB /* CarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCell.swift; sourceTree = "<group>"; };
+		FCA6635229D445E8009CC9EB /* VIPExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA6635D29D4463F009CC9EB /* CarListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListInteractorTests.swift; sourceTree = "<group>"; };
+		FCA6635F29D44654009CC9EB /* CarModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelTests.swift; sourceTree = "<group>"; };
+		FCA6636129D4466C009CC9EB /* CarListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		09B24B8129C1CA9700925CB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA6634F29D445E8009CC9EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -61,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				09B24B8629C1CA9700925CB1 /* VIPExample */,
+				FCA6635329D445E9009CC9EB /* VIPExampleTests */,
 				09B24B8529C1CA9700925CB1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				09B24B8429C1CA9700925CB1 /* VIPExample.app */,
+				FCA6635229D445E8009CC9EB /* VIPExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +155,16 @@
 			path = CarListViews;
 			sourceTree = "<group>";
 		};
+		FCA6635329D445E9009CC9EB /* VIPExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCA6635F29D44654009CC9EB /* CarModelTests.swift */,
+				FCA6635D29D4463F009CC9EB /* CarListInteractorTests.swift */,
+				FCA6636129D4466C009CC9EB /* CarListPresenterTests.swift */,
+			);
+			path = VIPExampleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +186,24 @@
 			productReference = 09B24B8429C1CA9700925CB1 /* VIPExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FCA6635129D445E8009CC9EB /* VIPExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA6635A29D445E9009CC9EB /* Build configuration list for PBXNativeTarget "VIPExampleTests" */;
+			buildPhases = (
+				FCA6634E29D445E8009CC9EB /* Sources */,
+				FCA6634F29D445E8009CC9EB /* Frameworks */,
+				FCA6635029D445E8009CC9EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCA6635729D445E9009CC9EB /* PBXTargetDependency */,
+			);
+			name = VIPExampleTests;
+			productName = VIPExampleTests;
+			productReference = FCA6635229D445E8009CC9EB /* VIPExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +216,10 @@
 				TargetAttributes = {
 					09B24B8329C1CA9700925CB1 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					FCA6635129D445E8009CC9EB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 09B24B8329C1CA9700925CB1;
 					};
 				};
 			};
@@ -179,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				09B24B8329C1CA9700925CB1 /* VIPExample */,
+				FCA6635129D445E8009CC9EB /* VIPExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,6 +253,13 @@
 				FC2DF87729C4843400EE97EB /* CarListCell.xib in Resources */,
 				09B24B8F29C1CA9700925CB1 /* Main.storyboard in Resources */,
 				09B24BC629C3273300925CB1 /* CarListItemView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA6635029D445E8009CC9EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +303,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCA6634E29D445E8009CC9EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA6636029D44654009CC9EB /* CarModelTests.swift in Sources */,
+				FCA6635E29D4463F009CC9EB /* CarListInteractorTests.swift in Sources */,
+				FCA6636229D4466C009CC9EB /* CarListPresenterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCA6635729D445E9009CC9EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09B24B8329C1CA9700925CB1 /* VIPExample */;
+			targetProxy = FCA6635629D445E9009CC9EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		09B24B8D29C1CA9700925CB1 /* Main.storyboard */ = {
@@ -427,6 +511,42 @@
 			};
 			name = Release;
 		};
+		FCA6635829D445E9009CC9EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8527SZ2ED;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.advantage.VIPExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VIPExample";
+			};
+			name = Debug;
+		};
+		FCA6635929D445E9009CC9EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8527SZ2ED;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.advantage.VIPExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VIPExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -444,6 +564,15 @@
 			buildConfigurations = (
 				09B24B9929C1CA9B00925CB1 /* Debug */,
 				09B24B9A29C1CA9B00925CB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCA6635A29D445E9009CC9EB /* Build configuration list for PBXNativeTarget "VIPExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA6635829D445E9009CC9EB /* Debug */,
+				FCA6635929D445E9009CC9EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
