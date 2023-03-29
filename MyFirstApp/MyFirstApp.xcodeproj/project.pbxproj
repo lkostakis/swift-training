@@ -55,8 +55,19 @@
 		FCD4E0B729C85236009C6E9B /* ChangeLevelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */; };
 		FCD4E0B929C85244009C6E9B /* ChangeLevelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0B829C85244009C6E9B /* ChangeLevelPresenter.swift */; };
 		FCD4E0BB29C85266009C6E9B /* ChangeLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4E0BA29C85266009C6E9B /* ChangeLevelViewController.swift */; };
+		FCDCD63C29D438A700F6ED0C /* MyFirstAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCD63B29D438A700F6ED0C /* MyFirstAppTests.swift */; };
 		FCFABF1229A37740006254D2 /* TopScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFABF1029A37740006254D2 /* TopScoresViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCDCD63D29D438A700F6ED0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC04E44129928A06009A937A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC04E44829928A06009A937A;
+			remoteInfo = MyFirstApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FC0255B829A513F900BE6A9C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -109,11 +120,20 @@
 		FCD4E0B629C85236009C6E9B /* ChangeLevelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelInteractor.swift; sourceTree = "<group>"; };
 		FCD4E0B829C85244009C6E9B /* ChangeLevelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelPresenter.swift; sourceTree = "<group>"; };
 		FCD4E0BA29C85266009C6E9B /* ChangeLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLevelViewController.swift; sourceTree = "<group>"; };
+		FCDCD63929D438A700F6ED0C /* MyFirstAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFirstAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDCD63B29D438A700F6ED0C /* MyFirstAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstAppTests.swift; sourceTree = "<group>"; };
 		FCFABF1029A37740006254D2 /* TopScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FC04E44629928A06009A937A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCDCD63629D438A700F6ED0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				FC04E44B29928A06009A937A /* MyFirstApp */,
+				FCDCD63A29D438A700F6ED0C /* MyFirstAppTests */,
 				FC04E44A29928A06009A937A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FC04E44929928A06009A937A /* Bull's Eye.app */,
+				FCDCD63929D438A700F6ED0C /* MyFirstAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,9 +174,6 @@
 				FC06C90529C9E63900D01049 /* TopScoresVIP */,
 				FC3D465629ADEC5F0071004F /* View Controllers */,
 				FC3D465529ADEC570071004F /* Views */,
-				FC04E44C29928A06009A937A /* AppDelegate.swift */,
-				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
-				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
 				FC04E45A29928A08009A937A /* Info.plist */,
 			);
 			path = MyFirstApp;
@@ -175,6 +194,7 @@
 		FC3D465529ADEC570071004F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FC04E45729928A08009A937A /* LaunchScreen.storyboard */,
 				FCCD4B4829CB025A000CB332 /* LeaderboardCellView.xib */,
 				FC06C90B29C9E75200D01049 /* LeaderboardViewController.xib */,
 				FCCD4B4229CB00A1000CB332 /* LeaderboardHeaderView.xib */,
@@ -238,6 +258,8 @@
 		FC6081A029B11A6B002C4466 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				FC04E44C29928A06009A937A /* AppDelegate.swift */,
+				FC04E44E29928A06009A937A /* SceneDelegate.swift */,
 				FC6081A129B11A7C002C4466 /* ChagnedLevelDelegate.swift */,
 				FCBE533929B260B300A01E35 /* HighscoreListChangedDelegate.swift */,
 			);
@@ -265,6 +287,14 @@
 				FC02D65929C86F7500E68669 /* ChangeLevelRepository.swift */,
 			);
 			path = SettingsVIP;
+			sourceTree = "<group>";
+		};
+		FCDCD63A29D438A700F6ED0C /* MyFirstAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCD63B29D438A700F6ED0C /* MyFirstAppTests.swift */,
+			);
+			path = MyFirstAppTests;
 			sourceTree = "<group>";
 		};
 		FCDF0E0029BA727800208FF3 /* Storage */ = {
@@ -297,6 +327,24 @@
 			productReference = FC04E44929928A06009A937A /* Bull's Eye.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FCDCD63829D438A700F6ED0C /* MyFirstAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCDCD63F29D438A700F6ED0C /* Build configuration list for PBXNativeTarget "MyFirstAppTests" */;
+			buildPhases = (
+				FCDCD63529D438A700F6ED0C /* Sources */,
+				FCDCD63629D438A700F6ED0C /* Frameworks */,
+				FCDCD63729D438A700F6ED0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCDCD63E29D438A700F6ED0C /* PBXTargetDependency */,
+			);
+			name = MyFirstAppTests;
+			productName = MyFirstAppTests;
+			productReference = FCDCD63929D438A700F6ED0C /* MyFirstAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,6 +357,10 @@
 				TargetAttributes = {
 					FC04E44829928A06009A937A = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					FCDCD63829D438A700F6ED0C = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FC04E44829928A06009A937A;
 					};
 				};
 			};
@@ -326,6 +378,7 @@
 			projectRoot = "";
 			targets = (
 				FC04E44829928A06009A937A /* MyFirstApp */,
+				FCDCD63829D438A700F6ED0C /* MyFirstAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +404,13 @@
 				FC9078F729B4CF3300DD7F87 /* TopScoresViewController.xib in Resources */,
 				FC2050E1299D75EF00CEE1D5 /* SettingsViewController.xib in Resources */,
 				FCB94A01299FA63000A6814A /* HighScoreViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCDCD63729D438A700F6ED0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +477,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCDCD63529D438A700F6ED0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDCD63C29D438A700F6ED0C /* MyFirstAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCDCD63E29D438A700F6ED0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC04E44829928A06009A937A /* MyFirstApp */;
+			targetProxy = FCDCD63D29D438A700F6ED0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC04E45229928A06009A937A /* Main.storyboard */ = {
@@ -611,6 +687,44 @@
 			};
 			name = Release;
 		};
+		FCDCD64029D438A700F6ED0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8527SZ2ED;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.advantage.MyFirstAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bull's Eye.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bull's Eye";
+			};
+			name = Debug;
+		};
+		FCDCD64129D438A700F6ED0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8527SZ2ED;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.advantage.MyFirstAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bull's Eye.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bull's Eye";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -628,6 +742,15 @@
 			buildConfigurations = (
 				FC04E45E29928A08009A937A /* Debug */,
 				FC04E45F29928A08009A937A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCDCD63F29D438A700F6ED0C /* Build configuration list for PBXNativeTarget "MyFirstAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCDCD64029D438A700F6ED0C /* Debug */,
+				FCDCD64129D438A700F6ED0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
