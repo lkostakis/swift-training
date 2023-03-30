@@ -9,7 +9,8 @@ import UIKit
 
 // Create a CarListTableViewController that displays the same information as in the CarListViewController
 // but uses a UITableview instead of a UIPickerView
-class CarListTableViewController: UIViewController {
+
+class CarListTableViewController: UIViewController, CarListViewControllerProtocol {
 
     @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!

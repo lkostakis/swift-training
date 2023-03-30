@@ -7,15 +7,20 @@
 
 import Foundation
 
+protocol CarListViewControllerProtocol: AnyObject {
+    var carList: [CarListPresenter.CarListViewModel]? {get set}
+    func setLoadingIndicator(_ shouldDisplay: Bool)
+}
+
 class CarListPresenter {
     struct CarListViewModel {
         let nameAndEngine: String
         let manufacturedDateDate: String
     }
 
-    weak var controller: CarListTableViewController?
+    weak var controller: CarListViewControllerProtocol?
 
-    init(controller: CarListTableViewController) {
+    init(controller: CarListViewControllerProtocol) {
         self.controller = controller
     }
 

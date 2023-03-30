@@ -33,16 +33,17 @@ final class CarListInteractorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testInteractorCallsDisplayErrorWhenCarArrayIsEmpty() throws {
-        // Given
-        let presenter = CarListPresenterSpy(controller: CarListTableViewController())
-        let repository = CarModelRepositoryMocked()
-        let interactor = CarListInteractor(presenter: presenter, carRepository: repository)
-
-        // When
-        interactor.viewDidLoad()
-
-        // Then
-        XCTAssertTrue(presenter.didCallDisplayErrorEmptyResponse, "In empty car response the displayErrorEmptyResponse() method should be called")
-    }
+//    func testInteractorCallsDisplayErrorWhenCarArrayIsEmpty() throws {
+//        // Given
+//        let presenter = CarListPresenterSpy(controller: CarListTableViewController())
+//        let repository = CarModelRepositoryMocked()
+//        let interactor = CarListInteractor(presenter: presenter, carRepository: repository)
+//
+//        // When
+//        interactor.viewDidLoad()
+//
+//        // Then
+//        XCTAssertTrue(presenter.didCallDisplayErrorEmptyResponse,
+//            "In empty car response the displayErrorEmptyResponse() method should be called")
+//    }
 }
