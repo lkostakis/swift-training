@@ -18,22 +18,28 @@ class HighScoresInteractor {
         self.repository = repository
     }
 
-    func viewDidLoad() {
-
-    }
-
-    func viewWillAppear(_ topScoresArray: [String]?) {
-        var message = "Congratulations you have achieved a top \(HighScoreTable.place+1)"
-                    + "score with \(HighScoreTable.score) in \(Settings.shared.currentLevel.toString()) difficulty."
-
-//        for (index, player) in HighScoreTable.scoreTable[Settings.shared.currentLevel]!.enumerated() {
-//            topScoresArray?[index] =
-//            "\(index + 1). Score: \(player.score)\nName: \(player.name)\nDate: \(player.date.displayFormat)"
-//        }
+    func viewWillAppear() {
+        fetchPlayers()
+        guard let players else {
+            print("No players retrieved.")
+            return
+        }
+        presenter.displayHighScores(for: level, players)
     }
 
     func viewDidDisappear() {
-        
+        highScoreTableChanged()
+        Writer.shared.writeToMemory()
+    }
+
+    func fetchPlayers() {
+        repository.fetchPlayers(for: level, completion: { players in
+            self.players = players
+        })
+    }
+
+    func addPlayerToTable(_ player: Player) {
+        HighScoreTable.shared.addPlayerToHighScoreTable(player: player)
     }
 
     private final func highScoreTableChanged() {

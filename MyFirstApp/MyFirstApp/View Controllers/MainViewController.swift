@@ -37,18 +37,6 @@ class MainViewController: UIViewController {
         title = "Bull's Eye"
         slider.minimumValue = 1
         navigationController?.navigationBar.backgroundColor = .systemGray6
-        navigationItem.rightBarButtonItem =
-                UIBarButtonItem(
-                    image: UIImage(named: "znsNtvIconSettings"),
-                    style: .plain,
-                    target: self,
-                    action: #selector(changeLevelTapped))
-        navigationItem.leftBarButtonItem =
-                UIBarButtonItem(
-                    image: UIImage(systemName: "crown"),
-                    style: .plain,
-                    target: self,
-                    action: #selector(leaderboardTapped))
         startListeningWhenDifficultyLevelChanged()
         setUIElements()
         startNextRound()
@@ -137,18 +125,10 @@ class MainViewController: UIViewController {
     private final func showHighScoreModal(position place: Int) {
         HighScoreTable.place = place
         HighScoreTable.score = totalScore.total
-        present(HighScoreViewController(), animated: true, completion: nil)
+        present(HighScoresViewController(), animated: true, completion: nil)
     }
 
     @IBAction func adjustSlider(_ sender: UISlider) {
         sliderValue = Int(sender.value)
-    }
-
-    @objc func changeLevelTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(ChangeLevelViewController(), animated: true)
-    }
-
-    @objc func leaderboardTapped(_ sender: UIButton) {
-        navigationController?.pushViewController(LeaderboardViewController(), animated: true)
     }
 }

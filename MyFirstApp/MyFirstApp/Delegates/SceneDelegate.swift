@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         mainVC.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "home"), tag: 1)
-        let settingsVC = SettingsViewController()
+        let settingsVC = ChangeLevelViewController()
         settingsVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "znsNtvIconSettings"), tag: 2)
         settingsVC.view.backgroundColor = .white
 
@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         subscriberVC.view.backgroundColor = .white
         subscriberVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "target"), tag: 5)
 
-        let topScoresVC = TopScoresViewController()
+        let topScoresVC = LeaderboardViewController()
         topScoresVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "crown"), tag: 6)
         topScoresVC.view.backgroundColor = .white
 

@@ -8,6 +8,13 @@
 import Foundation
 
 class HighScoresRepository {
+    func fetchPlayers(for level: Settings.DifficultyLevel, completion: ([Player]) -> Void) {
+        let players = HighScoreTable.scoreTable[level]
 
-    init() {}
+        guard let players else {
+            print("Could not fetch players for level: \(level)")
+            return
+        }
+        completion(players)
+    }
 }
