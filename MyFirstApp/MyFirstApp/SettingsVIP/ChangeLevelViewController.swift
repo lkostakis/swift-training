@@ -35,6 +35,7 @@ class ChangeLevelViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Settings"
         let presenter = ChangeLevelPresenter(controller: self)
         interactor = ChangeLevelInteractor(presenter: presenter)
         interactor.viewDidLoad()
