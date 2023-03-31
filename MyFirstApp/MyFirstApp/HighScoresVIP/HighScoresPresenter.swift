@@ -9,6 +9,12 @@ import Foundation
 
 class HighScoresPresenter {
 
+    struct PlayerModel {
+        var name: String
+        var score: String
+        var date: String
+    }
+
     weak var controller: HighScoresViewController?
 
     init(controller: HighScoresViewController) {
@@ -16,19 +22,17 @@ class HighScoresPresenter {
     }
 
     func displayHighScores(for level: Settings.DifficultyLevel, _ players: [Player]) {
-        let message = "Congratulations you have achieved a top \(HighScoreTable.place+1)"
-                    + "score with \(HighScoreTable.score) in \(level.toString()) difficulty."
+        let message = "Congratulations you have achieved a top \(HighScoreTable.place+1) " +
+                      "score with \(HighScoreTable.score) in \(level.toString()) difficulty."
 
         controller?.messageText = message
 
-        var topScoreLabels = [controller?.topScore1Text, controller?.topScore2Text, controller?.topScore3Text]
-        players.enumerated().map { index, player in
-            if player.name == "" {
-                player.name = "No name entered."
-            }
-            topScoreLabels[index] = "\(index + 1). Score: \(player.score)\n" +
-                                    "Name: \(player.name)\n" +
-                                    "Date: \(player.date.displayFormat)"
+        let playersViewModels = players.enumerated().map { index, player in
+            let score = "\(index + 1). Score: \(player.score)\n"
+            let name = "Name: \(player.name)\n"
+            let date = "Date: \(player.date.displayFormat)"
+            return PlayerModel(name: name, score: score, date: date)
         }
+        controller?.topThreePlayersList = playersViewModels
     }
 }

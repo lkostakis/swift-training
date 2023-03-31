@@ -45,6 +45,9 @@ class HighScoreTable {
             return
         }
 
+        if player.name == "" {
+            player.name = "No name entered."
+        }
         if highScoreTable.isEmpty {
             highScoreTable.append(player)
         } else if highScoreTable.count <= 3 {

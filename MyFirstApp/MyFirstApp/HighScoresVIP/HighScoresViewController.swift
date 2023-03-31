@@ -20,19 +20,19 @@ class HighScoresViewController: UIViewController, UITextFieldDelegate {
             messageLabel.text = messageText
         }
     }
-    var topScore1Text: String? {
+    var topThreePlayersList: [HighScoresPresenter.PlayerModel]? {
         didSet {
-            topScore1Label.text = topScore1Text
+            reloadTopScoreLabels()
         }
     }
-    var topScore2Text: String? {
-        didSet {
-            topScore2Label.text = topScore2Text
+
+    func reloadTopScoreLabels() {
+        guard let topThreePlayersList else {
+            return
         }
-    }
-    var topScore3Text: String? {
-        didSet {
-            topScore3Label.text = topScore3Text
+
+        zip([topScore1Label, topScore2Label, topScore3Label], topThreePlayersList).map {
+            $0.text = $1.name + $1.score + $1.date
         }
     }
 
